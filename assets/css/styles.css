@@ -76,6 +76,11 @@ header {
   font-size: 20px;
 }
 
+/* QUICK LINKS */
+.quick-links p {
+  font: 5px;
+}
+
 /*-- ABOUT SECTION --*/
 .container-animation {
   height: 100px;
@@ -144,6 +149,13 @@ th {
 }
 
 /*-- MOBILE RESPONSIVENESS --*/
+@media (min-width: 300px) and (max-width: 425px) {
+  #quick-links {
+    font-size: 10px !important;
+    /* Adjust the font size as needed */
+  }
+}
+
 @media (min-width: 300px) and (max-width: 768px) {
 
   /* Adjust modal dialog width */

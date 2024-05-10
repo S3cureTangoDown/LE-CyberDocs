@@ -1,3 +1,16 @@
+/*-- NAV REGISTER/LOGIN REDIRECT--*/
+document.getElementById('loginRedirect').addEventListener('click', function (event) {
+  event.preventDefault(); // Prevent the default link behavior
+  $('#registerModal').modal('hide'); // Hide the register modal if it's open
+  $('#loginModal').modal('show'); // Show the login modal
+});
+
+document.getElementById('registerRedirect').addEventListener('click', function (event) {
+  event.preventDefault(); // Prevent the default link behavior
+  $('#loginModal').modal('hide'); // Hide the login modal if it's open
+  $('#registerModal').modal('show'); // Show the register modal
+});
+
 /*-- SCROLL TO TOP BUTTON --*/
 function scrollToTop() {
   window.scrollTo({
@@ -122,3 +135,40 @@ function calculateValue() {
 
   document.getElementById("result").innerHTML = "Value: " + formattedValue;
 }
+
+/* FORM VALIDATION FIELDS */
+document.getElementById('registerForm').addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  var password = document.getElementById('exampleInputPassword').value;
+  var confirmPassword = document.getElementById('exampleInputConfirmPassword').value;
+
+  if (password.length < 10) {
+    alert("Password must be at least 10 characters long!");
+    return;
+  }
+
+  if (password !== confirmPassword) {
+    alert("Passwords do not match!");
+    return;
+  }
+
+  var email = document.getElementById('exampleInputDepartmentEmail').value;
+  var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email)) {
+    alert("Invalid email address!");
+    return;
+  }
+
+  var phoneNumber = document.getElementById('exampleInputPhoneNumber').value;
+  var phonePattern = /^\d{3}-\d{3}-\d{4}$/;
+  if (!phonePattern.test(phoneNumber)) {
+    alert("Invalid phone number format! Please use format: 123-456-7890");
+    return;
+  }
+
+  // Additional validation logic for other fields can be added here
+
+  // If all validations pass, submit the form
+  this.submit();
+});

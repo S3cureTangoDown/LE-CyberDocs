@@ -43,13 +43,99 @@
             <a class="nav-link" href="contact.html">Contact</a>
           </li>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+          Login
+        </button>
+        <!-- Register button -->
+        <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal"
+          data-bs-target="#registerModal">
+          Register
+        </button>
       </div>
     </div>
   </nav>
+  <!-- Login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Your login form goes here -->
+          <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="johnDoe@Department.org"
+                aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control"
+                placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;"
+                id="exampleInputPassword1">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            <!-- Redirect link for don't have an account -->
+            <p>Don't have an account? <a href="#" class="text-decoration-underline text-primary" data-bs-toggle="modal"
+                data-bs-target="#registerModal">Register</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Register Modal -->
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="registerModalLabel">Register</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Your registration form goes here -->
+          <form>
+            <div class="mb-3">
+              <label for="exampleInputFirstName" class="form-label">First Name</label>
+              <input type="text" class="form-control" placeholder="John" id="exampleInputFirstName">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputLastName" class="form-label">Last Name</label>
+              <input type="text" class="form-control" placeholder="Doe" id="exampleInputLastName">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputDepartmentEmail" class="form-label">Department Email</label>
+              <input type="email" class="form-control" id="exampleInputDepartmentEmail"
+                placeholder="johnDoe@Department.org">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword" class="form-label">Password</label>
+              <input type="password" class="form-control"
+                placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;"
+                id="exampleInputPassword">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputConfirmPassword" class="form-label">Confirm Password</label>
+              <input type="password" class="form-control"
+                placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;"
+                id="exampleInputConfirmPassword" required>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPhoneNumber" class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" id="exampleInputPhoneNumber" placeholder="123-456-7890"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Register</button>
+            <!-- Redirect link for already have an account -->
+            <p>Already have an account? <a href="#" class="text-decoration-underline text-primary"
+                data-bs-toggle="modal" data-bs-target="#loginModal">Login</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
   <hr>
   <!-- NAVBAR CAROUSEL SECTION -->
   <div class="container">
@@ -85,7 +171,7 @@
   <!-- QUICK LINKS -->
   <div class="container d-flex flex-column align-items-center shadow-lg mb-4 py-4">
     <h1 class="card-title text-center pb-2">Quick Links</h1>
-    <p><em>**Data from HIDTA | 2022, ilga.gov | 2024, DEA.gov | 2024**</em></p>
+    <p id="quick-links"><em>**Data from HIDTA | 2022, ilga.gov | 2024, DEA.gov | 2024**</em></p>
     <div class="accordion accordion-flush w-100" id="accordionFlushExample">
       <!-- NARCOTIC ACCORDION -->
       <div class="accordion-item">
