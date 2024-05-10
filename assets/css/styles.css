@@ -24,12 +24,15 @@ header {
 }
 
 /*-- NAB BAR CAROUSEL --*/
+.carousel-item {
+  width: 100%;
+}
+
 .carousel-image-container {
   max-height: 750px;
   overflow: hidden;
   width: 100%;
-  height: 300px;
-  /* Adjust the height as needed */
+  height: 500px;
   overflow: hidden;
 }
 
@@ -39,22 +42,9 @@ header {
   object-fit: cover;
 }
 
-.carousel-image-container {
-  height: 500px;
-}
-
 .container-fluid {
   padding: 0;
 }
-
-.carousel-item {
-  width: 100%;
-}
-
-.carousel-image-container {
-  width: 100%;
-}
-
 
 /*-- SCROLL TO TOP BUTTON --*/
 .scroll-to-top {
