@@ -142,3 +142,37 @@ td {
 th {
   background-color: #f2f2f2;
 }
+
+/*-- MOBILE RESPONSIVENESS --*/
+@media (min-width: 300px) and (max-width: 768px) {
+
+  /* Adjust modal dialog width */
+  .modal-dialog {
+    max-width: 95%;
+    /* Adjust the percentage as needed */
+  }
+
+  /* Adjust modal content padding */
+  .modal-content {
+    padding: 10px;
+    /* Adjust the padding as needed */
+  }
+
+  /* Adjust modal body font size */
+  .modal-body {
+    font-size: 10px;
+    /* Adjust the font size as needed */
+  }
+
+  /* Adjust modal table font size */
+  .modal-body table {
+    font-size: 8px;
+    /* Adjust the font size as needed */
+  }
+
+  .table thead th,
+  .table tbody td {
+    font-size: 10px;
+    /* Adjust the font size for smaller screens */
+  }
+}
