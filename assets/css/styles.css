@@ -87,6 +87,14 @@ header {
   overflow: hidden;
 }
 
+#typing-animation {
+  font-family: "Poppins", sans-serif; /* Use the Poppins font or any other preferred font */
+  font-size: 2rem; /* Adjust the font size as needed */
+  color: var(--first-color); /* Use the first color variable or any other preferred color */
+  margin-bottom: 20px; /* Add some bottom margin for spacing */
+  /* Add any other styles you want to apply */
+}
+
 /*-- TESTIMONIAL SECTION --*/
 .stars {
   color: gold;
