@@ -1,3 +1,21 @@
+/*-- SCROLL TO TOP BUTTON --*/
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+
+window.onscroll = function () {
+  var scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
+  var scrollToTopBtn = document.querySelector('.scroll-to-top');
+  if (scrollPos > 20) { // Adjusted from 100 to 20 pixels
+    scrollToTopBtn.style.display = 'block';
+  } else {
+    scrollToTopBtn.style.display = 'none';
+  }
+};
+
 document.addEventListener('DOMContentLoaded', function () {
   // Code to be executed after the DOM content is fully loaded
 
@@ -13,26 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
     $('#loginModal').modal('hide'); // Hide the login modal if it's open
     $('#registerModal').modal('show'); // Show the register modal
   });
-
-  /*-- SCROLL TO TOP BUTTON --*/
-  function scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  }
-
-  window.onscroll = function () {
-    var scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
-    var scrollToTopBtn = document.querySelector('.scroll-to-top');
-    if (scrollPos > 20) { // Adjusted from 100 to 20 pixels
-      scrollToTopBtn.style.display = 'block';
-    } else {
-      scrollToTopBtn.style.display = 'none';
-    }
-  };
 });
-
 
 /*-- ABOUT TYPING ANIMATION --*/
 const professions = ["Web Designer", "Web Developer", "USMC Veteran", "Photographer", "Runner", "Snowboarder", "Foodie", "Investigator", "Police Officer",];
