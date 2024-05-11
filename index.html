@@ -1447,11 +1447,11 @@
                   </div>
                 </div>
                 <p>
-                  <strong><em>Log Refusal</em></strong>  DUI Log if BAO was started & timed out.<br>
+                  <strong><em>Log Refusal</em></strong> DUI Log if BAO was started & timed out.<br>
                   <strong><em>Drivers Abstract</em></strong> <a href="#">Link</a><br>
                   <strong><em>SOS/LEADS</em></strong> Attach printout<br>
                   <strong><em>Felony Upgrade?</em></strong><br>
-                  <strong><em>Sworn Report</em></strong>  Valid DL - give driver "receipt to driver", No Valid DL - Void
+                  <strong><em>Sworn Report</em></strong> Valid DL - give driver "receipt to driver", No Valid DL - Void
                   receipt to drive (Complete Sworn Report for "0.08 and over" or refuses chemical test.)<br>
                 </p>
                 <!-- Text box for time of refusal -->
@@ -1471,21 +1471,183 @@
                 </div>
                 <p>
                   <strong><em>Felony Upgrade Approved?</em></strong><br>
-                  <strong><em>Issue Citations</em></strong>  21-49 days carousel-control-prev<br>
+                  <strong><em>Issue Citations</em></strong> 21-49 days carousel-control-prev<br>
                   <strong><em>Complete Arrest Report</em></strong><br>
                   <strong><em>Tow & Notice of Impound</em></strong><br>
                   <strong><em>Watch Commander Approval</em></strong><br>
                   <strong><em>Search Arrestee</em></strong><br>
                   <strong><em>Fingerprint</em></strong><br>
-                  <strong><em>Arrange Tow</em></strong>  Call Ad Desk 746-9888 PAX<br>
+                  <strong><em>Arrange Tow</em></strong> Call Ad Desk 746-9888 PAX<br>
                   <strong><em>Bond</em></strong><br>
                   <strong><em>Release</em></strong><br>
                 </p>
               </div>
             </div>
           </div>
-
-          <!-- Add addtional accordions -->
+          <!-- Accordion Item for Phase VI - Breath Analysis -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                <strong>Phase VI</strong>&nbsp;- Breath Analysis
+              </button>
+            </h2>
+            <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <div class="mb-3">
+                  <label for="observationTime" class="form-label">20 min Observation</label>
+                  <input type="text" class="form-control" id="observationTime" placeholder="2400 Hrs">
+                </div>
+                <div class="mb-3">
+                  <label for="breathTest" class="form-label">Breath Test</label>
+                  <input type="text" class="form-control" id="breathTest" placeholder="2400 Hrs">
+                </div>
+                <!-- Radio buttons for BAC -->
+                <div class="mb-3">
+                  <label class="form-label">Blood Alcohol Content</label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="bac" id="bac_above_0.08" value="Above 0.08">
+                    <label class="form-check-label" for="bac_above_0.08">
+                      Above 0.08 501 (a)1 citation
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="bac" id="bac_under_0.08" value="Under 0.08">
+                    <label class="form-check-label" for="bac_under_0.08">
+                      Under 0.08 Don't Issue (a)1 citation
+                    </label>
+                  </div>
+                  <p>
+                    Proceed to <strong>Phase VII</strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Accordion Item for Phase VII - Alternate Testing -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                <strong>Phase VII</strong>&nbsp;- Alternate Testing
+              </button>
+            </h2>
+            <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <!-- Text boxes for Alternate Testing -->
+                <div class="mb-3">
+                  <label for="alternateTest1" class="form-label">Time to Hospital</label>
+                  <input type="text" class="form-control" id="alternateTest1" placeholder="2400 Hrs">
+                </div>
+                <div class="mb-3">
+                  <label for="alternateTest2" class="form-label">Time of Testing</label>
+                  <input type="text" class="form-control" id="alternateTest2" placeholder="2400 Hrs">
+                </div>
+                <div class="mb-3">
+                  <label for="alternateTest3" class="form-label">Name of Person admistering test</label>
+                  <input type="text" class="form-control" id="alternateTest3" placeholder="Name">
+                </div>
+                <div class="mb-3">
+                  <label for="alternateTest4" class="form-label">Hand Carry to Forensic Service</label>
+                  <input type="text" class="form-control" id="alternateTest4" placeholder="2400 Hrs">
+                </div>
+                <div class="mb-3">
+                  <label for="alternateTest5" class="form-label">Hand Carry to CPD Mailroom</label>
+                  <input type="text" class="form-control" id="alternateTest5" placeholder="2400 Hrs">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Accordion Item for Phase VIII - Finish Arrest -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                <strong>Phase VIII</strong>&nbsp;- Finish Arrest
+              </button>
+            </h2>
+            <div id="collapseEight" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <!-- Radio buttons for Finish Arrest -->
+                <div class="mb-3">
+                  <label class="form-label">Finish Arrest</label><br>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="finishArrest" id="finishArrest1" value="1">
+                    <label class="form-check-label" for="finishArrest1">DL Check/Abstract</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="finishArrest" id="finishArrest2" value="2">
+                    <label class="form-check-label" for="finishArrest2">SOS/LEADS</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="finishArrest" id="finishArrest3" value="3">
+                    <label class="form-check-label" for="finishArrest3">Felony Upgradable?</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="finishArrest" id="finishArrest4" value="4">
+                    <label class="form-check-label" for="finishArrest4">Sworn Report</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="finishArrest" id="finishArrest5" value="5">
+                    <label class="form-check-label" for="finishArrest5">Miranda Warning</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="finishArrest" id="finishArrest6" value="6">
+                    <label class="form-check-label" for="finishArrest6">Alcohol Influence Report & Interview</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="finishArrest" id="finishArrest7" value="7">
+                    <label class="form-check-label" for="finishArrest7">Issue Citations (21-49 Days)</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="finishArrest" id="finishArrest8" value="8">
+                    <label class="form-check-label" for="finishArrest8">Complete Arrest Report</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="finishArrest" id="finishArrest9" value="9">
+                    <label class="form-check-label" for="finishArrest9">Tow Report & Notice of Vehicle Impounded</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="finishArrest" id="finishArrest10" value="10">
+                    <label class="form-check-label" for="finishArrest10">Watch Commander Approval</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="finishArrest" id="finishArrest11" value="11">
+                    <label class="form-check-label" for="finishArrest11">Search Arrestee</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="finishArrest" id="finishArrest12" value="12">
+                    <label class="form-check-label" for="finishArrest12">Lock-Up</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="finishArrest" id="finishArrest13" value="13">
+                    <label class="form-check-label" for="finishArrest13">Call AD Desk</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="finishArrest" id="finishArrest14" value="14">
+                    <label class="form-check-label" for="finishArrest14">Issue Bond</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="finishArrest" id="finishArrest15" value="15">
+                    <label class="form-check-label" for="finishArrest15">Release</label>
+                  </div>
+                </div>
+                <!-- Text boxes for Finish Arrest -->
+                <div class="mb-3">
+                  <label for="finishArrestMiranda" class="form-label">Time of Miranda</label>
+                  <input type="text" class="form-control" id="finishArrestMiranda" placeholder="2400 Hrs">
+                </div>
+                <div class="mb-3">
+                  <label for="finishArrestInfluence_Report" class="form-label">Alcohol Influence Report</label>
+                  <input type="text" class="form-control" id="finishArrestInfluence_Report" placeholder="2400 Hrs">
+                </div>
+                <div class="mb-3">
+                  <label for="finishArrestRelease" class="form-label">Time of Release</label>
+                  <input type="text" class="form-control" id="finishArrestRelease" placeholder="2400 Hrs">
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -1493,7 +1655,6 @@
       </div>
     </div>
   </div>
-
   <hr>
   <!-- HERO SECTION -->
   <div class="container d-flex flex-column align-items-center shadow-lg mb-4 py-4">
