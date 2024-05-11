@@ -69,7 +69,6 @@ header {
 .scroll-to-top .bi-chevron-bar-up {
   display: block;
   margin: -8px -8px;
-  /* This centers the icon horizontally */
 }
 
 .scroll-to-top i {
@@ -77,6 +76,11 @@ header {
 }
 
 /* QUICK LINKS */
+#quick-links {
+  margin-bottom: 0;
+  /* Remove bottom margin */
+}
+
 .quick-links p {
   font: 5px;
 }
@@ -88,11 +92,36 @@ header {
 }
 
 #typing-animation {
-  font-family: "Poppins", sans-serif; /* Use the Poppins font or any other preferred font */
-  font-size: 2rem; /* Adjust the font size as needed */
-  color: var(--first-color); /* Use the first color variable or any other preferred color */
-  margin-bottom: 20px; /* Add some bottom margin for spacing */
-  /* Add any other styles you want to apply */
+  font-family: "Poppins", sans-serif;
+  font-size: 2rem;
+  color: var(--first-color);
+  margin-bottom: 20px;
+}
+
+/*-- SOCIAL ICONS ANIMATION --*/
+.social-icon {
+  transition: transform 0.3s ease-in-out;
+}
+
+.social-icon:hover {
+  animation: shake 0.5s infinite;
+  color: gray;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(5px, 5px) rotate(0deg);
+  }
+
+  10%,
+  90% {
+    transform: translate(-2px, -4px) rotate(-1deg);
+  }
+
+  20%,
+  80% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
 }
 
 /*-- TESTIMONIAL SECTION --*/
@@ -131,7 +160,6 @@ header {
 
 #narcotic-values table {
   font-size: 0.7rem;
-  /* Adjust the font size as needed */
 }
 
 #narcotic-values th,

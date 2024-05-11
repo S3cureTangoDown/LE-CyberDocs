@@ -33,12 +33,12 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-/*-- ABOUT TYPING ANIMATION --*/
-const professions = ["Web Designer", "Web Developer", "USMC Veteran", "Photographer", "Runner", "Snowboarder", "Foodie", "Investigator", "Police Officer",];
-let index = 0;
+/*-- ABOUT TYPING ANIMATION FOR t3Rminal_cmd --*/
+const terminalCmdProfessions = ["Web Designer", "Web Developer", "USMC Veteran", "Photographer", "Runner", "Snowboarder", "Foodie", "Investigator", "Police Officer"];
+let terminalCmdIndex = 0;
 
-function typeWriter() {
-  const currentProfession = professions[index];
+function terminalCmdTypeWriter() {
+  const currentProfession = terminalCmdProfessions[terminalCmdIndex];
 
   let charIndex = 0;
 
@@ -48,17 +48,49 @@ function typeWriter() {
       charIndex++;
       setTimeout(innerTypeWriter, 100);
     } else {
-      setTimeout(eraseText, 1000);
+      setTimeout(terminalCmdEraseText, 1000);
     }
   }
 
-  function eraseText() {
+  function terminalCmdEraseText() {
     if (document.getElementById("typing-animation").textContent.length > 0) {
       document.getElementById("typing-animation").textContent = document.getElementById("typing-animation").textContent.slice(0, -1);
-      setTimeout(eraseText, 50);
+      setTimeout(terminalCmdEraseText, 50);
     } else {
-      index = (index + 1) % professions.length;
-      setTimeout(typeWriter, 500);
+      terminalCmdIndex = (terminalCmdIndex + 1) % terminalCmdProfessions.length;
+      setTimeout(terminalCmdTypeWriter, 500);
+    }
+  }
+
+  innerTypeWriter();
+}
+
+/*-- ABOUT TYPING ANIMATION FOR BAO-g0ddess --*/
+const baoGoddessProfessions = ["DUI Expert", "Cyber Analyst", "Police Officer", "Air Force Veteran", "Snowboarder", "Gardener", "PC Gamer"];
+let baoGoddessIndex = 0;
+
+function baoGoddessTypeWriter() {
+  const currentProfession = baoGoddessProfessions[baoGoddessIndex];
+
+  let charIndex = 0;
+
+  function innerTypeWriter() {
+    if (charIndex < currentProfession.length) {
+      document.getElementById("typing-animation-bao").textContent += currentProfession.charAt(charIndex);
+      charIndex++;
+      setTimeout(innerTypeWriter, 100);
+    } else {
+      setTimeout(baoGoddessEraseText, 1000);
+    }
+  }
+
+  function baoGoddessEraseText() {
+    if (document.getElementById("typing-animation-bao").textContent.length > 0) {
+      document.getElementById("typing-animation-bao").textContent = document.getElementById("typing-animation-bao").textContent.slice(0, -1);
+      setTimeout(baoGoddessEraseText, 50);
+    } else {
+      baoGoddessIndex = (baoGoddessIndex + 1) % baoGoddessProfessions.length;
+      setTimeout(baoGoddessTypeWriter, 500);
     }
   }
 
@@ -66,7 +98,46 @@ function typeWriter() {
 }
 
 window.onload = function () {
-  typeWriter();
+  terminalCmdTypeWriter();
+  baoGoddessTypeWriter();
+};
+
+/*-- ABOUT TYPING ANIMATION FOR Just!ce_s33ker --*/
+const justiceSeekerProfessions = ["Lawyer", "Skier", "Navy Veteran", "Outdoorsman"];
+let justiceSeekerIndex = 0;
+
+function justiceSeekerTypeWriter() {
+  const currentProfession = justiceSeekerProfessions[justiceSeekerIndex];
+
+  let charIndex = 0;
+
+  function innerTypeWriter() {
+    if (charIndex < currentProfession.length) {
+      document.getElementById("typing-animation-Just!ce").textContent += currentProfession.charAt(charIndex);
+      charIndex++;
+      setTimeout(innerTypeWriter, 100);
+    } else {
+      setTimeout(justiceSeekerEraseText, 1000);
+    }
+  }
+
+  function justiceSeekerEraseText() {
+    if (document.getElementById("typing-animation-Just!ce").textContent.length > 0) {
+      document.getElementById("typing-animation-Just!ce").textContent = document.getElementById("typing-animation-Just!ce").textContent.slice(0, -1);
+      setTimeout(justiceSeekerEraseText, 50);
+    } else {
+      justiceSeekerIndex = (justiceSeekerIndex + 1) % justiceSeekerProfessions.length;
+      setTimeout(justiceSeekerTypeWriter, 500);
+    }
+  }
+
+  innerTypeWriter();
+}
+
+window.onload = function () {
+  terminalCmdTypeWriter();
+  baoGoddessTypeWriter();
+  justiceSeekerTypeWriter(); // Added here
 };
 
 /*-- CONTACT VALIDATION --*/
