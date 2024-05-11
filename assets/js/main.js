@@ -247,3 +247,5 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
   // If all validations pass, submit the form
   this.submit();
 });
+
+/*-- JS PDF --*/
