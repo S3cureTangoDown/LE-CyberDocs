@@ -98,32 +98,6 @@ header {
   margin-bottom: 20px;
 }
 
-/*-- SOCIAL ICONS ANIMATION --*/
-.social-icon {
-  transition: transform 0.3s ease-in-out;
-}
-
-.social-icon:hover {
-  animation: shake 0.5s infinite;
-  color: gray;
-}
-
-@keyframes shake {
-  0% {
-    transform: translate(5px, 5px) rotate(0deg);
-  }
-
-  10%,
-  90% {
-    transform: translate(-2px, -4px) rotate(-1deg);
-  }
-
-  20%,
-  80% {
-    transform: translate(-3px, 0px) rotate(1deg);
-  }
-}
-
 /*-- TESTIMONIAL SECTION --*/
 .stars {
   color: gold;

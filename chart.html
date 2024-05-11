@@ -365,7 +365,7 @@
             <h2 class="text-center pb-2 pt-3 fw-bold">Narcotic Value Calculator</h2>
           </div>
           <div class="card-body">
-            <div class="text-center"> <!-- Centered container -->
+            <div class="text-center">
               <div class="mb-3">
                 <label for="narcotic" class="form-label">Select Narcotic:</label>
                 <select id="narcotic" class="form-select text-center">
@@ -423,9 +423,6 @@
                 </select>
               </div>
             </div>
-            <button onclick="calculateValue()" class="btn btn-primary d-block mx-auto">Calculate</button>
-            <!-- Centered button -->
-            <div id="result" class="bg-light py-2 text-center" style="height: 40px;">Value</div>
           </div>
           <div class="card-footer text-muted">
             <!-- Footer content if any -->
@@ -437,31 +434,35 @@
       </div>
     </div>
   </div>
-</body>
-<!-- FOOTER SECTION -->
-<footer class="py-4 text-black">
-  <div class="container text-center">
-    <!-- Social Media Icons -->
-    <div class="d-flex justify-content-center my-4">
-      <a href="https://www.twitter.com" target="_blank" class="me-3">
-        <i class="bi bi-twitter-x fs-4"></i>
-      </a>
-      <a href="https://github.com/t3rminal-cmd" target="_blank">
-        <i class="bi bi-github fs-4"></i>
-      </a>
+  <br>
+  <!-- SCROLL TO TOP BUTTON -->
+  <button onclick="calculateValue()" class="btn btn-primary d-block mx-auto">Calculate</button>
+  <!-- Centered button -->
+  <div id="result" class="bg-light py-2 text-center" style="height: 40px;">Value</div>
+  <!-- FOOTER SECTION -->
+  <footer class="py-4 text-black">
+    <div class="container text-center">
+      <!-- Social Media Icons -->
+      <div class="d-flex justify-content-center my-4">
+        <a href="https://www.twitter.com" target="_blank" class="me-3">
+          <i class="bi bi-twitter-x fs-4"></i>
+        </a>
+        <a href="https://github.com/t3rminal-cmd" target="_blank">
+          <i class="bi bi-github fs-4"></i>
+        </a>
+      </div>
+      <!-- Company Name -->
+      <p class="mb-1">S3cureTangoDown LLC</p>
+      <!-- Copyright and Contact Information -->
+      <p class="mb-1">&copy; All rights reserved.</p>
+      <!-- Location -->
+      <p class="mb-0">Chicago | IL | USA</p>
     </div>
-    <!-- Company Name -->
-    <p class="mb-1">S3cureTangoDown LLC</p>
-    <!-- Copyright and Contact Information -->
-    <p class="mb-1">&copy; All rights reserved.</p>
-    <!-- Location -->
-    <p class="mb-0">Chicago | IL | USA</p>
-  </div>
-</footer>
-<!-- BOOTSTRAP JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- MAIN JS -->
-<script src="/assets/js/main.js"></script>
+  </footer>
+  <!-- BOOTSTRAP JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- MAIN JS -->
+  <script src="/assets/js/main.js"></script>
 </body>
 
 </html>
