@@ -16,9 +16,8 @@ window.onscroll = function () {
   }
 };
 
+/*-- LOGIN REGISTER MODAL --*/
 document.addEventListener('DOMContentLoaded', function () {
-  // Code to be executed after the DOM content is fully loaded
-
   /*-- NAV REGISTER/LOGIN REDIRECT--*/
   document.getElementById('loginRedirect').addEventListener('click', function (event) {
     event.preventDefault(); // Prevent the default link behavior
@@ -140,28 +139,6 @@ window.onload = function () {
   justiceSeekerTypeWriter(); // Added here
 };
 
-/*-- CONTACT VALIDATION --*/
-document.getElementById("contactForm").addEventListener("submit", function (event) {
-  event.preventDefault(); // Prevent default form submission
-
-  // Validate form fields
-  var name = document.getElementById("name").value.trim();
-  var email = document.getElementById("email").value.trim();
-  var message = document.getElementById("message").value.trim();
-
-  if (name === "" || email === "" || message === "") {
-    alert("Please fill out all fields.");
-    return;
-  }
-
-  // Additional email validation (regex or other methods) can be added here
-
-  // If all fields are filled out, submit the form
-  // You can replace this with your form submission logic (e.g., using fetch to send data to server)
-  alert("Form submitted successfully!");
-  document.getElementById("contactForm").reset(); // Clear form fields after submission
-});
-
 /* NARCOTIC VALUE CALCULATOR */
 function calculateValue() {
   var narcotic = document.getElementById("narcotic").value;
@@ -248,4 +225,46 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
   this.submit();
 });
 
-/*-- JS PDF --*/
+/*-- CONTACT VALIDATION --*/
+document.getElementById("contactForm").addEventListener("submit", function (event) {
+  event.preventDefault(); // Prevent default form submission
+
+  // Validate form fields
+  var name = document.getElementById("name").value.trim();
+  var email = document.getElementById("email").value.trim();
+  var message = document.getElementById("message").value.trim();
+
+  if (name === "" || email === "" || message === "") {
+    alert("Please fill out all fields.");
+    return;
+  }
+
+  // Additional email validation (regex or other methods) can be added here
+
+  // If all fields are filled out, submit the form
+  // You can replace this with your form submission logic (e.g., using fetch to send data to server)
+  alert("Form submitted successfully!");
+  document.getElementById("contactForm").reset(); // Clear form fields after submission
+});
+
+/*-- JS PDF --*/ 
+function saveToPDF() {
+  // Create a new jsPDF instance
+  var doc = new jsPDF();
+
+  // Iterate through each section of the flow chart and add its content to the PDF
+  $(".accordion-item").each(function(index) {
+    // Get the header text
+    var header = $(this).find(".accordion-header").text().trim();
+
+    // Get the content of the section
+    var content = $(this).find(".accordion-body").text().trim();
+
+    // Add the header and content to the PDF
+    doc.text(header, 10, 10 + (index * 10)); // Adjust the position as needed
+    doc.text(content, 10, 20 + (index * 10)); // Adjust the position as needed
+  });
+
+  // Save the PDF
+  doc.save("flow_chart.pdf");
+}
