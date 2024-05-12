@@ -1207,15 +1207,108 @@
         </div>
         <!-- Field sobriety Modal -->
         <div class="modal-body">
-          <div class="container-fluid shadow-lg pb-2 my-4">
-            <h5>HGN</h5>
+          <div class="container shadow-lg py-2 my-4">
+            <h5>Horizontal Gaze Nystagmus</h5>
             <div>
-              -Clues<br>
-              -VGN<br>
-              -Total Score<br>
+              <input type="checkbox" id="checkbox1" name="checkbox1" value="checkbox1">
+              <label for="checkbox1">Are you wearing glasses or contacts?</label><br>
+            
+              <input type="checkbox" id="checkbox2" name="checkbox2" value="checkbox2">
+              <label for="checkbox2">I'm going to check your eyes.</label><br>
+            
+              <input type="checkbox" id="checkbox3" name="checkbox3" value="checkbox3">
+              <label for="checkbox3">Stand with you feet together, with your hands by your side.</label><br>
+            
+              <input type="checkbox" id="checkbox4" name="checkbox4" value="checkbox4">
+              <label for="checkbox4">Follow (stimulus) with your eyes, but do not move your head.</label><br>
+            
+              <input type="checkbox" id="checkbox5" name="checkbox5" value="checkbox5">
+              <label for="checkbox5">Hold stimulus approx. 12" to 15" in front of face.</label><br>
+
+              <input type="checkbox" id="checkbox6" name="checkbox6" value="checkbox6">
+              <label for="checkbox6">CHECK EQUAL PUPIL & TRACING SIZE</label><br>
+            </div>
+            <div>
+              <label for="checkboxLeft1">Left:</label>
+              <input type="checkbox" id="checkboxLeft1" name="checkboxLeft" value="left">
+              
+              <label for="checkboxRight1">Right:</label>
+              <input type="checkbox" id="checkboxRight1" name="checkboxRight" value="right">
+              
+              <label for="equalPupilSize1">Equal pupil size</label>
+            </div>
+            <div>
+              <label for="checkboxLeft2">Left:</label>
+              <input type="checkbox" id="checkboxLeft2" name="checkboxLeft" value="left">
+              
+              <label for="checkboxRight2">Right:</label>
+              <input type="checkbox" id="checkboxRight2" name="checkboxRight" value="right">
+              
+              <label for="equalPupilSize2">Resting Nystagmus</label>
+            </div>
+            <div>
+              <label for="checkboxLeft3">Left:</label>
+              <input type="checkbox" id="checkboxLeft3" name="checkboxLeft" value="left">
+              
+              <label for="checkboxRight3">Right:</label>
+              <input type="checkbox" id="checkboxRight3" name="checkboxRight" value="right">
+              
+              <label for="equalPupilSize3">Equal Tracking</label>
+            </div>
+            <br>
+            <div class="container shadow-lg pt-2">
+              <h6 class="text-center">CLUES</h6>
+              <div class="pb-2">
+                <p>Lack of Smooth Pursuit</p>
+                <label for="smoothPursuitLeft">Left:</label>
+                <input type="checkbox" id="smoothPursuitLeft" name="smoothPursuitLeft" value="left">
+                <label for="smoothPursuitRight">Right:</label>
+                <input type="checkbox" id="smoothPursuitRight" name="smoothPursuitRight" value="right">
+              </div>
+              <hr>
+              <div class="pb-2">
+                <p>Distinct and Sustained Nystagmus</p>
+                <label for="nystagmusLeft">Left:</label>
+                <input type="checkbox" id="nystagmusLeft" name="nystagmusLeft" value="left">
+                <label for="nystagmusRight">Right:</label>
+                <input type="checkbox" id="nystagmusRight" name="nystagmusRight" value="right">
+              </div>
+              <hr>
+              <div class="pb-2">
+                <p>Onset of Nystagmus</p>
+                <label for="onsetNystagmusLeft">Left:</label>
+                <input type="checkbox" id="onsetNystagmusLeft" name="onsetNystagmusLeft" value="left">
+                <label for="onsetNystagmusRight">Right:</label>
+                <input type="checkbox" id="onsetNystagmusRight" name="onsetNystagmusRight" value="right">
+              </div>
+              <hr>
+              <div class="pb-2">
+                <p>Vertical Nystagmus</p>
+                <label for="verticalNystagmusYes">Yes:</label>
+                <input type="radio" id="verticalNystagmusYes" name="verticalNystagmus" value="yes">
+                <label for="verticalNystagmusNo">No:</label>
+                <input type="radio" id="verticalNystagmusNo" name="verticalNystagmus" value="no">
+              </div>
+            </div>
+            <br>
+            <div class="container shadow-lg pt-2 mb-4">
+              <h6 class="text-center">TOTAL SCORE</h6>
+              <div class="pb-2">
+                <label for="numberInput">Enter a number:</label>
+                <select name="numberDropdown" id="numberDropdown">
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                </select>
+                <p class="pt-2">Decision Point: 4; Max: 6</p>
+              </div>
             </div>
           </div>
-          <div class="container-fluid shadow-lg pb-2 my-4">
+          <div class="container shadow-lg pb-2 my-4">
             <h5>Walk & Turn</h5>
             <div>
               -Instruction<br>
@@ -1224,7 +1317,7 @@
               -Total Score<br>
             </div>
           </div>
-          <div class="container-fluid shadow-lg pb-2 my-4">
+          <div class="container shadow-lg pb-2 my-4">
             <h5>One Leg Stand</h5>
             <div>
               -Instruction<br>
@@ -1233,7 +1326,7 @@
               -Total Score<br>
             </div>
           </div>
-          <div class="container-fluid shadow-lg pb-2 my-4">
+          <div class="container shadow-lg pb-2 my-4">
             <h5>Alternate Test</h5>
             <div>
               -Alphabet<br>
@@ -1245,6 +1338,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-danger" id="refreshModalButton">Clear Page</button>
           </div>
         </div>
       </div>
@@ -1607,7 +1701,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" id="saveToPDFButton_flowChart" onclick="saveToPDF()">Save to PDF</button>
+          <button type="button" class="btn btn-danger" id="refreshModalButton">Clear Page</button>
         </div>
       </div>
     </div>
@@ -1806,9 +1900,8 @@
       <p class="mb-0">Chicago | IL | USA</p>
     </div>
   </footer>
-  <!-- JSPDF JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-  <!-- BOOTSTRAP JS -->
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- MAIN JS -->
   <script src="/assets/js/main.js"></script>

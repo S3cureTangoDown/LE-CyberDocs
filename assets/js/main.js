@@ -188,83 +188,12 @@ function calculateValue() {
   document.getElementById("result").innerHTML = "Value: " + formattedValue;
 }
 
-/* FORM VALIDATION FIELDS */
-document.getElementById('registerForm').addEventListener('submit', function (event) {
-  event.preventDefault();
-
-  var password = document.getElementById('exampleInputPassword').value;
-  var confirmPassword = document.getElementById('exampleInputConfirmPassword').value;
-
-  if (password.length < 10) {
-    alert("Password must be at least 10 characters long!");
-    return;
-  }
-
-  if (password !== confirmPassword) {
-    alert("Passwords do not match!");
-    return;
-  }
-
-  var email = document.getElementById('exampleInputDepartmentEmail').value;
-  var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailPattern.test(email)) {
-    alert("Invalid email address!");
-    return;
-  }
-
-  var phoneNumber = document.getElementById('exampleInputPhoneNumber').value;
-  var phonePattern = /^\d{3}-\d{3}-\d{4}$/;
-  if (!phonePattern.test(phoneNumber)) {
-    alert("Invalid phone number format! Please use format: 123-456-7890");
-    return;
-  }
-
-  // Additional validation logic for other fields can be added here
-
-  // If all validations pass, submit the form
-  this.submit();
-});
-
-/*-- CONTACT VALIDATION --*/
-document.getElementById("contactForm").addEventListener("submit", function (event) {
-  event.preventDefault(); // Prevent default form submission
-
-  // Validate form fields
-  var name = document.getElementById("name").value.trim();
-  var email = document.getElementById("email").value.trim();
-  var message = document.getElementById("message").value.trim();
-
-  if (name === "" || email === "" || message === "") {
-    alert("Please fill out all fields.");
-    return;
-  }
-
-  // Additional email validation (regex or other methods) can be added here
-
-  // If all fields are filled out, submit the form
-  // You can replace this with your form submission logic (e.g., using fetch to send data to server)
-  alert("Form submitted successfully!");
-  document.getElementById("contactForm").reset(); // Clear form fields after submission
-});
-
-/*-- JS PDF --*/ 
-function saveToPDF() {
-  // Create a new jsPDF instance
-  var doc = new jsPDF();
-
-  // Iterate through each section of the flow chart and add its content to the PDF
-  $(".accordion-item").each(function(index) {
-    // Get the header text
-    var header = $(this).find(".accordion-header").text().trim();
-
-    // Get the content of the section
-    var content = $(this).find(".accordion-body").text().trim();
-
-    // Add the header and content to the PDF
-    doc.text(header, 10, 10 + (index * 10)); // Adjust the position as needed
-    doc.text(content, 10, 20 + (index * 10)); // Adjust the position as needed
-  });
-
-  // Save the PDF
-  doc.save("flow_chart.pdf");
+/* CLEAR PAGE BUTTON */
+// Function to reload the webpage
+function reloadPage() {
+  location.reload();
 }
+
+const refreshModalButton = document.getElementById('refreshModalButton');
+
+refreshModalButton.addEventListener('click', reloadPage);
