@@ -78,7 +78,6 @@ header {
 /* QUICK LINKS */
 #quick-links {
   margin-bottom: 0;
-  /* Remove bottom margin */
 }
 
 .quick-links p {
@@ -167,6 +166,7 @@ th {
 }
 
 @media (min-width: 300px) and (max-width: 768px) {
+
   /* Adjust modal dialog width */
   .modal-dialog {
     max-width: 95%;
