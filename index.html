@@ -379,6 +379,62 @@
           </div>
         </div>
       </div>
+      <!-- INCIDENT REPORTING ACCORDION -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+            Incident Reporting Guide
+          </button>
+        </h2>
+        <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <!-- Content for Fourth Accordion -->
+          </div>
+        </div>
+      </div>
+      <!-- COMMONLY USED UCR ACCORDION -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+            Commonly Used UCR
+          </button>
+        </h2>
+        <div id="flush-collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <!-- Content for Fifth Accordion -->
+          </div>
+        </div>
+      </div>
+      <!-- MIRANDA WARNING -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+            Miranda Warning
+          </button>
+        </h2>
+        <div id="flush-collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <!-- Content for Sixth Accordion -->
+          </div>
+        </div>
+      </div>
+      <!-- SHOOTING ORDER REQUEST -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
+            Shooting Order Request
+          </button>
+        </h2>
+        <div id="flush-collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <!-- Content for Seventh Accordion -->
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <!-- CHART MODAL -->
@@ -1208,7 +1264,8 @@
                   <p class="card-text pt-2">
                     <i class="bi bi-filetype-docx text-primary" style="font-size: 2rem"></i>
                   </p>
-                  <a href="path_to_state_warrant_document.docx" download class="text-decoration-none">Download</a>
+                  <button type="button" class="btn btn-primary"
+                    onclick="window.location.href='assets/complaints/other/Search Warrant.docx'">Download</button>
                   <p>
                     <em class="text-muted" style="font-size: 12px">updated may 2024</em>
                   </p>
@@ -1225,7 +1282,8 @@
                   <p class="card-text pt-2">
                     <i class="bi bi-filetype-docx text-primary" style="font-size: 2rem"></i>
                   </p>
-                  <a href="path_to_federal_warrant_document.docx" download class="text-decoration-none">Download</a>
+                  <button type="button" class="btn btn-primary"
+                    onclick="window.location.href='path_to_federal_warrant_document.docx'">Download</button>
                   <p>
                     <em class="text-muted" style="font-size: 12px">updated may 2024</em>
                   </p>
@@ -1264,7 +1322,8 @@
                   <p class="card-text pt-2">
                     <i class="bi bi-filetype-docx text-primary" style="font-size: 2rem"></i>
                   </p>
-                  <a href="path_to_state_sw_complaint.docx" download class="text-decoration-none">Download</a>
+                  <button type="button" class="btn btn-primary"
+                    onclick="window.location.href='assets/complaints/other/SW Complaint.docx'">Download</button>
                   <p>
                     <em class="text-muted" style="font-size: 12px">updated may 2024</em>
                   </p>
@@ -1281,7 +1340,8 @@
                   <p class="card-text pt-2">
                     <i class="bi bi-filetype-docx text-primary" style="font-size: 2rem"></i>
                   </p>
-                  <a href="path_to_federal_sw_complaint.docx" download class="text-decoration-none">Download</a>
+                  <button type="button" class="btn btn-primary"
+                    onclick="window.location.href='path_to_federal_sw_complaint.docx'">Download</button>
                   <p>
                     <em class="text-muted" style="font-size: 12px">updated may 2024</em>
                   </p>
@@ -1456,7 +1516,6 @@
                 </div>
               </div>
             </div>
-
             <!-- Phase II: Walk & Turn -->
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingTwo">
@@ -1470,28 +1529,58 @@
                 <div class="accordion-body">
                   <!-- Instruction Stage -->
                   <h5>Instruction Stage</h5>
-                  <div>
-                    <input type="checkbox" id="checkbox1" name="checkbox1" value="checkbox1" />
-                    <label for="checkbox1">Place your left foot on line.</label><br />
-                    <input type="checkbox" id="checkbox2" name="checkbox2" value="checkbox2" />
-                    <label for="checkbox2">Place your arms down at your sides.</label><br />
+                  <div class="py-2">
+                    <input type="checkbox" id="checkbox6" name="checkbox6" value="checkbox6" />
+                    <label for="checkbox6">Place your left foot on line.</label><br />
+                    <input type="checkbox" id="checkbox7" name="checkbox7" value="checkbox7" />
+                    <label for="checkbox7">Place your arms down at your sides.</label><br />
                     <!-- Add more checkbox inputs and labels as needed -->
+                    <input type="checkbox" id="checkbox8" name="checkbox8" value="checkbox8" />
+                    <label for="checkbox8">Maintain position until I finish instructions.</label><br />
+                    <input type="checkbox" id="checkbox9" name="checkbox9" value="checkbox9" />
+                    <label for="checkbox9">Follow my instructions carefully.</label><br />
+                    <input type="checkbox" id="checkbox10" name="checkbox10" value="checkbox10" />
+                    <label for="checkbox10">Do you understand? (Verbal Response).</label><br />
                   </div>
                   <!-- Walking Stage -->
                   <h5>Walking Stage</h5>
-                  <div>
-                    <input type="checkbox" id="checkbox1" name="checkbox1" value="checkbox1" />
-                    <label for="checkbox1">Take 9 heel-to-toe steps on the line, turn and take 9
+                  <div class="py-2">
+                    <input type="checkbox" id="checkbox11" name="checkbox11" value="checkbox11" />
+                    <label for="checkbox11">Take 9 heel-to-toe steps on the line, turn and take 9
                       heel-to-stops back.</label><br />
-                    <input type="checkbox" id="checkbox2" name="checkbox2" value="checkbox2" />
-                    <label for="checkbox2">On your turn, keep your front foot on the line and turn
+                    <input type="checkbox" id="checkbox12" name="checkbox12" value="checkbox12" />
+                    <label for="checkbox12">On your turn, keep your front foot on the line and turn
                       by taking a series of small steps with the other
                       foot.</label><br />
                     <!-- Add more checkbox inputs and labels as needed -->
+                    <input type="checkbox" id="checkbox13" name="checkbox13" value="checkbox13" />
+                    <label for="checkbox13">Count each step out loud.</label><br />
+                    <input type="checkbox" id="checkbox14" name="checkbox14" value="checkbox14" />
+                    <label for="checkbox14">Keep your arms at your sides.</label><br />
+                    <input type="checkbox" id="checkbox15" name="checkbox15" value="checkbox15" />
+                    <label for="checkbox15">Maintain balance during the entire exercise.</label><br />
                   </div>
-                  <div class="container shadow-lg pt-2 mt-2">
-                    <h6 class="text-center">CLUES</h6>
-                    <!-- Add clues checkboxes and labels here -->
+                  <!-- Clues -->
+                  <h6 class="pt-2">Clues</h6>
+                  <div>
+                    <input type="checkbox" id="checkbox16" name="checkbox16" value="checkbox16" />
+                    <label for="checkbox16">Can't balance during instructions.</label><br />
+                    <input type="checkbox" id="checkbox17" name="checkbox17" value="checkbox17" />
+                    <label for="checkbox17">Starts too soon.</label><br />
+                    <input type="checkbox" id="checkbox18" name="checkbox18" value="checkbox18" />
+                    <label for="checkbox18">Stops while walking.</label><br />
+                    <input type="checkbox" id="checkbox19" name="checkbox19" value="checkbox19" />
+                    <label for="checkbox19">Misses heel to toe</label><br />
+                    <input type="checkbox" id="checkbox20" name="checkbox20" value="checkbox20" />
+                    <label for="checkbox20">Steps off line.</label><br />
+                    <input type="checkbox" id="checkbox21" name="checkbox21" value="checkbox21" />
+                    <label for="checkbox21">Uses arms to balance.</label><br />
+                    <input type="checkbox" id="checkbox22" name="checkbox22" value="checkbox22" />
+                    <label for="checkbox22">Turned improperly.</label><br />
+                    <input type="checkbox" id="checkbox23" name="checkbox23" value="checkbox23" />
+                    <label for="checkbox23">Wrong number of steps.</label><br />
+                    <input type="checkbox" id="checkbox24" name="checkbox24" value="checkbox24" />
+                    <label for="checkbox24">Can't perform. (Stop for suspect's safety)</label><br />
                   </div>
                   <br />
                   <div class="container shadow-lg pt-2 mb-4">
@@ -1506,26 +1595,146 @@
                         <option value="4">4</option>
                         <option value="5">5</option>
                         <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
                       </select>
-                      <p class="pt-2">Decision Point: 4; Max: 6</p>
+                      <p class="pt-2">Decision Point: 2; Max: 8</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
-            <!-- Phase III: One Leg Stand -->
+            <!-- Phase III: One-Leg Stand -->
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingThree">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  Phase III: One Leg Stand
+                  Phase III: One-Leg Stand
                 </button>
               </h2>
               <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                 data-bs-parent="#sfstAccordion">
                 <div class="accordion-body">
-                  <!-- Phase III content here -->
+                  <!-- Instruction Stage -->
+                  <h5>Instruction Stage</h5>
+                  <div class="py-2">
+                    <input type="checkbox" id="checkbox25" name="checkbox25" value="checkbox25" />
+                    <label for="checkbox25">Stand with your feet together and your arms down at your
+                      sides.</label><br />
+                    <input type="checkbox" id="checkbox26" name="checkbox26" value="checkbox26" />
+                    <label for="checkbox26">Maintain this position until I finish the instructions.</label><br />
+                    <!-- Add more checkbox inputs and labels as needed -->
+                    <input type="checkbox" id="checkbox27" name="checkbox27" value="checkbox27" />
+                    <label for="checkbox27">Do you understand? (Verbal Response).</label><br />
+                  </div>
+                  <!-- Balance & Counting Stage -->
+                  <h5>Balance & Counting Stage</h5>
+                  <div class="py-2">
+                    <input type="checkbox" id="checkbox28" name="checkbox28" value="checkbox28" />
+                    <label for="checkbox28">Raise one leg approximately six inches off the ground.</label><br />
+                    <input type="checkbox" id="checkbox29" name="checkbox29" value="checkbox29" />
+                    <label for="checkbox29">Keep both legs straight with the raised foot parallel to the
+                      ground.</label><br />
+                    <!-- Add more checkbox inputs and labels as needed -->
+                    <input type="checkbox" id="checkbox30" name="checkbox30" value="checkbox30" />
+                    <label for="checkbox30">Count out loud in thousands until told to stop.</label><br />
+                  </div>
+                  <!-- Clues -->
+                  <h6 class="pt-2">Clues</h6>
+                  <div>
+                    <input type="checkbox" id="checkbox31" name="checkbox31" value="checkbox31" />
+                    <label for="checkbox31">Swaying while balancing</label><br />
+                    <input type="checkbox" id="checkbox32" name="checkbox32" value="checkbox32" />
+                    <label for="checkbox32">Using arms to balance</label><br />
+                    <input type="checkbox" id="checkbox33" name="checkbox33" value="checkbox33" />
+                    <label for="checkbox33">Hopping to maintain balance</label><br />
+                    <input type="checkbox" id="checkbox34" name="checkbox34" value="checkbox34" />
+                    <label for="checkbox34">Putting the raised foot down</label><br />
+                    <input type="checkbox" id="checkbox35" name="checkbox34" value="checkbox35" />
+                    <label for="checkbox35">Can't perform. (Stop for suspect's safety)</label><br />
+                  </div>
+                  <br />
+                  <!-- Total Score -->
+                  <div class="container shadow-lg pt-2 mb-4">
+                    <h6 class="text-center">TOTAL SCORE</h6>
+                    <div class="pb-2">
+                      <label for="numberInput">Enter a number:</label>
+                      <select name="numberDropdown" id="numberDropdown">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                      </select>
+                      <p class="pt-2">Decision Point: 2; Max: 4</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Phase IV: Alternate Tests -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  Phase IV: Alternate Tests
+                </button>
+              </h2>
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                data-bs-parent="#sfstAccordion">
+                <div class="accordion-body">
+                  <!-- Alphabet Test -->
+                  <h5>Alphabet Test</h5>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="alphabetTestPass" name="alphabetTestPass"
+                      value="pass">
+                    <label class="form-check-label" for="alphabetTestPass">Pass</label>
+                    <input class="form-check-input" type="checkbox" id="alphabetTestFail" name="alphabetTestFail"
+                      value="fail">
+                    <label class="form-check-label" for="alphabetTestFail">Fail</label>
+                  </div>
+                  <!-- Finger Count -->
+                  <h5>Finger Count (1-4, 4-1)</h5>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="fingerCountPass" name="fingerCountPass"
+                      value="pass">
+                    <label class="form-check-label" for="fingerCountPass">Pass</label>
+                    <input class="form-check-input" type="checkbox" id="fingerCountFail" name="fingerCountFail"
+                      value="fail">
+                    <label class="form-check-label" for="fingerCountFail">Fail</label>
+                  </div>
+                  <!-- Countdown Backwards -->
+                  <h5>Countdown Backwards from 68-53</h5>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="countdownPass" name="countdownPass"
+                      value="pass">
+                    <label class="form-check-label" for="countdownPass">Pass</label>
+                    <input class="form-check-input" type="checkbox" id="countdownFail" name="countdownFail"
+                      value="fail">
+                    <label class="form-check-label" for="countdownFail">Fail</label>
+                  </div>
+                  <!-- Nose Touch -->
+                  <h5>Nose Touch</h5>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="noseTouchPass" name="noseTouchPass"
+                      value="pass">
+                    <label class="form-check-label" for="noseTouchPass">Pass</label>
+                    <input class="form-check-input" type="checkbox" id="noseTouchFail" name="noseTouchFail"
+                      value="fail">
+                    <label class="form-check-label" for="noseTouchFail">Fail</label>
+                  </div>
+                  <!-- PBT Result -->
+                  <h5>PBT Result</h5>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="pbtResultPass" name="pbtResultPass"
+                      value="pass">
+                    <label class="form-check-label" for="pbtResultPass">Pass</label>
+                    <input class="form-check-input" type="checkbox" id="pbtResultFail" name="pbtResultFail"
+                      value="fail">
+                    <label class="form-check-label" for="pbtResultFail">Fail</label>
+                    <input class="form-control" type="text" id="pbtResultComment" name="pbtResultComment"
+                      placeholder="PBT Results">
+                  </div>
                 </div>
               </div>
             </div>
@@ -1542,7 +1751,6 @@
       </div>
     </div>
   </div>
-
   <!-- DUI FLOW CHART MODAL-->
   <div class="modal fade" id="exampleModal8" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -1924,7 +2132,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>Click the button below to go to the forms page:</p>
+          <p>Click the button below to go to the forms page for additional documentations:</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
@@ -1949,9 +2157,7 @@
             <li><i class="bi bi-dot"></i> Subpoenas Go-Bys</li>
             <li><i class="bi bi-dot"></i> Federal Warrant Go-Bys</li>
             <li><i class="bi bi-dot"></i> State Warrant Go-Bys</li>
-            <li>
-              <i class="bi bi-dot"></i> US Postal Inspection Service Forms
-            </li>
+            <li><i class="bi bi-dot"></i> USPIS Forms</li>
             <li><i class="bi bi-dot"></i> Chicago Police Forms</li>
             <li><i class="bi bi-dot"></i> Narcotics Forms</li>
             <li><i class="bi bi-dot"></i> State Complaints</li>
