@@ -169,6 +169,11 @@
             <img src="assets/img/photo5.png" class="d-block w-100 img-fluid" alt="photo5" />
           </div>
         </div>
+        <div class="carousel-item">
+          <div class="carousel-image-container">
+            <img src="assets/img/photo6.png" class="d-block w-100 img-fluid" alt="photo6" />
+          </div>
+        </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -184,20 +189,20 @@
   <!-- QUICK LINKS -->
   <div class="container d-flex flex-column align-items-center shadow-lg mb-4 py-4">
     <h1 class="card-title text-center pb-2">Quick Links</h1>
-    <p id="quick-links"><em>**Data derived from**</em></p>
-    <p id="quick-links">
+    <p class="text-center"><em>**Data derived from**</em></p>
+    <p class="text-center">
       <em>**HIDTA | ilga.gov | DEA.gov | isp.illinois.gov**</em>
     </p>
-    <div class="accordion accordion-flush w-100 pt-2" id="accordionFlushExample">
+    <div class="accordion accordion-flush w-100 pt-2" id="quickLinksAccordion">
       <!-- NARCOTIC ACCORDION -->
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            data-bs-target="#flush-collapseNarcotic" aria-expanded="false" aria-controls="flush-collapseNarcotic">
             Narcotics
           </button>
         </h2>
-        <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+        <div id="flush-collapseNarcotic" class="accordion-collapse collapse" data-bs-parent="#quickLinksAccordion">
           <div class="accordion-body">
             <div class="row">
               <!-- NARCOTIC CARD 1 -->
@@ -258,14 +263,14 @@
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+            data-bs-target="#flush-collapseSW" aria-expanded="false" aria-controls="flush-collapseSW">
             SW Template
           </button>
         </h2>
-        <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+        <div id="flush-collapseSW" class="accordion-collapse collapse" data-bs-parent="#quickLinksAccordion">
           <div class="accordion-body">
             <div class="row">
-              <!-- SEARCH WARRANT -->
+              <!-- SEARCH WARRANT CARD 1 -->
               <div class="col-md-4">
                 <div class="card">
                   <div class="card-header text-center">Search Warrant</div>
@@ -281,7 +286,7 @@
                   </div>
                 </div>
               </div>
-              <!-- SW COMPLAINT -->
+              <!-- SW COMPLAINT CARD 2 -->
               <div class="col-md-4">
                 <div class="card">
                   <div class="card-header text-center">SW Complaint</div>
@@ -297,7 +302,7 @@
                   </div>
                 </div>
               </div>
-              <!-- OPS PLAN -->
+              <!-- OPS PLAN CARD 3 -->
               <div class="col-md-4">
                 <div class="card">
                   <div class="card-header text-center">OPS Plan</div>
@@ -321,14 +326,14 @@
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+            data-bs-target="#flush-collapseDUI" aria-expanded="false" aria-controls="flush-collapseDUI">
             DUI Guide
           </button>
         </h2>
-        <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+        <div id="flush-collapseDUI" class="accordion-collapse collapse" data-bs-parent="#quickLinksAccordion">
           <div class="accordion-body">
             <div class="row">
-              <!-- SFST -->
+              <!-- SFST CARD 1 -->
               <div class="col-md-4">
                 <div class="card">
                   <div class="card-header text-center">Field Sobriety</div>
@@ -344,7 +349,7 @@
                   </div>
                 </div>
               </div>
-              <!-- FLOW CHART -->
+              <!-- FLOW CHART CARD 2 -->
               <div class="col-md-4">
                 <div class="card">
                   <div class="card-header text-center">DUI Flow Chart</div>
@@ -360,7 +365,7 @@
                   </div>
                 </div>
               </div>
-              <!-- DOCUMENTS -->
+              <!-- DOCUMENTS CARD 3 -->
               <div class="col-md-4">
                 <div class="card">
                   <div class="card-header text-center">DUI Docs</div>
@@ -383,13 +388,17 @@
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+            data-bs-target="#flush-collapseIncident" aria-expanded="false" aria-controls="flush-collapseIncident">
             Incident Reporting Guide
           </button>
         </h2>
-        <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">
-            <!-- Content for Fourth Accordion -->
+        <div id="flush-collapseIncident" class="accordion-collapse collapse" data-bs-parent="#quickLinksAccordion">
+          <div class="accordion-body d-flex flex-column align-items-center">
+            <!-- Content for Incident Reporting Guide Accordion -->
+            Code Designator - Description
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#incidentModal">
+              Reporting Guide
+            </button>
           </div>
         </div>
       </div>
@@ -397,27 +406,35 @@
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+            data-bs-target="#flush-collapseUCR" aria-expanded="false" aria-controls="flush-collapseUCR">
             Commonly Used UCR
           </button>
         </h2>
-        <div id="flush-collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">
-            <!-- Content for Fifth Accordion -->
+        <div id="flush-collapseUCR" class="accordion-collapse collapse" data-bs-parent="#quickLinksAccordion">
+          <div class="accordion-body d-flex flex-column align-items-center">
+            <!-- Content for Commonly Used UCR Accordion -->
+            Code Designator - Description
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ucrModal">
+              UCR Guide
+            </button>
           </div>
         </div>
       </div>
-      <!-- MIRANDA WARNING -->
+      <!-- MIRANDA WARNING ACCORDION -->
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+            data-bs-target="#flush-collapseMiranda" aria-expanded="false" aria-controls="flush-collapseMiranda">
             Miranda Warning
           </button>
         </h2>
-        <div id="flush-collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">
-            <!-- Content for Sixth Accordion -->
+        <div id="flush-collapseMiranda" class="accordion-collapse collapse" data-bs-parent="#quickLinksAccordion">
+          <div class="accordion-body d-flex flex-column align-items-center">
+            <!-- Content for Miranda Warning Accordion -->
+            FOP Lodge 7 Handbook 2024 Page 164
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#mirandaModal">
+              Miranda Warning
+            </button>
           </div>
         </div>
       </div>
@@ -431,7 +448,42 @@
         </h2>
         <div id="flush-collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
           <div class="accordion-body">
-            <!-- Content for Seventh Accordion -->
+            <strong>In the event that you, or your partner, are part of an officer involved shooting (OIS), PRIOR TO
+              PROVIDING A STATEMENT OR PARTICIPATING IN A WALKTHROUGH, MAKE SURE YOU ARE ORDERED TO DO SO! It is
+              imperative that you document the following:</strong>
+            <div class="container pt-2">
+              <div class="text-box pb-2">
+                <p class="text-muted">1st Supervisor Ordering Statement:</p>
+                <input type="text" id="first_supervisor" name="first_supervisor" placeholder="Name and Star">
+                <input type="time" id="first_supervisor_time" name="first_supervisor_time">
+              </div>
+              <div class="text-box pb-2">
+                <p class="text-muted">OCIC Ordering Statement/Walkthrough:</p>
+                <input type="text" id="ocic_ordering" name="ocic_ordering" placeholder="Name and Star">
+                <input type="time" id="ocic_ordering_time" name="ocic_ordering_time">
+              </div>
+              <div class="text-box pb-2">
+                <p class="text-muted">Additional Supervisors:</p>
+                <input type="text" id="additional_supervisors" name="additional_supervisors"
+                  placeholder="Name and Star">
+                <input type="time" id="additional_supervisors_time" name="additional_supervisors_time">
+              </div>
+              <div class="text-box pb-2">
+                <input type="text" id="additional_supervisors" name="additional_supervisors"
+                  placeholder="Name and Star">
+                <input type="time" id="additional_supervisors_time" name="additional_supervisors_time">
+              </div>
+              <div class="text-box pb-2">
+                <input type="text" id="additional_supervisors" name="additional_supervisors"
+                  placeholder="Name and Star">
+                <input type="time" id="additional_supervisors_time" name="additional_supervisors_time">
+              </div>
+              <div class="text-box pb-2">
+                <p class="text-muted">Name of Lodge Representative(s)</p>
+                <input type="text" id="lodge_representative" name="lodge_representative" placeholder="Name and Star">
+                <input type="time" id="lodge_representative_time" name="lodge_representative_time">
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1283,7 +1335,7 @@
                     <i class="bi bi-filetype-docx text-primary" style="font-size: 2rem"></i>
                   </p>
                   <button type="button" class="btn btn-primary"
-                    onclick="window.location.href='path_to_federal_warrant_document.docx'">Download</button>
+                    onclick="window.location.href='forms.html'">Download</button>
                   <p>
                     <em class="text-muted" style="font-size: 12px">updated may 2024</em>
                   </p>
@@ -1341,7 +1393,7 @@
                     <i class="bi bi-filetype-docx text-primary" style="font-size: 2rem"></i>
                   </p>
                   <button type="button" class="btn btn-primary"
-                    onclick="window.location.href='path_to_federal_sw_complaint.docx'">Download</button>
+                    onclick="window.location.href='forms.html'">Download</button>
                   <p>
                     <em class="text-muted" style="font-size: 12px">updated may 2024</em>
                   </p>
@@ -2143,34 +2195,903 @@
       </div>
     </div>
   </div>
-  <hr />
-  <!-- HERO SECTION -->
-  <div class="container d-flex flex-column align-items-center shadow-lg mb-4 py-4">
-    <h1 class="card-title text-center pb-4">LE Cyber-Docs</h1>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <ul class="list-unstyled border rounded p-3" style="height: 100%">
-            <li><i class="bi bi-dot"></i> Consent Forms</li>
-            <li><i class="bi bi-dot"></i> Preservation Forms</li>
-            <li><i class="bi bi-dot"></i> Exigent Circumstances</li>
-            <li><i class="bi bi-dot"></i> Subpoenas Go-Bys</li>
-            <li><i class="bi bi-dot"></i> Federal Warrant Go-Bys</li>
-            <li><i class="bi bi-dot"></i> State Warrant Go-Bys</li>
-            <li><i class="bi bi-dot"></i> USPIS Forms</li>
-            <li><i class="bi bi-dot"></i> Chicago Police Forms</li>
-            <li><i class="bi bi-dot"></i> Narcotics Forms</li>
-            <li><i class="bi bi-dot"></i> State Complaints</li>
-            <li><i class="bi bi-dot"></i> OPs Plan Template</li>
-            <li><i class="bi bi-dot"></i> Addition Documents</li>
-          </ul>
+  <!-- INCIDENT REPORT MODAL -->
+  <div class="modal fade" id="incidentModal" tabindex="-1" aria-labelledby="incidentModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="incidentModalLabel">Incident Reporting Guide</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="col-md-6">
-          <img src="assets/img/hero.png" class="w-100" style="max-width: 100%; height: 100%" alt="hero-image" />
+        <div class="modal-body">
+          <!-- Modal Content for Incident Reporting Guide -->
+          <h2>Business/Commercial</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>097</td>
+                <td>Appliance Store</td>
+              </tr>
+              <tr>
+                <td>206</td>
+                <td>Athletic Club</td>
+              </tr>
+              <tr>
+                <td>103</td>
+                <td>Bar/Tavern</td>
+              </tr>
+              <tr>
+                <td>167</td>
+                <td>Barber/Beauty Shop</td>
+              </tr>
+              <tr>
+                <td>109</td>
+                <td>Bowling Alley</td>
+              </tr>
+              <tr>
+                <td>140</td>
+                <td>Commercial/Business Office</td>
+              </tr>
+              <tr>
+                <td>144</td>
+                <td>Car Wash</td>
+              </tr>
+              <tr>
+                <td>192</td>
+                <td>Cleaning Store</td>
+              </tr>
+              <tr>
+                <td>160</td>
+                <td>Coin Op Machine</td>
+              </tr>
+              <tr>
+                <td>161</td>
+                <td>Pawn Shop</td>
+              </tr>
+              <tr>
+                <td>162</td>
+                <td>Convenience Store</td>
+              </tr>
+              <tr>
+                <td>174</td>
+                <td>Dept Store</td>
+              </tr>
+              <tr>
+                <td>193</td>
+                <td>Drug Store</td>
+              </tr>
+              <tr>
+                <td>209</td>
+                <td>Factory/Man Building</td>
+              </tr>
+              <tr>
+                <td>220</td>
+                <td>Gas Station</td>
+              </tr>
+              <tr>
+                <td>221</td>
+                <td>Grocery/Food Store</td>
+              </tr>
+              <tr>
+                <td>260</td>
+                <td>Hotel/Motel</td>
+              </tr>
+              <tr>
+                <td>267</td>
+                <td>Movie Theater</td>
+              </tr>
+              <tr>
+                <td>165</td>
+                <td>Newstand</td>
+              </tr>
+              <tr>
+                <td>277</td>
+                <td>Parking Lot/Garage</td>
+              </tr>
+              <tr>
+                <td>166</td>
+                <td>Pool Room</td>
+              </tr>
+              <tr>
+                <td>293</td>
+                <td>Restaurant</td>
+              </tr>
+              <tr>
+                <td>261</td>
+                <td>Small Retail Store</td>
+              </tr>
+              <tr>
+                <td>305</td>
+                <td>Sports Arena</td>
+              </tr>
+              <tr>
+                <td>327</td>
+                <td>Warehouse</td>
+              </tr>
+              <tr>
+                <td>280</td>
+                <td>Police Facility/Vehicle/Lot</td>
+              </tr>
+            </tbody>
+          </table>
+          <br />
+          <h2>Financial Institution</h2>
+          <table>
+            <tr>
+              <th>Code</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>100</td>
+              <td>Bank</td>
+            </tr>
+            <tr>
+              <td>175</td>
+              <td>Credit Union</td>
+            </tr>
+            <tr>
+              <td>168</td>
+              <td>Currency Exchange</td>
+            </tr>
+            <tr>
+              <td>298</td>
+              <td>Savings and Loan</td>
+            </tr>
+            <tr>
+              <td>164</td>
+              <td>ATM</td>
+            </tr>
+          </table>
+          <br />
+          <h2>Medical</h2>
+          <table>
+            <tr>
+              <th>Code</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>230</td>
+              <td>Animal Hospital/Vet Clinic</td>
+            </tr>
+            <tr>
+              <td>233</td>
+              <td>Hospital Building/Grounds</td>
+            </tr>
+            <tr>
+              <td>250</td>
+              <td>Medical/Dental Office</td>
+            </tr>
+            <tr>
+              <td>268</td>
+              <td>Nursing Home</td>
+            </tr>
+          </table>
+          <br />
+          <h2>Miscellaneous</h2>
+          <table>
+            <tr>
+              <th>Code</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>096</td>
+              <td>Abandoned Building</td>
+            </tr>
+            <tr>
+              <td>145</td>
+              <td>Cemetery</td>
+            </tr>
+            <tr>
+              <td>151</td>
+              <td>Church/Synagogue/Place of Worship</td>
+            </tr>
+            <tr>
+              <td>171</td>
+              <td>Construction Site</td>
+            </tr>
+            <tr>
+              <td>200</td>
+              <td>Vacant Lot/Land</td>
+            </tr>
+          </table>
+          <br />
+          <h2>Public<br />
+            Building/Property/Way
+          </h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>092</td>
+                <td>Alley</td>
+              </tr>
+              <tr>
+                <td>132</td>
+                <td>Bridge</td>
+              </tr>
+              <tr>
+                <td>284</td>
+                <td>Federal Building</td>
+              </tr>
+              <tr>
+                <td>212</td>
+                <td>Fire Station</td>
+              </tr>
+              <tr>
+                <td>270</td>
+                <td>Forest Preserve</td>
+              </tr>
+              <tr>
+                <td>292</td>
+                <td>Government Building/Property</td>
+              </tr>
+              <tr>
+                <td>238</td>
+                <td>Highway/Expressway</td>
+              </tr>
+              <tr>
+                <td>273</td>
+                <td>Lake/Waterway/Riverbank</td>
+              </tr>
+              <tr>
+                <td>245</td>
+                <td>Library</td>
+              </tr>
+              <tr>
+                <td>269</td>
+                <td>Park Property</td>
+              </tr>
+              <tr>
+                <td>281</td>
+                <td>Jail/Lock-Up Facility</td>
+              </tr>
+              <tr>
+                <td>303</td>
+                <td>Sidewalk</td>
+              </tr>
+              <tr>
+                <td>304</td>
+                <td>Street</td>
+              </tr>
+            </tbody>
+          </table>
+          <br />
+          <h2>Residential<br />
+            Public & Private</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>909</td>
+                <td>Apartment</td>
+              </tr>
+              <tr>
+                <td>121</td>
+                <td>CHA Apartment</td>
+              </tr>
+              <tr>
+                <td>122</td>
+                <td>CHA Hallway/Elevator/Stairwell</td>
+              </tr>
+              <tr>
+                <td>123</td>
+                <td>CHA Parking Lot/Grounds</td>
+              </tr>
+              <tr>
+                <td>290</td>
+                <td>Residence</td>
+              </tr>
+              <tr>
+                <td>176</td>
+                <td>Residence - Driveway</td>
+              </tr>
+              <tr>
+                <td>210</td>
+                <td>Residence - Garage</td>
+              </tr>
+              <tr>
+                <td>289</td>
+                <td>Residence - Porch/Hallway</td>
+              </tr>
+              <tr>
+                <td>291</td>
+                <td>Residence - Yard (Front/Back)</td>
+              </tr>
+            </tbody>
+          </table>
+          <br />
+          <h2>Transportaion</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>095</td>
+                <td>Airport/Aircraft</td>
+              </tr>
+              <tr>
+                <td>104</td>
+                <td>Boat/Watercraft</td>
+              </tr>
+              <tr>
+                <td>119</td>
+                <td>CTA</td>
+              </tr>
+              <tr>
+                <td>322</td>
+                <td>CTA-Parking Lot/Garage/Other Property</td>
+              </tr>
+              <tr>
+                <td>220</td>
+                <td>Gas Station</td>
+              </tr>
+              <tr>
+                <td>323</td>
+                <td>CTA Platform</td>
+              </tr>
+              <tr>
+                <td>321</td>
+                <td>CTA Train</td>
+              </tr>
+              <tr>
+                <td>317</td>
+                <td>Other Railroad Property/Train Depot</td>
+              </tr>
+              <tr>
+                <td>309</td>
+                <td>Taxicab</td>
+              </tr>
+              <tr>
+                <td>262</td>
+                <td>Vehicle Commercial</td>
+              </tr>
+              <tr>
+                <td>126</td>
+                <td>Vehicle Delivery Truck</td>
+              </tr>
+              <tr>
+                <td>259</td>
+                <td>Vehicle Non-Commercial</td>
+              </tr>
+              <tr>
+                <td>257</td>
+                <td>Other Commercial Trans</td>
+              </tr>
+            </tbody>
+          </table>
+          <br />
+          <h2>School/Univ/Child Care</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>169</td>
+                <td>College/University Building/Grounds</td>
+              </tr>
+              <tr>
+                <td>170</td>
+                <td>College/University Residence Hall</td>
+              </tr>
+              <tr>
+                <td>177</td>
+                <td>Day Care Center</td>
+              </tr>
+              <tr>
+                <td>313</td>
+                <td>School Private Building</td>
+              </tr>
+              <tr>
+                <td>299</td>
+                <td>School Private Grounds</td>
+              </tr>
+              <tr>
+                <td>314</td>
+                <td>School Public Building</td>
+              </tr>
+              <tr>
+                <td>300</td>
+                <td>School Public Grounds</td>
+              </tr>
+            </tbody>
+          </table>
+          <br />
+          <h2>Other Location Not Listed</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>330</td>
+                <td>OTHER (SPECIFY)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
   </div>
+  <!-- COMMONLY USED UCR MODAL -->
+  <div class="modal fade" id="ucrModal" tabindex="-1" aria-labelledby="ucrModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ucrModalLabel">Commonly Used UCR</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h2>Battery</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>041A</td>
+                <td>Agg: Handgun</td>
+              </tr>
+              <tr>
+                <td>041B</td>
+                <td>Agg: Other Firearm</td>
+              </tr>
+              <tr>
+                <td>0420</td>
+                <td>Agg: Knife or Cutting Instrument</td>
+              </tr>
+              <tr>
+                <td>0430</td>
+                <td>Agg: Other Dangerous Weapon</td>
+              </tr>
+              <tr>
+                <td>0440</td>
+                <td>Agg: Hands, Fist, Feet</td>
+              </tr>
+              <tr>
+                <td>0460</td>
+                <td>Simple Battery</td>
+              </tr>
+              <tr>
+                <td>0486</td>
+                <td>Battery/Domestic-Simple</td>
+              </tr>
+            </tbody>
+          </table>
+          <br />
+          <h2>Assault</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>051A</td>
+                <td>Agg: Handgun</td>
+              </tr>
+              <tr>
+                <td>051B</td>
+                <td>Agg: Other Firearm</td>
+              </tr>
+              <tr>
+                <td>0520</td>
+                <td>Agg: Knife or Cutting Instrument</td>
+              </tr>
+              <tr>
+                <td>0530</td>
+                <td>Agg: Other Dangerous Weapon</td>
+              </tr>
+              <tr>
+                <td>0560</td>
+                <td>Simple Assault</td>
+              </tr>
+              <tr>
+                <td>0580</td>
+                <td>Stalking-Simple</td>
+              </tr>
+              <tr>
+                <td>0581</td>
+                <td>Stalking-Aggravated</td>
+              </tr>
+            </tbody>
+          </table>
+          <br />
+          <h2>Burglary</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0610</td>
+                <td>Forcible Entry</td>
+              </tr>
+              <tr>
+                <td>0620</td>
+                <td>Unlawful Entry, No Force</td>
+              </tr>
+              <tr>
+                <td>0630</td>
+                <td>Attempt: Forcible Entry</td>
+              </tr>
+            </tbody>
+
+          </table>
+          <br />
+          <h2>Other</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>5084</td>
+                <td>Death</td>
+              </tr>
+              <tr>
+                <td>5078</td>
+                <td>Death Investigation</td>
+              </tr>
+              <tr>
+                <td>5088</td>
+                <td>Injury On Duty</td>
+              </tr>
+              <tr>
+                <td>5079</td>
+                <td>Mental Transport</td>
+              </tr>
+              <tr>
+                <td>5080</td>
+                <td>Non Criminal</td>
+              </tr>
+              <tr>
+                <td>5105</td>
+                <td>Narcan</td>
+              </tr>
+            </tbody>
+          </table>
+          <br />
+          <h2>Theft</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0810</td>
+                <td>Over $500</td>
+              </tr>
+              <tr>
+                <td>0820</td>
+                <td>$500 and Under</td>
+              </tr>
+              <tr>
+                <td>0860</td>
+                <td>Other Theft/Retail</td>
+              </tr>
+            </tbody>
+          </table>
+          <br />
+          <h2>Arson/Explosives</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1010</td>
+                <td>By Explosive</td>
+              </tr>
+              <tr>
+                <td>1020</td>
+                <td>By Incendiary Device</td>
+              </tr>
+              <tr>
+                <td>1025</td>
+                <td>Agg: Arson</td>
+              </tr>
+              <tr>
+                <td>1030</td>
+                <td>Possession: Explosives, Incendiary Device</td>
+              </tr>
+              <tr>
+                <td>1090</td>
+                <td>Attempt Arson</td>
+              </tr>
+            </tbody>
+          </table>
+          <br />
+          <h2>Deception</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1130</td>
+                <td>Fraud</td>
+              </tr>
+              <tr>
+                <td>1140</td>
+                <td>Embezzlement</td>
+              </tr>
+              <tr>
+                <td>1150</td>
+                <td>Credit Card, Illegal Use</td>
+              </tr>
+              <tr>
+                <td>1151</td>
+                <td>Cash Dispensing Card, Illegal Use</td>
+              </tr>
+              <tr>
+                <td>1200</td>
+                <td>Stolen Property: Buy/Sell/Possess</td>
+              </tr>
+              <tr>
+                <td>1205</td>
+                <td>Theft by Lessee - Non Motor Vehicle</td>
+              </tr>
+              <tr>
+                <td>1206</td>
+                <td>Theft by Lessee - Motor Vehicle</td>
+              </tr>
+              <tr>
+                <td>1210</td>
+                <td>Theft of Labor - Service, Use of Property</td>
+              </tr>
+              <tr>
+                <td>1220</td>
+                <td>Theft of Mislaid Property</td>
+              </tr>
+              <tr>
+                <td>1230</td>
+                <td>Possession of Key Device to Coin-Op Machine</td>
+              </tr>
+              <tr>
+                <td>1235</td>
+                <td>Unlawful use of Recorded Sound</td>
+              </tr>
+              <tr>
+                <td>1240</td>
+                <td>Unlawful use of Computer</td>
+              </tr>
+              <tr>
+                <td>1245</td>
+                <td>Cable TV Service Offense</td>
+              </tr>
+            </tbody>
+          </table>
+          <br />
+          <h2>Criminal Damage & Tresspass to Property</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1310</td>
+                <td>Criminal Damage to Property</td>
+              </tr>
+              <tr>
+                <td>1320</td>
+                <td>Criminal Damage to Vehicle</td>
+              </tr>
+              <tr>
+                <td>1330</td>
+                <td>Criminal Trespass to Land</td>
+              </tr>
+              <tr>
+                <td>1340</td>
+                <td>Criminal Damage to State-Supported Land</td>
+              </tr>
+              <tr>
+                <td>1350</td>
+                <td>Criminal Trespass to State-Supported Land</td>
+              </tr>
+              <tr>
+                <td>1360</td>
+                <td>Criminal Trespass to Vehicle</td>
+              </tr>
+              <tr>
+                <td>1365</td>
+                <td>Criminal Trespass to Residence</td>
+              </tr>
+              <tr>
+                <td>1370</td>
+                <td>Criminal Damage to Firefighting Apparatus, Hydrants, or Equipment</td>
+              </tr>
+            </tbody>
+          </table>
+          <br />
+          <h2>Weapons Violation</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>141A</td>
+                <td>UUW: Handgun</td>
+              </tr>
+              <tr>
+                <td>141B</td>
+                <td>UUW: Other Firearm</td>
+              </tr>
+              <tr>
+                <td>141C</td>
+                <td>UUW: Other Dangerous Weapon</td>
+              </tr>
+              <tr>
+                <td>142A</td>
+                <td>Unlawful Sale: Handgun</td>
+              </tr>
+              <tr>
+                <td>142B</td>
+                <td>Unlawful Sale: Other Firearm</td>
+              </tr>
+              <tr>
+                <td>143A</td>
+                <td>Unlawful Possession: Handgun</td>
+              </tr>
+              <tr>
+                <td>143B</td>
+                <td>Unlawful Possession: Other Firearm</td>
+              </tr>
+              <tr>
+                <td>143C</td>
+                <td>Unlawful Possession: Ammunition</td>
+              </tr>
+              <tr>
+                <td>1440</td>
+                <td>Register of Sales by Dealer</td>
+              </tr>
+              <tr>
+                <td>1450</td>
+                <td>Defacing Identifying Marks on Firearm</td>
+              </tr>
+              <tr>
+                <td>1460</td>
+                <td>Fire Arms and Ammunition, No FOID Card</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- MIRANDA WARNING MODAL -->
+  <div class="modal fade" id="mirandaModal" tabindex="-1" aria-labelledby="mirandaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="mirandaModalLabel">Miranda Warning</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p><strong>REQUIRED WARNINGS TO BE GIVEN PRIOR TO INTERROGATION</strong></p>
+          <p>1. Before we ask you any question, it is our duty to advise you of your rights.</p>
+          <p>2. You have a right to remain silent.</p>
+          <p>3. Anything you say can and may be used against you in a court or other proceedings.</p>
+          <p>4. Do you understand that you have a right to talk to a lawyer before we ask you questions, and to have him
+            with you during question?</p>
+          <p>5. If you cannot afford or otherwise obtain a lawyer and you want one, a lawyer will be appointed for you,
+            an we will not ask any questions until s/he has been appointed.</p>
+          <p>6. If you decide to answer now with or without a lawyer, you still have the right to stop questioning at
+            any time, or to stop the questioning for the purpose of consulting a lawyer.</p>
+          <p>7. You may waive the right to advice of counsel and your right to remain silent, and you may answer
+            questions or make statement without consulting a lawyer if you so disre.</p>
+          <p>8. Do you understand each of these rights?</p>
+          <p>9. Do you wish to answer questions at this time?</p>
+          <p><em>(*Juvenile Miranda Warning step 2-6: After reading above department member musk ask: 1. Do you want to
+              have a lawyer? 2. Do you want to talk to me.)</em></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <!-- CYBER-DOCS SECTION -->
+  <div class="container d-flex flex-column align-items-center shadow-lg mb-4 py-4">
+    <h1 class="card-title text-center pb-4">LE Cyber-Docs</h1>
+    <!-- Modal Trigger Button -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Launch Modal
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">LE Cyber-Docs</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Modal content -->
+            This is the content of your modal. You can customize it as needed.
+            <div>
+              <li class="list-group-item"><i class="bi bi-dot"></i> Consent Forms</li>
+              <li class="list-group-item"><i class="bi bi-dot"></i> Preservation Forms</li>
+              <li class="list-group-item"><i class="bi bi-dot"></i> Exigent Circumstances</li>
+              <li class="list-group-item"><i class="bi bi-dot"></i> Subpoenas Go-Bys</li>
+              <li class="list-group-item"><i class="bi bi-dot"></i> Federal Warrant Go-Bys</li>
+              <li class="list-group-item"><i class="bi bi-dot"></i> State Warrant Go-Bys</li>
+              <li class="list-group-item"><i class="bi bi-dot"></i> USPIS Forms</li>
+              <li class="list-group-item"><i class="bi bi-dot"></i> Chicago Police Forms</li>
+              <li class="list-group-item"><i class="bi bi-dot"></i> Narcotics Forms</li>
+              <li class="list-group-item"><i class="bi bi-dot"></i> State Complaints</li>
+              <li class="list-group-item"><i class="bi bi-dot"></i> OPs Plan Template</li>
+              <li class="list-group-item"><i class="bi bi-dot"></i> Addition Documents</li>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
   <!-- TESTIMONIALS SECTION -->
   <div class="container shadow-lg mb-4 py-4">
     <div class="container py-4">

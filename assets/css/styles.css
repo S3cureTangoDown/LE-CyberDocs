@@ -196,4 +196,14 @@ th {
     font-size: 10px;
     /* Adjust the font size for smaller screens */
   }
+
+  .text-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .text-box input[type="text"],
+  .text-box input[type="time"] {
+    margin-bottom: 8px;
+  }
 }
