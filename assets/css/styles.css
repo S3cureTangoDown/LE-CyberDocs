@@ -84,6 +84,12 @@ header {
   font: 5px;
 }
 
+.bordered {
+  border: 5px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
 /*-- ABOUT SECTION --*/
 .container-animation {
   height: 100px;
@@ -100,6 +106,12 @@ header {
 /*-- TESTIMONIAL SECTION --*/
 .stars {
   color: gold;
+}
+
+.testimonial-text {
+  border: 2px solid #ccc;
+  padding: 15px;
+  border-radius: 10px;
 }
 
 /*-- CHART SECTION --*/
