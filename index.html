@@ -98,10 +98,6 @@
   <!-- QUICK LINKS -->
   <div class="container d-flex flex-column align-items-center shadow-lg mb-4 py-4">
     <h1 class="card-title text-center pb-2">Quick Links</h1>
-    <p class="text-center"><em>**Data derived from**</em></p>
-    <p class="text-center">
-      <em>**chicago-hidta.org | ilga.gov | DEA.gov | isp.illinois.gov**</em>
-    </p>
     <div class="accordion accordion-flush w-100 pt-2" id="quickLinksAccordion">
       <!-- NARCOTIC ACCORDION -->
       <div class="accordion-item">
@@ -3206,6 +3202,23 @@
 
   <!-- MAIN JS -->
   <script src="/assets/js/main.js"></script>
+
+  <script>
+    /* CLEAR PAGE BUTTON */
+    function reloadPage1() {
+      location.reload();
+    }
+
+    function reloadPage2() {
+      location.reload();
+    }
+
+    const refreshModalButton1 = document.getElementById("refreshModalButton1");
+    const refreshModalButton2 = document.getElementById("refreshModalButton2");
+
+    refreshModalButton1.addEventListener("click", reloadPage1);
+    refreshModalButton2.addEventListener("click", reloadPage2);
+  </script>
 </body>
 
 </html>
