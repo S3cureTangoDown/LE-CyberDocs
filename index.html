@@ -43,12 +43,15 @@
             <a class="nav-link" href="contact.html">Contact</a>
           </li>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-          <button class="btn btn-outline-success" type="submit">
-            Search
-          </button>
-        </form>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+          Login
+        </button>
+        <!-- Register button -->
+        <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal"
+          data-bs-target="#registerModal">
+          Register
+        </button>
       </div>
     </div>
   </nav>
@@ -129,7 +132,7 @@
               <input type="tel" class="form-control" id="exampleInputPhoneNumber" placeholder="123-456-7890"
                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required />
             </div>
-            <button type="submit" class="btn btn-primary mb-2">
+            <button type="submit" class="btn btn-primary mb-2" id="submit">
               Register
             </button>
             <!-- Redirect link for already have an account -->
