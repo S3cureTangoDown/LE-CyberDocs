@@ -274,4 +274,14 @@ function calculateValue() {
   document.getElementById("result").innerHTML = "Value: " + formattedValue;
 }
 
-
+/* CLICK TO COPY */
+function copyToClipboard(button) {
+  var copyText = button.closest('.border');
+  var range = document.createRange();
+  range.selectNode(copyText);
+  window.getSelection().removeAllRanges();
+  window.getSelection().addRange(range);
+  document.execCommand("copy");
+  window.getSelection().removeAllRanges();
+  alert("Copied the text: " + copyText.textContent.trim());
+}
