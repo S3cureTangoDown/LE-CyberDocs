@@ -2743,7 +2743,8 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <h2>Battery</h2>
+          <!-- Arson/Explosives Section -->
+          <h2>Arson/Explosives</h2>
           <table>
             <thead>
               <tr>
@@ -2753,36 +2754,29 @@
             </thead>
             <tbody>
               <tr>
-                <td>041A</td>
-                <td>Agg: Handgun</td>
+                <td>1010</td>
+                <td>By Explosive</td>
               </tr>
               <tr>
-                <td>041B</td>
-                <td>Agg: Other Firearm</td>
+                <td>1020</td>
+                <td>By Incendiary Device</td>
               </tr>
               <tr>
-                <td>0420</td>
-                <td>Agg: Knife or Cutting Instrument</td>
+                <td>1025</td>
+                <td>Agg: Arson</td>
               </tr>
               <tr>
-                <td>0430</td>
-                <td>Agg: Other Dangerous Weapon</td>
+                <td>1030</td>
+                <td>Possession: Explosives, Incendiary Device</td>
               </tr>
               <tr>
-                <td>0440</td>
-                <td>Agg: Hands, Fist, Feet</td>
-              </tr>
-              <tr>
-                <td>0460</td>
-                <td>Simple Battery</td>
-              </tr>
-              <tr>
-                <td>0486</td>
-                <td>Battery/Domestic-Simple</td>
+                <td>1090</td>
+                <td>Attempt Arson</td>
               </tr>
             </tbody>
           </table>
-          <br />
+
+          <!-- Assault Section -->
           <h2>Assault</h2>
           <table>
             <thead>
@@ -2822,7 +2816,49 @@
               </tr>
             </tbody>
           </table>
-          <br />
+
+          <!-- Battery Section -->
+          <h2>Battery</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>041A</td>
+                <td>Agg: Handgun</td>
+              </tr>
+              <tr>
+                <td>041B</td>
+                <td>Agg: Other Firearm</td>
+              </tr>
+              <tr>
+                <td>0420</td>
+                <td>Agg: Knife or Cutting Instrument</td>
+              </tr>
+              <tr>
+                <td>0430</td>
+                <td>Agg: Other Dangerous Weapon</td>
+              </tr>
+              <tr>
+                <td>0440</td>
+                <td>Agg: Hands, Fist, Feet</td>
+              </tr>
+              <tr>
+                <td>0460</td>
+                <td>Simple Battery</td>
+              </tr>
+              <tr>
+                <td>0486</td>
+                <td>Battery/Domestic-Simple</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Burglary Section -->
           <h2>Burglary</h2>
           <table>
             <thead>
@@ -2845,10 +2881,10 @@
                 <td>Attempt: Forcible Entry</td>
               </tr>
             </tbody>
+          </table>
 
-          </table>
-          <br />
-          <h2>Other</h2>
+          <!-- Criminal Damage & Trespass to Property Section -->
+          <h2>Criminal Damage & Trespass to Property</h2>
           <table>
             <thead>
               <tr>
@@ -2858,88 +2894,41 @@
             </thead>
             <tbody>
               <tr>
-                <td>5084</td>
-                <td>Death</td>
+                <td>1310</td>
+                <td>Criminal Damage to Property</td>
               </tr>
               <tr>
-                <td>5078</td>
-                <td>Death Investigation</td>
+                <td>1320</td>
+                <td>Criminal Damage to Vehicle</td>
               </tr>
               <tr>
-                <td>5088</td>
-                <td>Injury On Duty</td>
+                <td>1330</td>
+                <td>Criminal Trespass to Land</td>
               </tr>
               <tr>
-                <td>5079</td>
-                <td>Mental Transport</td>
+                <td>1340</td>
+                <td>Criminal Damage to State-Supported Land</td>
               </tr>
               <tr>
-                <td>5080</td>
-                <td>Non Criminal</td>
+                <td>1350</td>
+                <td>Criminal Trespass to State-Supported Land</td>
               </tr>
               <tr>
-                <td>5105</td>
-                <td>Narcan</td>
+                <td>1360</td>
+                <td>Criminal Trespass to Vehicle</td>
+              </tr>
+              <tr>
+                <td>1365</td>
+                <td>Criminal Trespass to Residence</td>
+              </tr>
+              <tr>
+                <td>1370</td>
+                <td>Criminal Damage to Firefighting Apparatus, Hydrants, or Equipment</td>
               </tr>
             </tbody>
           </table>
-          <br />
-          <h2>Theft</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Code</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>0810</td>
-                <td>Over $500</td>
-              </tr>
-              <tr>
-                <td>0820</td>
-                <td>$500 and Under</td>
-              </tr>
-              <tr>
-                <td>0860</td>
-                <td>Other Theft/Retail</td>
-              </tr>
-            </tbody>
-          </table>
-          <br />
-          <h2>Arson/Explosives</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Code</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1010</td>
-                <td>By Explosive</td>
-              </tr>
-              <tr>
-                <td>1020</td>
-                <td>By Incendiary Device</td>
-              </tr>
-              <tr>
-                <td>1025</td>
-                <td>Agg: Arson</td>
-              </tr>
-              <tr>
-                <td>1030</td>
-                <td>Possession: Explosives, Incendiary Device</td>
-              </tr>
-              <tr>
-                <td>1090</td>
-                <td>Attempt Arson</td>
-              </tr>
-            </tbody>
-          </table>
-          <br />
+
+          <!-- Deception Section -->
           <h2>Deception</h2>
           <table>
             <thead>
@@ -3003,8 +2992,9 @@
               </tr>
             </tbody>
           </table>
-          <br />
-          <h2>Criminal Damage & Tresspass to Property</h2>
+
+          <!-- Narcotics Section -->
+          <h2>Narcotics</h2>
           <table>
             <thead>
               <tr>
@@ -3014,40 +3004,163 @@
             </thead>
             <tbody>
               <tr>
-                <td>1310</td>
-                <td>Criminal Damage to Property</td>
+                <td>1811</td>
+                <td>Poss: Cannabis 30 grms or less</td>
               </tr>
               <tr>
-                <td>1320</td>
-                <td>Criminal Damage to Vehicle</td>
+                <td>1812</td>
+                <td>Poss: Cannabis more than 30 grms</td>
               </tr>
               <tr>
-                <td>1330</td>
-                <td>Criminal Trespass to Land</td>
+                <td>1821</td>
+                <td>Delv: Cannabis 10 grms or less</td>
               </tr>
               <tr>
-                <td>1340</td>
-                <td>Criminal Damage to State-Supported Land</td>
+                <td>1822</td>
+                <td>Delv: Cannabis over 10 grms</td>
               </tr>
               <tr>
-                <td>1350</td>
-                <td>Criminal Trespass to State-Supported Land</td>
+                <td>2010</td>
+                <td>Delv: Amphetamine</td>
               </tr>
               <tr>
-                <td>1360</td>
-                <td>Criminal Trespass to Vehicle</td>
+                <td>2012</td>
+                <td>Delv: Cocaine</td>
               </tr>
               <tr>
-                <td>1365</td>
-                <td>Criminal Trespass to Residence</td>
+                <td>2013</td>
+                <td>Delv: Heroin (Tan)</td>
               </tr>
               <tr>
-                <td>1370</td>
-                <td>Criminal Damage to Firefighting Apparatus, Hydrants, or Equipment</td>
+                <td>2014</td>
+                <td>Poss: Heroin (Tan)</td>
+              </tr>
+              <tr>
+                <td>2014</td>
+                <td>Delv: Heroin (White)</td>
+              </tr>
+              <tr>
+                <td>2015</td>
+                <td>Delv: Hallucinogens</td>
+              </tr>
+              <tr>
+                <td>2016</td>
+                <td>Delv: PCP</td>
+              </tr>
+              <tr>
+                <td>2017</td>
+                <td>Delv: Crack Cocaine</td>
+              </tr>
+              <tr>
+                <td>2018</td>
+                <td>Delv: Synthetic Drugs</td>
+              </tr>
+              <tr>
+                <td>2020</td>
+                <td>Poss: Amphetamine</td>
+              </tr>
+              <tr>
+                <td>2022</td>
+                <td>Poss: Cocaine</td>
+              </tr>
+              <tr>
+                <td>2024</td>
+                <td>Poss: Heroin (White)</td>
+              </tr>
+              <tr>
+                <td>2025</td>
+                <td>Poss: Hallucinogens</td>
+              </tr>
+              <tr>
+                <td>2026</td>
+                <td>Poss: PCP</td>
+              </tr>
+              <tr>
+                <td>2027</td>
+                <td>Poss: Crack Cocaine</td>
+              </tr>
+              <tr>
+                <td>2028</td>
+                <td>Poss: Synthetic Drugs</td>
+              </tr>
+              <tr>
+                <td>2031</td>
+                <td>Poss: Methamphetamine</td>
+              </tr>
+              <tr>
+                <td>2032</td>
+                <td>Delv: Methamphetamine</td>
+              </tr>
+              <tr>
+                <td>2091</td>
+                <td>Forfiet Property: Narcotics</td>
               </tr>
             </tbody>
           </table>
-          <br />
+
+          <!-- Other Section -->
+          <h2>Other</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>5084</td>
+                <td>Death</td>
+              </tr>
+              <tr>
+                <td>5078</td>
+                <td>Death Investigation</td>
+              </tr>
+              <tr>
+                <td>5088</td>
+                <td>Injury On Duty</td>
+              </tr>
+              <tr>
+                <td>5079</td>
+                <td>Mental Transport</td>
+              </tr>
+              <tr>
+                <td>5080</td>
+                <td>Non Criminal</td>
+              </tr>
+              <tr>
+                <td>5105</td>
+                <td>Narcan</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Theft Section -->
+          <h2>Theft</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0810</td>
+                <td>Over $500</td>
+              </tr>
+              <tr>
+                <td>0820</td>
+                <td>$500 and Under</td>
+              </tr>
+              <tr>
+                <td>0860</td>
+                <td>Other Theft/Retail</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Weapons Violation Section -->
           <h2>Weapons Violation</h2>
           <table>
             <thead>
@@ -3103,6 +3216,7 @@
               </tr>
             </tbody>
           </table>
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
