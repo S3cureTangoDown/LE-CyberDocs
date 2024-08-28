@@ -165,70 +165,6 @@
         </div>
       </div>
 
-      <!-- SEARCH WARRANT ACCORDION -->
-      <div class="accordion-item">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseSW" aria-expanded="false" aria-controls="flush-collapseSW">
-            SW Template
-          </button>
-        </h2>
-        <div id="flush-collapseSW" class="accordion-collapse collapse" data-bs-parent="#quickLinksAccordion">
-          <div class="accordion-body">
-            <div class="row">
-              <!-- SEARCH WARRANT CARD 1 -->
-              <div class="col-md-4 mb-3">
-                <div class="card">
-                  <div class="card-header text-center">Search Warrant</div>
-                  <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                    <h5 class="card-title">Warrant</h5>
-                    <p class="card-text">
-                      <i class="bi bi-filetype-docx text-primary" style="font-size: 2rem"></i>
-                    </p>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                      data-bs-target="#exampleModal4">
-                      Warr
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <!-- SW COMPLAINT CARD 2 -->
-              <div class="col-md-4 mb-3">
-                <div class="card">
-                  <div class="card-header text-center">SW Complaint</div>
-                  <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                    <h5 class="card-title">Complaint</h5>
-                    <p class="card-text">
-                      <i class="bi bi-filetype-docx text-primary" style="font-size: 2rem"></i>
-                    </p>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                      data-bs-target="#exampleModal5">
-                      Comp
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <!-- OPS PLAN CARD 3 -->
-              <div class="col-md-4 mb-3">
-                <div class="card">
-                  <div class="card-header text-center">OPS Plan</div>
-                  <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                    <h5 class="card-title">Plan</h5>
-                    <p class="card-text">
-                      <i class="bi bi-filetype-pdf text-primary" style="font-size: 2rem"></i>
-                    </p>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                      data-bs-target="#exampleModal6">
-                      Plan
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <!-- DUI CHECKLIST ACCORDION -->
       <div class="accordion-item">
         <h2 class="accordion-header">
@@ -359,48 +295,63 @@
         </h2>
         <div id="flush-collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
           <div class="accordion-body">
-            <div class="bordered">
-              <strong>In the event that you, or your partner, are part of an officer involved shooting (OIS), PRIOR TO
-                PROVIDING A STATEMENT OR PARTICIPATING IN A WALKTHROUGH, MAKE SURE YOU ARE ORDERED TO DO SO! It is
-                imperative that you document the following:</strong>
+            <div class="alert alert-warning">
+              <strong>Important:</strong> In the event that you or your partner are part of an officer involved shooting
+              (OIS), <u>prior to providing a statement or participating in a walkthrough, make sure you are ordered to
+                do so!</u> It is imperative that you document the following:
             </div>
             <div class="container pt-4">
-              <div class="text-box mb-3">
-                <p class="text-muted mb-1"><strong>1st Supervisor Ordering Statement:</strong></p>
-                <input type="text" id="first_supervisor" name="first_supervisor" placeholder="Name and Star">
-                <label for="first_supervisor_time" class="text-muted">Time:</label>
-                <input type="time" id="first_supervisor_time" name="first_supervisor_time">
+              <div class="mb-4">
+                <label class="form-label"><strong>1st Supervisor Ordering Statement:</strong></label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="first_supervisor" name="first_supervisor"
+                    placeholder="Name/Star">
+                  <span class="input-group-text bg-light"><i class="bi bi-clock"></i></span>
+                  <input type="time" class="form-control" id="first_supervisor_time" name="first_supervisor_time">
+                </div>
               </div>
-              <div class="text-box mb-3">
-                <p class="text-muted mb-1"><strong>OCIC Ordering Statement/Walkthrough:</strong></p>
-                <input type="text" id="ocic_ordering" name="ocic_ordering" placeholder="Name and Star">
-                <label for="ocic_ordering_time" class="text-muted">Time:</label>
-                <input type="time" id="ocic_ordering_time" name="ocic_ordering_time">
+              <div class="mb-4">
+                <label class="form-label"><strong>OCIC Ordering Statement/Walkthrough:</strong></label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="ocic_ordering" name="ocic_ordering"
+                    placeholder="Name/Star">
+                  <span class="input-group-text bg-light"><i class="bi bi-clock"></i></span>
+                  <input type="time" class="form-control" id="ocic_ordering_time" name="ocic_ordering_time">
+                </div>
               </div>
-              <div class="text-box mb-3">
-                <p class="text-muted mb-1"><strong>Additional Supervisors:</strong></p>
-                <input type="text" id="additional_supervisors_1" name="additional_supervisors"
-                  placeholder="Name and Star">
-                <label for="additional_supervisors_time_1" class="text-muted">Time:</label>
-                <input type="time" id="additional_supervisors_time_1" name="additional_supervisors_time">
+              <div class="mb-4">
+                <label class="form-label"><strong>Additional Supervisors:</strong></label>
+                <div class="input-group mb-2">
+                  <input type="text" class="form-control" id="additional_supervisors_1" name="additional_supervisors"
+                    placeholder="Name/Star">
+                  <span class="input-group-text bg-light"><i class="bi bi-clock"></i></span>
+                  <input type="time" class="form-control" id="additional_supervisors_time_1"
+                    name="additional_supervisors_time">
+                </div>
+                <div class="input-group mb-2">
+                  <input type="text" class="form-control" id="additional_supervisors_2" name="additional_supervisors"
+                    placeholder="Name/Star">
+                  <span class="input-group-text bg-light"><i class="bi bi-clock"></i></span>
+                  <input type="time" class="form-control" id="additional_supervisors_time_2"
+                    name="additional_supervisors_time">
+                </div>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="additional_supervisors_3" name="additional_supervisors"
+                    placeholder="Name/Star">
+                  <span class="input-group-text bg-light"><i class="bi bi-clock"></i></span>
+                  <input type="time" class="form-control" id="additional_supervisors_time_3"
+                    name="additional_supervisors_time">
+                </div>
               </div>
-              <div class="text-box mb-3">
-                <input type="text" id="additional_supervisors_2" name="additional_supervisors"
-                  placeholder="Name and Star">
-                <label for="additional_supervisors_time_2" class="text-muted">Time:</label>
-                <input type="time" id="additional_supervisors_time_2" name="additional_supervisors_time">
-              </div>
-              <div class="text-box mb-3">
-                <input type="text" id="additional_supervisors_3" name="additional_supervisors"
-                  placeholder="Name and Star">
-                <label for="additional_supervisors_time_3" class="text-muted">Time:</label>
-                <input type="time" id="additional_supervisors_time_3" name="additional_supervisors_time">
-              </div>
-              <div class="text-box mb-3">
-                <p class="text-muted mb-1"><strong>Name of Lodge Representative(s)</strong></p>
-                <input type="text" id="lodge_representative" name="lodge_representative" placeholder="Name and Star">
-                <label for="lodge_representative_time" class="text-muted">Time:</label>
-                <input type="time" id="lodge_representative_time" name="lodge_representative_time">
+              <div class="mb-4">
+                <label class="form-label"><strong>Name of Lodge Representative(s):</strong></label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="lodge_representative" name="lodge_representative"
+                    placeholder="Name/Star">
+                  <span class="input-group-text bg-light"><i class="bi bi-clock"></i></span>
+                  <input type="time" class="form-control" id="lodge_representative_time"
+                    name="lodge_representative_time">
+                </div>
               </div>
             </div>
           </div>
