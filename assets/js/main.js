@@ -285,3 +285,50 @@ function copyToClipboard(button) {
   window.getSelection().removeAllRanges();
   alert("Copied the text: " + copyText.textContent.trim());
 }
+
+/* Script to Generate PDF */
+document.getElementById('download-pdf').addEventListener('click', function () {
+  // Get the input values
+  const firstSupervisor = document.getElementById('first_supervisor').value;
+  const firstSupervisorTime = document.getElementById('first_supervisor_time').value;
+  const ocicOrdering = document.getElementById('ocic_ordering').value;
+  const ocicOrderingTime = document.getElementById('ocic_ordering_time').value;
+  const additionalSupervisors = [
+    { name: document.getElementById('additional_supervisors_1').value, time: document.getElementById('additional_supervisors_time_1').value },
+    { name: document.getElementById('additional_supervisors_2').value, time: document.getElementById('additional_supervisors_time_2').value },
+    { name: document.getElementById('additional_supervisors_3').value, time: document.getElementById('additional_supervisors_time_3').value },
+  ];
+  const lodgeRepresentative = document.getElementById('lodge_representative').value;
+  const lodgeRepresentativeTime = document.getElementById('lodge_representative_time').value;
+
+  // Create a new PDF document
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+
+  // Add content to the PDF with spacing between sections
+  doc.setFontSize(16);
+  doc.text('Shooting Order Request', 20, 20);
+
+  doc.setFontSize(12);
+  doc.text('1st Supervisor Ordering Statement:', 20, 40);
+  doc.text(`Name & Star: ${firstSupervisor}`, 20, 45);
+  doc.text(`Time: ${firstSupervisorTime}`, 20, 50);
+
+  doc.text('OCIC Ordering Statement/Walkthrough:', 20, 70);
+  doc.text(`Name & Star: ${ocicOrdering}`, 20, 75);
+  doc.text(`Time: ${ocicOrderingTime}`, 20, 80);
+
+  doc.text('Supervisors:', 20, 100);
+  additionalSupervisors.forEach((supervisor, index) => {
+    doc.text(`Supervisor ${index + 1} Name & Star: ${supervisor.name}`, 20, 105 + (index * 15));
+    doc.text(`Time: ${supervisor.time}`, 20, 110 + (index * 15));
+  });
+
+  // Add extra space before the Lodge Representative section
+  doc.text('Lodge Representative:', 20, 165);
+  doc.text(`Name & Star: ${lodgeRepresentative}`, 20, 170);
+  doc.text(`Time: ${lodgeRepresentativeTime}`, 20, 175);
+
+  // Save the PDF
+  doc.save('Shooting_Order_Request.pdf');
+});

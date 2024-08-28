@@ -305,7 +305,7 @@
                 <label class="form-label"><strong>1st Supervisor Ordering Statement:</strong></label>
                 <div class="input-group">
                   <input type="text" class="form-control" id="first_supervisor" name="first_supervisor"
-                    placeholder="Name/Star">
+                    placeholder="Name & Star">
                   <span class="input-group-text bg-light"><i class="bi bi-clock"></i></span>
                   <input type="time" class="form-control" id="first_supervisor_time" name="first_supervisor_time">
                 </div>
@@ -314,45 +314,46 @@
                 <label class="form-label"><strong>OCIC Ordering Statement/Walkthrough:</strong></label>
                 <div class="input-group">
                   <input type="text" class="form-control" id="ocic_ordering" name="ocic_ordering"
-                    placeholder="Name/Star">
+                    placeholder="Name & Star">
                   <span class="input-group-text bg-light"><i class="bi bi-clock"></i></span>
                   <input type="time" class="form-control" id="ocic_ordering_time" name="ocic_ordering_time">
                 </div>
               </div>
               <div class="mb-4">
-                <label class="form-label"><strong>Additional Supervisors:</strong></label>
+                <label class="form-label"><strong>Supervisors:</strong></label>
                 <div class="input-group mb-2">
                   <input type="text" class="form-control" id="additional_supervisors_1" name="additional_supervisors"
-                    placeholder="Name/Star">
+                    placeholder="Name & Star">
                   <span class="input-group-text bg-light"><i class="bi bi-clock"></i></span>
                   <input type="time" class="form-control" id="additional_supervisors_time_1"
                     name="additional_supervisors_time">
                 </div>
                 <div class="input-group mb-2">
                   <input type="text" class="form-control" id="additional_supervisors_2" name="additional_supervisors"
-                    placeholder="Name/Star">
+                    placeholder="Name & Star">
                   <span class="input-group-text bg-light"><i class="bi bi-clock"></i></span>
                   <input type="time" class="form-control" id="additional_supervisors_time_2"
                     name="additional_supervisors_time">
                 </div>
                 <div class="input-group">
                   <input type="text" class="form-control" id="additional_supervisors_3" name="additional_supervisors"
-                    placeholder="Name/Star">
+                    placeholder="Name & Star">
                   <span class="input-group-text bg-light"><i class="bi bi-clock"></i></span>
                   <input type="time" class="form-control" id="additional_supervisors_time_3"
                     name="additional_supervisors_time">
                 </div>
               </div>
               <div class="mb-4">
-                <label class="form-label"><strong>Name of Lodge Representative(s):</strong></label>
+                <label class="form-label"><strong>Lodge Representative:</strong></label>
                 <div class="input-group">
                   <input type="text" class="form-control" id="lodge_representative" name="lodge_representative"
-                    placeholder="Name/Star">
+                    placeholder="Name & Star">
                   <span class="input-group-text bg-light"><i class="bi bi-clock"></i></span>
                   <input type="time" class="form-control" id="lodge_representative_time"
                     name="lodge_representative_time">
                 </div>
               </div>
+              <button id="download-pdf" class="btn btn-primary mt-4">Download PDF</button>
             </div>
           </div>
         </div>
@@ -3428,6 +3429,9 @@
   <!-- BOOTSTRAP BUNDLE WITH PROPPER -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- jsPDF Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 
   <!-- MAIN JS -->
   <script src="/assets/js/main.js"></script>
