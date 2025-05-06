@@ -266,6 +266,25 @@
         </div>
       </div>
 
+      <!-- FUELING STATIONS ACCORDION -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseFuel" aria-expanded="false" aria-controls="flush-collapseFuel">
+            Fueling Stations
+          </button>
+        </h2>
+        <div id="flush-collapseFuel" class="accordion-collapse collapse" data-bs-parent="#quickLinksAccordion">
+          <div class="accordion-body d-flex flex-column align-items-center">
+            <!-- Content for Fueling Stations Accordion -->
+            View fueling station locations and Zipcode
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#fuelModal">
+              Fuel Info
+          </button>
+          </div>
+        </div>
+      </div>
+
       <!-- MIRANDA WARNING ACCORDION -->
       <div class="accordion-item">
         <h2 class="accordion-header">
@@ -285,7 +304,7 @@
         </div>
       </div>
 
-      <!-- SHOOTING ORDER REQUEST -->
+      <!-- SHOOTING ORDER ACCORDION -->
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -2856,6 +2875,229 @@
             </tbody>
           </table>
 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FUEL MODAL -->
+  <div class="modal fade" id="fuelModal" tabindex="-1" aria-labelledby="fuelModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="fuelModalLabel">Fueling Stations</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h2>North - Area North Garage</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Label</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Address</td>
+                <td>3245 N Campbell Ave, 60618</td>
+              </tr>
+              <tr>
+                <td>Phone Number</td>
+                <td>312-744-5666</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>North - Ferdinand</h2>
+          <h3>(11th Dist)</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Label</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Address</td>
+                <td>4233 W Ferdinad St, 60624</td>
+              </tr>
+              <tr>
+                <td>Phone Number</td>
+                <td>312-744-5668</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>North - O'Hare Airport</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Label</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Address</td>
+                <td>10000 W O'Hare Ave, 60666</td>
+              </tr>
+              <tr>
+                <td>Phone Number</td>
+                <td>312-744-5666</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>North - Ravenswood</h2>
+          <h3>(24th Dist)</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Label</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Address</td>
+                <td>6445 N Ravenswood Ave, 60626</td>
+              </tr>
+              <tr>
+                <td>Phone Number</td>
+                <td>312-744-5669</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>North - Sunnyside</h2>
+          <h3>(16th Dist)</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Label</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Address</td>
+                <td>4833 W Sunnyside Ave, 60630</td>
+              </tr>
+              <tr>
+                <td>Phone Number</td>
+                <td>312-744-5670</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>South - 101st & Stony Island</h2>
+          <h3>(05th Dist)</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Label</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Address</td>
+                <td>10101 S Stony Island Ave, 60617</td>
+              </tr>
+              <tr>
+                <td>Phone Number</td>
+                <td>312-744-5673</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>South - 104th & Vincennes</h2>
+          <h3>(22nd Dist)</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Label</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Address</td>
+                <td>10420 S Vincennes Ave, 60643</td>
+              </tr>
+              <tr>
+                <td>Phone Number</td>
+                <td>312-744-5666</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>South - 38th & Iron</h2>
+          <h3>(09th Dist)</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Label</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Address</td>
+                <td>3746 S Iron St, 60609</td>
+              </tr>
+              <tr>
+                <td>Phone Number</td>
+                <td>312-744-5670</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>South - 65th & State</h2>
+          <h3>(03rd Dist)</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Label</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Address</td>
+                <td>25 W 65th St, 60621</td>
+              </tr>
+              <tr>
+                <td>Phone Number</td>
+                <td>312-744-5671</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>South - Midway Airport</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Label</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Address</td>
+                <td>5150 W 63rd St, 60638</td>
+              </tr>
+              <tr>
+                <td>Phone Number</td>
+                <td>312-744-5672</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
