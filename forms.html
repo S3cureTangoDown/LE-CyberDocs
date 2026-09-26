@@ -3,59 +3,68 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- FAVICON ICON -->
+  <meta name="description" content="Search warrant, subpoena, consent and preservation templates." />
+  <title>Forms | LE Cyber-Docs</title>
+  <!-- THEME: set before first paint so there's no flash of the wrong theme -->
+  <script>
+    (function () {
+      var t;
+      try { t = localStorage.getItem("le-theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") {
+        t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-bs-theme", t);
+    })();
+  </script>
   <!-- GOOGLE FONTS -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet" />
-  <!-- BOOTSTRAP 5 CSS -->
-  <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- BOOTSTRAP 5 CSS + ICONS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
   <!-- STYLES CSS -->
-  <link rel="stylesheet" href="/assets/css/styles.css" />
-  <!-- DOC TITLE -->
-  <title>LE PDF Library | t3Rminal_cmd</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
 <body class="form-page">
   <!-- NAV BAR -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-lg bg-primary">
-    <div class="container-fluid px-3">
-      <a class="navbar-brand fw-bold px-2" href="#">S3cureTangoDown</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <a class="visually-hidden-focusable skip-link" href="#main">Skip to content</a>
+  <nav class="navbar navbar-expand-lg site-nav sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html"><i class="bi bi-shield-lock-fill me-2"></i>LE Cyber-Docs</a>
+      <div class="d-flex align-items-center gap-2 order-lg-last ms-lg-2">
+        <button class="btn theme-toggle" type="button" aria-label="Switch to dark theme" title="Toggle dark/light theme">
+          <i class="bi bi-moon-stars-fill theme-icon-to-dark" aria-hidden="true"></i>
+          <i class="bi bi-sun-fill theme-icon-to-light" aria-hidden="true"></i>
+        </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+          aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="mainNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.html">Forms</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="login.html">Forms</a></li>
+          <li class="nav-item"><a class="nav-link" href="chart.html">Street Values</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-          <button class="btn btn-outline-success" type="submit">
-            Search
-          </button>
+        <form class="site-search" role="search" hidden>
+          <i class="bi bi-search" aria-hidden="true"></i>
+          <input class="form-control" type="search" id="site-search" placeholder="Filter this page…"
+            aria-label="Filter this page" autocomplete="off" />
         </form>
       </div>
     </div>
   </nav>
+  <main id="main">
   <hr />
 
   <!-- SEARCH WARRANT ACCORDIONS -->
-  <div class="container d-flex flex-column align-items-center shadow-lg mb-4 py-4">
+  <div class="container page-section shadow-sm mb-4 py-4">
     <h2>Warrant Templates</h2>
     <div class="container my-5">
       <div class="accordion" id="accordionExample">
@@ -81,7 +90,7 @@
                   <p>The People of the State of Illinois to all peace officers of the State.</p>
                   <p><strong>SEARCH WARRANT</strong></p>
                 </div>
-                <div class="border border-dark mb-3 p-3 position-relative" style="width: 90%;">
+                <div class="border border-secondary-subtle mb-3 p-3 position-relative" style="width: 90%;">
                   On this day, Chicago police officer Johnny Doe #12345, unit 999 Good Guys Division, complainant has
                   subscribed and
                   sworn to a complaint for a search warrant before me. Upon examination of the complaint, I find that it
@@ -90,7 +99,7 @@
                   <br>
                   <br>
                   <div class="position-absolute bottom-0 end-0 mb-1 me-1">
-                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)">
+                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)" aria-label="Copy this text" title="Copy">
                       <i class="bi bi-copy"></i>
                     </button>
                   </div>
@@ -98,14 +107,14 @@
                 <div class="mb-3 text-center">
                   <p><strong>I therefore, command that you search the premises: </strong></p>
                 </div>
-                <div class="border border-dark mb-3 p-3 position-relative" style="width: 90%;">
+                <div class="border border-secondary-subtle mb-3 p-3 position-relative" style="width: 90%;">
                   A house at 123 North Main Street, a green house with white pillars bearing the number 123 affixed to
                   front pillar,
                   a single-family style residence, Chicago, Cook County, Illinois 60699.
                   <br>
                   <br>
                   <div class="position-absolute bottom-0 end-0 mb-1 me-1">
-                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)">
+                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)" aria-label="Copy this text" title="Copy">
                       <i class="bi bi-copy"></i>
                     </button>
                   </div>
@@ -113,7 +122,7 @@
                 <div class="mb-3 text-center">
                   <p><strong>and seize the following instruments, articles, and things: </strong></p>
                 </div>
-                <div class="border border-dark mb-3 p-3 position-relative" style="width: 90%;">
+                <div class="border border-secondary-subtle mb-3 p-3 position-relative" style="width: 90%;">
                   Heroin; to wit: a controlled substance and any items showing proof of residency, any paraphernalia
                   used
                   in
@@ -122,7 +131,7 @@
                   <br>
                   <br>
                   <div class="position-absolute bottom-0 end-0 mb-1 me-1">
-                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)">
+                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)" aria-label="Copy this text" title="Copy">
                       <i class="bi bi-copy"></i>
                     </button>
                   </div>
@@ -132,12 +141,12 @@
                     </strong>
                   </p>
                 </div>
-                <div class="border border-dark mb-4 p-3 position-relative text-center" style="width: 90%;">
+                <div class="border border-secondary-subtle mb-4 p-3 position-relative text-center" style="width: 90%;">
                   720 ILCS 570/401-D-1 OTHER AMT NARCOTIC SCHED I & II
                   <br>
                   <br>
                   <div class="position-absolute bottom-0 end-0 mb-1 me-1">
-                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)">
+                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)" aria-label="Copy this text" title="Copy">
                       <i class="bi bi-copy"></i>
                     </button>
                   </div>
@@ -169,7 +178,7 @@
                     <h5>THE CIRCUIT COURT OF COOK</h5>
                   </div>
                 </div>
-                <div class="border border-dark mt-4 mb-3 p-3 position-relative" style="width: 90%;">
+                <div class="border border-secondary-subtle mt-4 mb-3 p-3 position-relative" style="width: 90%;">
                   <strong>I, Chicago police officer Johnny Doe #12345, unit 999 Good Guys Division, complainant now
                     appears before
                     the undersigned judge of the Circuit Court of Cook County and requests the issuance of a search
@@ -178,7 +187,7 @@
                   <br>
                   <br>
                   <div class="position-absolute bottom-0 end-0 mb-1 me-1">
-                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)">
+                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)" aria-label="Copy this text" title="Copy">
                       <i class="bi bi-copy"></i>
                     </button>
                   </div>
@@ -186,14 +195,14 @@
                 <div class="mb-3 text-center">
                   <p><strong>The premises: </strong></p>
                 </div>
-                <div class="border border-dark mb-3 p-3 position-relative" style="width: 90%;">
+                <div class="border border-secondary-subtle mb-3 p-3 position-relative" style="width: 90%;">
                   A house at 123 North Main street, a green house with white pillars bearing the number 123 affixed to
                   front pillar,
                   a single-family style residence, Chicago, Cook County, Illinois 60699.
                   <br>
                   <br>
                   <div class="position-absolute bottom-0 end-0 mb-1 me-1">
-                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)">
+                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)" aria-label="Copy this text" title="Copy">
                       <i class="bi bi-copy"></i>
                     </button>
                   </div>
@@ -201,7 +210,7 @@
                 <div class="mb-3 text-center">
                   <p><strong>and sieze the following instruments, articles and things: </strong></p>
                 </div>
-                <div class="border border-dark mb-3 p-3 position-relative" style="width: 90%;">
+                <div class="border border-secondary-subtle mb-3 p-3 position-relative" style="width: 90%;">
                   Heroin; to wit: a controlled substance and any items showing proof of residency, any paraphernalia
                   used
                   in
@@ -210,7 +219,7 @@
                   <br>
                   <br>
                   <div class="position-absolute bottom-0 end-0 mb-1 me-1">
-                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)">
+                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)" aria-label="Copy this text" title="Copy">
                       <i class="bi bi-copy"></i>
                     </button>
                   </div>
@@ -220,12 +229,12 @@
                     </strong>
                   </p>
                 </div>
-                <div class="border border-dark mb-3 p-3 position-relative text-center" style="width: 90%;">
+                <div class="border border-secondary-subtle mb-3 p-3 position-relative text-center" style="width: 90%;">
                   720 ILCS 570/401-D-1 OTHER AMT NARCOTIC SCHED I & II
                   <br>
                   <br>
                   <div class="position-absolute bottom-0 end-0 mb-1 me-1">
-                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)">
+                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)" aria-label="Copy this text" title="Copy">
                       <i class="bi bi-copy"></i>
                     </button>
                   </div>
@@ -237,7 +246,7 @@
                       listed things to be seized are now located upon the person and premises set forth above: </strong>
                   </p>
                 </div>
-                <div class="border border-dark mb-3 p-3 position-relative" style="width: 90%;">
+                <div class="border border-secondary-subtle mb-3 p-3 position-relative" style="width: 90%;">
                   I, Chicago police officer Johnny Doe #12345, have been a police officer for the city of Chicago for
                   the
                   past 9
@@ -334,12 +343,12 @@
                   <br>
                   <br>
                   <div class="position-absolute bottom-0 end-0 mb-2 me-2">
-                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)">
+                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)" aria-label="Copy this text" title="Copy">
                       <i class="bi bi-copy"></i>
                     </button>
                   </div>
                 </div>
-                <div class="border border-dark mb-3 p-3 position-relative" style="width: 90%;">
+                <div class="border border-secondary-subtle mb-3 p-3 position-relative" style="width: 90%;">
                   Based on the aforementioned, the affiant believes that there are sufficient facts for the issuance of
                   a
                   search
@@ -347,7 +356,7 @@
                   <br>
                   <br>
                   <div class="position-absolute bottom-0 end-0 mb-2 me-2">
-                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)">
+                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)" aria-label="Copy this text" title="Copy">
                       <i class="bi bi-copy"></i>
                     </button>
                   </div>
@@ -378,7 +387,7 @@
                   <p>The People of the State of Illinois to all peace officers of the State.</p>
                   <p><strong>SEARCH WARRANT</strong></p>
                 </div>
-                <div class="border border-dark mb-3 p-3 position-relative" style="width: 90%;">
+                <div class="border border-secondary-subtle mb-3 p-3 position-relative" style="width: 90%;">
                   On this day, Chicago police officer Johnny Doe #12345, unit 999 Good Guys Division, complainant has
                   subscribed and
                   sworn to a complaint for a search warrant before me. Upon examination of the complaint, I find that it
@@ -387,7 +396,7 @@
                   <br>
                   <br>
                   <div class="position-absolute bottom-0 end-0 mb-1 me-1">
-                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)">
+                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)" aria-label="Copy this text" title="Copy">
                       <i class="bi bi-copy"></i>
                     </button>
                   </div>
@@ -395,12 +404,12 @@
                 <div class="mb-3 text-center">
                   <p><strong>I therefore, command that you search the premises: </strong></p>
                 </div>
-                <div class="border border-dark mb-3 p-3 position-relative" style="width: 90%;">
+                <div class="border border-secondary-subtle mb-3 p-3 position-relative" style="width: 90%;">
                   A gray Audi A8 4 door sedan, IL License AB12345, VIN ABCDEFGH7ab012345
                   <br>
                   <br>
                   <div class="position-absolute bottom-0 end-0 mb-1 me-1">
-                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)">
+                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)" aria-label="Copy this text" title="Copy">
                       <i class="bi bi-copy"></i>
                     </button>
                   </div>
@@ -408,14 +417,14 @@
                 <div class="mb-3 text-center">
                   <p><strong>and seize the following instruments, articles, and things: </strong></p>
                 </div>
-                <div class="border border-dark mb-3 p-3 position-relative" style="width: 90%;">
+                <div class="border border-secondary-subtle mb-3 p-3 position-relative" style="width: 90%;">
                   Firearms; to wit: a blue steel or black semi-auto pistol with extended magazine, any firearm
                   ammunition, and any other items related to the offense of unlawful possession of a weapon compiled
                   statues.
                   <br>
                   <br>
                   <div class="position-absolute bottom-0 end-0 mb-1 me-1">
-                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)">
+                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)" aria-label="Copy this text" title="Copy">
                       <i class="bi bi-copy"></i>
                     </button>
                   </div>
@@ -425,12 +434,12 @@
                     </strong>
                   </p>
                 </div>
-                <div class="border border-dark mb-4 p-3 position-relative text-center" style="width: 90%;">
+                <div class="border border-secondary-subtle mb-4 p-3 position-relative text-center" style="width: 90%;">
                   720 ILCS 5/24-1.1 UNLAWFUL USE OF A WEAPON BY FELON
                   <br>
                   <br>
                   <div class="position-absolute bottom-0 end-0 mb-1 me-1">
-                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)">
+                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)" aria-label="Copy this text" title="Copy">
                       <i class="bi bi-copy"></i>
                     </button>
                   </div>
@@ -462,7 +471,7 @@
                     <h5>THE CIRCUIT COURT OF COOK</h5>
                   </div>
                 </div>
-                <div class="border border-dark mt-4 mb-3 p-3 position-relative" style="width: 90%;">
+                <div class="border border-secondary-subtle mt-4 mb-3 p-3 position-relative" style="width: 90%;">
                   <strong>I, Chicago police officer Johnny Doe #12345, unit 999 Good Guys Division, complainant now
                     appears before
                     the undersigned judge of the Circuit Court of Cook County and requests the issuance of a search
@@ -471,7 +480,7 @@
                   <br>
                   <br>
                   <div class="position-absolute bottom-0 end-0 mb-1 me-1">
-                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)">
+                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)" aria-label="Copy this text" title="Copy">
                       <i class="bi bi-copy"></i>
                     </button>
                   </div>
@@ -479,12 +488,12 @@
                 <div class="mb-3 text-center">
                   <p><strong>The premises: </strong></p>
                 </div>
-                <div class="border border-dark mb-3 p-3 position-relative" style="width: 90%;">
+                <div class="border border-secondary-subtle mb-3 p-3 position-relative" style="width: 90%;">
                   A gray Audi A8 4 door sedan, IL License AB12345, VIN ABCDEFGH7ab012345
                   <br>
                   <br>
                   <div class="position-absolute bottom-0 end-0 mb-1 me-1">
-                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)">
+                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)" aria-label="Copy this text" title="Copy">
                       <i class="bi bi-copy"></i>
                     </button>
                   </div>
@@ -492,14 +501,14 @@
                 <div class="mb-3 text-center">
                   <p><strong>and sieze the following instruments, articles and things: </strong></p>
                 </div>
-                <div class="border border-dark mb-3 p-3 position-relative" style="width: 90%;">
+                <div class="border border-secondary-subtle mb-3 p-3 position-relative" style="width: 90%;">
                   Firearms; to wit: a blue steel or black semi-auto pistol with extended magazine, any firearm
                   ammunition, and any other items related to the offense of unlawful possession of a weapon compiled
                   statues.
                   <br>
                   <br>
                   <div class="position-absolute bottom-0 end-0 mb-1 me-1">
-                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)">
+                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)" aria-label="Copy this text" title="Copy">
                       <i class="bi bi-copy"></i>
                     </button>
                   </div>
@@ -509,12 +518,12 @@
                     </strong>
                   </p>
                 </div>
-                <div class="border border-dark mb-3 p-3 position-relative text-center" style="width: 90%;">
+                <div class="border border-secondary-subtle mb-3 p-3 position-relative text-center" style="width: 90%;">
                   720 ILCS 5/24-1.1 UNLAWFUL USE OF A WEAPON BY FELON
                   <br>
                   <br>
                   <div class="position-absolute bottom-0 end-0 mb-1 me-1">
-                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)">
+                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)" aria-label="Copy this text" title="Copy">
                       <i class="bi bi-copy"></i>
                     </button>
                   </div>
@@ -526,7 +535,7 @@
                       listed things to be seized are now located upon the person and premises set forth above: </strong>
                   </p>
                 </div>
-                <div class="border border-dark mb-3 p-3 position-relative" style="width: 90%;">
+                <div class="border border-secondary-subtle mb-3 p-3 position-relative" style="width: 90%;">
                   I, Chicago police officer Johnny Doe #12345, have been a police officer for the city of Chicago for
                   the
                   past 9
@@ -559,12 +568,12 @@
                   <br>
                   <br>
                   <div class="position-absolute bottom-0 end-0 mb-2 me-2">
-                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)">
+                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)" aria-label="Copy this text" title="Copy">
                       <i class="bi bi-copy"></i>
                     </button>
                   </div>
                 </div>
-                <div class="border border-dark mb-3 p-3 position-relative" style="width: 90%;">
+                <div class="border border-secondary-subtle mb-3 p-3 position-relative" style="width: 90%;">
                   Based on the aforementioned, the affiant believes that there are sufficient facts for the issuance of
                   a
                   search
@@ -573,7 +582,7 @@
                   ammunition, and any other items related to the offense of unlawful possession of a weapon compiled
                   statues.
                   <div class="position-absolute bottom-0 end-0 mb-2 me-2">
-                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)">
+                    <button class="btn btn-outline-primary" type="button" onclick="copyToClipboard(this)" aria-label="Copy this text" title="Copy">
                       <i class="bi bi-copy"></i>
                     </button>
                   </div>
@@ -617,7 +626,7 @@
   </div>
 
   <!-- SUBPEONA ACCORDIONS -->
-  <div class="container d-flex flex-column align-items-center shadow-lg mb-4 py-4">
+  <div class="container page-section shadow-sm mb-4 py-4">
     <h2>Subpeona Templates</h2>
     <div class="container my-5">
       <div class="accordion" id="subpeonaAccordion">
@@ -722,7 +731,7 @@
   </div>
 
   <!-- CONSENT ACCORDIONS -->
-  <div class="container d-flex flex-column align-items-center shadow-lg mb-4 py-4">
+  <div class="container page-section shadow-sm mb-4 py-4">
     <h2>Consent Forms</h2>
     <div class="container my-5">
       <div class="accordion" id="consentAccordion">
@@ -827,7 +836,7 @@
   </div>
 
   <!-- PRESERVATION ACCORDIONS -->
-  <div class="container d-flex flex-column align-items-center shadow-lg mb-4 py-4">
+  <div class="container page-section shadow-sm mb-4 py-4">
     <h2>Preservation Forms</h2>
     <div class="container my-5">
       <div class="accordion" id="preservationAccordion">
@@ -933,7 +942,7 @@
   </div>
 
   <!-- EXIGENT CIRCUMSTANCES ACCORDIONS -->
-  <div class="container d-flex flex-column align-items-center shadow-lg mb-4 py-4">
+  <div class="container page-section shadow-sm mb-4 py-4">
     <h2>Exigent Circumstances Forms</h2>
     <div class="container my-5">
       <div class="accordion" id="exigentAccordion">
@@ -1038,7 +1047,7 @@
   </div>
 
   <!-- INVESTIGATION ACCORDIONS -->
-  <div class="container d-flex flex-column align-items-center shadow-lg mb-4 py-4">
+  <div class="container page-section shadow-sm mb-4 py-4">
     <h2>Investigation Forms</h2>
     <div class="container my-5">
       <div class="accordion" id="investigationAccordion">
@@ -1146,7 +1155,7 @@
   </div>
 
   <!-- CHICAGO POLICE ACCORDIONS -->
-  <div class="container d-flex flex-column align-items-center shadow-lg mb-4 py-4">
+  <div class="container page-section shadow-sm mb-4 py-4">
     <h2>Chicago Police Forms</h2>
     <div class="container my-5">
       <div class="accordion" id="chicagoPoliceAccordion">
@@ -1263,40 +1272,34 @@
     <h2>SECTION 10</h2>
   </div>
 
+  </main>
+
   <!-- SCROLL TO TOP BUTTON -->
-  <button class="scroll-to-top btn" onclick="scrollToTop()">
-    <i class="bi bi-chevron-bar-up" style="font-size: 2rem; color: hsl(0, 0%, 7%)"></i>
+  <button class="scroll-to-top" type="button" aria-label="Scroll to top" title="Scroll to top">
+    <i class="bi bi-arrow-up" aria-hidden="true"></i>
   </button>
-  <br />
-  <br />
 
   <!-- FOOTER SECTION -->
-  <footer class="py-4 text-black">
+  <footer class="site-footer py-4">
     <div class="container text-center">
-      <!-- Social Media Icons -->
-      <div class="d-flex justify-content-center my-4">
-        <a href="https://www.twitter.com" target="_blank" class="me-3">
-          <i class="bi bi-twitter-x fs-3"></i>
+      <div class="d-flex justify-content-center gap-3 mb-3">
+        <a href="https://www.twitter.com" target="_blank" rel="noopener" aria-label="X (Twitter)">
+          <i class="bi bi-twitter-x fs-4"></i>
         </a>
-        <a href="https://github.com/t3rminal-cmd" target="_blank">
-          <i class="bi bi-github fs-3"></i>
+        <a href="https://github.com/t3rminal-cmd" target="_blank" rel="noopener" aria-label="GitHub">
+          <i class="bi bi-github fs-4"></i>
         </a>
       </div>
-      <!-- Company Name -->
       <p class="mb-1">S3cureTangoDown LLC</p>
-      <!-- Copyright and Contact Information -->
-      <p class="mb-1">&copy; All rights reserved.</p>
-      <!-- Location -->
+      <p class="mb-1">&copy; <span class="js-year">2025</span> All rights reserved.</p>
       <p class="mb-0">Chicago | IL | USA</p>
     </div>
   </footer>
 
-  <!-- BOOTSTRAP BUNDLE WITH PROPPER -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+  <!-- BOOTSTRAP JS (includes Popper) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
   <!-- MAIN JS -->
-  <script src="/assets/js/main.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 
 </html>

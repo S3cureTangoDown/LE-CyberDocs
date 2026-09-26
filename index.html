@@ -3,55 +3,64 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- FAVICON ICON -->
+  <meta name="description" content="Quick links, checklists and reference guides for law enforcement." />
+  <title>Home | LE Cyber-Docs</title>
+  <!-- THEME: set before first paint so there's no flash of the wrong theme -->
+  <script>
+    (function () {
+      var t;
+      try { t = localStorage.getItem("le-theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") {
+        t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-bs-theme", t);
+    })();
+  </script>
   <!-- GOOGLE FONTS -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet" />
-  <!-- BOOTSTRAP 5 CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- BOOTSTRAP 5 CSS + ICONS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
   <!-- STYLES CSS -->
-  <link rel="stylesheet" href="/assets/css/styles.css" />
-  <!-- DOC TITLE -->
-  <title>LE PDF Library | t3Rminal_cmd</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
 <body>
   <!-- NAV BAR -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-lg bg-primary">
-    <div class="container-fluid px-3">
-      <a class="navbar-brand fw-bold px-2" href="#">S3cureTangoDown</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <a class="visually-hidden-focusable skip-link" href="#main">Skip to content</a>
+  <nav class="navbar navbar-expand-lg site-nav sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html"><i class="bi bi-shield-lock-fill me-2"></i>LE Cyber-Docs</a>
+      <div class="d-flex align-items-center gap-2 order-lg-last ms-lg-2">
+        <button class="btn theme-toggle" type="button" aria-label="Switch to dark theme" title="Toggle dark/light theme">
+          <i class="bi bi-moon-stars-fill theme-icon-to-dark" aria-hidden="true"></i>
+          <i class="bi bi-sun-fill theme-icon-to-light" aria-hidden="true"></i>
+        </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+          aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="mainNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.html">Forms</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Forms</a></li>
+          <li class="nav-item"><a class="nav-link" href="chart.html">Street Values</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-          <button class="btn btn-outline-success" type="submit">
-            Search
-          </button>
+        <form class="site-search" role="search" hidden>
+          <i class="bi bi-search" aria-hidden="true"></i>
+          <input class="form-control" type="search" id="site-search" placeholder="Filter this page…"
+            aria-label="Filter this page" autocomplete="off" />
         </form>
       </div>
     </div>
   </nav>
+  <main id="main">
 
   <!-- NAVBAR CAROUSEL SECTION -->
   <div class="container">
@@ -312,7 +321,7 @@
             Shooting Order Request
           </button>
         </h2>
-        <div id="flush-collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+        <div id="flush-collapseSeven" class="accordion-collapse collapse" data-bs-parent="#quickLinksAccordion">
           <div class="accordion-body">
             <div class="alert alert-warning">
               <strong>Important:</strong> In the event that you or your partner are part of an officer involved shooting
@@ -325,7 +334,7 @@
                 <div class="input-group">
                   <input type="text" class="form-control" id="first_supervisor" name="first_supervisor"
                     placeholder="Name & Star">
-                  <span class="input-group-text bg-light"><i class="bi bi-clock"></i></span>
+                  <span class="input-group-text bg-body-tertiary"><i class="bi bi-clock"></i></span>
                   <input type="time" class="form-control" id="first_supervisor_time" name="first_supervisor_time">
                 </div>
               </div>
@@ -334,7 +343,7 @@
                 <div class="input-group">
                   <input type="text" class="form-control" id="ocic_ordering" name="ocic_ordering"
                     placeholder="Name & Star">
-                  <span class="input-group-text bg-light"><i class="bi bi-clock"></i></span>
+                  <span class="input-group-text bg-body-tertiary"><i class="bi bi-clock"></i></span>
                   <input type="time" class="form-control" id="ocic_ordering_time" name="ocic_ordering_time">
                 </div>
               </div>
@@ -343,21 +352,21 @@
                 <div class="input-group mb-2">
                   <input type="text" class="form-control" id="additional_supervisors_1" name="additional_supervisors"
                     placeholder="Name & Star">
-                  <span class="input-group-text bg-light"><i class="bi bi-clock"></i></span>
+                  <span class="input-group-text bg-body-tertiary"><i class="bi bi-clock"></i></span>
                   <input type="time" class="form-control" id="additional_supervisors_time_1"
                     name="additional_supervisors_time">
                 </div>
                 <div class="input-group mb-2">
                   <input type="text" class="form-control" id="additional_supervisors_2" name="additional_supervisors"
                     placeholder="Name & Star">
-                  <span class="input-group-text bg-light"><i class="bi bi-clock"></i></span>
+                  <span class="input-group-text bg-body-tertiary"><i class="bi bi-clock"></i></span>
                   <input type="time" class="form-control" id="additional_supervisors_time_2"
                     name="additional_supervisors_time">
                 </div>
                 <div class="input-group">
                   <input type="text" class="form-control" id="additional_supervisors_3" name="additional_supervisors"
                     placeholder="Name & Star">
-                  <span class="input-group-text bg-light"><i class="bi bi-clock"></i></span>
+                  <span class="input-group-text bg-body-tertiary"><i class="bi bi-clock"></i></span>
                   <input type="time" class="form-control" id="additional_supervisors_time_3"
                     name="additional_supervisors_time">
                 </div>
@@ -367,7 +376,7 @@
                 <div class="input-group">
                   <input type="text" class="form-control" id="lodge_representative" name="lodge_representative"
                     placeholder="Name & Star">
-                  <span class="input-group-text bg-light"><i class="bi bi-clock"></i></span>
+                  <span class="input-group-text bg-body-tertiary"><i class="bi bi-clock"></i></span>
                   <input type="time" class="form-control" id="lodge_representative_time"
                     name="lodge_representative_time">
                 </div>
@@ -384,7 +393,7 @@
   <!-- CHART MODAL -->
   <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
     <!-- Modal content for Chart -->
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-dialog modal-fullscreen-sm-down modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel1">Street Value</h5>
@@ -393,7 +402,7 @@
         <div class="modal-body">
           <!-- Add your modal content for Chart here -->
           <h5>Methamphetamine</h5>
-          <table>
+          <div class="table-responsive"><table>
             <tr>
               <th>Drug</th>
               <th>Gram</th>
@@ -406,10 +415,10 @@
               <td>$800.00</td>
               <td>$1,200.00</td>
             </tr>
-          </table>
+          </table></div>
           <br />
           <h5>Heroin</h5>
-          <table>
+          <div class="table-responsive"><table>
             <tr>
               <th>Drug</th>
               <th>Gram</th>
@@ -430,10 +439,10 @@
               <td>$150.00</td>
               <td>$68,038.80</td>
             </tr>
-          </table>
+          </table></div>
           <br />
           <h5>Marijuana</h5>
-          <table>
+          <div class="table-responsive"><table>
             <tr>
               <th>Drug</th>
               <th>Gram</th>
@@ -454,10 +463,10 @@
               <td>$16.00</td>
               <td>$7,256.00</td>
             </tr>
-          </table>
+          </table></div>
           <br />
           <h5>Tetrahydrocannabinol (THC)</h5>
-          <table>
+          <div class="table-responsive"><table>
             <tr>
               <th>Drug</th>
               <th>Gram</th>
@@ -478,10 +487,10 @@
               <td>$80.00</td>
               <td>$36,320.00</td>
             </tr>
-          </table>
+          </table></div>
           <br />
           <h5>Cocaine</h5>
-          <table>
+          <div class="table-responsive"><table>
             <tr>
               <th></th>
               <th>Gram</th>
@@ -503,10 +512,10 @@
               <td>$4,540.00</td>
               <td></td>
             </tr>
-          </table>
+          </table></div>
           <br />
           <h5>Fentanyl</h5>
-          <table>
+          <div class="table-responsive"><table>
             <tr>
               <th></th>
               <th>Gram</th>
@@ -521,10 +530,10 @@
               <td>$70,612.70</td>
               <td>$40,000.00</td>
             </tr>
-          </table>
+          </table></div>
           <br />
           <h5>Other Narcotics Prices</h5>
-          <table>
+          <div class="table-responsive"><table>
             <tr>
               <th>Drug</th>
               <th>Gram</th>
@@ -639,7 +648,7 @@
               <td>$10.00</td>
               <td>$4,540.00</td>
             </tr>
-          </table>
+          </table></div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
@@ -653,7 +662,7 @@
   <!-- CALCULATOR MODAL -->
   <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
     <!-- Modal content for Calculator -->
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-fullscreen-sm-down modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel2">
@@ -771,12 +780,11 @@
                         </select>
                       </div>
                     </div>
-                    <button onclick="calculateValue()" class="btn btn-primary d-block mx-auto">
-                      Calculate
+                    <button type="button" class="btn btn-primary d-block mx-auto px-4 js-calc-btn">
+                      <i class="bi bi-calculator me-1" aria-hidden="true"></i>Calculate
                     </button>
-                    <!-- Centered button -->
-                    <div id="result" class="bg-light text-center" style="height: 40px">
-                      Value
+                    <div id="result" class="calc-result text-center mt-3" role="status" aria-live="polite">
+                      Choose a narcotic, amount and unit, then press Calculate.
                     </div>
                   </div>
                   <!-- Footer content -->
@@ -797,7 +805,7 @@
   <!-- NARCOTICS COMPLAINT MODAL -->
   <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
     <!-- Modal content for Complaints -->
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-dialog modal-fullscreen-sm-down modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel3">
@@ -1196,8 +1204,8 @@
   </div>
 
   <!-- SFST MODAL -->
-  <div class="modal fade" id="exampleModal7" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+  <div class="modal fade" id="exampleModal7" tabindex="-1" aria-labelledby="exampleModalLabel7" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen-sm-down modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel7">
@@ -1295,8 +1303,8 @@
                   <div class="container shadow-lg pt-2 mb-4">
                     <h6 class="text-center">TOTAL SCORE</h6>
                     <div class="pb-2">
-                      <label for="numberInput">Enter a number:</label>
-                      <select name="numberDropdown" id="numberDropdown">
+                      <label for="sfstScore1">Enter a number:</label>
+                      <select name="sfstScore1" id="sfstScore1" class="form-select form-select-sm d-inline-block w-auto">
                         <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -1381,8 +1389,8 @@
                   <div class="container shadow-lg pt-2 mb-4">
                     <h6 class="text-center">TOTAL SCORE</h6>
                     <div class="pb-2">
-                      <label for="numberInput">Enter a number:</label>
-                      <select name="numberDropdown" id="numberDropdown">
+                      <label for="sfstScore2">Enter a number:</label>
+                      <select name="sfstScore2" id="sfstScore2" class="form-select form-select-sm d-inline-block w-auto">
                         <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -1453,8 +1461,8 @@
                   <div class="container shadow-lg pt-2 mb-4">
                     <h6 class="text-center">TOTAL SCORE</h6>
                     <div class="pb-2">
-                      <label for="numberInput">Enter a number:</label>
-                      <select name="numberDropdown" id="numberDropdown">
+                      <label for="sfstScore3">Enter a number:</label>
+                      <select name="sfstScore3" id="sfstScore3" class="form-select form-select-sm d-inline-block w-auto">
                         <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -1539,7 +1547,7 @@
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
             Close
           </button>
-          <button type="button" class="btn btn-danger" id="refreshModalButton1">
+          <button type="button" class="btn btn-danger" id="refreshModalButton1" data-clear-modal>
             Clear Page
           </button>
         </div>
@@ -1548,24 +1556,24 @@
   </div>
 
   <!-- DUI FLOW CHART MODAL-->
-  <div class="modal fade" id="exampleModal8" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+  <div class="modal fade" id="exampleModal8" tabindex="-1" aria-labelledby="exampleModalLabel8" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen-sm-down modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">DUI Flow Chart</h5>
+          <h5 class="modal-title" id="exampleModalLabel8">DUI Flow Chart</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <!-- Flow Chart -->
-        <div class="accordion" id="accordionExample">
+        <div class="accordion" id="duiAccordion">
           <!-- Accordion Item for Phase I -->
           <div class="accordion-item">
             <h2 class="accordion-header">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                aria-expanded="false" aria-controls="collapseOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#duiCollapseOne"
+                aria-expanded="false" aria-controls="duiCollapseOne">
                 <strong>Phase I</strong>&nbsp;- Vehicle in Motion
               </button>
             </h2>
-            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div id="duiCollapseOne" class="accordion-collapse collapse" data-bs-parent="#duiAccordion">
               <div class="accordion-body">
                 <strong>Curb Vehicle</strong> - Observe driver, location &
                 number of occupants.
@@ -1613,11 +1621,11 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                data-bs-target="#duiCollapseTwo" aria-expanded="false" aria-controls="duiCollapseTwo">
                 <strong>Phase II</strong>&nbsp;- Observations | SFST needed?
               </button>
             </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div id="duiCollapseTwo" class="accordion-collapse collapse" data-bs-parent="#duiAccordion">
               <div class="accordion-body">
                 <strong>Driver exit Vehicle</strong> - Observation of the
                 driver exiting & determine SFST needed?
@@ -1633,11 +1641,11 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                data-bs-target="#duiCollapseThree" aria-expanded="false" aria-controls="duiCollapseThree">
                 <strong>Phase III</strong>&nbsp;- Administer SFST
               </button>
             </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div id="duiCollapseThree" class="accordion-collapse collapse" data-bs-parent="#duiAccordion">
               <div class="accordion-body">
                 <div class="mb-3">
                   <label for="phaseIII_SFST_administered" class="form-label">SFST Administered?</label>
@@ -1685,11 +1693,11 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                data-bs-target="#duiCollapseFour" aria-expanded="false" aria-controls="duiCollapseFour">
                 <strong>Phase IV</strong>&nbsp;- Arrest & Transport
               </button>
             </h2>
-            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div id="duiCollapseFour" class="accordion-collapse collapse" data-bs-parent="#duiAccordion">
               <div class="accordion-body">
                 <div class="mb-3">
                   <label for="arrestDriver" class="form-label">Time of Arrest</label>
@@ -1713,11 +1721,11 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                data-bs-target="#duiCollapseFive" aria-expanded="false" aria-controls="duiCollapseFive">
                 <strong>Phase V</strong>&nbsp;- Testing
               </button>
             </h2>
-            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div id="duiCollapseFive" class="accordion-collapse collapse" data-bs-parent="#duiAccordion">
               <div class="accordion-body">
                 <div class="mb-3">
                   <!-- Radio buttons for Submit to Testing -->
@@ -1744,11 +1752,11 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                data-bs-target="#duiCollapseSix" aria-expanded="false" aria-controls="duiCollapseSix">
                 <strong>Phase VI</strong>&nbsp;- Breath Analysis
               </button>
             </h2>
-            <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div id="duiCollapseSix" class="accordion-collapse collapse" data-bs-parent="#duiAccordion">
               <div class="accordion-body">
                 <div class="mb-3">
                   <label for="observationTime" class="form-label">20 min Observation</label>
@@ -1781,11 +1789,11 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                data-bs-target="#duiCollapseSeven" aria-expanded="false" aria-controls="duiCollapseSeven">
                 <strong>Phase VII</strong>&nbsp;- Alternate Testing
               </button>
             </h2>
-            <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div id="duiCollapseSeven" class="accordion-collapse collapse" data-bs-parent="#duiAccordion">
               <div class="accordion-body">
                 <!-- Text boxes for Alternate Testing -->
                 <div class="mb-3">
@@ -1815,11 +1823,11 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                data-bs-target="#duiCollapseEight" aria-expanded="false" aria-controls="duiCollapseEight">
                 <strong>Phase VIII</strong>&nbsp;- Finish Arrest
               </button>
             </h2>
-            <div id="collapseEight" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div id="duiCollapseEight" class="accordion-collapse collapse" data-bs-parent="#duiAccordion">
               <div class="accordion-body">
                 <!-- Radio buttons for Finish Arrest -->
                 <div class="mb-3">
@@ -1912,7 +1920,7 @@
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
             Close
           </button>
-          <button type="button" class="btn btn-danger" id="refreshModalButton2">
+          <button type="button" class="btn btn-danger" id="refreshModalButton2" data-clear-modal>
             Clear Page
           </button>
         </div>
@@ -1922,7 +1930,7 @@
 
   <!-- DUI DOCS MODAL -->
   <div class="modal fade" id="docsModal" tabindex="-1" aria-labelledby="docsModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-fullscreen-sm-down">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="docsModalLabel">Documentation</h5>
@@ -1942,7 +1950,7 @@
 
   <!-- INCIDENT REPORT MODAL -->
   <div class="modal fade" id="incidentModal" tabindex="-1" aria-labelledby="incidentModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-dialog modal-fullscreen-sm-down modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="incidentModalLabel">Incident Reporting Guide</h5>
@@ -1951,7 +1959,7 @@
         <div class="modal-body">
           <!-- Modal Content for Incident Reporting Guide -->
           <h2>Business/Commercial</h2>
-          <table>
+          <div class="table-responsive"><table>
             <thead>
               <tr>
                 <th>Code</th>
@@ -2064,10 +2072,10 @@
                 <td>Police Facility/Vehicle/Lot</td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
           <br />
           <h2>Financial Institution</h2>
-          <table>
+          <div class="table-responsive"><table>
             <tr>
               <th>Code</th>
               <th>Description</th>
@@ -2092,10 +2100,10 @@
               <td>164</td>
               <td>ATM</td>
             </tr>
-          </table>
+          </table></div>
           <br />
           <h2>Medical</h2>
-          <table>
+          <div class="table-responsive"><table>
             <tr>
               <th>Code</th>
               <th>Description</th>
@@ -2116,10 +2124,10 @@
               <td>268</td>
               <td>Nursing Home</td>
             </tr>
-          </table>
+          </table></div>
           <br />
           <h2>Miscellaneous</h2>
-          <table>
+          <div class="table-responsive"><table>
             <tr>
               <th>Code</th>
               <th>Description</th>
@@ -2144,12 +2152,12 @@
               <td>200</td>
               <td>Vacant Lot/Land</td>
             </tr>
-          </table>
+          </table></div>
           <br />
           <h2>Public<br />
             Building/Property/Way
           </h2>
-          <table>
+          <div class="table-responsive"><table>
             <thead>
               <tr>
                 <th>Code</th>
@@ -2210,11 +2218,11 @@
                 <td>Street</td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
           <br />
           <h2>Residential<br />
             Public & Private</h2>
-          <table>
+          <div class="table-responsive"><table>
             <thead>
               <tr>
                 <th>Code</th>
@@ -2259,10 +2267,10 @@
                 <td>Residence - Yard (Front/Back)</td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
           <br />
           <h2>Transportaion</h2>
-          <table>
+          <div class="table-responsive"><table>
             <thead>
               <tr>
                 <th>Code</th>
@@ -2323,10 +2331,10 @@
                 <td>Other Commercial Trans</td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
           <br />
           <h2>School/Univ/Child Care</h2>
-          <table>
+          <div class="table-responsive"><table>
             <thead>
               <tr>
                 <th>Code</th>
@@ -2363,10 +2371,10 @@
                 <td>School Public Grounds</td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
           <br />
           <h2>Other Location Not Listed</h2>
-          <table>
+          <div class="table-responsive"><table>
             <thead>
               <tr>
                 <th>Code</th>
@@ -2379,7 +2387,7 @@
                 <td>OTHER (SPECIFY)</td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -2390,7 +2398,7 @@
 
   <!-- COMMONLY USED UCR MODAL -->
   <div class="modal fade" id="ucrModal" tabindex="-1" aria-labelledby="ucrModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-dialog modal-fullscreen-sm-down modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="ucrModalLabel">Commonly Used UCR</h5>
@@ -2399,7 +2407,7 @@
         <div class="modal-body">
           <!-- Arson/Explosives Section -->
           <h2>Arson/Explosives</h2>
-          <table>
+          <div class="table-responsive"><table>
             <thead>
               <tr>
                 <th>Code</th>
@@ -2428,11 +2436,11 @@
                 <td>Attempt Arson</td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
 
           <!-- Assault Section -->
           <h2>Assault</h2>
-          <table>
+          <div class="table-responsive"><table>
             <thead>
               <tr>
                 <th>Code</th>
@@ -2469,11 +2477,11 @@
                 <td>Stalking-Aggravated</td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
 
           <!-- Battery Section -->
           <h2>Battery</h2>
-          <table>
+          <div class="table-responsive"><table>
             <thead>
               <tr>
                 <th>Code</th>
@@ -2510,11 +2518,11 @@
                 <td>Battery/Domestic-Simple</td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
 
           <!-- Burglary Section -->
           <h2>Burglary</h2>
-          <table>
+          <div class="table-responsive"><table>
             <thead>
               <tr>
                 <th>Code</th>
@@ -2535,11 +2543,11 @@
                 <td>Attempt: Forcible Entry</td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
 
           <!-- Criminal Damage & Trespass to Property Section -->
           <h2>Criminal Damage & Trespass to Property</h2>
-          <table>
+          <div class="table-responsive"><table>
             <thead>
               <tr>
                 <th>Code</th>
@@ -2580,11 +2588,11 @@
                 <td>Criminal Damage to Firefighting Apparatus, Hydrants, or Equipment</td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
 
           <!-- Deception Section -->
           <h2>Deception</h2>
-          <table>
+          <div class="table-responsive"><table>
             <thead>
               <tr>
                 <th>Code</th>
@@ -2645,11 +2653,11 @@
                 <td>Cable TV Service Offense</td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
 
           <!-- Narcotics Section -->
           <h2>Narcotics</h2>
-          <table>
+          <div class="table-responsive"><table>
             <thead>
               <tr>
                 <th>Code</th>
@@ -2754,11 +2762,11 @@
                 <td>Found Property: Narcotics</td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
 
           <!-- Other Section -->
           <h2>Other</h2>
-          <table>
+          <div class="table-responsive"><table>
             <thead>
               <tr>
                 <th>Code</th>
@@ -2791,11 +2799,11 @@
                 <td>Narcan</td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
 
           <!-- Theft Section -->
           <h2>Theft</h2>
-          <table>
+          <div class="table-responsive"><table>
             <thead>
               <tr>
                 <th>Code</th>
@@ -2816,11 +2824,11 @@
                 <td>Other Theft/Retail</td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
 
           <!-- Weapons Violation Section -->
           <h2>Weapons Violation</h2>
-          <table>
+          <div class="table-responsive"><table>
             <thead>
               <tr>
                 <th>Code</th>
@@ -2873,7 +2881,7 @@
                 <td>Fire Arms and Ammunition, No FOID Card</td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
 
         </div>
         <div class="modal-footer">
@@ -2885,7 +2893,7 @@
 
   <!-- FUEL MODAL -->
   <div class="modal fade" id="fuelModal" tabindex="-1" aria-labelledby="fuelModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-dialog modal-fullscreen-sm-down modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="fuelModalLabel">Fueling Stations</h5>
@@ -2893,7 +2901,7 @@
         </div>
         <div class="modal-body">
           <h2>North - Area North Garage</h2>
-          <table>
+          <div class="table-responsive"><table>
             <thead>
               <tr>
                 <th>Label</th>
@@ -2910,11 +2918,11 @@
                 <td>312-744-5666</td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
 
           <h2>North - Ferdinand</h2>
           <h3>(11th Dist)</h3>
-          <table>
+          <div class="table-responsive"><table>
             <thead>
               <tr>
                 <th>Label</th>
@@ -2931,10 +2939,10 @@
                 <td>312-744-5668</td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
 
           <h2>North - O'Hare Airport</h2>
-          <table>
+          <div class="table-responsive"><table>
             <thead>
               <tr>
                 <th>Label</th>
@@ -2951,11 +2959,11 @@
                 <td>312-744-5666</td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
 
           <h2>North - Ravenswood</h2>
           <h3>(24th Dist)</h3>
-          <table>
+          <div class="table-responsive"><table>
             <thead>
               <tr>
                 <th>Label</th>
@@ -2972,11 +2980,11 @@
                 <td>312-744-5669</td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
 
           <h2>North - Sunnyside</h2>
           <h3>(16th Dist)</h3>
-          <table>
+          <div class="table-responsive"><table>
             <thead>
               <tr>
                 <th>Label</th>
@@ -2993,11 +3001,11 @@
                 <td>312-744-5670</td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
 
           <h2>South - 101st & Stony Island</h2>
           <h3>(05th Dist)</h3>
-          <table>
+          <div class="table-responsive"><table>
             <thead>
               <tr>
                 <th>Label</th>
@@ -3014,11 +3022,11 @@
                 <td>312-744-5673</td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
 
           <h2>South - 104th & Vincennes</h2>
           <h3>(22nd Dist)</h3>
-          <table>
+          <div class="table-responsive"><table>
             <thead>
               <tr>
                 <th>Label</th>
@@ -3035,11 +3043,11 @@
                 <td>312-744-5666</td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
 
           <h2>South - 38th & Iron</h2>
           <h3>(09th Dist)</h3>
-          <table>
+          <div class="table-responsive"><table>
             <thead>
               <tr>
                 <th>Label</th>
@@ -3056,11 +3064,11 @@
                 <td>312-744-5670</td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
 
           <h2>South - 65th & State</h2>
           <h3>(03rd Dist)</h3>
-          <table>
+          <div class="table-responsive"><table>
             <thead>
               <tr>
                 <th>Label</th>
@@ -3077,10 +3085,10 @@
                 <td>312-744-5671</td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
 
           <h2>South - Midway Airport</h2>
-          <table>
+          <div class="table-responsive"><table>
             <thead>
               <tr>
                 <th>Label</th>
@@ -3097,7 +3105,7 @@
                 <td>312-744-5672</td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -3108,7 +3116,7 @@
 
   <!-- MIRANDA WARNING MODAL -->
   <div class="modal fade" id="mirandaModal" tabindex="-1" aria-labelledby="mirandaModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-dialog modal-fullscreen-sm-down modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="mirandaModalLabel">Miranda Warning</h5>
@@ -3150,7 +3158,7 @@
     </button>
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-fullscreen-sm-down">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">LE Cyber-Docs</h5>
@@ -3330,60 +3338,36 @@
   </section>
   <hr />
 
+  </main>
+
   <!-- SCROLL TO TOP BUTTON -->
-  <button class="scroll-to-top btn" onclick="scrollToTop()" title="Scroll to Top">
-    <i class="bi bi-chevron-bar-up" style="font-size: 2rem; color: hsl(0, 0%, 7%)"></i>
+  <button class="scroll-to-top" type="button" aria-label="Scroll to top" title="Scroll to top">
+    <i class="bi bi-arrow-up" aria-hidden="true"></i>
   </button>
-  <br />
-  <br />
 
   <!-- FOOTER SECTION -->
-  <footer class="py-4 text-black">
+  <footer class="site-footer py-4">
     <div class="container text-center">
-      <!-- Social Media Icons -->
-      <div class="d-flex justify-content-center my-4">
-        <a href="https://www.twitter.com" target="_blank" class="me-3">
-          <i class="bi bi-twitter-x fs-3"></i>
+      <div class="d-flex justify-content-center gap-3 mb-3">
+        <a href="https://www.twitter.com" target="_blank" rel="noopener" aria-label="X (Twitter)">
+          <i class="bi bi-twitter-x fs-4"></i>
         </a>
-        <a href="https://github.com/t3rminal-cmd" target="_blank">
-          <i class="bi bi-github fs-3"></i>
+        <a href="https://github.com/t3rminal-cmd" target="_blank" rel="noopener" aria-label="GitHub">
+          <i class="bi bi-github fs-4"></i>
         </a>
       </div>
-      <!-- Company Name -->
       <p class="mb-1">S3cureTangoDown LLC</p>
-      <!-- Copyright and Contact Information -->
-      <p class="mb-1">&copy; All rights reserved.</p>
-      <!-- Location -->
+      <p class="mb-1">&copy; <span class="js-year">2025</span> All rights reserved.</p>
       <p class="mb-0">Chicago | IL | USA</p>
     </div>
   </footer>
 
-  <!-- BOOTSTRAP BUNDLE WITH PROPPER -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+  <!-- BOOTSTRAP JS (includes Popper) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- jsPDF Library -->
+  <!-- jsPDF (Shooting Order PDF) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-
   <!-- MAIN JS -->
-  <script src="/assets/js/main.js"></script>
-
-  <!-- CLEAR PAGE BUTTON -->
-  <script>
-    function reloadPage1() {
-      location.reload();
-    }
-
-    function reloadPage2() {
-      location.reload();
-    }
-
-    const refreshModalButton1 = document.getElementById("refreshModalButton1");
-    const refreshModalButton2 = document.getElementById("refreshModalButton2");
-
-    refreshModalButton1.addEventListener("click", reloadPage1);
-    refreshModalButton2.addEventListener("click", reloadPage2);
-  </script>
+  <script src="assets/js/main.js"></script>
 </body>
 
 </html>
