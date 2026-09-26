@@ -102,6 +102,7 @@ Every push to `main` runs **Deploy Site** (`.github/workflows/pages.yml`). It co
 | Complaint forms | Add or replace the PDF under `assets/complaints/`, then add a row to the Narcotic Complaints list in `index.html`. |
 | UCR codes, incident types, fueling stations | The matching window in `index.html` (`#ucrModal`, `#incidentModal`, `#fuelModal`). |
 | Contact form destination | The Formspree form ID in the `action` URL of the `js-contact-form` forms (`index.html`, `about.html`, `contact.html`). |
+| Directions (Apple Maps on iPhone/iPad, Google Maps elsewhere) | The Directions links in `#fuelModal`; the switch is in `assets/js/main.js` |
 | Default department email for Email PDF | `DEPARTMENT_EMAIL` in `assets/js/main.js` (optional). Each device can still set its own. |
 | Helpful Links | The `resource-list` in the contact section of `index.html` and `contact.html` |
 | Favicon / home-screen icon | `assets/icons/` |
