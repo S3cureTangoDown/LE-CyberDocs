@@ -112,172 +112,122 @@
 
   <!-- QUICK LINKS -->
   <div class="container d-flex flex-column align-items-center shadow-lg mb-4 py-4">
-    <h1 class="card-title text-center pb-2">Quick Links</h1>
-    <div class="accordion accordion-flush w-100 pt-2" id="quickLinksAccordion">
-      <!-- NARCOTIC ACCORDION -->
-      <div class="accordion-item">
+    <h1 class="card-title text-center mb-1">Quick Links</h1>
+    <p class="text-body-secondary small text-center mb-3">Field references and checklists. Tap a topic to open it.</p>
+    <div class="accordion w-100 ql-list" id="quickLinksAccordion">
+      <!-- NARCOTICS (expands in place) -->
+      <div class="accordion-item ql-item">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          <button class="accordion-button collapsed ql-button" type="button" data-bs-toggle="collapse"
             data-bs-target="#flush-collapseNarcotic" aria-expanded="false" aria-controls="flush-collapseNarcotic">
-            Narcotics
+            <span class="ql-icon" aria-hidden="true"><i class="bi bi-capsule-pill"></i></span>
+            <span class="ql-text"><span class="ql-title">Narcotics</span><small>Street values, value calculator, complaint forms</small></span>
           </button>
         </h2>
         <div id="flush-collapseNarcotic" class="accordion-collapse collapse" data-bs-parent="#quickLinksAccordion">
-          <div class="accordion-body">
-            <div class="row">
-              <!-- NARCOTIC CARD 1 -->
-              <div class="col-md-4 mb-3">
-                <div class="card">
-                  <div class="card-header text-center">Street Value</div>
-                  <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                    <h5 class="card-title">Chart</h5>
-                    <p class="card-text">
-                      <i class="bi bi-graph-up-arrow text-primary" style="font-size: 2rem"></i>
-                    </p>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                      data-bs-target="#exampleModal1">
-                      Chart
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <!-- NARCOTIC CARD 2 -->
-              <div class="col-md-4 mb-3">
-                <div class="card">
-                  <div class="card-header text-center">Value Calculator</div>
-                  <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                    <h5 class="card-title">Calculator</h5>
-                    <p class="card-text">
-                      <i class="bi bi-calculator text-primary" style="font-size: 2rem"></i>
-                    </p>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                      data-bs-target="#exampleModal2">
-                      Calc
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <!-- NARCOTIC CARD 3 -->
-              <div class="col-md-4 mb-3">
-                <div class="card">
-                  <div class="card-header text-center">
-                    Narcotic Complaints
-                  </div>
-                  <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                    <h5 class="card-title">Complaint</h5>
-                    <p class="card-text">
-                      <i class="bi bi-filetype-pdf text-primary" style="font-size: 2rem"></i>
-                    </p>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                      data-bs-target="#exampleModal3">
-                      Comp
-                    </button>
-                  </div>
-                </div>
-              </div>
+          <div class="accordion-body ql-panel">
+            <div class="ql-subgrid">
+              <button type="button" class="ql-sub" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                <span class="ql-icon ql-icon-sm" aria-hidden="true"><i class="bi bi-graph-up-arrow"></i></span>
+                <span class="ql-text"><span class="ql-title">Street Value Chart</span><small>HIDTA 2022 prices by drug</small></span>
+                <i class="bi bi-chevron-right ql-go" aria-hidden="true"></i>
+              </button>
+              <button type="button" class="ql-sub" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                <span class="ql-icon ql-icon-sm" aria-hidden="true"><i class="bi bi-calculator-fill"></i></span>
+                <span class="ql-text"><span class="ql-title">Value Calculator</span><small>Estimate value by weight or pill</small></span>
+                <i class="bi bi-chevron-right ql-go" aria-hidden="true"></i>
+              </button>
+              <button type="button" class="ql-sub" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                <span class="ql-icon ql-icon-sm" aria-hidden="true"><i class="bi bi-file-earmark-pdf-fill"></i></span>
+                <span class="ql-text"><span class="ql-title">Narcotic Complaints</span><small>720 ILCS complaint forms to download</small></span>
+                <i class="bi bi-chevron-right ql-go" aria-hidden="true"></i>
+              </button>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- DUI CHECKLIST ACCORDION -->
-      <div class="accordion-item">
+      <!-- DUI GUIDE (expands in place) -->
+      <div class="accordion-item ql-item">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          <button class="accordion-button collapsed ql-button" type="button" data-bs-toggle="collapse"
             data-bs-target="#flush-collapseDUI" aria-expanded="false" aria-controls="flush-collapseDUI">
-            DUI Guide
+            <span class="ql-icon" aria-hidden="true"><i class="bi bi-cone-striped"></i></span>
+            <span class="ql-text"><span class="ql-title">DUI Guide</span><small>Field sobriety tests and the arrest flow chart</small></span>
           </button>
         </h2>
         <div id="flush-collapseDUI" class="accordion-collapse collapse" data-bs-parent="#quickLinksAccordion">
-          <div class="accordion-body">
-            <div class="row">
-              <!-- SFST CARD 1 -->
-              <div class="col-md-6 mb-3">
-                <div class="card">
-                  <div class="card-header text-center">Field Sobriety</div>
-                  <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                    <h5 class="card-title">SFST</h5>
-                    <p class="card-text">
-                      <i class="bi bi-card-checklist text-primary" style="font-size: 2rem"></i>
-                    </p>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                      data-bs-target="#exampleModal7">
-                      SFST
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <!-- FLOW CHART CARD 2 -->
-              <div class="col-md-6 mb-3">
-                <div class="card">
-                  <div class="card-header text-center">DUI Flow Chart</div>
-                  <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                    <h5 class="card-title">Checklist</h5>
-                    <p class="card-text">
-                      <i class="bi bi-diagram-3 text-primary" style="font-size: 2rem"></i>
-                    </p>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                      data-bs-target="#exampleModal8">
-                      Chec
-                    </button>
-                  </div>
-                </div>
-              </div>
+          <div class="accordion-body ql-panel">
+            <div class="ql-subgrid">
+              <button type="button" class="ql-sub" data-bs-toggle="modal" data-bs-target="#exampleModal7">
+                <span class="ql-icon ql-icon-sm" aria-hidden="true"><i class="bi bi-card-checklist"></i></span>
+                <span class="ql-text"><span class="ql-title">Field Sobriety (SFST)</span><small>HGN, Walk and Turn, One-Leg Stand, auto-scored</small></span>
+                <i class="bi bi-chevron-right ql-go" aria-hidden="true"></i>
+              </button>
+              <button type="button" class="ql-sub" data-bs-toggle="modal" data-bs-target="#exampleModal8">
+                <span class="ql-icon ql-icon-sm" aria-hidden="true"><i class="bi bi-diagram-3-fill"></i></span>
+                <span class="ql-text"><span class="ql-title">DUI Flow Chart</span><small>Phase-by-phase checklist from stop to arrest</small></span>
+                <i class="bi bi-chevron-right ql-go" aria-hidden="true"></i>
+              </button>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- INCIDENT REPORTING (opens its modal directly) -->
-      <div class="accordion-item">
+      <!-- INCIDENT REPORTING (opens its window directly) -->
+      <div class="accordion-item ql-item">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed quick-link-direct" type="button" data-bs-toggle="modal"
+          <button class="accordion-button collapsed ql-button quick-link-direct" type="button" data-bs-toggle="modal"
             data-bs-target="#incidentModal" aria-haspopup="dialog">
-            Incident Reporting Guide
+            <span class="ql-icon" aria-hidden="true"><i class="bi bi-clipboard2-check-fill"></i></span>
+            <span class="ql-text"><span class="ql-title">Incident Reporting Guide</span><small>Location codes by place type, tap to copy</small></span>
           </button>
         </h2>
       </div>
 
-      <!-- COMMONLY USED UCR (opens its modal directly) -->
-      <div class="accordion-item">
+      <!-- COMMONLY USED UCR (opens its window directly) -->
+      <div class="accordion-item ql-item">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed quick-link-direct" type="button" data-bs-toggle="modal"
+          <button class="accordion-button collapsed ql-button quick-link-direct" type="button" data-bs-toggle="modal"
             data-bs-target="#ucrModal" aria-haspopup="dialog">
-            Commonly Used UCR
+            <span class="ql-icon" aria-hidden="true"><i class="bi bi-hash"></i></span>
+            <span class="ql-text"><span class="ql-title">Commonly Used UCR</span><small>UCR codes by category, tap to copy</small></span>
           </button>
         </h2>
       </div>
 
-      <!-- FUELING STATIONS (opens its modal directly) -->
-      <div class="accordion-item">
+      <!-- FUELING STATIONS (opens its window directly) -->
+      <div class="accordion-item ql-item">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed quick-link-direct" type="button" data-bs-toggle="modal"
+          <button class="accordion-button collapsed ql-button quick-link-direct" type="button" data-bs-toggle="modal"
             data-bs-target="#fuelModal" aria-haspopup="dialog">
-            Fueling Stations
+            <span class="ql-icon" aria-hidden="true"><i class="bi bi-fuel-pump-fill"></i></span>
+            <span class="ql-text"><span class="ql-title">Fueling Stations</span><small>Fuel sites by area, with directions and phone</small></span>
           </button>
         </h2>
       </div>
 
-      <!-- MIRANDA WARNING (opens its modal directly) -->
-      <div class="accordion-item">
+      <!-- MIRANDA WARNING (opens its window directly) -->
+      <div class="accordion-item ql-item">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed quick-link-direct" type="button" data-bs-toggle="modal"
+          <button class="accordion-button collapsed ql-button quick-link-direct" type="button" data-bs-toggle="modal"
             data-bs-target="#mirandaModal" aria-haspopup="dialog">
-            Miranda Warning
+            <span class="ql-icon" aria-hidden="true"><i class="bi bi-chat-square-quote-fill"></i></span>
+            <span class="ql-text"><span class="ql-title">Miranda Warning</span><small>Warnings to read, plus juvenile follow-ups</small></span>
           </button>
         </h2>
       </div>
 
-      <!-- SHOOTING ORDER REQUEST (opens its modal directly) -->
-      <div class="accordion-item">
+      <!-- SHOOTING ORDER REQUEST (opens its window directly) -->
+      <div class="accordion-item ql-item">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed quick-link-direct" type="button" data-bs-toggle="modal"
+          <button class="accordion-button collapsed ql-button quick-link-direct" type="button" data-bs-toggle="modal"
             data-bs-target="#shootingModal" aria-haspopup="dialog">
-            Shooting Order Request
+            <span class="ql-icon" aria-hidden="true"><i class="bi bi-shield-fill-exclamation"></i></span>
+            <span class="ql-text"><span class="ql-title">Shooting Order Request</span><small>Log ordering statements, then print or email</small></span>
           </button>
         </h2>
       </div>
-
     </div>
   </div>
 

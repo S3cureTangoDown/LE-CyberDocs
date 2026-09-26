@@ -183,13 +183,140 @@ a {
   font-weight: 500;
 }
 
-/* Quick links: every arrow points right; a section that expands in place turns its arrow down */
+/*-- QUICK LINKS: icon rows, same look as Helpful Links --*/
+.ql-list {
+  --bs-accordion-border-width: 0;
+  --bs-accordion-bg: transparent;
+  display: grid;
+  gap: 0.6rem;
+  max-width: 52rem;
+}
+
+.ql-item {
+  border: 1px solid var(--bs-border-color) !important;
+  border-radius: 0.9rem !important;
+  overflow: hidden;
+  background-color: var(--bs-body-bg);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ql-item:hover,
+.ql-item:has(.accordion-collapse.show) {
+  border-color: var(--le-accent) !important;
+  box-shadow: 0 0.35rem 1rem var(--le-accent-soft);
+}
+
+.ql-button {
+  gap: 0.85rem;
+  padding: 0.8rem 1rem;
+  border-radius: 0 !important;
+  background-color: transparent;
+  color: var(--bs-body-color);
+  box-shadow: none !important;
+}
+
+.ql-button:not(.collapsed) {
+  background-color: var(--le-accent-soft);
+  color: var(--bs-body-color);
+}
+
+.ql-button:focus-visible {
+  outline: 2px solid var(--le-accent);
+  outline-offset: -2px;
+}
+
+/* Every arrow points right; a section that expands in place turns its arrow down */
 #quickLinksAccordion .accordion-button::after {
+  width: 1rem;
+  height: 1rem;
+  background-size: 1rem;
+  opacity: 0.55;
   transform: rotate(-90deg);
 }
 
 #quickLinksAccordion .accordion-button:not(.collapsed)::after {
+  opacity: 0.9;
   transform: rotate(0deg);
+}
+
+.resource-icon,
+.ql-icon {
+  flex: 0 0 auto;
+  display: inline-grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 0.75rem;
+  background-color: var(--le-accent-soft);
+  color: var(--le-accent);
+  font-size: 1.2rem;
+}
+
+.ql-icon-sm {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.65rem;
+  font-size: 1.05rem;
+}
+
+.ql-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.3;
+  text-align: left;
+}
+
+.ql-title {
+  font-weight: 600;
+}
+
+.ql-text small {
+  color: var(--bs-secondary-color);
+  font-weight: 400;
+}
+
+.ql-panel {
+  padding: 0.75rem 1rem 1rem;
+  border-top: 1px solid var(--bs-border-color);
+}
+
+.ql-subgrid {
+  display: grid;
+  gap: 0.55rem;
+}
+
+@media (min-width: 768px) {
+  .ql-subgrid {
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  }
+}
+
+.ql-sub {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 0.8rem;
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ql-sub:hover,
+.ql-sub:focus-visible {
+  border-color: var(--le-accent);
+  box-shadow: 0 0.3rem 0.8rem var(--le-accent-soft);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.ql-go {
+  margin-left: auto;
+  color: var(--bs-secondary-color);
+  font-size: 0.85rem;
 }
 
 /*-- CARDS & BUTTONS --*/
@@ -914,17 +1041,6 @@ th {
   color: var(--bs-body-color);
 }
 
-.resource-icon {
-  flex: 0 0 auto;
-  display: inline-grid;
-  place-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 0.7rem;
-  background-color: var(--le-accent-soft);
-  color: var(--le-accent);
-  font-size: 1.15rem;
-}
 
 .resource-text {
   display: flex;
