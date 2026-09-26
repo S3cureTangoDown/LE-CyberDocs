@@ -446,7 +446,8 @@ th {
   .print-target .modal-header,
   .print-target .modal-footer,
   .print-target .btn,
-  .print-target .report-details legend {
+  .print-target .report-details legend,
+  .print-target .email-panel {
     display: none !important;
   }
 
