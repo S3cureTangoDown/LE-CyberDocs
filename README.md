@@ -22,7 +22,7 @@ Each Quick Link opens a window (a bottom sheet on phones that you can swipe down
 | Quick Link | What it does |
 |---|---|
 | **Narcotics** | **Street Value** chart, a **Value Calculator**, and **Narcotic Complaints**: Cook County felony complaint forms (CCCR 0662) for cocaine, heroin, fentanyl, methamphetamine, synthetic drugs and cannabis. Each form shows its 720 ILCS citation, weight range and felony class, with search, a drug filter and one-tap download. |
-| **DUI Guide** | **SFST** checklist (HGN, Walk and Turn, One-Leg Stand, alternate tests) that adds up the clues for you, a phase-by-phase **DUI Flow Chart**, and a link to DUI documents. |
+| **DUI Guide** | **SFST** checklist (HGN, Walk and Turn, One-Leg Stand, alternate tests) that adds up the clues for you and a phase-by-phase **DUI Flow Chart**. |
 | **Incident Reporting Guide** | Cheat sheet of incident types, with search and a category filter. |
 | **Commonly Used UCR** | UCR codes grouped by category. Search by code or offense, and tap a code to copy it. |
 | **Fueling Stations** | Stations by area with one-tap **Directions** (maps) and **Call** buttons. |
@@ -32,7 +32,7 @@ Each Quick Link opens a window (a bottom sheet on phones that you can swipe down
 ### Other pages
 - **Forms**: state warrant and complaint templates with copy-to-clipboard buttons. More sections (subpoenas, consent, preservation, exigent circumstances) are being added.
 - **Street Value Chart**: the full value chart plus the calculator on one page.
-- **About / Contact**: the team, and a contact form.
+- **About / Contact**: the team and a contact form. The Home and Contact pages also have **Helpful Links** to outside sites: Chicago FOP Lodge 7, the PABF pension calculator, CPD Directives, ILETSB, the POWER Test fitness standards and ChicagoCop.com.
 - **Login / Sign Up**: placeholders only (see [Login](#login) below).
 
 ### Built-in tools
@@ -103,6 +103,7 @@ Every push to `main` runs **Deploy Site** (`.github/workflows/pages.yml`). It co
 | UCR codes, incident types, fueling stations | The matching window in `index.html` (`#ucrModal`, `#incidentModal`, `#fuelModal`). |
 | Contact form destination | The Formspree form ID in the `action` URL of the `js-contact-form` forms (`index.html`, `about.html`, `contact.html`). |
 | Default department email for Email PDF | `DEPARTMENT_EMAIL` in `assets/js/main.js` (optional). Each device can still set its own. |
+| Helpful Links | The `resource-list` in the contact section of `index.html` and `contact.html` |
 | Favicon / home-screen icon | `assets/icons/` |
 
 ## Login
