@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>404 · Case File Not Found | LE Cyber-Docs</title>
+  <!-- GitHub Pages also shows this page for any address that doesn't exist, possibly from a
+       nested path, so it carries its own styles and works out the site root in the script below. -->
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" data-root-href="assets/icons/favicon.svg" />
+  <script>
+    (function () {
+      var t;
+      try { t = localStorage.getItem("le-theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") {
+        t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-bs-theme", t);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <style>
+    :root {
+      --bg: #f4f6fa;
+      --panel: #ffffff;
+      --text: #1f2328;
+      --muted: #59636e;
+      --border: #d0d7de;
+      --accent: #0d6efd;
+      --accent-soft: rgba(13, 110, 253, 0.12);
+      --tape: #ffc107;
+      --tape-ink: #1a1a1a;
+      --glow: rgba(13, 110, 253, 0.18);
+    }
+
+    [data-bs-theme="dark"] {
+      --bg: #0b0f17;
+      --panel: #121826;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --border: #30363d;
+      --accent: #58a6ff;
+      --accent-soft: rgba(88, 166, 255, 0.15);
+      --glow: rgba(88, 166, 255, 0.2);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { height: 100%; }
+
+    body {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(40rem 40rem at 85% -10%, var(--glow), transparent 70%),
+        radial-gradient(30rem 30rem at -10% 110%, var(--glow), transparent 70%),
+        var(--bg);
+    }
+
+    /* Caution tape (tilted, so each strip sits in a clipping wrapper to avoid sideways scroll) */
+    .tape-wrap {
+      flex-shrink: 0; /* the page is a flex column; don't let short screens squash the tape */
+      overflow: hidden;
+      padding: 2rem 0;
+    }
+
+    .tape {
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 0.55rem 0;
+      background: repeating-linear-gradient(-45deg, var(--tape) 0 22px, var(--tape-ink) 22px 44px);
+      box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.25);
+    }
+
+    .tape span {
+      display: inline-block;
+      padding: 0.15rem 0;
+      background: var(--tape);
+      color: var(--tape-ink);
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      animation: crawl 28s linear infinite;
+    }
+
+    .tape-top { transform: rotate(-1.2deg) scale(1.03); }
+    .tape-bottom { transform: rotate(1deg) scale(1.03); }
+    .tape-bottom span { animation-direction: reverse; }
+
+    @keyframes crawl { to { transform: translateX(-50%); } }
+
+    main {
+      flex: 1;
+      display: grid;
+      place-items: center;
+      padding: 2.5rem 1rem;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 40rem;
+      padding: 2.5rem 2rem;
+      border: 1px solid var(--border);
+      border-radius: 1.5rem;
+      background: var(--panel);
+      box-shadow: 0 1.5rem 3rem rgba(15, 23, 42, 0.12);
+      text-align: center;
+    }
+
+    .code {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+      margin: 0 0 0.5rem;
+      font-size: clamp(5rem, 22vw, 9rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .code .digit {
+      position: relative;
+      color: var(--text);
+    }
+
+    /* Two offset copies make a subtle glitch */
+    .code .digit::before,
+    .code .digit::after {
+      content: attr(data-d);
+      position: absolute;
+      inset: 0;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .code .digit::before { color: #ff4d6d; animation: glitch-a 3.2s infinite steps(1); }
+    .code .digit::after { color: var(--accent); animation: glitch-b 3.2s infinite steps(1); }
+
+    @keyframes glitch-a {
+      0%, 88%, 100% { transform: none; clip-path: inset(0 0 100% 0); }
+      90% { transform: translate(-4px, 2px); clip-path: inset(20% 0 45% 0); }
+      94% { transform: translate(3px, -2px); clip-path: inset(60% 0 10% 0); }
+    }
+
+    @keyframes glitch-b {
+      0%, 88%, 100% { transform: none; clip-path: inset(0 0 100% 0); }
+      91% { transform: translate(4px, -1px); clip-path: inset(10% 0 60% 0); }
+      95% { transform: translate(-3px, 2px); clip-path: inset(45% 0 25% 0); }
+    }
+
+    .shield {
+      width: 0.82em;
+      height: 0.82em;
+      color: var(--accent);
+      filter: drop-shadow(0 0.4rem 1rem var(--glow));
+      animation: wobble 3.2s ease-in-out infinite;
+      transform-origin: 50% 90%;
+    }
+
+    @keyframes wobble {
+      0%, 100% { transform: rotate(0); }
+      20% { transform: rotate(-8deg); }
+      40% { transform: rotate(6deg); }
+      60% { transform: rotate(-3deg); }
+      80% { transform: rotate(1deg); }
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 0.75rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      letter-spacing: -0.02em;
+    }
+
+    .lead {
+      margin: 0 auto 1.5rem;
+      max-width: 30rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Evidence tag */
+    .tag {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.35rem 1rem;
+      margin: 0 auto 1.75rem;
+      max-width: 24rem;
+      padding: 1rem 1.25rem;
+      border: 2px dashed var(--border);
+      border-radius: 0.9rem;
+      text-align: left;
+      font-size: 0.85rem;
+    }
+
+    .tag dt {
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      align-self: center;
+    }
+
+    .tag dd { margin: 0; font-weight: 600; }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: #b7791f;
+    }
+
+    [data-bs-theme="dark"] .status { color: var(--tape); }
+
+    .status::before {
+      content: "";
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 50%;
+      background: currentColor;
+      animation: pulse 1.6s ease-in-out infinite;
+    }
+
+    @keyframes pulse { 50% { opacity: 0.25; } }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.7rem 1.2rem;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--accent);
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+
+    .btn:hover, .btn:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 0.4rem 1rem var(--accent-soft);
+      outline: none;
+    }
+
+    .btn-primary { background: var(--accent); color: #fff; }
+    [data-bs-theme="dark"] .btn-primary { color: #0b0f17; }
+
+    footer {
+      padding: 0 1rem 1.25rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    footer a { color: inherit; }
+
+    @media (max-width: 480px) {
+      .card { padding: 2rem 1.25rem; border-radius: 1.25rem; }
+      .btn { flex: 1 1 100%; justify-content: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="tape-wrap" aria-hidden="true"><div class="tape tape-top"><span data-tape></span></div></div>
+
+  <main>
+    <div class="card">
+      <p class="code" aria-label="Error 404">
+        <span class="digit" data-d="4">4</span>
+        <!-- Site logo: shield-lock (Bootstrap Icons, MIT) -->
+        <svg class="shield" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.8 11.8 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7 7 0 0 0 1.048-.625 11.8 11.8 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.54 1.54 0 0 0-1.044-1.263 63 63 0 0 0-2.887-.87C9.843.266 8.69 0 8 0m0 5a1.5 1.5 0 0 1 .5 2.915l.385 1.99a.5.5 0 0 1-.491.595h-.788a.5.5 0 0 1-.49-.595l.384-1.99A1.5 1.5 0 0 1 8 5" />
+        </svg>
+        <span class="digit" data-d="4">4</span>
+      </p>
+
+      <span class="eyebrow" data-eyebrow>Case file not found</span>
+      <h1 data-title>This page is still under investigation</h1>
+      <p class="lead" data-lead>
+        The page you're looking for doesn't exist or has moved. Check the address, or head back to the home page.
+      </p>
+
+      <dl class="tag">
+        <dt>Case #</dt>
+        <dd data-case>LE-404</dd>
+        <dt>Status</dt>
+        <dd><span class="status" data-status>Open investigation</span></dd>
+        <dt>Next step</dt>
+        <dd data-next>Return to base</dd>
+      </dl>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="index.html" data-root-href="index.html"><i class="bi bi-house-door-fill" aria-hidden="true"></i>Back to Home</a>
+        <button class="btn" type="button" data-back><i class="bi bi-arrow-left" aria-hidden="true"></i>Go back</button>
+        <a class="btn" href="contact.html" data-root-href="contact.html"><i class="bi bi-envelope-fill" aria-hidden="true"></i>Contact us</a>
+      </div>
+    </div>
+  </main>
+
+  <div class="tape-wrap" aria-hidden="true"><div class="tape tape-bottom"><span data-tape></span></div></div>
+
+  <footer>
+    <p>S3cureTangoDown LLC &middot; <a href="index.html" data-root-href="index.html">LE Cyber-Docs</a></p>
+  </footer>
+
+  <script>
+    (function () {
+      // Site root: the project folder on GitHub Pages (e.g. /LE-CyberDocs/), or / when run locally
+      var parts = location.pathname.split("/");
+      var root = location.hostname.endsWith("github.io") && parts[1] ? "/" + parts[1] + "/" : "/";
+      document.querySelectorAll("[data-root-href]").forEach(function (el) {
+        el.setAttribute("href", root + el.getAttribute("data-root-href"));
+      });
+
+      // Sent here from the Go-By sign-up button: explain that it's a work in progress
+      var from = new URLSearchParams(location.search).get("from");
+      var tapeText = "PAGE NOT FOUND  ✦  DO NOT CROSS  ✦  LE CYBER-DOCS  ✦  ";
+      if (from === "go-bys") {
+        document.title = "Go-By Sign-Up · Coming Soon | LE Cyber-Docs";
+        document.querySelector("[data-eyebrow]").textContent = "Work in progress";
+        document.querySelector("[data-title]").textContent = "Go-By sign-up is under construction";
+        document.querySelector("[data-lead]").textContent =
+          "We're building secure accounts for the Go-By library: warrants, subpoenas, consent and preservation forms " +
+          "and more. Sign-up isn't open yet. Check back soon, or send us a message to be told when it's ready.";
+        document.querySelector("[data-case]").textContent = "GO-BY-001";
+        document.querySelector("[data-status]").textContent = "Under construction";
+        document.querySelector("[data-next]").textContent = "Coming soon";
+        tapeText = "UNDER CONSTRUCTION  ✦  GO-BY SIGN-UP COMING SOON  ✦  DO NOT CROSS  ✦  ";
+      }
+      // Repeat the text so the tape scrolls seamlessly (the animation moves it by half its width)
+      var run = new Array(9).join(tapeText);
+      document.querySelectorAll("[data-tape]").forEach(function (el) { el.textContent = run + run; });
+
+      document.querySelector("[data-back]").addEventListener("click", function () {
+        if (history.length > 1) history.back();
+        else location.href = root + "index.html";
+      });
+    })();
+  </script>
+</body>
+
+</html>
