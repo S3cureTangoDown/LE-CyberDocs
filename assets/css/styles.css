@@ -319,6 +319,52 @@ a {
   font-size: 0.85rem;
 }
 
+/* Wider screens: roomier rows, and the group tiles become small cards (icon on top) */
+@media (min-width: 768px) {
+  .ql-list {
+    gap: 0.75rem;
+  }
+
+  .ql-button {
+    gap: 1.15rem;
+    padding: 1rem 1.35rem;
+  }
+
+  .ql-button .ql-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.85rem;
+    font-size: 1.35rem;
+  }
+
+  .ql-title {
+    font-size: 1.05rem;
+  }
+
+  .ql-panel {
+    padding: 1rem 1.35rem 1.35rem;
+  }
+
+  .ql-subgrid {
+    gap: 0.75rem;
+  }
+
+  .ql-sub {
+    position: relative;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1.1rem 1.2rem;
+    height: 100%;
+  }
+
+  .ql-sub .ql-go {
+    position: absolute;
+    top: 1.1rem;
+    right: 1.1rem;
+  }
+}
+
 /*-- CARDS & BUTTONS --*/
 .card {
   overflow: hidden;
