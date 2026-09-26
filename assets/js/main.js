@@ -194,6 +194,9 @@ if (weightInput && document.querySelector(".js-calc-btn")) {
 /*-- STREET VALUE TABLES --*/
 // Built from NARCOTIC_DATA wherever the page has <div data-value-chart></div>.
 document.querySelectorAll("[data-value-chart]").forEach(function (box) {
+  function unitLabel(u) {
+    return u === "mL" ? "mL" : u.charAt(0).toUpperCase() + u.slice(1);
+  }
   var html = "";
   NARCOTIC_CATEGORIES.forEach(function (cat) {
     var names = Object.keys(NARCOTIC_DATA).filter(function (n) { return NARCOTIC_DATA[n].cat === cat; });
@@ -203,16 +206,17 @@ document.querySelectorAll("[data-value-chart]").forEach(function (box) {
     });
     html += '<section class="value-group"><h3 class="value-group-title">' + cat + "</h3>" +
       '<div class="table-responsive"><table class="table table-bordered table-striped align-middle value-table"><thead><tr><th scope="col">Drug</th>' +
-      units.map(function (u) { return '<th scope="col">' + (u === "mL" ? "mL" : u.charAt(0).toUpperCase() + u.slice(1)) + "</th>"; }).join("") +
+      units.map(function (u) { return '<th scope="col">' + unitLabel(u) + "</th>"; }).join("") +
       "</tr></thead><tbody>";
     names.forEach(function (n) {
       var d = NARCOTIC_DATA[n];
-      html += '<tr><th scope="row">' + n + "</th>" + units.map(function (u) {
-        if (typeof d[u] !== "number") return '<td class="text-body-secondary">—</td>';
+      var priced = units.filter(function (u) { return typeof d[u] === "number"; }).length;
+      html += "<tr" + (priced === 1 ? ' class="value-single"' : "") + '><th scope="row">' + n + "</th>" + units.map(function (u) {
+        if (typeof d[u] !== "number") return '<td class="value-none text-body-secondary">—</td>';
         var cell = money(d[u]);
         if (isEstimate(d, u)) cell = '<span class="value-est" title="Estimate: gram price × 454">≈ ' + cell + "</span>";
         if (d.verify && d.verify.indexOf(u) !== -1) cell += ' <span class="badge text-bg-warning value-verify" title="Looks inconsistent; needs a current price">verify</span>';
-        return "<td>" + cell + "</td>";
+        return '<td data-label="' + unitLabel(u) + '">' + cell + "</td>";
       }).join("") + "</tr>";
     });
     html += "</tbody></table></div></section>";
@@ -954,4 +958,39 @@ document.querySelectorAll(".js-contact-form").forEach(function (form) {
     empty.hidden = shown > 0;
     empty.textContent = shown ? "" : 'Nothing on this page matches "' + input.value.trim() + '".';
   });
+})();
+
+/*-- SWIPE DOWN TO CLOSE (phones) --*/
+// On small screens modals open as bottom sheets; dragging the header down closes them.
+(function () {
+  var phone = window.matchMedia("(max-width: 575.98px)");
+  var start = null;
+  var dialog = null;
+  var dy = 0;
+
+  document.addEventListener("touchstart", function (e) {
+    var header = e.target.closest && e.target.closest(".modal.show .modal-header");
+    if (!phone.matches || !header || e.target.closest(".btn-close")) return;
+    dialog = header.closest(".modal-dialog");
+    start = e.touches[0].clientY;
+    dy = 0;
+    dialog.style.transition = "none";
+  }, { passive: true });
+
+  document.addEventListener("touchmove", function (e) {
+    if (start === null) return;
+    dy = Math.max(0, e.touches[0].clientY - start);
+    dialog.style.transform = "translateY(" + dy + "px)";
+  }, { passive: true });
+
+  function release() {
+    if (start === null) return;
+    var d = dialog;
+    start = null;
+    d.style.transition = "";
+    d.style.transform = "";
+    if (dy > 90) bootstrap.Modal.getOrCreateInstance(d.closest(".modal")).hide();
+  }
+  document.addEventListener("touchend", release);
+  document.addEventListener("touchcancel", release);
 })();

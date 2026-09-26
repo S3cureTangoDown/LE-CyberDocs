@@ -267,109 +267,113 @@
         </h2>
       </div>
 
-      <!-- MIRANDA WARNING ACCORDION -->
+      <!-- MIRANDA WARNING (opens its modal directly) -->
       <div class="accordion-item">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseMiranda" aria-expanded="false" aria-controls="flush-collapseMiranda">
+          <button class="accordion-button collapsed quick-link-direct" type="button" data-bs-toggle="modal"
+            data-bs-target="#mirandaModal" aria-haspopup="dialog">
             Miranda Warning
           </button>
         </h2>
-        <div id="flush-collapseMiranda" class="accordion-collapse collapse" data-bs-parent="#quickLinksAccordion">
-          <div class="accordion-body d-flex flex-column align-items-center">
-            <!-- Content for Miranda Warning Accordion -->
-            FOP Lodge 7 Handbook 2024 Page 164
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#mirandaModal">
-              Miranda Warning
-            </button>
-          </div>
-        </div>
       </div>
 
-      <!-- SHOOTING ORDER ACCORDION -->
-      <div class="accordion-item" id="shootingOrder" data-printable data-print-title="Shooting Order Request" data-pdf-builder="shooting">
+      <!-- SHOOTING ORDER REQUEST (opens its modal directly) -->
+      <div class="accordion-item">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
+          <button class="accordion-button collapsed quick-link-direct" type="button" data-bs-toggle="modal"
+            data-bs-target="#shootingModal" aria-haspopup="dialog">
             Shooting Order Request
           </button>
         </h2>
-        <div id="flush-collapseSeven" class="accordion-collapse collapse" data-bs-parent="#quickLinksAccordion">
-          <div class="accordion-body">
-            <div class="alert alert-warning">
-              <strong>Important:</strong> In the event that you or your partner are part of an officer involved shooting
-              (OIS), <u>prior to providing a statement or participating in a walkthrough, make sure you are ordered to
-                do so!</u> It is imperative that you document the following:
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SHOOTING ORDER REQUEST MODAL -->
+  <div class="modal fade" id="shootingModal" tabindex="-1" aria-labelledby="shootingModalLabel" aria-hidden="true"
+    data-pdf-builder="shooting">
+    <div class="modal-dialog modal-fullscreen-sm-down modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="shootingModalLabel">Shooting Order Request</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-warning">
+            <strong>Important:</strong> In the event that you or your partner are part of an officer involved shooting
+            (OIS), <u>prior to providing a statement or participating in a walkthrough, make sure you are ordered to
+              do so!</u> It is imperative that you document the following:
+          </div>
+          <div class="pt-2">
+            <div class="mb-4">
+              <label class="form-label"><strong>1st Supervisor Ordering Statement:</strong></label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="first_supervisor" name="first_supervisor"
+                  placeholder="Name & Star">
+                <span class="input-group-text bg-body-tertiary"><i class="bi bi-clock"></i></span>
+                <input type="time" class="form-control" id="first_supervisor_time" name="first_supervisor_time">
+                <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
+              </div>
             </div>
-            <div class="container pt-4">
-              <div class="mb-4">
-                <label class="form-label"><strong>1st Supervisor Ordering Statement:</strong></label>
-                <div class="input-group">
-                  <input type="text" class="form-control" id="first_supervisor" name="first_supervisor"
-                    placeholder="Name & Star">
-                  <span class="input-group-text bg-body-tertiary"><i class="bi bi-clock"></i></span>
-                  <input type="time" class="form-control" id="first_supervisor_time" name="first_supervisor_time">
-                  <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
-                </div>
+            <div class="mb-4">
+              <label class="form-label"><strong>OCIC Ordering Statement/Walkthrough:</strong></label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="ocic_ordering" name="ocic_ordering"
+                  placeholder="Name & Star">
+                <span class="input-group-text bg-body-tertiary"><i class="bi bi-clock"></i></span>
+                <input type="time" class="form-control" id="ocic_ordering_time" name="ocic_ordering_time">
+                <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
               </div>
-              <div class="mb-4">
-                <label class="form-label"><strong>OCIC Ordering Statement/Walkthrough:</strong></label>
-                <div class="input-group">
-                  <input type="text" class="form-control" id="ocic_ordering" name="ocic_ordering"
-                    placeholder="Name & Star">
-                  <span class="input-group-text bg-body-tertiary"><i class="bi bi-clock"></i></span>
-                  <input type="time" class="form-control" id="ocic_ordering_time" name="ocic_ordering_time">
-                  <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
-                </div>
+            </div>
+            <div class="mb-4">
+              <label class="form-label"><strong>Supervisors:</strong></label>
+              <div class="input-group mb-2">
+                <input type="text" class="form-control" id="additional_supervisors_1" name="additional_supervisors"
+                  placeholder="Name & Star">
+                <span class="input-group-text bg-body-tertiary"><i class="bi bi-clock"></i></span>
+                <input type="time" class="form-control" id="additional_supervisors_time_1"
+                  name="additional_supervisors_time">
+                <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
               </div>
-              <div class="mb-4">
-                <label class="form-label"><strong>Supervisors:</strong></label>
-                <div class="input-group mb-2">
-                  <input type="text" class="form-control" id="additional_supervisors_1" name="additional_supervisors"
-                    placeholder="Name & Star">
-                  <span class="input-group-text bg-body-tertiary"><i class="bi bi-clock"></i></span>
-                  <input type="time" class="form-control" id="additional_supervisors_time_1"
-                    name="additional_supervisors_time">
-                  <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
-                </div>
-                <div class="input-group mb-2">
-                  <input type="text" class="form-control" id="additional_supervisors_2" name="additional_supervisors"
-                    placeholder="Name & Star">
-                  <span class="input-group-text bg-body-tertiary"><i class="bi bi-clock"></i></span>
-                  <input type="time" class="form-control" id="additional_supervisors_time_2"
-                    name="additional_supervisors_time">
-                  <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
-                </div>
-                <div class="input-group">
-                  <input type="text" class="form-control" id="additional_supervisors_3" name="additional_supervisors"
-                    placeholder="Name & Star">
-                  <span class="input-group-text bg-body-tertiary"><i class="bi bi-clock"></i></span>
-                  <input type="time" class="form-control" id="additional_supervisors_time_3"
-                    name="additional_supervisors_time">
-                  <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
-                </div>
+              <div class="input-group mb-2">
+                <input type="text" class="form-control" id="additional_supervisors_2" name="additional_supervisors"
+                  placeholder="Name & Star">
+                <span class="input-group-text bg-body-tertiary"><i class="bi bi-clock"></i></span>
+                <input type="time" class="form-control" id="additional_supervisors_time_2"
+                  name="additional_supervisors_time">
+                <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
               </div>
-              <div class="mb-4">
-                <label class="form-label"><strong>Lodge Representative:</strong></label>
-                <div class="input-group">
-                  <input type="text" class="form-control" id="lodge_representative" name="lodge_representative"
-                    placeholder="Name & Star">
-                  <span class="input-group-text bg-body-tertiary"><i class="bi bi-clock"></i></span>
-                  <input type="time" class="form-control" id="lodge_representative_time"
-                    name="lodge_representative_time">
-                  <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
-                </div>
+              <div class="input-group">
+                <input type="text" class="form-control" id="additional_supervisors_3" name="additional_supervisors"
+                  placeholder="Name & Star">
+                <span class="input-group-text bg-body-tertiary"><i class="bi bi-clock"></i></span>
+                <input type="time" class="form-control" id="additional_supervisors_time_3"
+                  name="additional_supervisors_time">
+                <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
               </div>
-              <div class="d-flex flex-wrap gap-2 mt-4" data-email-anchor>
-                <button id="download-pdf" type="button" class="btn btn-primary"><i class="bi bi-download me-1" aria-hidden="true"></i>Download PDF</button>
-                <button type="button" class="btn btn-outline-primary" data-print-modal><i class="bi bi-printer me-1" aria-hidden="true"></i>Print</button>
-                <button type="button" class="btn btn-outline-primary" data-email-modal><i class="bi bi-envelope me-1" aria-hidden="true"></i>Email PDF</button>
+            </div>
+            <div class="mb-4">
+              <label class="form-label"><strong>Lodge Representative:</strong></label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="lodge_representative" name="lodge_representative"
+                  placeholder="Name & Star">
+                <span class="input-group-text bg-body-tertiary"><i class="bi bi-clock"></i></span>
+                <input type="time" class="form-control" id="lodge_representative_time"
+                  name="lodge_representative_time">
+                <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
               </div>
             </div>
           </div>
         </div>
+        <div class="modal-footer">
+          <button id="download-pdf" type="button" class="btn btn-primary"><i class="bi bi-download me-1" aria-hidden="true"></i>Download PDF</button>
+          <button type="button" class="btn btn-outline-primary" data-print-modal><i class="bi bi-printer me-1" aria-hidden="true"></i>Print</button>
+          <button type="button" class="btn btn-outline-primary" data-email-modal><i class="bi bi-envelope me-1" aria-hidden="true"></i>Email PDF</button>
+          <button type="button" class="btn btn-outline-danger" data-clear-modal>Clear</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
       </div>
-
     </div>
   </div>
 
@@ -397,62 +401,42 @@
 
   <!-- CALCULATOR MODAL -->
   <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-    <!-- Modal content for Calculator -->
     <div class="modal-dialog modal-fullscreen-sm-down modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel2">
-            Value Calculator
+            <i class="bi bi-calculator me-2" aria-hidden="true"></i>Value Calculator
           </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body pb-4 pt-1">
-          <!-- Add your modal content for Calculator here -->
-          <div class="container">
-            <div class="row justify-content-center mt-4">
-              <div class="col-md-8">
-                <div class="card shadow-lg">
-                  <div class="card-header">
-                    <h2 class="text-center pb-2 pt-3 fw-bold">
-                      Narcotic Value Calculator
-                    </h2>
-                  </div>
-                  <div class="card-body">
-                    <div class="text-center">
-                      <div class="mb-3">
-                        <label for="narcotic" class="form-label">Select Narcotic:</label>
-                        <select id="narcotic" class="form-select text-center">
-                          <!-- Filled from NARCOTIC_DATA in main.js -->
-                        </select>
-                      </div>
-                      <div class="mb-3">
-                        <label for="weight" class="form-label">Weight Amount:</label>
-                        <input type="number" id="weight" step="0.01" class="form-control text-center" />
-                      </div>
-                      <div class="mb-3">
-                        <label for="weightType" class="form-label">Weight Type:</label>
-                        <select id="weightType" class="form-select text-center">
-                          <!-- Units for the chosen drug, filled by main.js -->
-                        </select>
-                      </div>
-                    </div>
-                    <button type="button" class="btn btn-primary d-block mx-auto px-4 js-calc-btn">
-                      <i class="bi bi-calculator me-1" aria-hidden="true"></i>Calculate
-                    </button>
-                    <div id="result" class="calc-result text-center mt-3" role="status" aria-live="polite">
-                      Choose a narcotic, amount and unit, then press Calculate.
-                    </div>
-                  </div>
-                  <!-- Footer content -->
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                      Close
-                    </button>
-                  </div>
-                </div>
-              </div>
+        <div class="modal-body calc-form">
+          <div class="mb-3">
+            <label for="narcotic" class="form-label">Narcotic</label>
+            <select id="narcotic" class="form-select">
+              <!-- Filled from NARCOTIC_DATA in main.js -->
+            </select>
+          </div>
+          <div class="row g-2 mb-3">
+            <div class="col-7">
+              <label for="weight" class="form-label">Amount</label>
+              <input type="number" id="weight" step="0.01" min="0" inputmode="decimal" class="form-control" placeholder="0" />
+            </div>
+            <div class="col-5">
+              <label for="weightType" class="form-label">Unit</label>
+              <select id="weightType" class="form-select">
+                <!-- Units for the chosen drug, filled by main.js -->
+              </select>
             </div>
           </div>
+          <button type="button" class="btn btn-primary w-100 js-calc-btn">
+            <i class="bi bi-calculator me-1" aria-hidden="true"></i>Calculate
+          </button>
+          <div id="result" class="calc-result text-center mt-3" role="status" aria-live="polite">
+            Choose a narcotic, amount and unit, then press Calculate.
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -1468,12 +1452,11 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>Click the button below to go to the forms page for additional documentations:</p>
+          <p class="mb-0">DUI forms and other documents are on the Forms page.</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-            Close
-          </button>
+          <a href="forms.html" class="btn btn-primary"><i class="bi bi-folder2-open me-1" aria-hidden="true"></i>Go to Forms</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -1954,6 +1937,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <p class="small text-body-secondary">FOP Lodge 7 Handbook 2024, page 164</p>
           <p><strong>REQUIRED WARNINGS TO BE GIVEN PRIOR TO INTERROGATION</strong></p>
           <p>1. Before we ask you any question, it is our duty to advise you of your rights.</p>
           <p>2. You have a right to remain silent.</p>
