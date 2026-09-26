@@ -426,6 +426,47 @@ function copyToClipboard(button) {
 }
 
 /*-- SHOOTING ORDER PDF --*/
+// Custom layout used by both "Download PDF" and "Email PDF" (see PDF_BUILDERS below).
+function buildShootingOrderPdf() {
+  function val(id) {
+    var el = document.getElementById(id);
+    return el ? el.value : "";
+  }
+  var additionalSupervisors = [1, 2, 3].map(function (n) {
+    return { name: val("additional_supervisors_" + n), time: val("additional_supervisors_time_" + n) };
+  });
+
+  var doc = new window.jspdf.jsPDF();
+  doc.setFontSize(16);
+  doc.text("Shooting Order Request", 20, 20);
+  doc.setFontSize(9);
+  doc.text("Generated " + new Date().toLocaleString(), 20, 26);
+
+  doc.setFontSize(12);
+  doc.text("1st Supervisor Ordering Statement:", 20, 40);
+  doc.text("Name & Star: " + val("first_supervisor"), 20, 45);
+  doc.text("Time: " + val("first_supervisor_time"), 20, 50);
+
+  doc.text("OCIC Ordering Statement/Walkthrough:", 20, 70);
+  doc.text("Name & Star: " + val("ocic_ordering"), 20, 75);
+  doc.text("Time: " + val("ocic_ordering_time"), 20, 80);
+
+  doc.text("Supervisors:", 20, 100);
+  additionalSupervisors.forEach(function (s, i) {
+    doc.text("Supervisor " + (i + 1) + " Name & Star: " + s.name, 20, 105 + i * 15);
+    doc.text("Time: " + s.time, 20, 110 + i * 15);
+  });
+
+  doc.text("Lodge Representative:", 20, 165);
+  doc.text("Name & Star: " + val("lodge_representative"), 20, 170);
+  doc.text("Time: " + val("lodge_representative_time"), 20, 175);
+
+  var date = new Date().toISOString().slice(0, 10);
+  return { doc: doc, filename: "Shooting_Order_Request_" + date + ".pdf", subject: "Shooting Order Request — " + date };
+}
+
+var PDF_BUILDERS = { shooting: buildShootingOrderPdf };
+
 (function () {
   var button = document.getElementById("download-pdf");
   if (!button) return;
@@ -434,38 +475,8 @@ function copyToClipboard(button) {
       alert("The PDF tool didn't load. Check your connection and try again.");
       return;
     }
-    function val(id) {
-      var el = document.getElementById(id);
-      return el ? el.value : "";
-    }
-    var additionalSupervisors = [1, 2, 3].map(function (n) {
-      return { name: val("additional_supervisors_" + n), time: val("additional_supervisors_time_" + n) };
-    });
-
-    var doc = new window.jspdf.jsPDF();
-    doc.setFontSize(16);
-    doc.text("Shooting Order Request", 20, 20);
-
-    doc.setFontSize(12);
-    doc.text("1st Supervisor Ordering Statement:", 20, 40);
-    doc.text("Name & Star: " + val("first_supervisor"), 20, 45);
-    doc.text("Time: " + val("first_supervisor_time"), 20, 50);
-
-    doc.text("OCIC Ordering Statement/Walkthrough:", 20, 70);
-    doc.text("Name & Star: " + val("ocic_ordering"), 20, 75);
-    doc.text("Time: " + val("ocic_ordering_time"), 20, 80);
-
-    doc.text("Supervisors:", 20, 100);
-    additionalSupervisors.forEach(function (s, i) {
-      doc.text("Supervisor " + (i + 1) + " Name & Star: " + s.name, 20, 105 + i * 15);
-      doc.text("Time: " + s.time, 20, 110 + i * 15);
-    });
-
-    doc.text("Lodge Representative:", 20, 165);
-    doc.text("Name & Star: " + val("lodge_representative"), 20, 170);
-    doc.text("Time: " + val("lodge_representative_time"), 20, 175);
-
-    doc.save("Shooting_Order_Request.pdf");
+    var pdf = buildShootingOrderPdf();
+    pdf.doc.save(pdf.filename);
   });
 })();
 
@@ -567,6 +578,13 @@ document.querySelectorAll("input[type=date][data-default-today]").forEach(functi
   if (!el.value) el.value = today;
 });
 
+// Title for a printable/emailable section: a modal's title, or data-print-title on other sections
+function sectionTitle(el) {
+  var t = el.getAttribute("data-print-title");
+  var titleEl = el.querySelector(".modal-title");
+  return (t || (titleEl ? titleEl.textContent : "") || "Printout").replace(/\s+/g, " ").trim();
+}
+
 /*-- PRINT A MODAL --*/
 // Prints just that modal: every section expanded, answers as filled in, light colors,
 // with a small header. Use the browser's "Save as PDF" printer to save a copy.
@@ -579,16 +597,15 @@ document.querySelectorAll("input[type=date][data-default-today]").forEach(functi
       el.classList.add("print-ancestor");
       marked.push(el);
     }
-    var titleEl = modal.querySelector(".modal-title");
     var header = document.createElement("div");
     header.className = "print-header";
     var h = document.createElement("h1");
-    h.textContent = "LE Cyber-Docs — " + (titleEl ? titleEl.textContent.trim() : "Printout");
+    h.textContent = "LE Cyber-Docs — " + sectionTitle(modal);
     var meta = document.createElement("p");
     meta.textContent = "Printed " + new Date().toLocaleString();
     header.appendChild(h);
     header.appendChild(meta);
-    var content = modal.querySelector(".modal-content");
+    var content = modal.querySelector(".modal-content") || modal;
     content.insertBefore(header, content.firstChild);
 
     root.setAttribute("data-bs-theme", "light");
@@ -617,7 +634,7 @@ document.querySelectorAll("input[type=date][data-default-today]").forEach(functi
   document.addEventListener("click", function (e) {
     var btn = e.target.closest && e.target.closest("[data-print-modal]");
     if (!btn) return;
-    var modal = btn.closest(".modal");
+    var modal = btn.closest(".modal, [data-printable]");
     if (modal) printModal(modal);
   });
 })();
@@ -724,8 +741,7 @@ function openMailto(url) {
       y += gap || 0;
     }
 
-    var titleEl = modal.querySelector(".modal-title");
-    var title = titleEl ? titleEl.textContent.replace(/\s+/g, " ").trim() : "Report";
+    var title = sectionTitle(modal);
     write("LE Cyber-Docs — " + title, 16, true, 2);
     write("Generated " + new Date().toLocaleString(), 9, false, 8);
 
@@ -787,7 +803,14 @@ function openMailto(url) {
       return;
     }
 
-    var pdf = buildPdf(modal);
+    var builder = PDF_BUILDERS[modal.getAttribute("data-pdf-builder")];
+    var pdf;
+    if (builder) {
+      var custom = builder();
+      pdf = { blob: custom.doc.output("blob"), filename: custom.filename, subject: custom.subject };
+    } else {
+      pdf = buildPdf(modal);
+    }
     var body = "Attached: " + pdf.filename + "\n\nSent from LE Cyber-Docs.";
     var file = typeof File === "function" ? new File([pdf.blob], pdf.filename, { type: "application/pdf" }) : null;
 
@@ -828,7 +851,7 @@ function openMailto(url) {
     panel = document.createElement("form");
     panel.className = "email-panel border-top px-3 py-3";
     panel.noValidate = true;
-    var id = modal.id + "-email-to";
+    var id = (modal.id || "section") + "-email-to";
     panel.innerHTML =
       '<label class="form-label small fw-semibold mb-1" for="' + id + '">Send to (department email)</label>' +
       '<div class="input-group">' +
@@ -843,14 +866,16 @@ function openMailto(url) {
       e.preventDefault();
       send(modal, panel);
     });
-    modal.querySelector(".modal-footer").before(panel);
+    var footer = modal.querySelector(".modal-footer");
+    if (footer) footer.before(panel);
+    else modal.querySelector("[data-email-anchor]").after(panel);
     return panel;
   }
 
   document.addEventListener("click", function (e) {
     var btn = e.target.closest && e.target.closest("[data-email-modal]");
     if (!btn) return;
-    var modal = btn.closest(".modal");
+    var modal = btn.closest(".modal, [data-printable]");
     if (!modal) return;
     var panel = panelFor(modal);
     panel.hidden = false;
@@ -859,6 +884,95 @@ function openMailto(url) {
     panel.scrollIntoView({ block: "nearest" });
   });
 })();
+
+/*-- CHEAT SHEETS (Incident Reporting, UCR, Fueling Stations) --*/
+// Search box + category chips filter the cards; tapping a code card copies the code.
+function copyText(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    return navigator.clipboard.writeText(text).then(function () { return true; }, function () { return false; });
+  }
+  var area = document.createElement("textarea");
+  area.value = text;
+  area.setAttribute("readonly", "");
+  area.style.position = "fixed";
+  area.style.opacity = "0";
+  document.body.appendChild(area);
+  area.select();
+  var ok = false;
+  try { ok = document.execCommand("copy"); } catch (e) {}
+  area.remove();
+  return Promise.resolve(ok);
+}
+
+document.querySelectorAll(".cheat").forEach(function (sheet) {
+  var input = sheet.querySelector(".cheat-search");
+  var chips = sheet.querySelectorAll(".cheat-chip");
+  var groups = sheet.querySelectorAll(".cheat-group");
+  var empty = sheet.querySelector(".cheat-empty");
+  var category = "all";
+
+  function apply() {
+    var q = input.value.trim().toLowerCase();
+    var shownTotal = 0;
+    groups.forEach(function (group) {
+      var inCat = category === "all" || group.getAttribute("data-cat") === category;
+      var shown = 0;
+      group.querySelectorAll("li").forEach(function (item) {
+        var match = inCat && (!q || item.textContent.toLowerCase().indexOf(q) !== -1);
+        item.hidden = !match;
+        if (match) shown++;
+      });
+      group.hidden = shown === 0;
+      shownTotal += shown;
+    });
+    empty.hidden = shownTotal > 0;
+  }
+
+  input.addEventListener("input", apply);
+  chips.forEach(function (chip) {
+    chip.addEventListener("click", function () {
+      category = chip.getAttribute("data-cat");
+      chips.forEach(function (c) {
+        var on = c === chip;
+        c.classList.toggle("is-active", on);
+        c.setAttribute("aria-pressed", String(on));
+      });
+      apply();
+    });
+  });
+
+  sheet.addEventListener("click", function (e) {
+    var card = e.target.closest(".code-card");
+    if (!card) return;
+    var code = card.getAttribute("data-copy");
+    copyText(code).then(function (ok) {
+      if (!ok) return;
+      var desc = card.querySelector(".code-card-desc");
+      var original = desc.textContent;
+      card.classList.add("is-copied");
+      desc.textContent = "Copied " + code;
+      setTimeout(function () {
+        card.classList.remove("is-copied");
+        desc.textContent = original;
+      }, 1200);
+    });
+  });
+
+  // Start fresh each time the sheet opens
+  var modal = sheet.closest(".modal");
+  if (modal) {
+    modal.addEventListener("show.bs.modal", function () {
+      input.value = "";
+      category = "all";
+      chips.forEach(function (c) {
+        var on = c.getAttribute("data-cat") === "all";
+        c.classList.toggle("is-active", on);
+        c.setAttribute("aria-pressed", String(on));
+      });
+      apply();
+    });
+  }
+});
 
 /*-- CONTACT FORMS (Formspree) --*/
 // Sends the form in the background and shows the result on the page.

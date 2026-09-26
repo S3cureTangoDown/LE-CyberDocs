@@ -392,6 +392,219 @@ th {
   margin-top: 0.25rem;
 }
 
+/*-- CHEAT SHEETS (Incident Reporting, UCR, Fueling Stations) --*/
+.cheat {
+  padding-top: 0;
+}
+
+/* Search + category chips stay put while the list scrolls */
+.cheat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  margin: 0 -1rem 0.5rem;
+  padding: 1rem 1rem 0.75rem;
+  background-color: var(--bs-body-bg);
+  border-bottom: 1px solid var(--bs-border-color);
+}
+
+.cheat-search-wrap {
+  position: relative;
+  margin-bottom: 0.75rem;
+}
+
+.cheat-search-wrap .bi-search {
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--bs-secondary-color);
+  pointer-events: none;
+}
+
+.cheat-search {
+  padding-left: 2.5rem;
+  border-radius: 999px;
+  min-height: 2.75rem;
+}
+
+.cheat-chips {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+  scrollbar-width: thin;
+}
+
+.cheat-chip {
+  flex: 0 0 auto;
+  border: 1px solid var(--bs-border-color);
+  background-color: var(--bs-tertiary-bg);
+  color: var(--bs-body-color);
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.cheat-chip:hover,
+.cheat-chip:focus-visible {
+  border-color: var(--le-accent);
+}
+
+.cheat-chip.is-active {
+  background-color: var(--le-accent);
+  border-color: var(--le-accent);
+  color: #fff;
+}
+
+.cheat-count {
+  display: inline-block;
+  min-width: 1.5em;
+  margin-left: 0.25rem;
+  padding: 0 0.4em;
+  border-radius: 999px;
+  background-color: rgba(127, 127, 127, 0.2);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.cheat-hint {
+  margin-top: 0.5rem;
+}
+
+.cheat-group + .cheat-group {
+  margin-top: 1.25rem;
+}
+
+.cheat-group-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--bs-secondary-color);
+  margin: 0.75rem 0 0.6rem;
+}
+
+.code-grid,
+.station-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.code-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr));
+}
+
+.station-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+}
+
+/* Tap-to-copy code cards */
+.code-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 0.75rem;
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+  transition: border-color 0.15s, background-color 0.15s, transform 0.15s;
+}
+
+.code-card:hover,
+.code-card:focus-visible {
+  border-color: var(--le-accent);
+  background-color: var(--le-accent-soft);
+}
+
+.code-card:active {
+  transform: scale(0.98);
+}
+
+.code-card-code {
+  flex: 0 0 auto;
+  min-width: 3.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  background-color: var(--le-accent-soft);
+  color: var(--le-accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-weight: 700;
+  text-align: center;
+}
+
+.code-card-desc {
+  line-height: 1.3;
+}
+
+.code-card.is-copied {
+  border-color: var(--bs-success);
+  background-color: var(--bs-success-bg-subtle);
+}
+
+.code-card.is-copied .code-card-code {
+  background-color: var(--bs-success);
+  color: #fff;
+}
+
+/* Fueling station cards */
+.station-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 0.75rem;
+  background-color: var(--bs-body-bg);
+}
+
+.station-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.station-name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.station-addr {
+  margin: 0;
+  color: var(--bs-secondary-color);
+}
+
+.station-addr .bi {
+  margin-right: 0.35rem;
+  color: var(--le-accent);
+}
+
+.station-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.station-actions .btn {
+  flex: 1 1 auto;
+  min-height: 2.5rem; /* easy to tap in the car */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /*-- PRINTING A MODAL (see printModal in main.js) --*/
 .print-header {
   display: none;
@@ -417,6 +630,13 @@ th {
 
   body.printing-modal main {
     min-height: 0;
+  }
+
+  /* Sections printed from the page (not a modal) sit inside panels; drop their frame */
+  body.printing-modal .print-ancestor {
+    border: 0 !important;
+    box-shadow: none !important;
+    background: none !important;
   }
 
   .print-target.modal {

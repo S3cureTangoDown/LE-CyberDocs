@@ -314,7 +314,7 @@
       </div>
 
       <!-- SHOOTING ORDER ACCORDION -->
-      <div class="accordion-item">
+      <div class="accordion-item" id="shootingOrder" data-printable data-print-title="Shooting Order Request" data-pdf-builder="shooting">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
@@ -387,7 +387,11 @@
                   <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
                 </div>
               </div>
-              <button id="download-pdf" class="btn btn-primary mt-4">Download PDF</button>
+              <div class="d-flex flex-wrap gap-2 mt-4" data-email-anchor>
+                <button id="download-pdf" type="button" class="btn btn-primary"><i class="bi bi-download me-1" aria-hidden="true"></i>Download PDF</button>
+                <button type="button" class="btn btn-outline-primary" data-print-modal><i class="bi bi-printer me-1" aria-hidden="true"></i>Print</button>
+                <button type="button" class="btn btn-outline-primary" data-email-modal><i class="bi bi-envelope me-1" aria-hidden="true"></i>Email PDF</button>
+              </div>
             </div>
           </div>
         </div>
@@ -2058,449 +2062,164 @@
   </div>
 
   <!-- INCIDENT REPORT MODAL -->
-  <div class="modal fade" id="incidentModal" tabindex="-1" aria-labelledby="incidentModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-fullscreen-sm-down modal-dialog-centered modal-dialog-scrollable">
+  <div class="modal fade cheat-modal" id="incidentModal" tabindex="-1" aria-labelledby="incidentModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen-sm-down modal-xl modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="incidentModalLabel">Incident Reporting Guide</h5>
+          <h5 class="modal-title" id="incidentModalLabel"><i class="bi bi-geo me-2" aria-hidden="true"></i>Incident Reporting Guide</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          <!-- Modal Content for Incident Reporting Guide -->
-          <h2>Business/Commercial</h2>
-          <div class="table-responsive"><table>
-            <thead>
-              <tr>
-                <th>Code</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>097</td>
-                <td>Appliance Store</td>
-              </tr>
-              <tr>
-                <td>206</td>
-                <td>Athletic Club</td>
-              </tr>
-              <tr>
-                <td>103</td>
-                <td>Bar/Tavern</td>
-              </tr>
-              <tr>
-                <td>167</td>
-                <td>Barber/Beauty Shop</td>
-              </tr>
-              <tr>
-                <td>109</td>
-                <td>Bowling Alley</td>
-              </tr>
-              <tr>
-                <td>140</td>
-                <td>Commercial/Business Office</td>
-              </tr>
-              <tr>
-                <td>144</td>
-                <td>Car Wash</td>
-              </tr>
-              <tr>
-                <td>192</td>
-                <td>Cleaning Store</td>
-              </tr>
-              <tr>
-                <td>160</td>
-                <td>Coin Op Machine</td>
-              </tr>
-              <tr>
-                <td>161</td>
-                <td>Pawn Shop</td>
-              </tr>
-              <tr>
-                <td>162</td>
-                <td>Convenience Store</td>
-              </tr>
-              <tr>
-                <td>174</td>
-                <td>Dept Store</td>
-              </tr>
-              <tr>
-                <td>193</td>
-                <td>Drug Store</td>
-              </tr>
-              <tr>
-                <td>209</td>
-                <td>Factory/Man Building</td>
-              </tr>
-              <tr>
-                <td>220</td>
-                <td>Gas Station</td>
-              </tr>
-              <tr>
-                <td>221</td>
-                <td>Grocery/Food Store</td>
-              </tr>
-              <tr>
-                <td>260</td>
-                <td>Hotel/Motel</td>
-              </tr>
-              <tr>
-                <td>267</td>
-                <td>Movie Theater</td>
-              </tr>
-              <tr>
-                <td>165</td>
-                <td>Newstand</td>
-              </tr>
-              <tr>
-                <td>277</td>
-                <td>Parking Lot/Garage</td>
-              </tr>
-              <tr>
-                <td>166</td>
-                <td>Pool Room</td>
-              </tr>
-              <tr>
-                <td>293</td>
-                <td>Restaurant</td>
-              </tr>
-              <tr>
-                <td>261</td>
-                <td>Small Retail Store</td>
-              </tr>
-              <tr>
-                <td>305</td>
-                <td>Sports Arena</td>
-              </tr>
-              <tr>
-                <td>327</td>
-                <td>Warehouse</td>
-              </tr>
-              <tr>
-                <td>280</td>
-                <td>Police Facility/Vehicle/Lot</td>
-              </tr>
-            </tbody>
-          </table></div>
-          <br />
-          <h2>Financial Institution</h2>
-          <div class="table-responsive"><table>
-            <tr>
-              <th>Code</th>
-              <th>Description</th>
-            </tr>
-            <tr>
-              <td>100</td>
-              <td>Bank</td>
-            </tr>
-            <tr>
-              <td>175</td>
-              <td>Credit Union</td>
-            </tr>
-            <tr>
-              <td>168</td>
-              <td>Currency Exchange</td>
-            </tr>
-            <tr>
-              <td>298</td>
-              <td>Savings and Loan</td>
-            </tr>
-            <tr>
-              <td>164</td>
-              <td>ATM</td>
-            </tr>
-          </table></div>
-          <br />
-          <h2>Medical</h2>
-          <div class="table-responsive"><table>
-            <tr>
-              <th>Code</th>
-              <th>Description</th>
-            </tr>
-            <tr>
-              <td>230</td>
-              <td>Animal Hospital/Vet Clinic</td>
-            </tr>
-            <tr>
-              <td>233</td>
-              <td>Hospital Building/Grounds</td>
-            </tr>
-            <tr>
-              <td>250</td>
-              <td>Medical/Dental Office</td>
-            </tr>
-            <tr>
-              <td>268</td>
-              <td>Nursing Home</td>
-            </tr>
-          </table></div>
-          <br />
-          <h2>Miscellaneous</h2>
-          <div class="table-responsive"><table>
-            <tr>
-              <th>Code</th>
-              <th>Description</th>
-            </tr>
-            <tr>
-              <td>096</td>
-              <td>Abandoned Building</td>
-            </tr>
-            <tr>
-              <td>145</td>
-              <td>Cemetery</td>
-            </tr>
-            <tr>
-              <td>151</td>
-              <td>Church/Synagogue/Place of Worship</td>
-            </tr>
-            <tr>
-              <td>171</td>
-              <td>Construction Site</td>
-            </tr>
-            <tr>
-              <td>200</td>
-              <td>Vacant Lot/Land</td>
-            </tr>
-          </table></div>
-          <br />
-          <h2>Public<br />
-            Building/Property/Way
-          </h2>
-          <div class="table-responsive"><table>
-            <thead>
-              <tr>
-                <th>Code</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>092</td>
-                <td>Alley</td>
-              </tr>
-              <tr>
-                <td>132</td>
-                <td>Bridge</td>
-              </tr>
-              <tr>
-                <td>284</td>
-                <td>Federal Building</td>
-              </tr>
-              <tr>
-                <td>212</td>
-                <td>Fire Station</td>
-              </tr>
-              <tr>
-                <td>270</td>
-                <td>Forest Preserve</td>
-              </tr>
-              <tr>
-                <td>292</td>
-                <td>Government Building/Property</td>
-              </tr>
-              <tr>
-                <td>238</td>
-                <td>Highway/Expressway</td>
-              </tr>
-              <tr>
-                <td>273</td>
-                <td>Lake/Waterway/Riverbank</td>
-              </tr>
-              <tr>
-                <td>245</td>
-                <td>Library</td>
-              </tr>
-              <tr>
-                <td>269</td>
-                <td>Park Property</td>
-              </tr>
-              <tr>
-                <td>281</td>
-                <td>Jail/Lock-Up Facility</td>
-              </tr>
-              <tr>
-                <td>303</td>
-                <td>Sidewalk</td>
-              </tr>
-              <tr>
-                <td>304</td>
-                <td>Street</td>
-              </tr>
-            </tbody>
-          </table></div>
-          <br />
-          <h2>Residential<br />
-            Public & Private</h2>
-          <div class="table-responsive"><table>
-            <thead>
-              <tr>
-                <th>Code</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>909</td>
-                <td>Apartment</td>
-              </tr>
-              <tr>
-                <td>121</td>
-                <td>CHA Apartment</td>
-              </tr>
-              <tr>
-                <td>122</td>
-                <td>CHA Hallway/Elevator/Stairwell</td>
-              </tr>
-              <tr>
-                <td>123</td>
-                <td>CHA Parking Lot/Grounds</td>
-              </tr>
-              <tr>
-                <td>290</td>
-                <td>Residence</td>
-              </tr>
-              <tr>
-                <td>176</td>
-                <td>Residence - Driveway</td>
-              </tr>
-              <tr>
-                <td>210</td>
-                <td>Residence - Garage</td>
-              </tr>
-              <tr>
-                <td>289</td>
-                <td>Residence - Porch/Hallway</td>
-              </tr>
-              <tr>
-                <td>291</td>
-                <td>Residence - Yard (Front/Back)</td>
-              </tr>
-            </tbody>
-          </table></div>
-          <br />
-          <h2>Transportaion</h2>
-          <div class="table-responsive"><table>
-            <thead>
-              <tr>
-                <th>Code</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>095</td>
-                <td>Airport/Aircraft</td>
-              </tr>
-              <tr>
-                <td>104</td>
-                <td>Boat/Watercraft</td>
-              </tr>
-              <tr>
-                <td>119</td>
-                <td>CTA</td>
-              </tr>
-              <tr>
-                <td>322</td>
-                <td>CTA-Parking Lot/Garage/Other Property</td>
-              </tr>
-              <tr>
-                <td>220</td>
-                <td>Gas Station</td>
-              </tr>
-              <tr>
-                <td>323</td>
-                <td>CTA Platform</td>
-              </tr>
-              <tr>
-                <td>321</td>
-                <td>CTA Train</td>
-              </tr>
-              <tr>
-                <td>317</td>
-                <td>Other Railroad Property/Train Depot</td>
-              </tr>
-              <tr>
-                <td>309</td>
-                <td>Taxicab</td>
-              </tr>
-              <tr>
-                <td>262</td>
-                <td>Vehicle Commercial</td>
-              </tr>
-              <tr>
-                <td>126</td>
-                <td>Vehicle Delivery Truck</td>
-              </tr>
-              <tr>
-                <td>259</td>
-                <td>Vehicle Non-Commercial</td>
-              </tr>
-              <tr>
-                <td>257</td>
-                <td>Other Commercial Trans</td>
-              </tr>
-            </tbody>
-          </table></div>
-          <br />
-          <h2>School/Univ/Child Care</h2>
-          <div class="table-responsive"><table>
-            <thead>
-              <tr>
-                <th>Code</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>169</td>
-                <td>College/University Building/Grounds</td>
-              </tr>
-              <tr>
-                <td>170</td>
-                <td>College/University Residence Hall</td>
-              </tr>
-              <tr>
-                <td>177</td>
-                <td>Day Care Center</td>
-              </tr>
-              <tr>
-                <td>313</td>
-                <td>School Private Building</td>
-              </tr>
-              <tr>
-                <td>299</td>
-                <td>School Private Grounds</td>
-              </tr>
-              <tr>
-                <td>314</td>
-                <td>School Public Building</td>
-              </tr>
-              <tr>
-                <td>300</td>
-                <td>School Public Grounds</td>
-              </tr>
-            </tbody>
-          </table></div>
-          <br />
-          <h2>Other Location Not Listed</h2>
-          <div class="table-responsive"><table>
-            <thead>
-              <tr>
-                <th>Code</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>330</td>
-                <td>OTHER (SPECIFY)</td>
-              </tr>
-            </tbody>
-          </table></div>
+        <div class="modal-body cheat">
+          <div class="cheat-toolbar">
+            <div class="cheat-search-wrap">
+              <i class="bi bi-search" aria-hidden="true"></i>
+              <input type="search" class="form-control cheat-search" placeholder="Search location codes" aria-label="Search location codes" autocomplete="off" />
+            </div>
+            <div class="cheat-chips" role="group" aria-label="Filter by category">
+              <button type="button" class="cheat-chip is-active" data-cat="all" aria-pressed="true">All</button>
+              <button type="button" class="cheat-chip" data-cat="business-commercial" aria-pressed="false">Business/Commercial <span class="cheat-count">26</span></button>
+              <button type="button" class="cheat-chip" data-cat="financial-institution" aria-pressed="false">Financial Institution <span class="cheat-count">5</span></button>
+              <button type="button" class="cheat-chip" data-cat="medical" aria-pressed="false">Medical <span class="cheat-count">4</span></button>
+              <button type="button" class="cheat-chip" data-cat="miscellaneous" aria-pressed="false">Miscellaneous <span class="cheat-count">5</span></button>
+              <button type="button" class="cheat-chip" data-cat="public-building-property-way" aria-pressed="false">Public Building/Property/Way <span class="cheat-count">13</span></button>
+              <button type="button" class="cheat-chip" data-cat="residential-public-private" aria-pressed="false">Residential Public &amp; Private <span class="cheat-count">9</span></button>
+              <button type="button" class="cheat-chip" data-cat="transportation" aria-pressed="false">Transportation <span class="cheat-count">13</span></button>
+              <button type="button" class="cheat-chip" data-cat="school-univ-child-care" aria-pressed="false">School/Univ/Child Care <span class="cheat-count">7</span></button>
+              <button type="button" class="cheat-chip" data-cat="other-location-not-listed" aria-pressed="false">Other Location Not Listed <span class="cheat-count">1</span></button>
+            </div>
+            <p class="cheat-hint small text-body-secondary mb-0">Tap a code to copy it.</p>
+          </div>
+          <section class="cheat-group" data-cat="business-commercial">
+            <h3 class="cheat-group-title">Business/Commercial</h3>
+            <ul class="code-grid">
+              <li><button type="button" class="code-card" data-copy="097" aria-label="Copy code 097: Appliance Store"><span class="code-card-code">097</span><span class="code-card-desc">Appliance Store</span></button></li>
+              <li><button type="button" class="code-card" data-copy="206" aria-label="Copy code 206: Athletic Club"><span class="code-card-code">206</span><span class="code-card-desc">Athletic Club</span></button></li>
+              <li><button type="button" class="code-card" data-copy="103" aria-label="Copy code 103: Bar/Tavern"><span class="code-card-code">103</span><span class="code-card-desc">Bar/Tavern</span></button></li>
+              <li><button type="button" class="code-card" data-copy="167" aria-label="Copy code 167: Barber/Beauty Shop"><span class="code-card-code">167</span><span class="code-card-desc">Barber/Beauty Shop</span></button></li>
+              <li><button type="button" class="code-card" data-copy="109" aria-label="Copy code 109: Bowling Alley"><span class="code-card-code">109</span><span class="code-card-desc">Bowling Alley</span></button></li>
+              <li><button type="button" class="code-card" data-copy="140" aria-label="Copy code 140: Commercial/Business Office"><span class="code-card-code">140</span><span class="code-card-desc">Commercial/Business Office</span></button></li>
+              <li><button type="button" class="code-card" data-copy="144" aria-label="Copy code 144: Car Wash"><span class="code-card-code">144</span><span class="code-card-desc">Car Wash</span></button></li>
+              <li><button type="button" class="code-card" data-copy="192" aria-label="Copy code 192: Cleaning Store"><span class="code-card-code">192</span><span class="code-card-desc">Cleaning Store</span></button></li>
+              <li><button type="button" class="code-card" data-copy="160" aria-label="Copy code 160: Coin Op Machine"><span class="code-card-code">160</span><span class="code-card-desc">Coin Op Machine</span></button></li>
+              <li><button type="button" class="code-card" data-copy="161" aria-label="Copy code 161: Pawn Shop"><span class="code-card-code">161</span><span class="code-card-desc">Pawn Shop</span></button></li>
+              <li><button type="button" class="code-card" data-copy="162" aria-label="Copy code 162: Convenience Store"><span class="code-card-code">162</span><span class="code-card-desc">Convenience Store</span></button></li>
+              <li><button type="button" class="code-card" data-copy="174" aria-label="Copy code 174: Dept Store"><span class="code-card-code">174</span><span class="code-card-desc">Dept Store</span></button></li>
+              <li><button type="button" class="code-card" data-copy="193" aria-label="Copy code 193: Drug Store"><span class="code-card-code">193</span><span class="code-card-desc">Drug Store</span></button></li>
+              <li><button type="button" class="code-card" data-copy="209" aria-label="Copy code 209: Factory/Man Building"><span class="code-card-code">209</span><span class="code-card-desc">Factory/Man Building</span></button></li>
+              <li><button type="button" class="code-card" data-copy="220" aria-label="Copy code 220: Gas Station"><span class="code-card-code">220</span><span class="code-card-desc">Gas Station</span></button></li>
+              <li><button type="button" class="code-card" data-copy="221" aria-label="Copy code 221: Grocery/Food Store"><span class="code-card-code">221</span><span class="code-card-desc">Grocery/Food Store</span></button></li>
+              <li><button type="button" class="code-card" data-copy="260" aria-label="Copy code 260: Hotel/Motel"><span class="code-card-code">260</span><span class="code-card-desc">Hotel/Motel</span></button></li>
+              <li><button type="button" class="code-card" data-copy="267" aria-label="Copy code 267: Movie Theater"><span class="code-card-code">267</span><span class="code-card-desc">Movie Theater</span></button></li>
+              <li><button type="button" class="code-card" data-copy="165" aria-label="Copy code 165: Newstand"><span class="code-card-code">165</span><span class="code-card-desc">Newstand</span></button></li>
+              <li><button type="button" class="code-card" data-copy="277" aria-label="Copy code 277: Parking Lot/Garage"><span class="code-card-code">277</span><span class="code-card-desc">Parking Lot/Garage</span></button></li>
+              <li><button type="button" class="code-card" data-copy="166" aria-label="Copy code 166: Pool Room"><span class="code-card-code">166</span><span class="code-card-desc">Pool Room</span></button></li>
+              <li><button type="button" class="code-card" data-copy="293" aria-label="Copy code 293: Restaurant"><span class="code-card-code">293</span><span class="code-card-desc">Restaurant</span></button></li>
+              <li><button type="button" class="code-card" data-copy="261" aria-label="Copy code 261: Small Retail Store"><span class="code-card-code">261</span><span class="code-card-desc">Small Retail Store</span></button></li>
+              <li><button type="button" class="code-card" data-copy="305" aria-label="Copy code 305: Sports Arena"><span class="code-card-code">305</span><span class="code-card-desc">Sports Arena</span></button></li>
+              <li><button type="button" class="code-card" data-copy="327" aria-label="Copy code 327: Warehouse"><span class="code-card-code">327</span><span class="code-card-desc">Warehouse</span></button></li>
+              <li><button type="button" class="code-card" data-copy="280" aria-label="Copy code 280: Police Facility/Vehicle/Lot"><span class="code-card-code">280</span><span class="code-card-desc">Police Facility/Vehicle/Lot</span></button></li>
+            </ul>
+          </section>
+          <section class="cheat-group" data-cat="financial-institution">
+            <h3 class="cheat-group-title">Financial Institution</h3>
+            <ul class="code-grid">
+              <li><button type="button" class="code-card" data-copy="100" aria-label="Copy code 100: Bank"><span class="code-card-code">100</span><span class="code-card-desc">Bank</span></button></li>
+              <li><button type="button" class="code-card" data-copy="175" aria-label="Copy code 175: Credit Union"><span class="code-card-code">175</span><span class="code-card-desc">Credit Union</span></button></li>
+              <li><button type="button" class="code-card" data-copy="168" aria-label="Copy code 168: Currency Exchange"><span class="code-card-code">168</span><span class="code-card-desc">Currency Exchange</span></button></li>
+              <li><button type="button" class="code-card" data-copy="298" aria-label="Copy code 298: Savings and Loan"><span class="code-card-code">298</span><span class="code-card-desc">Savings and Loan</span></button></li>
+              <li><button type="button" class="code-card" data-copy="164" aria-label="Copy code 164: ATM"><span class="code-card-code">164</span><span class="code-card-desc">ATM</span></button></li>
+            </ul>
+          </section>
+          <section class="cheat-group" data-cat="medical">
+            <h3 class="cheat-group-title">Medical</h3>
+            <ul class="code-grid">
+              <li><button type="button" class="code-card" data-copy="230" aria-label="Copy code 230: Animal Hospital/Vet Clinic"><span class="code-card-code">230</span><span class="code-card-desc">Animal Hospital/Vet Clinic</span></button></li>
+              <li><button type="button" class="code-card" data-copy="233" aria-label="Copy code 233: Hospital Building/Grounds"><span class="code-card-code">233</span><span class="code-card-desc">Hospital Building/Grounds</span></button></li>
+              <li><button type="button" class="code-card" data-copy="250" aria-label="Copy code 250: Medical/Dental Office"><span class="code-card-code">250</span><span class="code-card-desc">Medical/Dental Office</span></button></li>
+              <li><button type="button" class="code-card" data-copy="268" aria-label="Copy code 268: Nursing Home"><span class="code-card-code">268</span><span class="code-card-desc">Nursing Home</span></button></li>
+            </ul>
+          </section>
+          <section class="cheat-group" data-cat="miscellaneous">
+            <h3 class="cheat-group-title">Miscellaneous</h3>
+            <ul class="code-grid">
+              <li><button type="button" class="code-card" data-copy="096" aria-label="Copy code 096: Abandoned Building"><span class="code-card-code">096</span><span class="code-card-desc">Abandoned Building</span></button></li>
+              <li><button type="button" class="code-card" data-copy="145" aria-label="Copy code 145: Cemetery"><span class="code-card-code">145</span><span class="code-card-desc">Cemetery</span></button></li>
+              <li><button type="button" class="code-card" data-copy="151" aria-label="Copy code 151: Church/Synagogue/Place of Worship"><span class="code-card-code">151</span><span class="code-card-desc">Church/Synagogue/Place of Worship</span></button></li>
+              <li><button type="button" class="code-card" data-copy="171" aria-label="Copy code 171: Construction Site"><span class="code-card-code">171</span><span class="code-card-desc">Construction Site</span></button></li>
+              <li><button type="button" class="code-card" data-copy="200" aria-label="Copy code 200: Vacant Lot/Land"><span class="code-card-code">200</span><span class="code-card-desc">Vacant Lot/Land</span></button></li>
+            </ul>
+          </section>
+          <section class="cheat-group" data-cat="public-building-property-way">
+            <h3 class="cheat-group-title">Public Building/Property/Way</h3>
+            <ul class="code-grid">
+              <li><button type="button" class="code-card" data-copy="092" aria-label="Copy code 092: Alley"><span class="code-card-code">092</span><span class="code-card-desc">Alley</span></button></li>
+              <li><button type="button" class="code-card" data-copy="132" aria-label="Copy code 132: Bridge"><span class="code-card-code">132</span><span class="code-card-desc">Bridge</span></button></li>
+              <li><button type="button" class="code-card" data-copy="284" aria-label="Copy code 284: Federal Building"><span class="code-card-code">284</span><span class="code-card-desc">Federal Building</span></button></li>
+              <li><button type="button" class="code-card" data-copy="212" aria-label="Copy code 212: Fire Station"><span class="code-card-code">212</span><span class="code-card-desc">Fire Station</span></button></li>
+              <li><button type="button" class="code-card" data-copy="270" aria-label="Copy code 270: Forest Preserve"><span class="code-card-code">270</span><span class="code-card-desc">Forest Preserve</span></button></li>
+              <li><button type="button" class="code-card" data-copy="292" aria-label="Copy code 292: Government Building/Property"><span class="code-card-code">292</span><span class="code-card-desc">Government Building/Property</span></button></li>
+              <li><button type="button" class="code-card" data-copy="238" aria-label="Copy code 238: Highway/Expressway"><span class="code-card-code">238</span><span class="code-card-desc">Highway/Expressway</span></button></li>
+              <li><button type="button" class="code-card" data-copy="273" aria-label="Copy code 273: Lake/Waterway/Riverbank"><span class="code-card-code">273</span><span class="code-card-desc">Lake/Waterway/Riverbank</span></button></li>
+              <li><button type="button" class="code-card" data-copy="245" aria-label="Copy code 245: Library"><span class="code-card-code">245</span><span class="code-card-desc">Library</span></button></li>
+              <li><button type="button" class="code-card" data-copy="269" aria-label="Copy code 269: Park Property"><span class="code-card-code">269</span><span class="code-card-desc">Park Property</span></button></li>
+              <li><button type="button" class="code-card" data-copy="281" aria-label="Copy code 281: Jail/Lock-Up Facility"><span class="code-card-code">281</span><span class="code-card-desc">Jail/Lock-Up Facility</span></button></li>
+              <li><button type="button" class="code-card" data-copy="303" aria-label="Copy code 303: Sidewalk"><span class="code-card-code">303</span><span class="code-card-desc">Sidewalk</span></button></li>
+              <li><button type="button" class="code-card" data-copy="304" aria-label="Copy code 304: Street"><span class="code-card-code">304</span><span class="code-card-desc">Street</span></button></li>
+            </ul>
+          </section>
+          <section class="cheat-group" data-cat="residential-public-private">
+            <h3 class="cheat-group-title">Residential Public &amp; Private</h3>
+            <ul class="code-grid">
+              <li><button type="button" class="code-card" data-copy="909" aria-label="Copy code 909: Apartment"><span class="code-card-code">909</span><span class="code-card-desc">Apartment</span></button></li>
+              <li><button type="button" class="code-card" data-copy="121" aria-label="Copy code 121: CHA Apartment"><span class="code-card-code">121</span><span class="code-card-desc">CHA Apartment</span></button></li>
+              <li><button type="button" class="code-card" data-copy="122" aria-label="Copy code 122: CHA Hallway/Elevator/Stairwell"><span class="code-card-code">122</span><span class="code-card-desc">CHA Hallway/Elevator/Stairwell</span></button></li>
+              <li><button type="button" class="code-card" data-copy="123" aria-label="Copy code 123: CHA Parking Lot/Grounds"><span class="code-card-code">123</span><span class="code-card-desc">CHA Parking Lot/Grounds</span></button></li>
+              <li><button type="button" class="code-card" data-copy="290" aria-label="Copy code 290: Residence"><span class="code-card-code">290</span><span class="code-card-desc">Residence</span></button></li>
+              <li><button type="button" class="code-card" data-copy="176" aria-label="Copy code 176: Residence - Driveway"><span class="code-card-code">176</span><span class="code-card-desc">Residence - Driveway</span></button></li>
+              <li><button type="button" class="code-card" data-copy="210" aria-label="Copy code 210: Residence - Garage"><span class="code-card-code">210</span><span class="code-card-desc">Residence - Garage</span></button></li>
+              <li><button type="button" class="code-card" data-copy="289" aria-label="Copy code 289: Residence - Porch/Hallway"><span class="code-card-code">289</span><span class="code-card-desc">Residence - Porch/Hallway</span></button></li>
+              <li><button type="button" class="code-card" data-copy="291" aria-label="Copy code 291: Residence - Yard (Front/Back)"><span class="code-card-code">291</span><span class="code-card-desc">Residence - Yard (Front/Back)</span></button></li>
+            </ul>
+          </section>
+          <section class="cheat-group" data-cat="transportation">
+            <h3 class="cheat-group-title">Transportation</h3>
+            <ul class="code-grid">
+              <li><button type="button" class="code-card" data-copy="095" aria-label="Copy code 095: Airport/Aircraft"><span class="code-card-code">095</span><span class="code-card-desc">Airport/Aircraft</span></button></li>
+              <li><button type="button" class="code-card" data-copy="104" aria-label="Copy code 104: Boat/Watercraft"><span class="code-card-code">104</span><span class="code-card-desc">Boat/Watercraft</span></button></li>
+              <li><button type="button" class="code-card" data-copy="119" aria-label="Copy code 119: CTA"><span class="code-card-code">119</span><span class="code-card-desc">CTA</span></button></li>
+              <li><button type="button" class="code-card" data-copy="322" aria-label="Copy code 322: CTA-Parking Lot/Garage/Other Property"><span class="code-card-code">322</span><span class="code-card-desc">CTA-Parking Lot/Garage/Other Property</span></button></li>
+              <li><button type="button" class="code-card" data-copy="220" aria-label="Copy code 220: Gas Station"><span class="code-card-code">220</span><span class="code-card-desc">Gas Station</span></button></li>
+              <li><button type="button" class="code-card" data-copy="323" aria-label="Copy code 323: CTA Platform"><span class="code-card-code">323</span><span class="code-card-desc">CTA Platform</span></button></li>
+              <li><button type="button" class="code-card" data-copy="321" aria-label="Copy code 321: CTA Train"><span class="code-card-code">321</span><span class="code-card-desc">CTA Train</span></button></li>
+              <li><button type="button" class="code-card" data-copy="317" aria-label="Copy code 317: Other Railroad Property/Train Depot"><span class="code-card-code">317</span><span class="code-card-desc">Other Railroad Property/Train Depot</span></button></li>
+              <li><button type="button" class="code-card" data-copy="309" aria-label="Copy code 309: Taxicab"><span class="code-card-code">309</span><span class="code-card-desc">Taxicab</span></button></li>
+              <li><button type="button" class="code-card" data-copy="262" aria-label="Copy code 262: Vehicle Commercial"><span class="code-card-code">262</span><span class="code-card-desc">Vehicle Commercial</span></button></li>
+              <li><button type="button" class="code-card" data-copy="126" aria-label="Copy code 126: Vehicle Delivery Truck"><span class="code-card-code">126</span><span class="code-card-desc">Vehicle Delivery Truck</span></button></li>
+              <li><button type="button" class="code-card" data-copy="259" aria-label="Copy code 259: Vehicle Non-Commercial"><span class="code-card-code">259</span><span class="code-card-desc">Vehicle Non-Commercial</span></button></li>
+              <li><button type="button" class="code-card" data-copy="257" aria-label="Copy code 257: Other Commercial Trans"><span class="code-card-code">257</span><span class="code-card-desc">Other Commercial Trans</span></button></li>
+            </ul>
+          </section>
+          <section class="cheat-group" data-cat="school-univ-child-care">
+            <h3 class="cheat-group-title">School/Univ/Child Care</h3>
+            <ul class="code-grid">
+              <li><button type="button" class="code-card" data-copy="169" aria-label="Copy code 169: College/University Building/Grounds"><span class="code-card-code">169</span><span class="code-card-desc">College/University Building/Grounds</span></button></li>
+              <li><button type="button" class="code-card" data-copy="170" aria-label="Copy code 170: College/University Residence Hall"><span class="code-card-code">170</span><span class="code-card-desc">College/University Residence Hall</span></button></li>
+              <li><button type="button" class="code-card" data-copy="177" aria-label="Copy code 177: Day Care Center"><span class="code-card-code">177</span><span class="code-card-desc">Day Care Center</span></button></li>
+              <li><button type="button" class="code-card" data-copy="313" aria-label="Copy code 313: School Private Building"><span class="code-card-code">313</span><span class="code-card-desc">School Private Building</span></button></li>
+              <li><button type="button" class="code-card" data-copy="299" aria-label="Copy code 299: School Private Grounds"><span class="code-card-code">299</span><span class="code-card-desc">School Private Grounds</span></button></li>
+              <li><button type="button" class="code-card" data-copy="314" aria-label="Copy code 314: School Public Building"><span class="code-card-code">314</span><span class="code-card-desc">School Public Building</span></button></li>
+              <li><button type="button" class="code-card" data-copy="300" aria-label="Copy code 300: School Public Grounds"><span class="code-card-code">300</span><span class="code-card-desc">School Public Grounds</span></button></li>
+            </ul>
+          </section>
+          <section class="cheat-group" data-cat="other-location-not-listed">
+            <h3 class="cheat-group-title">Other Location Not Listed</h3>
+            <ul class="code-grid">
+              <li><button type="button" class="code-card" data-copy="330" aria-label="Copy code 330: OTHER (SPECIFY)"><span class="code-card-code">330</span><span class="code-card-desc">OTHER (SPECIFY)</span></button></li>
+            </ul>
+          </section>
+          <p class="cheat-empty text-center text-body-secondary py-4" hidden>No matches. Try a different word or code.</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-outline-primary" data-print-modal><i class="bi bi-printer me-1" aria-hidden="true"></i>Print</button>
-          <button type="button" class="btn btn-outline-primary me-auto" data-email-modal><i class="bi bi-envelope me-1" aria-hidden="true"></i>Email PDF</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
@@ -2508,496 +2227,174 @@
   </div>
 
   <!-- COMMONLY USED UCR MODAL -->
-  <div class="modal fade" id="ucrModal" tabindex="-1" aria-labelledby="ucrModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-fullscreen-sm-down modal-dialog-centered modal-dialog-scrollable">
+  <div class="modal fade cheat-modal" id="ucrModal" tabindex="-1" aria-labelledby="ucrModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen-sm-down modal-xl modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="ucrModalLabel">Commonly Used UCR</h5>
+          <h5 class="modal-title" id="ucrModalLabel"><i class="bi bi-journal-text me-2" aria-hidden="true"></i>Commonly Used UCR</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          <!-- Arson/Explosives Section -->
-          <h2>Arson/Explosives</h2>
-          <div class="table-responsive"><table>
-            <thead>
-              <tr>
-                <th>Code</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1010</td>
-                <td>By Explosive</td>
-              </tr>
-              <tr>
-                <td>1020</td>
-                <td>By Incendiary Device</td>
-              </tr>
-              <tr>
-                <td>1025</td>
-                <td>Agg: Arson</td>
-              </tr>
-              <tr>
-                <td>1030</td>
-                <td>Possession: Explosives, Incendiary Device</td>
-              </tr>
-              <tr>
-                <td>1090</td>
-                <td>Attempt Arson</td>
-              </tr>
-            </tbody>
-          </table></div>
-
-          <!-- Assault Section -->
-          <h2>Assault</h2>
-          <div class="table-responsive"><table>
-            <thead>
-              <tr>
-                <th>Code</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>051A</td>
-                <td>Agg: Handgun</td>
-              </tr>
-              <tr>
-                <td>051B</td>
-                <td>Agg: Other Firearm</td>
-              </tr>
-              <tr>
-                <td>0520</td>
-                <td>Agg: Knife or Cutting Instrument</td>
-              </tr>
-              <tr>
-                <td>0530</td>
-                <td>Agg: Other Dangerous Weapon</td>
-              </tr>
-              <tr>
-                <td>0560</td>
-                <td>Simple Assault</td>
-              </tr>
-              <tr>
-                <td>0580</td>
-                <td>Stalking-Simple</td>
-              </tr>
-              <tr>
-                <td>0581</td>
-                <td>Stalking-Aggravated</td>
-              </tr>
-            </tbody>
-          </table></div>
-
-          <!-- Battery Section -->
-          <h2>Battery</h2>
-          <div class="table-responsive"><table>
-            <thead>
-              <tr>
-                <th>Code</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>041A</td>
-                <td>Agg: Handgun</td>
-              </tr>
-              <tr>
-                <td>041B</td>
-                <td>Agg: Other Firearm</td>
-              </tr>
-              <tr>
-                <td>0420</td>
-                <td>Agg: Knife or Cutting Instrument</td>
-              </tr>
-              <tr>
-                <td>0430</td>
-                <td>Agg: Other Dangerous Weapon</td>
-              </tr>
-              <tr>
-                <td>0440</td>
-                <td>Agg: Hands, Fist, Feet</td>
-              </tr>
-              <tr>
-                <td>0460</td>
-                <td>Simple Battery</td>
-              </tr>
-              <tr>
-                <td>0486</td>
-                <td>Battery/Domestic-Simple</td>
-              </tr>
-            </tbody>
-          </table></div>
-
-          <!-- Burglary Section -->
-          <h2>Burglary</h2>
-          <div class="table-responsive"><table>
-            <thead>
-              <tr>
-                <th>Code</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>0610</td>
-                <td>Forcible Entry</td>
-              </tr>
-              <tr>
-                <td>0620</td>
-                <td>Unlawful Entry, No Force</td>
-              </tr>
-              <tr>
-                <td>0630</td>
-                <td>Attempt: Forcible Entry</td>
-              </tr>
-            </tbody>
-          </table></div>
-
-          <!-- Criminal Damage & Trespass to Property Section -->
-          <h2>Criminal Damage & Trespass to Property</h2>
-          <div class="table-responsive"><table>
-            <thead>
-              <tr>
-                <th>Code</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1310</td>
-                <td>Criminal Damage to Property</td>
-              </tr>
-              <tr>
-                <td>1320</td>
-                <td>Criminal Damage to Vehicle</td>
-              </tr>
-              <tr>
-                <td>1330</td>
-                <td>Criminal Trespass to Land</td>
-              </tr>
-              <tr>
-                <td>1340</td>
-                <td>Criminal Damage to State-Supported Land</td>
-              </tr>
-              <tr>
-                <td>1350</td>
-                <td>Criminal Trespass to State-Supported Land</td>
-              </tr>
-              <tr>
-                <td>1360</td>
-                <td>Criminal Trespass to Vehicle</td>
-              </tr>
-              <tr>
-                <td>1365</td>
-                <td>Criminal Trespass to Residence</td>
-              </tr>
-              <tr>
-                <td>1370</td>
-                <td>Criminal Damage to Firefighting Apparatus, Hydrants, or Equipment</td>
-              </tr>
-            </tbody>
-          </table></div>
-
-          <!-- Deception Section -->
-          <h2>Deception</h2>
-          <div class="table-responsive"><table>
-            <thead>
-              <tr>
-                <th>Code</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1130</td>
-                <td>Fraud</td>
-              </tr>
-              <tr>
-                <td>1140</td>
-                <td>Embezzlement</td>
-              </tr>
-              <tr>
-                <td>1150</td>
-                <td>Credit Card, Illegal Use</td>
-              </tr>
-              <tr>
-                <td>1151</td>
-                <td>Cash Dispensing Card, Illegal Use</td>
-              </tr>
-              <tr>
-                <td>1200</td>
-                <td>Stolen Property: Buy/Sell/Possess</td>
-              </tr>
-              <tr>
-                <td>1205</td>
-                <td>Theft by Lessee - Non Motor Vehicle</td>
-              </tr>
-              <tr>
-                <td>1206</td>
-                <td>Theft by Lessee - Motor Vehicle</td>
-              </tr>
-              <tr>
-                <td>1210</td>
-                <td>Theft of Labor - Service, Use of Property</td>
-              </tr>
-              <tr>
-                <td>1220</td>
-                <td>Theft of Mislaid Property</td>
-              </tr>
-              <tr>
-                <td>1230</td>
-                <td>Possession of Key Device to Coin-Op Machine</td>
-              </tr>
-              <tr>
-                <td>1235</td>
-                <td>Unlawful use of Recorded Sound</td>
-              </tr>
-              <tr>
-                <td>1240</td>
-                <td>Unlawful use of Computer</td>
-              </tr>
-              <tr>
-                <td>1245</td>
-                <td>Cable TV Service Offense</td>
-              </tr>
-            </tbody>
-          </table></div>
-
-          <!-- Narcotics Section -->
-          <h2>Narcotics</h2>
-          <div class="table-responsive"><table>
-            <thead>
-              <tr>
-                <th>Code</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1811</td>
-                <td>Poss: Cannabis 30 grms or less</td>
-              </tr>
-              <tr>
-                <td>1812</td>
-                <td>Poss: Cannabis more than 30 grms</td>
-              </tr>
-              <tr>
-                <td>1821</td>
-                <td>Delv: Cannabis 10 grms or less</td>
-              </tr>
-              <tr>
-                <td>1822</td>
-                <td>Delv: Cannabis over 10 grms</td>
-              </tr>
-              <tr>
-                <td>2010</td>
-                <td>Delv: Amphetamine</td>
-              </tr>
-              <tr>
-                <td>2012</td>
-                <td>Delv: Cocaine</td>
-              </tr>
-              <tr>
-                <td>2013</td>
-                <td>Delv: Heroin (Tan)</td>
-              </tr>
-              <tr>
-                <td>2014</td>
-                <td>Delv: Heroin (White)</td>
-              </tr>
-              <tr>
-                <td>2015</td>
-                <td>Delv: Hallucinogens</td>
-              </tr>
-              <tr>
-                <td>2016</td>
-                <td>Delv: PCP</td>
-              </tr>
-              <tr>
-                <td>2017</td>
-                <td>Delv: Crack Cocaine</td>
-              </tr>
-              <tr>
-                <td>2018</td>
-                <td>Delv: Synthetic Drugs</td>
-              </tr>
-              <tr>
-                <td>2020</td>
-                <td>Poss: Amphetamine</td>
-              </tr>
-              <tr>
-                <td>2022</td>
-                <td>Poss: Cocaine</td>
-              </tr>
-              <tr>
-                <td>2023</td>
-                <td>Poss: Heroin (Tan)</td>
-              </tr>
-              <tr>
-                <td>2024</td>
-                <td>Poss: Heroin (White)</td>
-              </tr>
-              <tr>
-                <td>2025</td>
-                <td>Poss: Hallucinogens</td>
-              </tr>
-              <tr>
-                <td>2026</td>
-                <td>Poss: PCP</td>
-              </tr>
-              <tr>
-                <td>2027</td>
-                <td>Poss: Crack Cocaine</td>
-              </tr>
-              <tr>
-                <td>2028</td>
-                <td>Poss: Synthetic Drugs</td>
-              </tr>
-              <tr>
-                <td>2031</td>
-                <td>Poss: Methamphetamine</td>
-              </tr>
-              <tr>
-                <td>2032</td>
-                <td>Delv: Methamphetamine</td>
-              </tr>
-              <tr>
-                <td>2091</td>
-                <td>Forfiet Property: Narcotics</td>
-              </tr>
-              <tr>
-                <td>2095</td>
-                <td>Found Property: Narcotics</td>
-              </tr>
-            </tbody>
-          </table></div>
-
-          <!-- Other Section -->
-          <h2>Other</h2>
-          <div class="table-responsive"><table>
-            <thead>
-              <tr>
-                <th>Code</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>5084</td>
-                <td>Death</td>
-              </tr>
-              <tr>
-                <td>5078</td>
-                <td>Death Investigation</td>
-              </tr>
-              <tr>
-                <td>5088</td>
-                <td>Injury On Duty</td>
-              </tr>
-              <tr>
-                <td>5079</td>
-                <td>Mental Transport</td>
-              </tr>
-              <tr>
-                <td>5080</td>
-                <td>Non Criminal</td>
-              </tr>
-              <tr>
-                <td>5105</td>
-                <td>Narcan</td>
-              </tr>
-            </tbody>
-          </table></div>
-
-          <!-- Theft Section -->
-          <h2>Theft</h2>
-          <div class="table-responsive"><table>
-            <thead>
-              <tr>
-                <th>Code</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>0810</td>
-                <td>Over $500</td>
-              </tr>
-              <tr>
-                <td>0820</td>
-                <td>$500 and Under</td>
-              </tr>
-              <tr>
-                <td>0860</td>
-                <td>Other Theft/Retail</td>
-              </tr>
-            </tbody>
-          </table></div>
-
-          <!-- Weapons Violation Section -->
-          <h2>Weapons Violation</h2>
-          <div class="table-responsive"><table>
-            <thead>
-              <tr>
-                <th>Code</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>141A</td>
-                <td>UUW: Handgun</td>
-              </tr>
-              <tr>
-                <td>141B</td>
-                <td>UUW: Other Firearm</td>
-              </tr>
-              <tr>
-                <td>141C</td>
-                <td>UUW: Other Dangerous Weapon</td>
-              </tr>
-              <tr>
-                <td>142A</td>
-                <td>Unlawful Sale: Handgun</td>
-              </tr>
-              <tr>
-                <td>142B</td>
-                <td>Unlawful Sale: Other Firearm</td>
-              </tr>
-              <tr>
-                <td>143A</td>
-                <td>Unlawful Possession: Handgun</td>
-              </tr>
-              <tr>
-                <td>143B</td>
-                <td>Unlawful Possession: Other Firearm</td>
-              </tr>
-              <tr>
-                <td>143C</td>
-                <td>Unlawful Possession: Ammunition</td>
-              </tr>
-              <tr>
-                <td>1440</td>
-                <td>Register of Sales by Dealer</td>
-              </tr>
-              <tr>
-                <td>1450</td>
-                <td>Defacing Identifying Marks on Firearm</td>
-              </tr>
-              <tr>
-                <td>1460</td>
-                <td>Fire Arms and Ammunition, No FOID Card</td>
-              </tr>
-            </tbody>
-          </table></div>
-
+        <div class="modal-body cheat">
+          <div class="cheat-toolbar">
+            <div class="cheat-search-wrap">
+              <i class="bi bi-search" aria-hidden="true"></i>
+              <input type="search" class="form-control cheat-search" placeholder="Search UCR codes or offenses" aria-label="Search UCR codes or offenses" autocomplete="off" />
+            </div>
+            <div class="cheat-chips" role="group" aria-label="Filter by category">
+              <button type="button" class="cheat-chip is-active" data-cat="all" aria-pressed="true">All</button>
+              <button type="button" class="cheat-chip" data-cat="arson-explosives" aria-pressed="false">Arson/Explosives <span class="cheat-count">5</span></button>
+              <button type="button" class="cheat-chip" data-cat="assault" aria-pressed="false">Assault <span class="cheat-count">7</span></button>
+              <button type="button" class="cheat-chip" data-cat="battery" aria-pressed="false">Battery <span class="cheat-count">7</span></button>
+              <button type="button" class="cheat-chip" data-cat="burglary" aria-pressed="false">Burglary <span class="cheat-count">3</span></button>
+              <button type="button" class="cheat-chip" data-cat="criminal-damage-trespass-to-property" aria-pressed="false">Criminal Damage &amp; Trespass to Property <span class="cheat-count">8</span></button>
+              <button type="button" class="cheat-chip" data-cat="deception" aria-pressed="false">Deception <span class="cheat-count">13</span></button>
+              <button type="button" class="cheat-chip" data-cat="narcotics" aria-pressed="false">Narcotics <span class="cheat-count">24</span></button>
+              <button type="button" class="cheat-chip" data-cat="other" aria-pressed="false">Other <span class="cheat-count">6</span></button>
+              <button type="button" class="cheat-chip" data-cat="theft" aria-pressed="false">Theft <span class="cheat-count">3</span></button>
+              <button type="button" class="cheat-chip" data-cat="weapons-violation" aria-pressed="false">Weapons Violation <span class="cheat-count">11</span></button>
+            </div>
+            <p class="cheat-hint small text-body-secondary mb-0">Tap a code to copy it.</p>
+          </div>
+          <section class="cheat-group" data-cat="arson-explosives">
+            <h3 class="cheat-group-title">Arson/Explosives</h3>
+            <ul class="code-grid">
+              <li><button type="button" class="code-card" data-copy="1010" aria-label="Copy code 1010: By Explosive"><span class="code-card-code">1010</span><span class="code-card-desc">By Explosive</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1020" aria-label="Copy code 1020: By Incendiary Device"><span class="code-card-code">1020</span><span class="code-card-desc">By Incendiary Device</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1025" aria-label="Copy code 1025: Agg: Arson"><span class="code-card-code">1025</span><span class="code-card-desc">Agg: Arson</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1030" aria-label="Copy code 1030: Possession: Explosives, Incendiary Device"><span class="code-card-code">1030</span><span class="code-card-desc">Possession: Explosives, Incendiary Device</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1090" aria-label="Copy code 1090: Attempt Arson"><span class="code-card-code">1090</span><span class="code-card-desc">Attempt Arson</span></button></li>
+            </ul>
+          </section>
+          <section class="cheat-group" data-cat="assault">
+            <h3 class="cheat-group-title">Assault</h3>
+            <ul class="code-grid">
+              <li><button type="button" class="code-card" data-copy="051A" aria-label="Copy code 051A: Agg: Handgun"><span class="code-card-code">051A</span><span class="code-card-desc">Agg: Handgun</span></button></li>
+              <li><button type="button" class="code-card" data-copy="051B" aria-label="Copy code 051B: Agg: Other Firearm"><span class="code-card-code">051B</span><span class="code-card-desc">Agg: Other Firearm</span></button></li>
+              <li><button type="button" class="code-card" data-copy="0520" aria-label="Copy code 0520: Agg: Knife or Cutting Instrument"><span class="code-card-code">0520</span><span class="code-card-desc">Agg: Knife or Cutting Instrument</span></button></li>
+              <li><button type="button" class="code-card" data-copy="0530" aria-label="Copy code 0530: Agg: Other Dangerous Weapon"><span class="code-card-code">0530</span><span class="code-card-desc">Agg: Other Dangerous Weapon</span></button></li>
+              <li><button type="button" class="code-card" data-copy="0560" aria-label="Copy code 0560: Simple Assault"><span class="code-card-code">0560</span><span class="code-card-desc">Simple Assault</span></button></li>
+              <li><button type="button" class="code-card" data-copy="0580" aria-label="Copy code 0580: Stalking-Simple"><span class="code-card-code">0580</span><span class="code-card-desc">Stalking-Simple</span></button></li>
+              <li><button type="button" class="code-card" data-copy="0581" aria-label="Copy code 0581: Stalking-Aggravated"><span class="code-card-code">0581</span><span class="code-card-desc">Stalking-Aggravated</span></button></li>
+            </ul>
+          </section>
+          <section class="cheat-group" data-cat="battery">
+            <h3 class="cheat-group-title">Battery</h3>
+            <ul class="code-grid">
+              <li><button type="button" class="code-card" data-copy="041A" aria-label="Copy code 041A: Agg: Handgun"><span class="code-card-code">041A</span><span class="code-card-desc">Agg: Handgun</span></button></li>
+              <li><button type="button" class="code-card" data-copy="041B" aria-label="Copy code 041B: Agg: Other Firearm"><span class="code-card-code">041B</span><span class="code-card-desc">Agg: Other Firearm</span></button></li>
+              <li><button type="button" class="code-card" data-copy="0420" aria-label="Copy code 0420: Agg: Knife or Cutting Instrument"><span class="code-card-code">0420</span><span class="code-card-desc">Agg: Knife or Cutting Instrument</span></button></li>
+              <li><button type="button" class="code-card" data-copy="0430" aria-label="Copy code 0430: Agg: Other Dangerous Weapon"><span class="code-card-code">0430</span><span class="code-card-desc">Agg: Other Dangerous Weapon</span></button></li>
+              <li><button type="button" class="code-card" data-copy="0440" aria-label="Copy code 0440: Agg: Hands, Fist, Feet"><span class="code-card-code">0440</span><span class="code-card-desc">Agg: Hands, Fist, Feet</span></button></li>
+              <li><button type="button" class="code-card" data-copy="0460" aria-label="Copy code 0460: Simple Battery"><span class="code-card-code">0460</span><span class="code-card-desc">Simple Battery</span></button></li>
+              <li><button type="button" class="code-card" data-copy="0486" aria-label="Copy code 0486: Battery/Domestic-Simple"><span class="code-card-code">0486</span><span class="code-card-desc">Battery/Domestic-Simple</span></button></li>
+            </ul>
+          </section>
+          <section class="cheat-group" data-cat="burglary">
+            <h3 class="cheat-group-title">Burglary</h3>
+            <ul class="code-grid">
+              <li><button type="button" class="code-card" data-copy="0610" aria-label="Copy code 0610: Forcible Entry"><span class="code-card-code">0610</span><span class="code-card-desc">Forcible Entry</span></button></li>
+              <li><button type="button" class="code-card" data-copy="0620" aria-label="Copy code 0620: Unlawful Entry, No Force"><span class="code-card-code">0620</span><span class="code-card-desc">Unlawful Entry, No Force</span></button></li>
+              <li><button type="button" class="code-card" data-copy="0630" aria-label="Copy code 0630: Attempt: Forcible Entry"><span class="code-card-code">0630</span><span class="code-card-desc">Attempt: Forcible Entry</span></button></li>
+            </ul>
+          </section>
+          <section class="cheat-group" data-cat="criminal-damage-trespass-to-property">
+            <h3 class="cheat-group-title">Criminal Damage &amp; Trespass to Property</h3>
+            <ul class="code-grid">
+              <li><button type="button" class="code-card" data-copy="1310" aria-label="Copy code 1310: Criminal Damage to Property"><span class="code-card-code">1310</span><span class="code-card-desc">Criminal Damage to Property</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1320" aria-label="Copy code 1320: Criminal Damage to Vehicle"><span class="code-card-code">1320</span><span class="code-card-desc">Criminal Damage to Vehicle</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1330" aria-label="Copy code 1330: Criminal Trespass to Land"><span class="code-card-code">1330</span><span class="code-card-desc">Criminal Trespass to Land</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1340" aria-label="Copy code 1340: Criminal Damage to State-Supported Land"><span class="code-card-code">1340</span><span class="code-card-desc">Criminal Damage to State-Supported Land</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1350" aria-label="Copy code 1350: Criminal Trespass to State-Supported Land"><span class="code-card-code">1350</span><span class="code-card-desc">Criminal Trespass to State-Supported Land</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1360" aria-label="Copy code 1360: Criminal Trespass to Vehicle"><span class="code-card-code">1360</span><span class="code-card-desc">Criminal Trespass to Vehicle</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1365" aria-label="Copy code 1365: Criminal Trespass to Residence"><span class="code-card-code">1365</span><span class="code-card-desc">Criminal Trespass to Residence</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1370" aria-label="Copy code 1370: Criminal Damage to Firefighting Apparatus, Hydrants, or Equipment"><span class="code-card-code">1370</span><span class="code-card-desc">Criminal Damage to Firefighting Apparatus, Hydrants, or Equipment</span></button></li>
+            </ul>
+          </section>
+          <section class="cheat-group" data-cat="deception">
+            <h3 class="cheat-group-title">Deception</h3>
+            <ul class="code-grid">
+              <li><button type="button" class="code-card" data-copy="1130" aria-label="Copy code 1130: Fraud"><span class="code-card-code">1130</span><span class="code-card-desc">Fraud</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1140" aria-label="Copy code 1140: Embezzlement"><span class="code-card-code">1140</span><span class="code-card-desc">Embezzlement</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1150" aria-label="Copy code 1150: Credit Card, Illegal Use"><span class="code-card-code">1150</span><span class="code-card-desc">Credit Card, Illegal Use</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1151" aria-label="Copy code 1151: Cash Dispensing Card, Illegal Use"><span class="code-card-code">1151</span><span class="code-card-desc">Cash Dispensing Card, Illegal Use</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1200" aria-label="Copy code 1200: Stolen Property: Buy/Sell/Possess"><span class="code-card-code">1200</span><span class="code-card-desc">Stolen Property: Buy/Sell/Possess</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1205" aria-label="Copy code 1205: Theft by Lessee - Non Motor Vehicle"><span class="code-card-code">1205</span><span class="code-card-desc">Theft by Lessee - Non Motor Vehicle</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1206" aria-label="Copy code 1206: Theft by Lessee - Motor Vehicle"><span class="code-card-code">1206</span><span class="code-card-desc">Theft by Lessee - Motor Vehicle</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1210" aria-label="Copy code 1210: Theft of Labor - Service, Use of Property"><span class="code-card-code">1210</span><span class="code-card-desc">Theft of Labor - Service, Use of Property</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1220" aria-label="Copy code 1220: Theft of Mislaid Property"><span class="code-card-code">1220</span><span class="code-card-desc">Theft of Mislaid Property</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1230" aria-label="Copy code 1230: Possession of Key Device to Coin-Op Machine"><span class="code-card-code">1230</span><span class="code-card-desc">Possession of Key Device to Coin-Op Machine</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1235" aria-label="Copy code 1235: Unlawful use of Recorded Sound"><span class="code-card-code">1235</span><span class="code-card-desc">Unlawful use of Recorded Sound</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1240" aria-label="Copy code 1240: Unlawful use of Computer"><span class="code-card-code">1240</span><span class="code-card-desc">Unlawful use of Computer</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1245" aria-label="Copy code 1245: Cable TV Service Offense"><span class="code-card-code">1245</span><span class="code-card-desc">Cable TV Service Offense</span></button></li>
+            </ul>
+          </section>
+          <section class="cheat-group" data-cat="narcotics">
+            <h3 class="cheat-group-title">Narcotics</h3>
+            <ul class="code-grid">
+              <li><button type="button" class="code-card" data-copy="1811" aria-label="Copy code 1811: Poss: Cannabis 30 grms or less"><span class="code-card-code">1811</span><span class="code-card-desc">Poss: Cannabis 30 grms or less</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1812" aria-label="Copy code 1812: Poss: Cannabis more than 30 grms"><span class="code-card-code">1812</span><span class="code-card-desc">Poss: Cannabis more than 30 grms</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1821" aria-label="Copy code 1821: Delv: Cannabis 10 grms or less"><span class="code-card-code">1821</span><span class="code-card-desc">Delv: Cannabis 10 grms or less</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1822" aria-label="Copy code 1822: Delv: Cannabis over 10 grms"><span class="code-card-code">1822</span><span class="code-card-desc">Delv: Cannabis over 10 grms</span></button></li>
+              <li><button type="button" class="code-card" data-copy="2010" aria-label="Copy code 2010: Delv: Amphetamine"><span class="code-card-code">2010</span><span class="code-card-desc">Delv: Amphetamine</span></button></li>
+              <li><button type="button" class="code-card" data-copy="2012" aria-label="Copy code 2012: Delv: Cocaine"><span class="code-card-code">2012</span><span class="code-card-desc">Delv: Cocaine</span></button></li>
+              <li><button type="button" class="code-card" data-copy="2013" aria-label="Copy code 2013: Delv: Heroin (Tan)"><span class="code-card-code">2013</span><span class="code-card-desc">Delv: Heroin (Tan)</span></button></li>
+              <li><button type="button" class="code-card" data-copy="2014" aria-label="Copy code 2014: Delv: Heroin (White)"><span class="code-card-code">2014</span><span class="code-card-desc">Delv: Heroin (White)</span></button></li>
+              <li><button type="button" class="code-card" data-copy="2015" aria-label="Copy code 2015: Delv: Hallucinogens"><span class="code-card-code">2015</span><span class="code-card-desc">Delv: Hallucinogens</span></button></li>
+              <li><button type="button" class="code-card" data-copy="2016" aria-label="Copy code 2016: Delv: PCP"><span class="code-card-code">2016</span><span class="code-card-desc">Delv: PCP</span></button></li>
+              <li><button type="button" class="code-card" data-copy="2017" aria-label="Copy code 2017: Delv: Crack Cocaine"><span class="code-card-code">2017</span><span class="code-card-desc">Delv: Crack Cocaine</span></button></li>
+              <li><button type="button" class="code-card" data-copy="2018" aria-label="Copy code 2018: Delv: Synthetic Drugs"><span class="code-card-code">2018</span><span class="code-card-desc">Delv: Synthetic Drugs</span></button></li>
+              <li><button type="button" class="code-card" data-copy="2020" aria-label="Copy code 2020: Poss: Amphetamine"><span class="code-card-code">2020</span><span class="code-card-desc">Poss: Amphetamine</span></button></li>
+              <li><button type="button" class="code-card" data-copy="2022" aria-label="Copy code 2022: Poss: Cocaine"><span class="code-card-code">2022</span><span class="code-card-desc">Poss: Cocaine</span></button></li>
+              <li><button type="button" class="code-card" data-copy="2023" aria-label="Copy code 2023: Poss: Heroin (Tan)"><span class="code-card-code">2023</span><span class="code-card-desc">Poss: Heroin (Tan)</span></button></li>
+              <li><button type="button" class="code-card" data-copy="2024" aria-label="Copy code 2024: Poss: Heroin (White)"><span class="code-card-code">2024</span><span class="code-card-desc">Poss: Heroin (White)</span></button></li>
+              <li><button type="button" class="code-card" data-copy="2025" aria-label="Copy code 2025: Poss: Hallucinogens"><span class="code-card-code">2025</span><span class="code-card-desc">Poss: Hallucinogens</span></button></li>
+              <li><button type="button" class="code-card" data-copy="2026" aria-label="Copy code 2026: Poss: PCP"><span class="code-card-code">2026</span><span class="code-card-desc">Poss: PCP</span></button></li>
+              <li><button type="button" class="code-card" data-copy="2027" aria-label="Copy code 2027: Poss: Crack Cocaine"><span class="code-card-code">2027</span><span class="code-card-desc">Poss: Crack Cocaine</span></button></li>
+              <li><button type="button" class="code-card" data-copy="2028" aria-label="Copy code 2028: Poss: Synthetic Drugs"><span class="code-card-code">2028</span><span class="code-card-desc">Poss: Synthetic Drugs</span></button></li>
+              <li><button type="button" class="code-card" data-copy="2031" aria-label="Copy code 2031: Poss: Methamphetamine"><span class="code-card-code">2031</span><span class="code-card-desc">Poss: Methamphetamine</span></button></li>
+              <li><button type="button" class="code-card" data-copy="2032" aria-label="Copy code 2032: Delv: Methamphetamine"><span class="code-card-code">2032</span><span class="code-card-desc">Delv: Methamphetamine</span></button></li>
+              <li><button type="button" class="code-card" data-copy="2091" aria-label="Copy code 2091: Forfiet Property: Narcotics"><span class="code-card-code">2091</span><span class="code-card-desc">Forfiet Property: Narcotics</span></button></li>
+              <li><button type="button" class="code-card" data-copy="2095" aria-label="Copy code 2095: Found Property: Narcotics"><span class="code-card-code">2095</span><span class="code-card-desc">Found Property: Narcotics</span></button></li>
+            </ul>
+          </section>
+          <section class="cheat-group" data-cat="other">
+            <h3 class="cheat-group-title">Other</h3>
+            <ul class="code-grid">
+              <li><button type="button" class="code-card" data-copy="5084" aria-label="Copy code 5084: Death"><span class="code-card-code">5084</span><span class="code-card-desc">Death</span></button></li>
+              <li><button type="button" class="code-card" data-copy="5078" aria-label="Copy code 5078: Death Investigation"><span class="code-card-code">5078</span><span class="code-card-desc">Death Investigation</span></button></li>
+              <li><button type="button" class="code-card" data-copy="5088" aria-label="Copy code 5088: Injury On Duty"><span class="code-card-code">5088</span><span class="code-card-desc">Injury On Duty</span></button></li>
+              <li><button type="button" class="code-card" data-copy="5079" aria-label="Copy code 5079: Mental Transport"><span class="code-card-code">5079</span><span class="code-card-desc">Mental Transport</span></button></li>
+              <li><button type="button" class="code-card" data-copy="5080" aria-label="Copy code 5080: Non Criminal"><span class="code-card-code">5080</span><span class="code-card-desc">Non Criminal</span></button></li>
+              <li><button type="button" class="code-card" data-copy="5105" aria-label="Copy code 5105: Narcan"><span class="code-card-code">5105</span><span class="code-card-desc">Narcan</span></button></li>
+            </ul>
+          </section>
+          <section class="cheat-group" data-cat="theft">
+            <h3 class="cheat-group-title">Theft</h3>
+            <ul class="code-grid">
+              <li><button type="button" class="code-card" data-copy="0810" aria-label="Copy code 0810: Over $500"><span class="code-card-code">0810</span><span class="code-card-desc">Over $500</span></button></li>
+              <li><button type="button" class="code-card" data-copy="0820" aria-label="Copy code 0820: $500 and Under"><span class="code-card-code">0820</span><span class="code-card-desc">$500 and Under</span></button></li>
+              <li><button type="button" class="code-card" data-copy="0860" aria-label="Copy code 0860: Other Theft/Retail"><span class="code-card-code">0860</span><span class="code-card-desc">Other Theft/Retail</span></button></li>
+            </ul>
+          </section>
+          <section class="cheat-group" data-cat="weapons-violation">
+            <h3 class="cheat-group-title">Weapons Violation</h3>
+            <ul class="code-grid">
+              <li><button type="button" class="code-card" data-copy="141A" aria-label="Copy code 141A: UUW: Handgun"><span class="code-card-code">141A</span><span class="code-card-desc">UUW: Handgun</span></button></li>
+              <li><button type="button" class="code-card" data-copy="141B" aria-label="Copy code 141B: UUW: Other Firearm"><span class="code-card-code">141B</span><span class="code-card-desc">UUW: Other Firearm</span></button></li>
+              <li><button type="button" class="code-card" data-copy="141C" aria-label="Copy code 141C: UUW: Other Dangerous Weapon"><span class="code-card-code">141C</span><span class="code-card-desc">UUW: Other Dangerous Weapon</span></button></li>
+              <li><button type="button" class="code-card" data-copy="142A" aria-label="Copy code 142A: Unlawful Sale: Handgun"><span class="code-card-code">142A</span><span class="code-card-desc">Unlawful Sale: Handgun</span></button></li>
+              <li><button type="button" class="code-card" data-copy="142B" aria-label="Copy code 142B: Unlawful Sale: Other Firearm"><span class="code-card-code">142B</span><span class="code-card-desc">Unlawful Sale: Other Firearm</span></button></li>
+              <li><button type="button" class="code-card" data-copy="143A" aria-label="Copy code 143A: Unlawful Possession: Handgun"><span class="code-card-code">143A</span><span class="code-card-desc">Unlawful Possession: Handgun</span></button></li>
+              <li><button type="button" class="code-card" data-copy="143B" aria-label="Copy code 143B: Unlawful Possession: Other Firearm"><span class="code-card-code">143B</span><span class="code-card-desc">Unlawful Possession: Other Firearm</span></button></li>
+              <li><button type="button" class="code-card" data-copy="143C" aria-label="Copy code 143C: Unlawful Possession: Ammunition"><span class="code-card-code">143C</span><span class="code-card-desc">Unlawful Possession: Ammunition</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1440" aria-label="Copy code 1440: Register of Sales by Dealer"><span class="code-card-code">1440</span><span class="code-card-desc">Register of Sales by Dealer</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1450" aria-label="Copy code 1450: Defacing Identifying Marks on Firearm"><span class="code-card-code">1450</span><span class="code-card-desc">Defacing Identifying Marks on Firearm</span></button></li>
+              <li><button type="button" class="code-card" data-copy="1460" aria-label="Copy code 1460: Fire Arms and Ammunition, No FOID Card"><span class="code-card-code">1460</span><span class="code-card-desc">Fire Arms and Ammunition, No FOID Card</span></button></li>
+            </ul>
+          </section>
+          <p class="cheat-empty text-center text-body-secondary py-4" hidden>No matches. Try a different word or code.</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-outline-primary" data-print-modal><i class="bi bi-printer me-1" aria-hidden="true"></i>Print</button>
-          <button type="button" class="btn btn-outline-primary me-auto" data-email-modal><i class="bi bi-envelope me-1" aria-hidden="true"></i>Email PDF</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
@@ -3005,224 +2402,119 @@
   </div>
 
   <!-- FUEL MODAL -->
-  <div class="modal fade" id="fuelModal" tabindex="-1" aria-labelledby="fuelModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-fullscreen-sm-down modal-dialog-centered modal-dialog-scrollable">
+  <div class="modal fade cheat-modal" id="fuelModal" tabindex="-1" aria-labelledby="fuelModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen-sm-down modal-xl modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="fuelModalLabel">Fueling Stations</h5>
+          <h5 class="modal-title" id="fuelModalLabel"><i class="bi bi-fuel-pump me-2" aria-hidden="true"></i>Fueling Stations</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          <h2>North - Area North Garage</h2>
-          <div class="table-responsive"><table>
-            <thead>
-              <tr>
-                <th>Label</th>
-                <th>Details</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Address</td>
-                <td>3245 N Campbell Ave, 60618</td>
-              </tr>
-              <tr>
-                <td>Phone Number</td>
-                <td>312-744-5666</td>
-              </tr>
-            </tbody>
-          </table></div>
-
-          <h2>North - Ferdinand</h2>
-          <h3>(11th Dist)</h3>
-          <div class="table-responsive"><table>
-            <thead>
-              <tr>
-                <th>Label</th>
-                <th>Details</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Address</td>
-                <td>4233 W Ferdinad St, 60624</td>
-              </tr>
-              <tr>
-                <td>Phone Number</td>
-                <td>312-744-5668</td>
-              </tr>
-            </tbody>
-          </table></div>
-
-          <h2>North - O'Hare Airport</h2>
-          <div class="table-responsive"><table>
-            <thead>
-              <tr>
-                <th>Label</th>
-                <th>Details</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Address</td>
-                <td>10000 W O'Hare Ave, 60666</td>
-              </tr>
-              <tr>
-                <td>Phone Number</td>
-                <td>312-744-5666</td>
-              </tr>
-            </tbody>
-          </table></div>
-
-          <h2>North - Ravenswood</h2>
-          <h3>(24th Dist)</h3>
-          <div class="table-responsive"><table>
-            <thead>
-              <tr>
-                <th>Label</th>
-                <th>Details</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Address</td>
-                <td>6445 N Ravenswood Ave, 60626</td>
-              </tr>
-              <tr>
-                <td>Phone Number</td>
-                <td>312-744-5669</td>
-              </tr>
-            </tbody>
-          </table></div>
-
-          <h2>North - Sunnyside</h2>
-          <h3>(16th Dist)</h3>
-          <div class="table-responsive"><table>
-            <thead>
-              <tr>
-                <th>Label</th>
-                <th>Details</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Address</td>
-                <td>4833 W Sunnyside Ave, 60630</td>
-              </tr>
-              <tr>
-                <td>Phone Number</td>
-                <td>312-744-5670</td>
-              </tr>
-            </tbody>
-          </table></div>
-
-          <h2>South - 101st & Stony Island</h2>
-          <h3>(05th Dist)</h3>
-          <div class="table-responsive"><table>
-            <thead>
-              <tr>
-                <th>Label</th>
-                <th>Details</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Address</td>
-                <td>10101 S Stony Island Ave, 60617</td>
-              </tr>
-              <tr>
-                <td>Phone Number</td>
-                <td>312-744-5673</td>
-              </tr>
-            </tbody>
-          </table></div>
-
-          <h2>South - 104th & Vincennes</h2>
-          <h3>(22nd Dist)</h3>
-          <div class="table-responsive"><table>
-            <thead>
-              <tr>
-                <th>Label</th>
-                <th>Details</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Address</td>
-                <td>10420 S Vincennes Ave, 60643</td>
-              </tr>
-              <tr>
-                <td>Phone Number</td>
-                <td>312-744-5666</td>
-              </tr>
-            </tbody>
-          </table></div>
-
-          <h2>South - 38th & Iron</h2>
-          <h3>(09th Dist)</h3>
-          <div class="table-responsive"><table>
-            <thead>
-              <tr>
-                <th>Label</th>
-                <th>Details</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Address</td>
-                <td>3746 S Iron St, 60609</td>
-              </tr>
-              <tr>
-                <td>Phone Number</td>
-                <td>312-744-5670</td>
-              </tr>
-            </tbody>
-          </table></div>
-
-          <h2>South - 65th & State</h2>
-          <h3>(03rd Dist)</h3>
-          <div class="table-responsive"><table>
-            <thead>
-              <tr>
-                <th>Label</th>
-                <th>Details</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Address</td>
-                <td>25 W 65th St, 60621</td>
-              </tr>
-              <tr>
-                <td>Phone Number</td>
-                <td>312-744-5671</td>
-              </tr>
-            </tbody>
-          </table></div>
-
-          <h2>South - Midway Airport</h2>
-          <div class="table-responsive"><table>
-            <thead>
-              <tr>
-                <th>Label</th>
-                <th>Details</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Address</td>
-                <td>5150 W 63rd St, 60638</td>
-              </tr>
-              <tr>
-                <td>Phone Number</td>
-                <td>312-744-5672</td>
-              </tr>
-            </tbody>
-          </table></div>
+        <div class="modal-body cheat">
+          <div class="cheat-toolbar">
+            <div class="cheat-search-wrap">
+              <i class="bi bi-search" aria-hidden="true"></i>
+              <input type="search" class="form-control cheat-search" placeholder="Search stations, streets or districts" aria-label="Search stations, streets or districts" autocomplete="off" />
+            </div>
+            <div class="cheat-chips" role="group" aria-label="Filter by category">
+              <button type="button" class="cheat-chip is-active" data-cat="all" aria-pressed="true">All</button>
+              <button type="button" class="cheat-chip" data-cat="north" aria-pressed="false">North <span class="cheat-count">5</span></button>
+              <button type="button" class="cheat-chip" data-cat="south" aria-pressed="false">South <span class="cheat-count">5</span></button>
+            </div>
+            <p class="cheat-hint small text-body-secondary mb-0">Tap Directions for maps or the number to call.</p>
+          </div>
+          <section class="cheat-group" data-cat="north">
+            <h3 class="cheat-group-title">North</h3>
+            <ul class="station-grid">
+              <li class="station-card">
+                <div class="station-head"><h4 class="station-name">Area North Garage</h4></div>
+                <p class="station-addr"><i class="bi bi-geo-alt" aria-hidden="true"></i>3245 N Campbell Ave, 60618</p>
+                <div class="station-actions">
+                  <a class="btn btn-sm btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=3245%20N%20Campbell%20Ave%2C%2060618%2C%20Chicago%2C%20IL" target="_blank" rel="noopener"><i class="bi bi-sign-turn-right me-1" aria-hidden="true"></i>Directions</a>
+                  <a class="btn btn-sm btn-outline-primary" href="tel:3127445666"><i class="bi bi-telephone me-1" aria-hidden="true"></i>312-744-5666</a>
+                </div>
+              </li>
+              <li class="station-card">
+                <div class="station-head"><h4 class="station-name">Ferdinand</h4><span class="badge text-bg-secondary">11th Dist</span></div>
+                <p class="station-addr"><i class="bi bi-geo-alt" aria-hidden="true"></i>4233 W Ferdinand St, 60624</p>
+                <div class="station-actions">
+                  <a class="btn btn-sm btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=4233%20W%20Ferdinand%20St%2C%2060624%2C%20Chicago%2C%20IL" target="_blank" rel="noopener"><i class="bi bi-sign-turn-right me-1" aria-hidden="true"></i>Directions</a>
+                  <a class="btn btn-sm btn-outline-primary" href="tel:3127445668"><i class="bi bi-telephone me-1" aria-hidden="true"></i>312-744-5668</a>
+                </div>
+              </li>
+              <li class="station-card">
+                <div class="station-head"><h4 class="station-name">O&#x27;Hare Airport</h4></div>
+                <p class="station-addr"><i class="bi bi-geo-alt" aria-hidden="true"></i>10000 W O&#x27;Hare Ave, 60666</p>
+                <div class="station-actions">
+                  <a class="btn btn-sm btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=10000%20W%20O%27Hare%20Ave%2C%2060666%2C%20Chicago%2C%20IL" target="_blank" rel="noopener"><i class="bi bi-sign-turn-right me-1" aria-hidden="true"></i>Directions</a>
+                  <a class="btn btn-sm btn-outline-primary" href="tel:3127445666"><i class="bi bi-telephone me-1" aria-hidden="true"></i>312-744-5666</a>
+                </div>
+              </li>
+              <li class="station-card">
+                <div class="station-head"><h4 class="station-name">Ravenswood</h4><span class="badge text-bg-secondary">24th Dist</span></div>
+                <p class="station-addr"><i class="bi bi-geo-alt" aria-hidden="true"></i>6445 N Ravenswood Ave, 60626</p>
+                <div class="station-actions">
+                  <a class="btn btn-sm btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=6445%20N%20Ravenswood%20Ave%2C%2060626%2C%20Chicago%2C%20IL" target="_blank" rel="noopener"><i class="bi bi-sign-turn-right me-1" aria-hidden="true"></i>Directions</a>
+                  <a class="btn btn-sm btn-outline-primary" href="tel:3127445669"><i class="bi bi-telephone me-1" aria-hidden="true"></i>312-744-5669</a>
+                </div>
+              </li>
+              <li class="station-card">
+                <div class="station-head"><h4 class="station-name">Sunnyside</h4><span class="badge text-bg-secondary">16th Dist</span></div>
+                <p class="station-addr"><i class="bi bi-geo-alt" aria-hidden="true"></i>4833 W Sunnyside Ave, 60630</p>
+                <div class="station-actions">
+                  <a class="btn btn-sm btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=4833%20W%20Sunnyside%20Ave%2C%2060630%2C%20Chicago%2C%20IL" target="_blank" rel="noopener"><i class="bi bi-sign-turn-right me-1" aria-hidden="true"></i>Directions</a>
+                  <a class="btn btn-sm btn-outline-primary" href="tel:3127445670"><i class="bi bi-telephone me-1" aria-hidden="true"></i>312-744-5670</a>
+                </div>
+              </li>
+            </ul>
+          </section>
+          <section class="cheat-group" data-cat="south">
+            <h3 class="cheat-group-title">South</h3>
+            <ul class="station-grid">
+              <li class="station-card">
+                <div class="station-head"><h4 class="station-name">101st &amp; Stony Island</h4><span class="badge text-bg-secondary">05th Dist</span></div>
+                <p class="station-addr"><i class="bi bi-geo-alt" aria-hidden="true"></i>10101 S Stony Island Ave, 60617</p>
+                <div class="station-actions">
+                  <a class="btn btn-sm btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=10101%20S%20Stony%20Island%20Ave%2C%2060617%2C%20Chicago%2C%20IL" target="_blank" rel="noopener"><i class="bi bi-sign-turn-right me-1" aria-hidden="true"></i>Directions</a>
+                  <a class="btn btn-sm btn-outline-primary" href="tel:3127445673"><i class="bi bi-telephone me-1" aria-hidden="true"></i>312-744-5673</a>
+                </div>
+              </li>
+              <li class="station-card">
+                <div class="station-head"><h4 class="station-name">104th &amp; Vincennes</h4><span class="badge text-bg-secondary">22nd Dist</span></div>
+                <p class="station-addr"><i class="bi bi-geo-alt" aria-hidden="true"></i>10420 S Vincennes Ave, 60643</p>
+                <div class="station-actions">
+                  <a class="btn btn-sm btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=10420%20S%20Vincennes%20Ave%2C%2060643%2C%20Chicago%2C%20IL" target="_blank" rel="noopener"><i class="bi bi-sign-turn-right me-1" aria-hidden="true"></i>Directions</a>
+                  <a class="btn btn-sm btn-outline-primary" href="tel:3127445666"><i class="bi bi-telephone me-1" aria-hidden="true"></i>312-744-5666</a>
+                </div>
+              </li>
+              <li class="station-card">
+                <div class="station-head"><h4 class="station-name">38th &amp; Iron</h4><span class="badge text-bg-secondary">09th Dist</span></div>
+                <p class="station-addr"><i class="bi bi-geo-alt" aria-hidden="true"></i>3746 S Iron St, 60609</p>
+                <div class="station-actions">
+                  <a class="btn btn-sm btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=3746%20S%20Iron%20St%2C%2060609%2C%20Chicago%2C%20IL" target="_blank" rel="noopener"><i class="bi bi-sign-turn-right me-1" aria-hidden="true"></i>Directions</a>
+                  <a class="btn btn-sm btn-outline-primary" href="tel:3127445670"><i class="bi bi-telephone me-1" aria-hidden="true"></i>312-744-5670</a>
+                </div>
+              </li>
+              <li class="station-card">
+                <div class="station-head"><h4 class="station-name">65th &amp; State</h4><span class="badge text-bg-secondary">03rd Dist</span></div>
+                <p class="station-addr"><i class="bi bi-geo-alt" aria-hidden="true"></i>25 W 65th St, 60621</p>
+                <div class="station-actions">
+                  <a class="btn btn-sm btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=25%20W%2065th%20St%2C%2060621%2C%20Chicago%2C%20IL" target="_blank" rel="noopener"><i class="bi bi-sign-turn-right me-1" aria-hidden="true"></i>Directions</a>
+                  <a class="btn btn-sm btn-outline-primary" href="tel:3127445671"><i class="bi bi-telephone me-1" aria-hidden="true"></i>312-744-5671</a>
+                </div>
+              </li>
+              <li class="station-card">
+                <div class="station-head"><h4 class="station-name">Midway Airport</h4></div>
+                <p class="station-addr"><i class="bi bi-geo-alt" aria-hidden="true"></i>5150 W 63rd St, 60638</p>
+                <div class="station-actions">
+                  <a class="btn btn-sm btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=5150%20W%2063rd%20St%2C%2060638%2C%20Chicago%2C%20IL" target="_blank" rel="noopener"><i class="bi bi-sign-turn-right me-1" aria-hidden="true"></i>Directions</a>
+                  <a class="btn btn-sm btn-outline-primary" href="tel:3127445672"><i class="bi bi-telephone me-1" aria-hidden="true"></i>312-744-5672</a>
+                </div>
+              </li>
+            </ul>
+          </section>
+          <p class="cheat-empty text-center text-body-secondary py-4" hidden>No stations match.</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-outline-primary" data-print-modal><i class="bi bi-printer me-1" aria-hidden="true"></i>Print</button>
-          <button type="button" class="btn btn-outline-primary me-auto" data-email-modal><i class="bi bi-envelope me-1" aria-hidden="true"></i>Email PDF</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
