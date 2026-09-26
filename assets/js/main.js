@@ -488,6 +488,60 @@ document.querySelectorAll("[data-clear-modal]").forEach(function (button) {
   });
 });
 
+/*-- CONTACT FORMS (Formspree) --*/
+// Sends the form in the background and shows the result on the page.
+// Without JavaScript the form still posts to Formspree normally.
+document.querySelectorAll(".js-contact-form").forEach(function (form) {
+  var status = form.querySelector(".form-status");
+  var button = form.querySelector('button[type="submit"]');
+
+  function show(kind, text) {
+    status.className = "form-status mt-3 alert alert-" + kind;
+    status.textContent = text;
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.classList.add("was-validated");
+      return;
+    }
+    if (form.action.indexOf("YOUR_FORM_ID") !== -1) {
+      show("warning", "The contact form isn't set up yet. Please try again later.");
+      return;
+    }
+
+    button.disabled = true;
+    show("info", "Sending…");
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" },
+    })
+      .then(function (res) {
+        return res.json().catch(function () { return {}; }).then(function (data) {
+          if (!res.ok) {
+            var msg = data.errors && data.errors.length
+              ? data.errors.map(function (er) { return er.message; }).join(" ")
+              : "Something went wrong.";
+            throw new Error(msg);
+          }
+        });
+      })
+      .then(function () {
+        form.reset();
+        form.classList.remove("was-validated");
+        show("success", "Thanks! Your message was sent.");
+      })
+      .catch(function (err) {
+        show("danger", "Your message wasn't sent. " + err.message + " Please try again.");
+      })
+      .then(function () {
+        button.disabled = false;
+      });
+  });
+});
+
 /*-- LOGIN / SIGN UP --*/
 // This is a static site with no server, so there is no real account system yet.
 // These handlers validate the form and never send the password anywhere.
