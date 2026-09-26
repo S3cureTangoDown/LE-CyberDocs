@@ -372,6 +372,155 @@ th {
   color: var(--le-accent);
 }
 
+/*-- SFST SCORING --*/
+.sfst-verdict {
+  font-weight: 600;
+  color: var(--bs-secondary-color);
+}
+
+.sfst-verdict.is-reached {
+  color: var(--bs-danger-text-emphasis);
+}
+
+/*-- FORMS PAGE: sections with no templates yet --*/
+/* Hide the empty accordion wrapper when every item in it is a hidden placeholder */
+.page-section .container:has(> .accordion):not(:has(.accordion-item:not([hidden]))) {
+  display: none;
+}
+
+.coming-soon {
+  margin-top: 0.25rem;
+}
+
+/*-- PRINTING A MODAL (see printModal in main.js) --*/
+.print-header {
+  display: none;
+}
+
+@media print {
+  @page {
+    margin: 12mm;
+  }
+
+  /* Hide everything except the modal being printed and the elements that contain it */
+  body.printing-modal .print-ancestor > :not(.print-ancestor):not(.print-target),
+  body.printing-modal > :not(.print-ancestor):not(.print-target),
+  .modal-backdrop {
+    display: none !important;
+  }
+
+  body.printing-modal {
+    background: #fff !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  body.printing-modal main {
+    min-height: 0;
+  }
+
+  .print-target.modal {
+    position: static !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  .print-target .modal-dialog {
+    max-width: none !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
+
+  .print-target .modal-content,
+  .print-target .modal-body {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  /* Header shows the title instead; buttons are useless on paper */
+  .print-target .modal-header,
+  .print-target .modal-footer,
+  .print-target .btn,
+  .print-target .report-details legend,
+  .print-target .email-panel {
+    display: none !important;
+  }
+
+  .print-target .print-header {
+    display: block;
+    border-bottom: 2px solid #000;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .print-target .print-header h1 {
+    font-size: 1.25rem;
+    margin: 0;
+  }
+
+  .print-target .print-header p {
+    font-size: 0.8rem;
+    margin: 0;
+  }
+
+  /* Every section expanded */
+  .print-target .accordion-collapse {
+    display: block !important;
+    height: auto !important;
+  }
+
+  .print-target .accordion-button {
+    padding: 0.4rem 0;
+    font-weight: 700;
+    background: none !important;
+    box-shadow: none !important;
+    color: #000 !important;
+  }
+
+  .print-target .accordion-button::after {
+    display: none;
+  }
+
+  .print-target .accordion-item {
+    border: 0;
+  }
+
+  .print-target .accordion-body {
+    padding: 0.25rem 0 0.75rem;
+  }
+
+  /* Keep checkbox/radio states and colors on paper */
+  .print-target * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Hint text like "2400 Hrs" shouldn't look like an answer */
+  .print-target .form-control::placeholder {
+    color: transparent;
+  }
+
+  .print-target .container.shadow-lg,
+  .print-target .container.shadow-sm {
+    box-shadow: none !important;
+    border: 1px solid #999;
+  }
+
+  .print-target .table-responsive {
+    overflow: visible;
+  }
+
+  .print-target tr,
+  .print-target .report-details {
+    break-inside: avoid;
+  }
+}
+
 /*-- PHONES & TABLETS --*/
 @media (max-width: 991.98px) {
   .site-search {

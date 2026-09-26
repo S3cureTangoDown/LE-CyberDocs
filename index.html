@@ -336,6 +336,7 @@
                     placeholder="Name & Star">
                   <span class="input-group-text bg-body-tertiary"><i class="bi bi-clock"></i></span>
                   <input type="time" class="form-control" id="first_supervisor_time" name="first_supervisor_time">
+                  <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
                 </div>
               </div>
               <div class="mb-4">
@@ -345,6 +346,7 @@
                     placeholder="Name & Star">
                   <span class="input-group-text bg-body-tertiary"><i class="bi bi-clock"></i></span>
                   <input type="time" class="form-control" id="ocic_ordering_time" name="ocic_ordering_time">
+                  <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
                 </div>
               </div>
               <div class="mb-4">
@@ -355,6 +357,7 @@
                   <span class="input-group-text bg-body-tertiary"><i class="bi bi-clock"></i></span>
                   <input type="time" class="form-control" id="additional_supervisors_time_1"
                     name="additional_supervisors_time">
+                  <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
                 </div>
                 <div class="input-group mb-2">
                   <input type="text" class="form-control" id="additional_supervisors_2" name="additional_supervisors"
@@ -362,6 +365,7 @@
                   <span class="input-group-text bg-body-tertiary"><i class="bi bi-clock"></i></span>
                   <input type="time" class="form-control" id="additional_supervisors_time_2"
                     name="additional_supervisors_time">
+                  <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
                 </div>
                 <div class="input-group">
                   <input type="text" class="form-control" id="additional_supervisors_3" name="additional_supervisors"
@@ -369,6 +373,7 @@
                   <span class="input-group-text bg-body-tertiary"><i class="bi bi-clock"></i></span>
                   <input type="time" class="form-control" id="additional_supervisors_time_3"
                     name="additional_supervisors_time">
+                  <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
                 </div>
               </div>
               <div class="mb-4">
@@ -379,6 +384,7 @@
                   <span class="input-group-text bg-body-tertiary"><i class="bi bi-clock"></i></span>
                   <input type="time" class="form-control" id="lodge_representative_time"
                     name="lodge_representative_time">
+                  <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
                 </div>
               </div>
               <button id="download-pdf" class="btn btn-primary mt-4">Download PDF</button>
@@ -1214,7 +1220,26 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div class="accordion" id="sfstAccordion">
+          <fieldset class="report-details row g-2 mb-3">
+            <legend class="small fw-semibold text-body-secondary mb-1">Report details (printed at the top)</legend>
+            <div class="col-12 col-sm-6">
+              <label for="sfstOfficer" class="form-label small mb-1">Officer</label>
+              <input type="text" class="form-control form-control-sm" id="sfstOfficer" placeholder="Name" autocomplete="name" />
+            </div>
+            <div class="col-6 col-sm-2">
+              <label for="sfstStar" class="form-label small mb-1">Star #</label>
+              <input type="text" class="form-control form-control-sm" id="sfstStar" placeholder="12345" inputmode="numeric" />
+            </div>
+            <div class="col-6 col-sm-4">
+              <label for="sfstDate" class="form-label small mb-1">Date</label>
+              <input type="date" class="form-control form-control-sm" id="sfstDate" data-default-today />
+            </div>
+            <div class="col-12">
+              <label for="sfstCase" class="form-label small mb-1">RD / Case #</label>
+              <input type="text" class="form-control form-control-sm" id="sfstCase" placeholder="JA123456" />
+            </div>
+          </fieldset>
+                <div class="accordion" id="sfstAccordion">
             <!-- Phase I: Horizontal Gaze Nystagmus -->
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingOne">
@@ -1268,25 +1293,25 @@
                   <div class="checkbox-group">
                     <label for="smoothPursuit">Lack of smooth pursuit</label><br />
                     <label for="smoothPursuitLeft1">Left:</label>
-                    <input type="checkbox" id="smoothPursuitLeft1" name="smoothPursuitLeft" value="left" />
+                    <input type="checkbox" id="smoothPursuitLeft1" data-sfst-clue="hgn" name="smoothPursuitLeft" value="left" />
                     <label for="smoothPursuitRight1">Right:</label>
-                    <input type="checkbox" id="smoothPursuitRight1" name="smoothPursuitRight" value="right" />
+                    <input type="checkbox" id="smoothPursuitRight1" data-sfst-clue="hgn" name="smoothPursuitRight" value="right" />
                   </div>
                   <!-- Distinct & Sustained Nystagmus -->
                   <div class="checkbox-group">
                     <label for="distinctNystagmus">Distinct & Sustained Nystagmus</label><br />
                     <label for="distinctNystagmusLeft1">Left:</label>
-                    <input type="checkbox" id="distinctNystagmusLeft1" name="distinctNystagmusLeft" value="left" />
+                    <input type="checkbox" id="distinctNystagmusLeft1" data-sfst-clue="hgn" name="distinctNystagmusLeft" value="left" />
                     <label for="distinctNystagmusRight1">Right:</label>
-                    <input type="checkbox" id="distinctNystagmusRight1" name="distinctNystagmusRight" value="right" />
+                    <input type="checkbox" id="distinctNystagmusRight1" data-sfst-clue="hgn" name="distinctNystagmusRight" value="right" />
                   </div>
                   <!-- Onset of Nystagmus -->
                   <div class="checkbox-group">
                     <label for="onsetNystagmus">Onset of Nystagmus</label><br />
                     <label for="onsetNystagmusLeft1">Left:</label>
-                    <input type="checkbox" id="onsetNystagmusLeft1" name="onsetNystagmusLeft" value="left" />
+                    <input type="checkbox" id="onsetNystagmusLeft1" data-sfst-clue="hgn" name="onsetNystagmusLeft" value="left" />
                     <label for="onsetNystagmusRight1">Right:</label>
-                    <input type="checkbox" id="onsetNystagmusRight1" name="onsetNystagmusRight" value="right" />
+                    <input type="checkbox" id="onsetNystagmusRight1" data-sfst-clue="hgn" name="onsetNystagmusRight" value="right" />
                   </div>
                   <!-- Vertical Gaze Nystagmus -->
                   <div class="checkbox-group py-2">
@@ -1303,8 +1328,8 @@
                   <div class="container shadow-lg pt-2 mb-4">
                     <h6 class="text-center">TOTAL SCORE</h6>
                     <div class="pb-2">
-                      <label for="sfstScore1">Enter a number:</label>
-                      <select name="sfstScore1" id="sfstScore1" class="form-select form-select-sm d-inline-block w-auto">
+                      <label for="sfstScore1">Clues:</label>
+                      <select name="sfstScore1" id="sfstScore1" class="form-select form-select-sm d-inline-block w-auto" data-sfst-score="hgn" data-max="6" data-decision="4">
                         <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -1313,7 +1338,9 @@
                         <option value="5">5</option>
                         <option value="6">6</option>
                       </select>
-                      <p class="pt-2">Decision Point: 4; Max: 6</p>
+                      <p class="pt-2 mb-1">Decision Point: 4; Max: 6</p>
+                      <p class="sfst-verdict small mb-0" data-sfst-verdict="hgn" aria-live="polite"></p>
+                      <p class="small text-body-secondary mb-0">Counted from the clues you check. You can still change it.</p>
                     </div>
                   </div>
                 </div>
@@ -1366,31 +1393,31 @@
                   <!-- Clues -->
                   <h6 class="pt-2">Clues</h6>
                   <div>
-                    <input type="checkbox" id="checkbox16" name="checkbox16" value="checkbox16" />
+                    <input type="checkbox" id="checkbox16" data-sfst-clue="wat" name="checkbox16" value="checkbox16" />
                     <label for="checkbox16">Can't balance during instructions.</label><br />
-                    <input type="checkbox" id="checkbox17" name="checkbox17" value="checkbox17" />
+                    <input type="checkbox" id="checkbox17" data-sfst-clue="wat" name="checkbox17" value="checkbox17" />
                     <label for="checkbox17">Starts too soon.</label><br />
-                    <input type="checkbox" id="checkbox18" name="checkbox18" value="checkbox18" />
+                    <input type="checkbox" id="checkbox18" data-sfst-clue="wat" name="checkbox18" value="checkbox18" />
                     <label for="checkbox18">Stops while walking.</label><br />
-                    <input type="checkbox" id="checkbox19" name="checkbox19" value="checkbox19" />
+                    <input type="checkbox" id="checkbox19" data-sfst-clue="wat" name="checkbox19" value="checkbox19" />
                     <label for="checkbox19">Misses heel to toe</label><br />
-                    <input type="checkbox" id="checkbox20" name="checkbox20" value="checkbox20" />
+                    <input type="checkbox" id="checkbox20" data-sfst-clue="wat" name="checkbox20" value="checkbox20" />
                     <label for="checkbox20">Steps off line.</label><br />
-                    <input type="checkbox" id="checkbox21" name="checkbox21" value="checkbox21" />
+                    <input type="checkbox" id="checkbox21" data-sfst-clue="wat" name="checkbox21" value="checkbox21" />
                     <label for="checkbox21">Uses arms to balance.</label><br />
-                    <input type="checkbox" id="checkbox22" name="checkbox22" value="checkbox22" />
+                    <input type="checkbox" id="checkbox22" data-sfst-clue="wat" name="checkbox22" value="checkbox22" />
                     <label for="checkbox22">Turned improperly.</label><br />
-                    <input type="checkbox" id="checkbox23" name="checkbox23" value="checkbox23" />
+                    <input type="checkbox" id="checkbox23" data-sfst-clue="wat" name="checkbox23" value="checkbox23" />
                     <label for="checkbox23">Wrong number of steps.</label><br />
-                    <input type="checkbox" id="checkbox24" name="checkbox24" value="checkbox24" />
+                    <input type="checkbox" id="checkbox24" data-sfst-cannot="wat" name="checkbox24" value="checkbox24" />
                     <label for="checkbox24">Can't perform. (Stop for suspect's safety)</label><br />
                   </div>
                   <br />
                   <div class="container shadow-lg pt-2 mb-4">
                     <h6 class="text-center">TOTAL SCORE</h6>
                     <div class="pb-2">
-                      <label for="sfstScore2">Enter a number:</label>
-                      <select name="sfstScore2" id="sfstScore2" class="form-select form-select-sm d-inline-block w-auto">
+                      <label for="sfstScore2">Clues:</label>
+                      <select name="sfstScore2" id="sfstScore2" class="form-select form-select-sm d-inline-block w-auto" data-sfst-score="wat" data-max="8" data-decision="2">
                         <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -1401,7 +1428,9 @@
                         <option value="7">7</option>
                         <option value="8">8</option>
                       </select>
-                      <p class="pt-2">Decision Point: 2; Max: 8</p>
+                      <p class="pt-2 mb-1">Decision Point: 2; Max: 8</p>
+                      <p class="sfst-verdict small mb-0" data-sfst-verdict="wat" aria-live="polite"></p>
+                      <p class="small text-body-secondary mb-0">Counted from the clues you check. You can still change it.</p>
                     </div>
                   </div>
                 </div>
@@ -1445,15 +1474,15 @@
                   <!-- Clues -->
                   <h6 class="pt-2">Clues</h6>
                   <div>
-                    <input type="checkbox" id="checkbox31" name="checkbox31" value="checkbox31" />
+                    <input type="checkbox" id="checkbox31" data-sfst-clue="ols" name="checkbox31" value="checkbox31" />
                     <label for="checkbox31">Swaying while balancing</label><br />
-                    <input type="checkbox" id="checkbox32" name="checkbox32" value="checkbox32" />
+                    <input type="checkbox" id="checkbox32" data-sfst-clue="ols" name="checkbox32" value="checkbox32" />
                     <label for="checkbox32">Using arms to balance</label><br />
-                    <input type="checkbox" id="checkbox33" name="checkbox33" value="checkbox33" />
+                    <input type="checkbox" id="checkbox33" data-sfst-clue="ols" name="checkbox33" value="checkbox33" />
                     <label for="checkbox33">Hopping to maintain balance</label><br />
-                    <input type="checkbox" id="checkbox34" name="checkbox34" value="checkbox34" />
+                    <input type="checkbox" id="checkbox34" data-sfst-clue="ols" name="checkbox34" value="checkbox34" />
                     <label for="checkbox34">Putting the raised foot down</label><br />
-                    <input type="checkbox" id="checkbox35" name="checkbox34" value="checkbox35" />
+                    <input type="checkbox" id="checkbox35" data-sfst-cannot="ols" name="checkbox35" value="checkbox35" />
                     <label for="checkbox35">Can't perform. (Stop for suspect's safety)</label><br />
                   </div>
                   <br />
@@ -1461,15 +1490,17 @@
                   <div class="container shadow-lg pt-2 mb-4">
                     <h6 class="text-center">TOTAL SCORE</h6>
                     <div class="pb-2">
-                      <label for="sfstScore3">Enter a number:</label>
-                      <select name="sfstScore3" id="sfstScore3" class="form-select form-select-sm d-inline-block w-auto">
+                      <label for="sfstScore3">Clues:</label>
+                      <select name="sfstScore3" id="sfstScore3" class="form-select form-select-sm d-inline-block w-auto" data-sfst-score="ols" data-max="4" data-decision="2">
                         <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
                       </select>
-                      <p class="pt-2">Decision Point: 2; Max: 4</p>
+                      <p class="pt-2 mb-1">Decision Point: 2; Max: 4</p>
+                      <p class="sfst-verdict small mb-0" data-sfst-verdict="ols" aria-live="polite"></p>
+                      <p class="small text-body-secondary mb-0">Counted from the clues you check. You can still change it.</p>
                     </div>
                   </div>
                 </div>
@@ -1489,61 +1520,74 @@
                   <!-- Alphabet Test -->
                   <h5>Alphabet Test</h5>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="alphabetTestPass" name="alphabetTestPass"
+                    <input class="form-check-input" type="checkbox" id="alphabetTestPass" name="alphabetTestPass" data-exclusive="alphabetTest"
                       value="pass">
                     <label class="form-check-label" for="alphabetTestPass">Pass</label>
-                    <input class="form-check-input" type="checkbox" id="alphabetTestFail" name="alphabetTestFail"
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="alphabetTestFail" name="alphabetTestFail" data-exclusive="alphabetTest"
                       value="fail">
                     <label class="form-check-label" for="alphabetTestFail">Fail</label>
                   </div>
                   <!-- Finger Count -->
                   <h5>Finger Count (1-4, 4-1)</h5>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="fingerCountPass" name="fingerCountPass"
+                    <input class="form-check-input" type="checkbox" id="fingerCountPass" name="fingerCountPass" data-exclusive="fingerCount"
                       value="pass">
                     <label class="form-check-label" for="fingerCountPass">Pass</label>
-                    <input class="form-check-input" type="checkbox" id="fingerCountFail" name="fingerCountFail"
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="fingerCountFail" name="fingerCountFail" data-exclusive="fingerCount"
                       value="fail">
                     <label class="form-check-label" for="fingerCountFail">Fail</label>
                   </div>
                   <!-- Countdown Backwards -->
                   <h5>Countdown Backwards from 68-53</h5>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="countdownPass" name="countdownPass"
+                    <input class="form-check-input" type="checkbox" id="countdownPass" name="countdownPass" data-exclusive="countdown"
                       value="pass">
                     <label class="form-check-label" for="countdownPass">Pass</label>
-                    <input class="form-check-input" type="checkbox" id="countdownFail" name="countdownFail"
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="countdownFail" name="countdownFail" data-exclusive="countdown"
                       value="fail">
                     <label class="form-check-label" for="countdownFail">Fail</label>
                   </div>
                   <!-- Nose Touch -->
                   <h5>Nose Touch</h5>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="noseTouchPass" name="noseTouchPass"
+                    <input class="form-check-input" type="checkbox" id="noseTouchPass" name="noseTouchPass" data-exclusive="noseTouch"
                       value="pass">
                     <label class="form-check-label" for="noseTouchPass">Pass</label>
-                    <input class="form-check-input" type="checkbox" id="noseTouchFail" name="noseTouchFail"
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="noseTouchFail" name="noseTouchFail" data-exclusive="noseTouch"
                       value="fail">
                     <label class="form-check-label" for="noseTouchFail">Fail</label>
                   </div>
                   <!-- PBT Result -->
                   <h5>PBT Result</h5>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="pbtResultPass" name="pbtResultPass"
+                    <input class="form-check-input" type="checkbox" id="pbtResultPass" name="pbtResultPass" data-exclusive="pbtResult"
                       value="pass">
                     <label class="form-check-label" for="pbtResultPass">Pass</label>
-                    <input class="form-check-input" type="checkbox" id="pbtResultFail" name="pbtResultFail"
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="pbtResultFail" name="pbtResultFail" data-exclusive="pbtResult"
                       value="fail">
                     <label class="form-check-label" for="pbtResultFail">Fail</label>
-                    <input class="form-control" type="text" id="pbtResultComment" name="pbtResultComment"
-                      placeholder="PBT Results">
                   </div>
+                  <label for="pbtResultComment" class="visually-hidden">PBT results</label>
+                  <input class="form-control mt-1" type="text" id="pbtResultComment" name="pbtResultComment"
+                    placeholder="PBT Results">
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="modal-footer">
+          <button type="button" class="btn btn-outline-primary" data-print-modal><i class="bi bi-printer me-1" aria-hidden="true"></i>Print</button>
+          <button type="button" class="btn btn-outline-primary me-auto" data-email-modal><i class="bi bi-envelope me-1" aria-hidden="true"></i>Email PDF</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
             Close
           </button>
@@ -1564,6 +1608,27 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <!-- Flow Chart -->
+        <div class="px-3 pt-3">
+          <fieldset class="report-details row g-2 mb-3">
+            <legend class="small fw-semibold text-body-secondary mb-1">Report details (printed at the top)</legend>
+            <div class="col-12 col-sm-6">
+              <label for="duiOfficer" class="form-label small mb-1">Officer</label>
+              <input type="text" class="form-control form-control-sm" id="duiOfficer" placeholder="Name" autocomplete="name" />
+            </div>
+            <div class="col-6 col-sm-2">
+              <label for="duiStar" class="form-label small mb-1">Star #</label>
+              <input type="text" class="form-control form-control-sm" id="duiStar" placeholder="12345" inputmode="numeric" />
+            </div>
+            <div class="col-6 col-sm-4">
+              <label for="duiDate" class="form-label small mb-1">Date</label>
+              <input type="date" class="form-control form-control-sm" id="duiDate" data-default-today />
+            </div>
+            <div class="col-12">
+              <label for="duiCase" class="form-label small mb-1">RD / Case #</label>
+              <input type="text" class="form-control form-control-sm" id="duiCase" placeholder="JA123456" />
+            </div>
+          </fieldset>
+              </div>
         <div class="accordion" id="duiAccordion">
           <!-- Accordion Item for Phase I -->
           <div class="accordion-item">
@@ -1596,7 +1661,10 @@
                   </div>
                   <div class="mb-3">
                     <label for="timeOfStop" class="form-label">Time of Stop</label>
-                    <input type="text" class="form-control" id="timeOfStop" placeholder="2400 Hrs" />
+<div class="input-group">
+                      <input type="text" class="form-control" id="timeOfStop" placeholder="2400 Hrs" />
+                      <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
+                    </div>
                   </div>
                   <div class="mb-3">
                     <label for="addressOfStop" class="form-label">Address of Stop</label>
@@ -1665,7 +1733,10 @@
                   </div>
                   <div class="mb-3">
                     <label for="recordTime1" class="form-label">Time of administer/refusal</label>
-                    <input type="text" class="form-control" id="recordTime1" placeholder="2400 Hrs" />
+<div class="input-group">
+                      <input type="text" class="form-control" id="recordTime1" placeholder="2400 Hrs" />
+                      <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
+                    </div>
                   </div>
                   <div class="mb-3">
                     <label for="probableCause" class="form-label">Probable Cause</label>
@@ -1701,15 +1772,24 @@
               <div class="accordion-body">
                 <div class="mb-3">
                   <label for="arrestDriver" class="form-label">Time of Arrest</label>
-                  <input type="text" class="form-control" id="arrestDriver" placeholder="2400 Hrs" />
+<div class="input-group">
+                    <input type="text" class="form-control" id="arrestDriver" placeholder="2400 Hrs" />
+                    <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
+                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="transportDriver" class="form-label">Time of Transport</label>
-                  <input type="text" class="form-control" id="transportDriver" placeholder="2400 Hrs" />
+<div class="input-group">
+                    <input type="text" class="form-control" id="transportDriver" placeholder="2400 Hrs" />
+                    <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
+                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="readWarning" class="form-label">Read Warning to Motorist - <em>"Verbatim"</em></label>
-                  <input type="text" class="form-control" id="readWarning" placeholder="2400 Hrs" />
+<div class="input-group">
+                    <input type="text" class="form-control" id="readWarning" placeholder="2400 Hrs" />
+                    <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
+                  </div>
                 </div>
                 <p>
                   <strong>Custodial Search</strong> Driver & Vehicle<br />
@@ -1760,11 +1840,17 @@
               <div class="accordion-body">
                 <div class="mb-3">
                   <label for="observationTime" class="form-label">20 min Observation</label>
-                  <input type="text" class="form-control" id="observationTime" placeholder="2400 Hrs" />
+<div class="input-group">
+                    <input type="text" class="form-control" id="observationTime" placeholder="2400 Hrs" />
+                    <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
+                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="breathTest" class="form-label">Breath Test</label>
-                  <input type="text" class="form-control" id="breathTest" placeholder="2400 Hrs" />
+<div class="input-group">
+                    <input type="text" class="form-control" id="breathTest" placeholder="2400 Hrs" />
+                    <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
+                  </div>
                 </div>
                 <!-- Radio buttons for BAC -->
                 <div class="mb-3">
@@ -1798,11 +1884,17 @@
                 <!-- Text boxes for Alternate Testing -->
                 <div class="mb-3">
                   <label for="alternateTest1" class="form-label">Time to Hospital</label>
-                  <input type="text" class="form-control" id="alternateTest1" placeholder="2400 Hrs" />
+<div class="input-group">
+                    <input type="text" class="form-control" id="alternateTest1" placeholder="2400 Hrs" />
+                    <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
+                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="alternateTest2" class="form-label">Time of Testing</label>
-                  <input type="text" class="form-control" id="alternateTest2" placeholder="2400 Hrs" />
+<div class="input-group">
+                    <input type="text" class="form-control" id="alternateTest2" placeholder="2400 Hrs" />
+                    <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
+                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="alternateTest3" class="form-label">Name of Person administering test</label>
@@ -1810,11 +1902,17 @@
                 </div>
                 <div class="mb-3">
                   <label for="alternateTest4" class="form-label">Hand Carry to Forensic Service</label>
-                  <input type="text" class="form-control" id="alternateTest4" placeholder="2400 Hrs" />
+<div class="input-group">
+                    <input type="text" class="form-control" id="alternateTest4" placeholder="2400 Hrs" />
+                    <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
+                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="alternateTest5" class="form-label">Hand Carry to CPD Mail-room</label>
-                  <input type="text" class="form-control" id="alternateTest5" placeholder="2400 Hrs" />
+<div class="input-group">
+                    <input type="text" class="form-control" id="alternateTest5" placeholder="2400 Hrs" />
+                    <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1902,21 +2000,32 @@
                 <!-- Text boxes for Finish Arrest -->
                 <div class="mb-3">
                   <label for="finishArrestMiranda" class="form-label">Time of Miranda</label>
-                  <input type="text" class="form-control" id="finishArrestMiranda" placeholder="2400 Hrs" />
+<div class="input-group">
+                    <input type="text" class="form-control" id="finishArrestMiranda" placeholder="2400 Hrs" />
+                    <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
+                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="finishArrestInfluence_Report" class="form-label">Alcohol Influence Report</label>
-                  <input type="text" class="form-control" id="finishArrestInfluence_Report" placeholder="2400 Hrs" />
+<div class="input-group">
+                    <input type="text" class="form-control" id="finishArrestInfluence_Report" placeholder="2400 Hrs" />
+                    <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
+                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="finishArrestRelease" class="form-label">Time of Release</label>
-                  <input type="text" class="form-control" id="finishArrestRelease" placeholder="2400 Hrs" />
+<div class="input-group">
+                    <input type="text" class="form-control" id="finishArrestRelease" placeholder="2400 Hrs" />
+                    <button class="btn btn-outline-secondary js-now" type="button" aria-label="Fill in the current time" title="Current time"><i class="bi bi-clock-history me-1" aria-hidden="true"></i>Now</button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="modal-footer">
+          <button type="button" class="btn btn-outline-primary" data-print-modal><i class="bi bi-printer me-1" aria-hidden="true"></i>Print</button>
+          <button type="button" class="btn btn-outline-primary me-auto" data-email-modal><i class="bi bi-envelope me-1" aria-hidden="true"></i>Email PDF</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
             Close
           </button>
@@ -2390,6 +2499,8 @@
           </table></div>
         </div>
         <div class="modal-footer">
+          <button type="button" class="btn btn-outline-primary" data-print-modal><i class="bi bi-printer me-1" aria-hidden="true"></i>Print</button>
+          <button type="button" class="btn btn-outline-primary me-auto" data-email-modal><i class="bi bi-envelope me-1" aria-hidden="true"></i>Email PDF</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
@@ -2885,6 +2996,8 @@
 
         </div>
         <div class="modal-footer">
+          <button type="button" class="btn btn-outline-primary" data-print-modal><i class="bi bi-printer me-1" aria-hidden="true"></i>Print</button>
+          <button type="button" class="btn btn-outline-primary me-auto" data-email-modal><i class="bi bi-envelope me-1" aria-hidden="true"></i>Email PDF</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
@@ -3108,6 +3221,8 @@
           </table></div>
         </div>
         <div class="modal-footer">
+          <button type="button" class="btn btn-outline-primary" data-print-modal><i class="bi bi-printer me-1" aria-hidden="true"></i>Print</button>
+          <button type="button" class="btn btn-outline-primary me-auto" data-email-modal><i class="bi bi-envelope me-1" aria-hidden="true"></i>Email PDF</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
@@ -3141,6 +3256,8 @@
               have a lawyer? 2. Do you want to talk to me.)</em></p>
         </div>
         <div class="modal-footer">
+          <button type="button" class="btn btn-outline-primary" data-print-modal><i class="bi bi-printer me-1" aria-hidden="true"></i>Print</button>
+          <button type="button" class="btn btn-outline-primary me-auto" data-email-modal><i class="bi bi-envelope me-1" aria-hidden="true"></i>Email PDF</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
