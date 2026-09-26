@@ -183,6 +183,15 @@ a {
   font-weight: 500;
 }
 
+/* Quick links that open a modal straight away: same row look, arrow points right */
+.quick-link-direct::after {
+  transform: rotate(-90deg);
+}
+
+.quick-link-direct:not(.collapsed)::after {
+  transform: rotate(-90deg);
+}
+
 /*-- CARDS & BUTTONS --*/
 .card {
   overflow: hidden;
@@ -292,6 +301,40 @@ th {
 /*-- CHART PAGE / CALCULATOR --*/
 #narcotic-values table {
   font-size: 0.875rem;
+}
+
+/* Street value tables (built by main.js from NARCOTIC_DATA) */
+.value-group + .value-group {
+  margin-top: 1rem;
+}
+
+.value-group-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--bs-secondary-color);
+  margin: 0.5rem 0;
+}
+
+.value-table th[scope="row"] {
+  font-weight: 500;
+  background-color: transparent;
+  white-space: normal;
+}
+
+.value-est {
+  color: var(--bs-secondary-color);
+  font-style: italic;
+}
+
+.value-verify {
+  font-size: 0.65rem;
+  vertical-align: middle;
+}
+
+.value-footnote {
+  margin-top: 0.75rem;
 }
 
 .calc-result {
@@ -410,7 +453,6 @@ th {
 
 .cheat-search-wrap {
   position: relative;
-  margin-bottom: 0.75rem;
 }
 
 .cheat-search-wrap .bi-search {
@@ -428,46 +470,29 @@ th {
   min-height: 2.75rem;
 }
 
-.cheat-chips {
+/* Search + category dropdown: side by side on wider screens, stacked on phones */
+.cheat-controls {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
-  overflow-x: auto;
-  padding-bottom: 0.25rem;
-  scrollbar-width: thin;
 }
 
-.cheat-chip {
-  flex: 0 0 auto;
-  border: 1px solid var(--bs-border-color);
-  background-color: var(--bs-tertiary-bg);
-  color: var(--bs-body-color);
+.cheat-controls .cheat-search-wrap {
+  flex: 1 1 16rem;
+  margin-bottom: 0;
+}
+
+.cheat-filter {
+  flex: 0 1 16rem;
+  min-height: 2.75rem;
   border-radius: 999px;
-  padding: 0.35rem 0.85rem;
-  font-size: 0.875rem;
   font-weight: 500;
-  white-space: nowrap;
 }
 
-.cheat-chip:hover,
-.cheat-chip:focus-visible {
-  border-color: var(--le-accent);
-}
-
-.cheat-chip.is-active {
-  background-color: var(--le-accent);
-  border-color: var(--le-accent);
-  color: #fff;
-}
-
-.cheat-count {
-  display: inline-block;
-  min-width: 1.5em;
-  margin-left: 0.25rem;
-  padding: 0 0.4em;
-  border-radius: 999px;
-  background-color: rgba(127, 127, 127, 0.2);
-  font-size: 0.75rem;
-  text-align: center;
+@media (max-width: 575.98px) {
+  .cheat-filter {
+    flex-basis: 100%;
+  }
 }
 
 .cheat-hint {
@@ -554,6 +579,100 @@ th {
 .code-card.is-copied .code-card-code {
   background-color: var(--bs-success);
   color: #fff;
+}
+
+/* Narcotic complaint rows */
+.complaint-act {
+  display: block;
+  margin-top: 0.15rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.complaint-callout {
+  margin: 0 0 0.6rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.6rem;
+  background-color: var(--bs-warning-bg-subtle);
+  color: var(--bs-warning-text-emphasis);
+}
+
+.complaint-sub {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0.75rem 0 0.4rem;
+}
+
+.complaint-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.complaint-row {
+  display: grid;
+  grid-template-columns: minmax(7.5rem, auto) 1fr auto auto;
+  align-items: center;
+  gap: 0.25rem 0.75rem;
+  padding: 0.55rem 0.75rem;
+  background-color: var(--bs-body-bg);
+}
+
+.complaint-row + .complaint-row {
+  border-top: 1px solid var(--bs-border-color);
+}
+
+.complaint-cite {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-weight: 700;
+  color: var(--le-accent);
+}
+
+.complaint-range {
+  font-weight: 500;
+}
+
+.complaint-class {
+  font-size: 0.85rem;
+  color: var(--bs-secondary-color);
+  text-align: right;
+}
+
+.complaint-note {
+  grid-column: 1 / -1;
+  order: 5;
+  font-size: 0.8rem;
+  color: var(--bs-warning-text-emphasis);
+}
+
+.complaint-dl {
+  min-width: 2.5rem;
+  min-height: 2.25rem;
+}
+
+@media (max-width: 575.98px) {
+  /* Citation + download on top, range and class below */
+  .complaint-row {
+    grid-template-columns: 1fr auto;
+  }
+
+  .complaint-range {
+    grid-row: 2;
+  }
+
+  .complaint-class {
+    grid-row: 2;
+    grid-column: 2;
+  }
+
+  .complaint-dl {
+    grid-row: 1;
+    grid-column: 2;
+  }
 }
 
 /* Fueling station cards */
