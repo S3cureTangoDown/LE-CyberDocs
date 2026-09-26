@@ -237,61 +237,34 @@
         </div>
       </div>
 
-      <!-- INCIDENT REPORTING ACCORDION -->
+      <!-- INCIDENT REPORTING (opens its modal directly) -->
       <div class="accordion-item">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseIncident" aria-expanded="false" aria-controls="flush-collapseIncident">
+          <button class="accordion-button collapsed quick-link-direct" type="button" data-bs-toggle="modal"
+            data-bs-target="#incidentModal" aria-haspopup="dialog">
             Incident Reporting Guide
           </button>
         </h2>
-        <div id="flush-collapseIncident" class="accordion-collapse collapse" data-bs-parent="#quickLinksAccordion">
-          <div class="accordion-body d-flex flex-column align-items-center">
-            <!-- Content for Incident Reporting Guide Accordion -->
-            Code Designator - Description
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#incidentModal">
-              Reporting Guide
-            </button>
-          </div>
-        </div>
       </div>
 
-      <!-- COMMONLY USED UCR ACCORDION -->
+      <!-- COMMONLY USED UCR (opens its modal directly) -->
       <div class="accordion-item">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseUCR" aria-expanded="false" aria-controls="flush-collapseUCR">
+          <button class="accordion-button collapsed quick-link-direct" type="button" data-bs-toggle="modal"
+            data-bs-target="#ucrModal" aria-haspopup="dialog">
             Commonly Used UCR
           </button>
         </h2>
-        <div id="flush-collapseUCR" class="accordion-collapse collapse" data-bs-parent="#quickLinksAccordion">
-          <div class="accordion-body d-flex flex-column align-items-center">
-            <!-- Content for Commonly Used UCR Accordion -->
-            Code Designator - Description
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ucrModal">
-              UCR Guide
-            </button>
-          </div>
-        </div>
       </div>
 
-      <!-- FUELING STATIONS ACCORDION -->
+      <!-- FUELING STATIONS (opens its modal directly) -->
       <div class="accordion-item">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseFuel" aria-expanded="false" aria-controls="flush-collapseFuel">
+          <button class="accordion-button collapsed quick-link-direct" type="button" data-bs-toggle="modal"
+            data-bs-target="#fuelModal" aria-haspopup="dialog">
             Fueling Stations
           </button>
         </h2>
-        <div id="flush-collapseFuel" class="accordion-collapse collapse" data-bs-parent="#quickLinksAccordion">
-          <div class="accordion-body d-flex flex-column align-items-center">
-            <!-- Content for Fueling Stations Accordion -->
-            View fueling station locations and Zipcode
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#fuelModal">
-              Fuel Info
-          </button>
-          </div>
-        </div>
       </div>
 
       <!-- MIRANDA WARNING ACCORDION -->
@@ -410,255 +383,8 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <!-- Add your modal content for Chart here -->
-          <h5>Methamphetamine</h5>
-          <div class="table-responsive"><table>
-            <tr>
-              <th>Drug</th>
-              <th>Gram</th>
-              <th>Ounce</th>
-              <th>Pounds</th>
-            </tr>
-            <tr>
-              <td>Methamphetamine</td>
-              <td>$330.00</td>
-              <td>$800.00</td>
-              <td>$1,200.00</td>
-            </tr>
-          </table></div>
-          <br />
-          <h5>Heroin</h5>
-          <div class="table-responsive"><table>
-            <tr>
-              <th>Drug</th>
-              <th>Gram</th>
-              <th>Pound</th>
-            </tr>
-            <tr>
-              <td>Tan</td>
-              <td>$100.00</td>
-              <td>$45,359.20</td>
-            </tr>
-            <tr>
-              <td>White</td>
-              <td>$150.00</td>
-              <td>$68,038.80</td>
-            </tr>
-            <tr>
-              <td>Black Tar</td>
-              <td>$150.00</td>
-              <td>$68,038.80</td>
-            </tr>
-          </table></div>
-          <br />
-          <h5>Marijuana</h5>
-          <div class="table-responsive"><table>
-            <tr>
-              <th>Drug</th>
-              <th>Gram</th>
-              <th>Pound</th>
-            </tr>
-            <tr>
-              <td>Domestic</td>
-              <td>$4.41</td>
-              <td>$2,000.00</td>
-            </tr>
-            <tr>
-              <td>Mexican</td>
-              <td>$2.64</td>
-              <td>$1,200.00</td>
-            </tr>
-            <tr>
-              <td>Sensimilla</td>
-              <td>$16.00</td>
-              <td>$7,256.00</td>
-            </tr>
-          </table></div>
-          <br />
-          <h5>Tetrahydrocannabinol (THC)</h5>
-          <div class="table-responsive"><table>
-            <tr>
-              <th>Drug</th>
-              <th>Gram</th>
-              <th>Pound</th>
-            </tr>
-            <tr>
-              <td>Gummies</td>
-              <td>$16.00</td>
-              <td>$7,256.00</td>
-            </tr>
-            <tr>
-              <td>Liquid</td>
-              <td>$80.00</td>
-              <td>$36,320.00</td>
-            </tr>
-            <tr>
-              <td>Wax</td>
-              <td>$80.00</td>
-              <td>$36,320.00</td>
-            </tr>
-          </table></div>
-          <br />
-          <h5>Cocaine</h5>
-          <div class="table-responsive"><table>
-            <tr>
-              <th></th>
-              <th>Gram</th>
-              <th>Ounce</th>
-              <th>Pounds</th>
-              <th>Kilograms</th>
-            </tr>
-            <tr>
-              <td>Powder</td>
-              <td>$125.00</td>
-              <td>$1,200.00</td>
-              <td>$22,700.00</td>
-              <td>$32,000.00</td>
-            </tr>
-            <tr>
-              <td>Crack</td>
-              <td>$123.00</td>
-              <td>$1,000.00</td>
-              <td>$4,540.00</td>
-              <td></td>
-            </tr>
-          </table></div>
-          <br />
-          <h5>Fentanyl</h5>
-          <div class="table-responsive"><table>
-            <tr>
-              <th></th>
-              <th>Gram</th>
-              <th>Ounce</th>
-              <th>Pounds</th>
-              <th>Kilogram</th>
-            </tr>
-            <tr>
-              <td>Fentanyl</td>
-              <td>$155.55</td>
-              <td>$1,500.00</td>
-              <td>$70,612.70</td>
-              <td>$40,000.00</td>
-            </tr>
-          </table></div>
-          <br />
-          <h5>Other Narcotics Prices</h5>
-          <div class="table-responsive"><table>
-            <tr>
-              <th>Drug</th>
-              <th>Gram</th>
-              <th>Pill</th>
-              <th>Pound</th>
-            </tr>
-            <tr>
-              <td>Adderall</td>
-              <td>$10.00</td>
-              <td>$10.00</td>
-              <td>$4,540.00</td>
-            </tr>
-            <tr>
-              <td>Alprazolam</td>
-              <td>$10.00</td>
-              <td>$10.00</td>
-              <td>$4,540.00</td>
-            </tr>
-            <tr>
-              <td>Ecstasy</td>
-              <td>$25.00</td>
-              <td>$25.00</td>
-              <td>$11,350.00</td>
-            </tr>
-            <tr>
-              <td>Hydrocodone 10mg</td>
-              <td>$15.00</td>
-              <td>$15.00</td>
-              <td>$6,810.00</td>
-            </tr>
-            <tr>
-              <td>Hydrocodone 30mg</td>
-              <td>$20.00</td>
-              <td>$20.00</td>
-              <td>$9,080.00</td>
-            </tr>
-            <tr>
-              <td>Hydrocodone 80mg</td>
-              <td>$25.00</td>
-              <td>$25.00</td>
-              <td>$11,350.00</td>
-            </tr>
-            <tr>
-              <td>Ketamine</td>
-              <td>$100.00</td>
-              <td>$20.00</td>
-              <td>$45,400.00</td>
-            </tr>
-            <tr>
-              <td>LSD</td>
-              <td>$5.00</td>
-              <td>$10.00</td>
-              <td>$2,270.00</td>
-            </tr>
-            <tr>
-              <td>MDMA</td>
-              <td>$100.00</td>
-              <td>$20.00</td>
-              <td>$45,400.00</td>
-            </tr>
-            <tr>
-              <td>Percocet</td>
-              <td>$10.00</td>
-              <td>$10.00</td>
-              <td>$4,540.00</td>
-            </tr>
-            <tr>
-              <td>Psilocybin</td>
-              <td>$9.00</td>
-              <td></td>
-              <td>$4,086.00</td>
-            </tr>
-            <tr>
-              <td>Oxycodone 10mg</td>
-              <td>$10.00</td>
-              <td>$10.00</td>
-              <td>$4,540.00</td>
-            </tr>
-            <tr>
-              <td>Oxycodone 30mg</td>
-              <td>$30.00</td>
-              <td>$30.00</td>
-              <td>$13,620.00</td>
-            </tr>
-            <tr>
-              <td>Oxycodone 80mg</td>
-              <td>$50.00</td>
-              <td>$50.00</td>
-              <td>$22,700.00</td>
-            </tr>
-            <tr>
-              <td>Suboxone</td>
-              <td>$10.00</td>
-              <td>$10.00</td>
-              <td>$4,540.00</td>
-            </tr>
-            <tr>
-              <td>Ritalin</td>
-              <td>$3.50</td>
-              <td>$3.50</td>
-              <td>$1,587.00</td>
-            </tr>
-            <tr>
-              <td>Viagra</td>
-              <td>$10.00</td>
-              <td>$10.00</td>
-              <td>$4,540.00</td>
-            </tr>
-            <tr>
-              <td>Vicodin</td>
-              <td>$10.00</td>
-              <td>$10.00</td>
-              <td>$4,540.00</td>
-            </tr>
-          </table></div>
+          <p class="small text-body-secondary mb-2">Street values, HIDTA 2022.</p>
+          <div data-value-chart></div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
@@ -696,81 +422,7 @@
                       <div class="mb-3">
                         <label for="narcotic" class="form-label">Select Narcotic:</label>
                         <select id="narcotic" class="form-select text-center">
-                          <!-- Narcotic options here -->
-                          <option value="Adderall">Adderall</option>
-                          <option value="Alprazolam">Alprazolam</option>
-                          <option value="Ecstasy">Ecstasy</option>
-                          <option value="Cocaine (Powder)">
-                            Cocaine (Powder)
-                          </option>
-                          <option value="Cocaine (Crack)">
-                            Cocaine (Crack)
-                          </option>
-                          <option value="Fentanyl">Fentanyl</option>
-                          <option value="Heroin (Tan)">Heroin (Tan)</option>
-                          <option value="Heroin (White)">
-                            Heroin (White)
-                          </option>
-                          <option value="Heroin (Black Tar)">
-                            Heroin (Black Tar)
-                          </option>
-                          <option value="Hydrocodone 10mg">
-                            Hydrocodone 10mg
-                          </option>
-                          <option value="Hydrocodone 30mg">
-                            Hydrocodone 30mg
-                          </option>
-                          <option value="Hydrocodone 80mg">
-                            Hydrocodone 80mg
-                          </option>
-                          <option value="Ketamine">Ketamine</option>
-                          <option value="LSD">LSD</option>
-                          <option value="Marijuana (Domestic)">
-                            Marijuana (Domestic)
-                          </option>
-                          <option value="Marijuana (Mexican)">
-                            Marijuana (Mexican)
-                          </option>
-                          <option value="Marijuana (Sensimilla)">
-                            Marijuana (Sensimilla)
-                          </option>
-                          <option value="MDMA">MDMA</option>
-                          <option value="Methamphetamine">
-                            Methamphetamine
-                          </option>
-                          <option value="Percocet">Percocet</option>
-                          <option value="Psilocybin">Psilocybin</option>
-                          <option value="Oxycodone 10mg">
-                            Oxycodone 10mg
-                          </option>
-                          <option value="Oxycodone 30mg">
-                            Oxycodone 30mg
-                          </option>
-                          <option value="Oxycodone 80mg">
-                            Oxycodone 80mg
-                          </option>
-                          <option value="Ritalin">Ritalin</option>
-                          <option value="Steroids (Liquid) 1">
-                            Steroids (Liquid) 1
-                          </option>
-                          <option value="Steroids (Liquid) 2">
-                            Steroids (Liquid) 2
-                          </option>
-                          <option value="Steroids (Powder)">
-                            Steroids (Powder)
-                          </option>
-                          <option value="Suboxone">Suboxone</option>
-                          <option value="Tetrahydrocannabinol (Gummies)">
-                            Tetrahydrocannabinol (Gummies)
-                          </option>
-                          <option value="Tetrahydrocannabinol (Liquid)">
-                            Tetrahydrocannabinol (Liquid)
-                          </option>
-                          <option value="Tetrahydrocannabinol (Wax)">
-                            Tetrahydrocannabinol (Wax)
-                          </option>
-                          <option value="Viagra">Viagra</option>
-                          <option value="Vicodin">Vicodin</option>
+                          <!-- Filled from NARCOTIC_DATA in main.js -->
                         </select>
                       </div>
                       <div class="mb-3">
@@ -780,13 +432,7 @@
                       <div class="mb-3">
                         <label for="weightType" class="form-label">Weight Type:</label>
                         <select id="weightType" class="form-select text-center">
-                          <!-- Weight options here -->
-                          <option value="gram">Gram</option>
-                          <option value="pill">Pill</option>
-                          <option value="pound">Pound</option>
-                          <option value="ounce">Ounce</option>
-                          <option value="kilogram">Kilogram</option>
-                          <option value="mL">mL</option>
+                          <!-- Units for the chosen drug, filled by main.js -->
                         </select>
                       </div>
                     </div>
@@ -813,401 +459,173 @@
   </div>
 
   <!-- NARCOTICS COMPLAINT MODAL -->
-  <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
-    <!-- Modal content for Complaints -->
-    <div class="modal-dialog modal-fullscreen-sm-down modal-dialog-centered modal-dialog-scrollable">
+  <div class="modal fade cheat-modal" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen-sm-down modal-xl modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel3">
-            Narcotic Complaints
-          </h5>
+          <h5 class="modal-title" id="exampleModalLabel3"><i class="bi bi-file-earmark-text me-2" aria-hidden="true"></i>Narcotic Complaints</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          <!-- Add your modal content for Complaints here -->
-          <ul class="list-group">
-            <li class="list-group-item active" aria-current="true">
-              Cocaine & Crack
-            </li>
-            <li class="list-group-item justify-content-center">
-              <div class="accordion" id="accordionCocaine">
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#collapseCocaineOne" aria-expanded="true" aria-controls="collapseCocaineOne">
-                      Possession 720 ILCS 570.0/402
-                    </button>
-                  </h2>
-                  <div id="collapseCocaineOne" class="accordion-collapse collapse" data-bs-parent="#accordionCocaine">
-                    <div class="accordion-body">
-                      <ul class="list-group">
-                        <li class="list-group-item">
-                          402-C-0 | 00-15 grams
-                          <a href="assets/complaints/possession/POSS_402-C_00-15grms.pdf" download
-                            class="text-decoration-none"><br />Download</a>
-                        </li>
-                        <li class="list-group-item">
-                          402-C-2 | 01-15 grams
-                          <a href="assets/complaints/possession/POSS_402-C_01-15grms.pdf" download
-                            class="text-decoration-none"><br />Download</a>
-                        </li>
-                        <li class="list-group-item">
-                          401-A-2 | 15-100 grams
-                          <a href="assets/complaints/possession/POSS_401-A_15-100grms.pdf" download
-                            class="text-decoration-none"><br />Download</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#collapseCocaineTwo" aria-expanded="false" aria-controls="collapseCocaineTwo">
-                      Delivery 720 ILCS 570.0/401
-                    </button>
-                  </h2>
-                  <div id="collapseCocaineTwo" class="accordion-collapse collapse" data-bs-parent="#accordionCocaine">
-                    <div class="accordion-body">
-                      <ul class="list-group">
-                        <li class="list-group-item">
-                          401-D-I | 00-01 grams
-                          <a href="assets/complaints/delivery/DELV_401-D_00-01grms.pdf" download
-                            class="text-decoration-none"><br />Download</a>
-                        </li>
-                        <li class="list-group-item">
-                          401-C-2 | 01-15 grams
-                          <a href="assets/complaints/delivery/DELV_401-C_01-15grms.pdf" download
-                            class="text-decoration-none"><br />Download</a>
-                        </li>
-                        <li class="list-group-item">
-                          401-A-2 | 15+ grams
-                          <a href="assets/complaints/delivery/DELV_401-A_15+grms.pdf" download
-                            class="text-decoration-none"><br />Download</a>
-                        </li>
-                        <li class="list-group-item">
-                          401-A-2 | 900+ grams
-                          <a href="assets/complaints/delivery/DELV_401-A_900+grms.pdf" download
-                            class="text-decoration-none"><br />Download</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+        <div class="modal-body cheat">
+          <div class="cheat-toolbar">
+            <div class="cheat-controls">
+              <div class="cheat-search-wrap">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="form-control cheat-search" placeholder="Search citation, drug or grams" aria-label="Search complaints" autocomplete="off" />
               </div>
-            </li>
-          </ul>
-          <br />
-          <ul class="list-group">
-            <li class="list-group-item active" aria-current="true">Heroin</li>
-            <li class="list-group-item justify-content-center">
-              <div class="accordion" id="accordionHeroin">
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#collapseHeroinOne" aria-expanded="true" aria-controls="collapseHeroinOne">
-                      Possession 720 ILCS 570.0/402
-                    </button>
-                  </h2>
-                  <div id="collapseHeroinOne" class="accordion-collapse collapse" data-bs-parent="#accordionHeroin">
-                    <div class="accordion-body">
-                      <ul class="list-group">
-                        <li class="list-group-item">
-                          402-C-0 | 00-15 grams
-                          <a href="assets/complaints/possession/POSS_402-C_00-15grms.pdf" download
-                            class="text-decoration-none" class="text-decoration-none"><br />Download</a>
-                        </li>
-                        <li class="list-group-item">
-                          402-C-2 | 01-15 grams
-                          <a href="assets/complaints/possession/POSS_402-C_01-15grms.pdf" download
-                            class="text-decoration-none" class="text-decoration-none"><br />Download</a>
-                        </li>
-                        <li class="list-group-item">
-                          401-A-2 | 15-100 grams
-                          <a href="assets/complaints/possession/POSS_401-A_15-100grms.pdf" download
-                            class="text-decoration-none" class="text-decoration-none"><br />Download</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#collapseHeroinTwo" aria-expanded="false" aria-controls="collapseHeroinTwo">
-                      Delivery 720 ILCS 570.0/401
-                    </button>
-                  </h2>
-                  <div id="collapseHeroinTwo" class="accordion-collapse collapse" data-bs-parent="#accordionHeroin">
-                    <div class="accordion-body">
-                      <ul class="list-group">
-                        <li class="list-group-item">
-                          401-D-I | 00-01 grams
-                          <a href="assets/complaints/delivery/DELV_401-D_00-01grms.pdf" download
-                            class="text-decoration-none" class="text-decoration-none"><br />Download</a>
-                        </li>
-                        <li class="list-group-item">
-                          401-C-2 | 01-15 grams
-                          <a href="assets/complaints/delivery/DELV_401-C_01-15grms.pdf" download
-                            class="text-decoration-none" class="text-decoration-none"><br />Download</a>
-                        </li>
-                        <li class="list-group-item">
-                          401-A-2 | 15+ grams
-                          <a href="assets/complaints/delivery/DELV_401-A_15+grms.pdf" download
-                            class="text-decoration-none" class="text-decoration-none"><br />Download</a>
-                        </li>
-                        <li class="list-group-item">
-                          401-A-2 | 900+ grams
-                          <a href="assets/complaints/delivery/DELV_401-A_900+grms.pdf" download
-                            class="text-decoration-none" class="text-decoration-none"><br />Download</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-          <br />
-          <ul class="list-group">
-            <li class="list-group-item active" aria-current="true">
-              Methamphetamine
-            </li>
-            <li class="list-group-item justify-content-center">
-              <div class="accordion" id="accordionMethamphetamine">
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#collapseMethamphetamineOne" aria-expanded="true"
-                      aria-controls="collapseMethamphetamineOne">
-                      Possession 720 ILCS 646.0/60
-                    </button>
-                  </h2>
-                  <div id="collapseMethamphetamineOne" class="accordion-collapse collapse"
-                    data-bs-parent="#accordionMethamphetamine">
-                    <div class="accordion-body">
-                      <ul class="list-group">
-                        <li class="list-group-item">
-                          60-B-1 | 00-15 grams<a href="assets/complaints/possession/POSS_60-B_00-15grms.pdf" download
-                            class="text-decoration-none" class="text-decoration-none"><br />Download</a>
-                        </li>
-                        <li class="list-group-item">
-                          60-B-2 | 05-15 grams<a href="assets/complaints/possession/POSS_60-B_05-15grms.pdf" download
-                            class="text-decoration-none" class="text-decoration-none"><br />Download</a>
-                        </li>
-                        <li class="list-group-item">
-                          60-B-3 | 15+ grams<a href="assets/complaints/possession/POSS_60-B_15+grms.pdf" download
-                            class="text-decoration-none" class="text-decoration-none"><br />Download</a>
-                        </li>
-                        <li class="list-group-item">
-                          60-B-4 | 100+ grams<a href="assets/complaints/possession/POSS_60-B_100+grms.pdf" download
-                            class="text-decoration-none" class="text-decoration-none"><br />Download</a>
-                        </li>
-                        <li class="list-group-item">
-                          60-B-5 | 400+ grams<a href="assets/complaints/possession/POSS_60-B_400+grms.pdf" download
-                            class="text-decoration-none" class="text-decoration-none"><br />Download</a>
-                        </li>
-                        <li class="list-group-item">
-                          60-B-6 | 900+ grams<a href="assets/complaints/possession/POSS_60-B_900+grms.pdf" download
-                            class="text-decoration-none" class="text-decoration-none"><br />Download</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#collapseMethamphetamineTwo" aria-expanded="false"
-                      aria-controls="collapseMethamphetamineTwo">
-                      Delivery 720 ILCS 646.0/15
-                    </button>
-                  </h2>
-                  <div id="collapseMethamphetamineTwo" class="accordion-collapse collapse"
-                    data-bs-parent="#accordionMethamphetamine">
-                    <div class="accordion-body">
-                      <ul class="list-group">
-                        <li class="list-group-item">
-                          15-A | 00-15 grams<a href="assets/complaints/delivery/DELV_15-A_00-15grms.pdf" download
-                            class="text-decoration-none" class="text-decoration-none"><br />Download</a>
-                        </li>
-                        <li class="list-group-item">
-                          15-B | 15+ grams<a href="assets/complaints/delivery/DELV_15-B_05-15grms.pdf" download
-                            class="text-decoration-none" class="text-decoration-none"><br />Download</a>
-                        </li>
-                        <li class="list-group-item">
-                          15-C | 100 grams<a href="assets/complaints/delivery/DELV_15-C_100+grms.pdf" download
-                            class="text-decoration-none" class="text-decoration-none"><br />Download</a>
-                        </li>
-                        <li class="list-group-item">
-                          15-D | 400+ grams<a href="assets/complaints/delivery/DELV_15-D_400+grms.pdf" download
-                            class="text-decoration-none" class="text-decoration-none"><br />Download</a>
-                        </li>
-                        <li class="list-group-item">
-                          15-E | 900+ grams<a href="assets/complaints/delivery/DELV_15-E_900+grms.pdf" download
-                            class="text-decoration-none" class="text-decoration-none"><br />Download</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-          <br />
-          <ul class="list-group">
-            <li class="list-group-item active" aria-current="true">
-              Synthetic Drugs
-            </li>
-            <li class="list-group-item justify-content-center">
-              <div class="accordion" id="accordionSyntheticDrugs">
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#collapseSyntheticDrugsOne" aria-expanded="false"
-                      aria-controls="collapseSyntheticDrugsOne">
-                      Possession 720 ILCS 570.0/402
-                    </button>
-                  </h2>
-                  <div id="collapseSyntheticDrugsOne" class="accordion-collapse collapse"
-                    data-bs-parent="#accordionSyntheticDrugs">
-                    <div class="accordion-body">
-                      <ul class="list-group">
-                        <li class="list-group-item">
-                          402 | Synthetic Drugs
-                          <a href="assets/complaints/possession/POSS_402_SyntheticDrug.pdf" download
-                            class="text-decoration-none" class="text-decoration-none"
-                            class="text-decoration-none"><br />Download</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#collapseSyntheticDrugsTwo" aria-expanded="false"
-                      aria-controls="collapseSyntheticDrugsTwo">
-                      Delivery 720 ILCS 570.0/401
-                    </button>
-                  </h2>
-                  <div id="collapseSyntheticDrugsTwo" class="accordion-collapse collapse"
-                    data-bs-parent="#accordionSyntheticDrugs">
-                    <div class="accordion-body">
-                      <ul class="list-group">
-                        <li class="list-group-item">
-                          401 | Synthetic Drugs
-                          <a href="assets/complaints/delivery/DELV_401_SyntheticDrug.pdf" download
-                            class="text-decoration-none" class="text-decoration-none"
-                            class="text-decoration-none"><br />Download</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-          <br />
-          <ul class="list-group">
-            <li class="list-group-item active" aria-current="true">
-              Cannabis
-            </li>
-            <li class="list-group-item justify-content-center">
-              <div class="accordion" id="accordionCannabis">
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#collapseCannabisOne" aria-expanded="true" aria-controls="collapseCannabisOne">
-                      Possession 720 ILCS 550.0/4
-                    </button>
-                  </h2>
-                  <div id="collapseCannabisOne" class="accordion-collapse collapse" data-bs-parent="#accordionCannabis">
-                    <div class="accordion-body">
-                      <ul class="list-group">
-                        <li class="list-group-item">
-                          4-C | 30-100 grams
-                          <a href="assets/complaints/possession/POSS_04-C_30-100grms.pdf" download
-                            class="text-decoration-none"><br />Download</a>
-                        </li>
-                        <li class="list-group-item">
-                          4-D | 100-500 grams
-                          <a href="assets/complaints/possession/POSS_04-D_100-500grms.pdf" download
-                            class="text-decoration-none"><br />Download</a>
-                        </li>
-                        <li class="list-group-item">
-                          4-E | 500-2000 grams
-                          <a href="assets/complaints/possession/POSS_04-E_500-2000grms.pdf" download
-                            class="text-decoration-none"><br />Download</a>
-                        </li>
-                        <li class="list-group-item">
-                          4-F | 2000-5000 grams
-                          <a href="assets/complaints/possession/POSS_04-F_2000-5000grms.pdf" download
-                            class="text-decoration-none"><br />Download</a>
-                        </li>
-                        <li class="list-group-item">
-                          4-G | 5000+ grams
-                          <a href="assets/complaints/possession/POSS_04-G_5000+grms.pdf" download
-                            class="text-decoration-none"><br />Download</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#collapseCannabisTwo" aria-expanded="false" aria-controls="collapseCannabisTwo">
-                      Delivery 720 ILCS 550.0/5
-                    </button>
-                  </h2>
-                  <div id="collapseCannabisTwo" class="accordion-collapse collapse" data-bs-parent="#accordionCannabis">
-                    <div class="accordion-body">
-                      <ul class="list-group">
-                        <li class="list-group-item">
-                          5-C | 10-30 grams
-                          <a href="assets/complaints/delivery/DELV_05-C_10-30grms.pdf" download
-                            class="text-decoration-none"><br />Download</a>
-                        </li>
-                        <li class="list-group-item">
-                          5-D | 30-500 grams
-                          <a href="assets/complaints/delivery/DELV_05-D_30-500grms.pdf" download
-                            class="text-decoration-none"><br />Download</a>
-                        </li>
-                        <li class="list-group-item">
-                          5-E | 500-2000 grams
-                          <a href="assets/complaints/delivery/DELV_05-E_500-2000grms.pdf" download
-                            class="text-decoration-none"><br />Download</a>
-                        </li>
-                        <li class="list-group-item">
-                          5-F | 2000-5000 grams
-                          <a href="assets/complaints/delivery/DELV_05-F_2000-5000grms.pdf" download
-                            class="text-decoration-none"><br />Download</a>
-                        </li>
-                        <li class="list-group-item">
-                          5-G | 5000+ grams
-                          <a href="assets/complaints/delivery/DELV_05-G_5000+grms.pdf" download
-                            class="text-decoration-none"><br />Download</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
+              <select class="form-select cheat-filter" aria-label="Filter by drug">
+              <option value="all">All drugs</option>
+              <option value="cocaine">Cocaine &amp; Crack</option>
+              <option value="heroin">Heroin</option>
+              <option value="fentanyl">Fentanyl</option>
+              <option value="methamphetamine">Methamphetamine</option>
+              <option value="synthetic">Synthetic Drugs</option>
+              <option value="cannabis">Cannabis</option>
+              </select>
+            </div>
+            <p class="cheat-hint small text-body-secondary mb-0">Cook County felony complaint forms (CCCR 0662). Classes are a quick reference; confirm charges with your ASA.</p>
+          </div>
+          <section class="cheat-group complaint-group" data-cat="cocaine">
+            <h3 class="cheat-group-title">Cocaine &amp; Crack <span class="complaint-act">720 ILCS 570 (Controlled Substances Act)</span></h3>
+            <div class="cheat-sub">
+              <h4 class="complaint-sub">Possession</h4>
+              <ul class="complaint-list">
+                <li class="complaint-row"><span class="complaint-cite">570/402(c)</span><span class="complaint-range">Less than 15 g</span><span class="complaint-class">Class 4</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/possession/POSS_402-C_Cocaine_00-15grms.pdf" download aria-label="Download 570/402(c) Less than 15 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">570/402(a)(2)(A)</span><span class="complaint-range">15-100 g</span><span class="complaint-class">Class 1 (4-15 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/possession/POSS_402-A-2-A_Cocaine_15-100grms.pdf" download aria-label="Download 570/402(a)(2)(A) 15-100 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">570/402(a)(2)(B)</span><span class="complaint-range">100-400 g</span><span class="complaint-class">Class X (6-30 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/possession/POSS_402-A-2-B_Cocaine_100-400grms.pdf" download aria-label="Download 570/402(a)(2)(B) 100-400 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">570/402(a)(2)(C)</span><span class="complaint-range">400-900 g</span><span class="complaint-class">Class X (8-40 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/possession/POSS_402-A-2-C_Cocaine_400-900grms.pdf" download aria-label="Download 570/402(a)(2)(C) 400-900 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">570/402(a)(2)(D)</span><span class="complaint-range">900+ g</span><span class="complaint-class">Class X (10-50 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/possession/POSS_402-A-2-D_Cocaine_900plusgrms.pdf" download aria-label="Download 570/402(a)(2)(D) 900+ g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+              </ul>
+            </div>
+            <div class="cheat-sub">
+              <h4 class="complaint-sub">Manufacture / Delivery</h4>
+              <ul class="complaint-list">
+                <li class="complaint-row"><span class="complaint-cite">570/401(d)(i)</span><span class="complaint-range">Less than 1 g</span><span class="complaint-class">Class 2</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_401-D-i_Cocaine_00-01grms.pdf" download aria-label="Download 570/401(d)(i) Less than 1 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">570/401(c)(2)</span><span class="complaint-range">1-15 g</span><span class="complaint-class">Class 1</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_401-C-2_Cocaine_01-15grms.pdf" download aria-label="Download 570/401(c)(2) 1-15 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">570/401(a)(2)(A)</span><span class="complaint-range">15-100 g</span><span class="complaint-class">Class X (6-30 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_401-A-2-A_Cocaine_15-100grms.pdf" download aria-label="Download 570/401(a)(2)(A) 15-100 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">570/401(a)(2)(B)</span><span class="complaint-range">100-400 g</span><span class="complaint-class">Class X (9-40 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_401-A-2-B_Cocaine_100-400grms.pdf" download aria-label="Download 570/401(a)(2)(B) 100-400 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">570/401(a)(2)(C)</span><span class="complaint-range">400-900 g</span><span class="complaint-class">Class X (12-50 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_401-A-2-C_Cocaine_400-900grms.pdf" download aria-label="Download 570/401(a)(2)(C) 400-900 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">570/401(a)(2)(D)</span><span class="complaint-range">900+ g</span><span class="complaint-class">Class X (15-60 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_401-A-2-D_Cocaine_900plusgrms.pdf" download aria-label="Download 570/401(a)(2)(D) 900+ g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+              </ul>
+            </div>
+          </section>
+          <section class="cheat-group complaint-group" data-cat="heroin">
+            <h3 class="cheat-group-title">Heroin <span class="complaint-act">720 ILCS 570 (Controlled Substances Act)</span></h3>
+            <div class="cheat-sub">
+              <h4 class="complaint-sub">Possession</h4>
+              <ul class="complaint-list">
+                <li class="complaint-row"><span class="complaint-cite">570/402(c)</span><span class="complaint-range">Less than 15 g</span><span class="complaint-class">Class 4</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/possession/POSS_402-C_Heroin_00-15grms.pdf" download aria-label="Download 570/402(c) Less than 15 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">570/402(a)(1)(A)</span><span class="complaint-range">15-100 g</span><span class="complaint-class">Class 1 (4-15 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/possession/POSS_402-A-1-A_Heroin_15-100grms.pdf" download aria-label="Download 570/402(a)(1)(A) 15-100 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">570/402(a)(1)(B)</span><span class="complaint-range">100-400 g</span><span class="complaint-class">Class X (6-30 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/possession/POSS_402-A-1-B_Heroin_100-400grms.pdf" download aria-label="Download 570/402(a)(1)(B) 100-400 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">570/402(a)(1)(C)</span><span class="complaint-range">400-900 g</span><span class="complaint-class">Class X (8-40 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/possession/POSS_402-A-1-C_Heroin_400-900grms.pdf" download aria-label="Download 570/402(a)(1)(C) 400-900 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">570/402(a)(1)(D)</span><span class="complaint-range">900+ g</span><span class="complaint-class">Class X (10-50 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/possession/POSS_402-A-1-D_Heroin_900plusgrms.pdf" download aria-label="Download 570/402(a)(1)(D) 900+ g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+              </ul>
+            </div>
+            <div class="cheat-sub">
+              <h4 class="complaint-sub">Manufacture / Delivery</h4>
+              <ul class="complaint-list">
+                <li class="complaint-row"><span class="complaint-cite">570/401(d)(i)</span><span class="complaint-range">Less than 1 g</span><span class="complaint-class">Class 2</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_401-D-i_Heroin_00-01grms.pdf" download aria-label="Download 570/401(d)(i) Less than 1 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">570/401(c)(1)</span><span class="complaint-range">1-15 g</span><span class="complaint-class">Class 1</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_401-C-1_Heroin_01-15grms.pdf" download aria-label="Download 570/401(c)(1) 1-15 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">570/401(a)(1)(A)</span><span class="complaint-range">15-100 g</span><span class="complaint-class">Class X (6-30 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_401-A-1-A_Heroin_15-100grms.pdf" download aria-label="Download 570/401(a)(1)(A) 15-100 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">570/401(a)(1)(B)</span><span class="complaint-range">100-400 g</span><span class="complaint-class">Class X (9-40 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_401-A-1-B_Heroin_100-400grms.pdf" download aria-label="Download 570/401(a)(1)(B) 100-400 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">570/401(a)(1)(C)</span><span class="complaint-range">400-900 g</span><span class="complaint-class">Class X (12-50 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_401-A-1-C_Heroin_400-900grms.pdf" download aria-label="Download 570/401(a)(1)(C) 400-900 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">570/401(a)(1)(D)</span><span class="complaint-range">900+ g</span><span class="complaint-class">Class X (15-60 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_401-A-1-D_Heroin_900plusgrms.pdf" download aria-label="Download 570/401(a)(1)(D) 900+ g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+              </ul>
+            </div>
+          </section>
+          <section class="cheat-group complaint-group" data-cat="fentanyl">
+            <h3 class="cheat-group-title">Fentanyl <span class="complaint-act">720 ILCS 570 (Controlled Substances Act)</span></h3>
+            <p class="complaint-callout small"><i class="bi bi-info-circle me-1" aria-hidden="true"></i>Delivery: any amount containing fentanyl adds 3 years to the sentence and raises the maximum by 3 years (720 ILCS 570/401).</p>
+            <p class="complaint-callout small"><i class="bi bi-info-circle me-1" aria-hidden="true"></i>Possession of 15 g or more: confirm the subsection with your ASA; no form yet.</p>
+            <div class="cheat-sub">
+              <h4 class="complaint-sub">Possession</h4>
+              <ul class="complaint-list">
+                <li class="complaint-row"><span class="complaint-cite">570/402(c)</span><span class="complaint-range">Less than 15 g</span><span class="complaint-class">Class 4</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/possession/POSS_402-C_Fentanyl_00-15grms.pdf" download aria-label="Download 570/402(c) Less than 15 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+              </ul>
+            </div>
+            <div class="cheat-sub">
+              <h4 class="complaint-sub">Manufacture / Delivery</h4>
+              <ul class="complaint-list">
+                <li class="complaint-row"><span class="complaint-cite">570/401(d)(iii)</span><span class="complaint-range">Less than 1 g</span><span class="complaint-class">Class 2</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_401-D-iii_Fentanyl_00-01grms.pdf" download aria-label="Download 570/401(d)(iii) Less than 1 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">570/401(c)(1.5)</span><span class="complaint-range">1-15 g</span><span class="complaint-class">Class 1</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_401-C-1.5_Fentanyl_01-15grms.pdf" download aria-label="Download 570/401(c)(1.5) 1-15 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">570/401(a)(1.5)(A)</span><span class="complaint-range">15-100 g</span><span class="complaint-class">Class X (6-30 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_401-A-1.5-A_Fentanyl_15-100grms.pdf" download aria-label="Download 570/401(a)(1.5)(A) 15-100 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">570/401(a)(1.5)(B)</span><span class="complaint-range">100-400 g</span><span class="complaint-class">Class X (9-40 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_401-A-1.5-B_Fentanyl_100-400grms.pdf" download aria-label="Download 570/401(a)(1.5)(B) 100-400 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">570/401(a)(1.5)(C)</span><span class="complaint-range">400-900 g</span><span class="complaint-class">Class X (12-50 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_401-A-1.5-C_Fentanyl_400-900grms.pdf" download aria-label="Download 570/401(a)(1.5)(C) 400-900 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">570/401(a)(1.5)(D)</span><span class="complaint-range">900+ g</span><span class="complaint-class">Class X (15-60 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_401-A-1.5-D_Fentanyl_900plusgrms.pdf" download aria-label="Download 570/401(a)(1.5)(D) 900+ g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+              </ul>
+            </div>
+          </section>
+          <section class="cheat-group complaint-group" data-cat="methamphetamine">
+            <h3 class="cheat-group-title">Methamphetamine <span class="complaint-act">720 ILCS 646 (Methamphetamine Control and Community Protection Act)</span></h3>
+            <div class="cheat-sub">
+              <h4 class="complaint-sub">Possession</h4>
+              <ul class="complaint-list">
+                <li class="complaint-row"><span class="complaint-cite">646/60(b)(1)</span><span class="complaint-range">Less than 5 g</span><span class="complaint-class">Class 3</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/possession/POSS_60-B-1_Methamphetamine_00-05grms.pdf" download aria-label="Download 646/60(b)(1) Less than 5 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">646/60(b)(2)</span><span class="complaint-range">5-15 g</span><span class="complaint-class">Class 2</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/possession/POSS_60-B-2_Methamphetamine_05-15grms.pdf" download aria-label="Download 646/60(b)(2) 5-15 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">646/60(b)(3)</span><span class="complaint-range">15-100 g</span><span class="complaint-class">Class 1</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/possession/POSS_60-B-3_Methamphetamine_15-100grms.pdf" download aria-label="Download 646/60(b)(3) 15-100 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">646/60(b)(4)</span><span class="complaint-range">100-400 g</span><span class="complaint-class">Class X (6-30 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/possession/POSS_60-B-4_Methamphetamine_100-400grms.pdf" download aria-label="Download 646/60(b)(4) 100-400 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">646/60(b)(5)</span><span class="complaint-range">400-900 g</span><span class="complaint-class">Class X (8-40 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/possession/POSS_60-B-5_Methamphetamine_400-900grms.pdf" download aria-label="Download 646/60(b)(5) 400-900 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">646/60(b)(6)</span><span class="complaint-range">900+ g</span><span class="complaint-class">Class X (10-50 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/possession/POSS_60-B-6_Methamphetamine_900plusgrms.pdf" download aria-label="Download 646/60(b)(6) 900+ g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+              </ul>
+            </div>
+            <div class="cheat-sub">
+              <h4 class="complaint-sub">Delivery / Possession with intent to deliver</h4>
+              <ul class="complaint-list">
+                <li class="complaint-row"><span class="complaint-cite">646/55(a)(2)(A)</span><span class="complaint-range">Less than 5 g</span><span class="complaint-class">Class 2</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_55-A-2-A_Methamphetamine_00-05grms.pdf" download aria-label="Download 646/55(a)(2)(A) Less than 5 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">646/55(a)(2)(B)</span><span class="complaint-range">5-15 g</span><span class="complaint-class">Class 1</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_55-A-2-B_Methamphetamine_05-15grms.pdf" download aria-label="Download 646/55(a)(2)(B) 5-15 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">646/55(a)(2)(C)</span><span class="complaint-range">15-100 g</span><span class="complaint-class">Class X (6-30 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_55-A-2-C_Methamphetamine_15-100grms.pdf" download aria-label="Download 646/55(a)(2)(C) 15-100 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">646/55(a)(2)(D)</span><span class="complaint-range">100-400 g</span><span class="complaint-class">Class X (9-40 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_55-A-2-D_Methamphetamine_100-400grms.pdf" download aria-label="Download 646/55(a)(2)(D) 100-400 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">646/55(a)(2)(E)</span><span class="complaint-range">400-900 g</span><span class="complaint-class">Class X (12-50 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_55-A-2-E_Methamphetamine_400-900grms.pdf" download aria-label="Download 646/55(a)(2)(E) 400-900 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">646/55(a)(2)(F)</span><span class="complaint-range">900+ g</span><span class="complaint-class">Class X (15-60 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_55-A-2-F_Methamphetamine_900plusgrms.pdf" download aria-label="Download 646/55(a)(2)(F) 900+ g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+              </ul>
+            </div>
+          </section>
+          <section class="cheat-group complaint-group" data-cat="synthetic">
+            <h3 class="cheat-group-title">Synthetic Drugs <span class="complaint-act">720 ILCS 570 (Controlled Substances Act)</span></h3>
+            <p class="complaint-callout small"><i class="bi bi-info-circle me-1" aria-hidden="true"></i>Fill in the drug name on the form.</p>
+            <div class="cheat-sub">
+              <h4 class="complaint-sub">Possession</h4>
+              <ul class="complaint-list">
+                <li class="complaint-row"><span class="complaint-cite">570/402</span><span class="complaint-range">Any amount</span><span class="complaint-class">See 402</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/possession/POSS_402_SyntheticDrug.pdf" download aria-label="Download 570/402 Any amount complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+              </ul>
+            </div>
+            <div class="cheat-sub">
+              <h4 class="complaint-sub">Manufacture / Delivery</h4>
+              <ul class="complaint-list">
+                <li class="complaint-row"><span class="complaint-cite">570/401</span><span class="complaint-range">Any amount</span><span class="complaint-class">See 401</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_401_SyntheticDrug.pdf" download aria-label="Download 570/401 Any amount complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+              </ul>
+            </div>
+          </section>
+          <section class="cheat-group complaint-group" data-cat="cannabis">
+            <h3 class="cheat-group-title">Cannabis <span class="complaint-act">720 ILCS 550 (Cannabis Control Act)</span></h3>
+            <p class="complaint-callout small"><i class="bi bi-info-circle me-1" aria-hidden="true"></i>Possession within the Cannabis Regulation and Tax Act limits is legal for adults 21+.</p>
+            <div class="cheat-sub">
+              <h4 class="complaint-sub">Possession</h4>
+              <ul class="complaint-list">
+                <li class="complaint-row"><span class="complaint-cite">550/4(c)</span><span class="complaint-range">30-100 g</span><span class="complaint-class">Class A misd. (Class 4 with prior)</span><span class="complaint-note">Felony only with a prior</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/possession/POSS_04-C_30-100grms.pdf" download aria-label="Download 550/4(c) 30-100 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">550/4(d)</span><span class="complaint-range">100-500 g</span><span class="complaint-class">Class 4 (Class 3 with prior)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/possession/POSS_04-D_100-500grms.pdf" download aria-label="Download 550/4(d) 100-500 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">550/4(e)</span><span class="complaint-range">500-2000 g</span><span class="complaint-class">Class 3</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/possession/POSS_04-E_500-2000grms.pdf" download aria-label="Download 550/4(e) 500-2000 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">550/4(f)</span><span class="complaint-range">2000-5000 g</span><span class="complaint-class">Class 2</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/possession/POSS_04-F_2000-5000grms.pdf" download aria-label="Download 550/4(f) 2000-5000 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">550/4(g)</span><span class="complaint-range">5000+ g</span><span class="complaint-class">Class 1</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/possession/POSS_04-G_5000+grms.pdf" download aria-label="Download 550/4(g) 5000+ g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+              </ul>
+            </div>
+            <div class="cheat-sub">
+              <h4 class="complaint-sub">Manufacture / Delivery</h4>
+              <ul class="complaint-list">
+                <li class="complaint-row"><span class="complaint-cite">550/5(c)</span><span class="complaint-range">10-30 g</span><span class="complaint-class">Class 4</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_05-C_10-30grms.pdf" download aria-label="Download 550/5(c) 10-30 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">550/5(d)</span><span class="complaint-range">30-500 g</span><span class="complaint-class">Class 3</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_05-D_30-500grms.pdf" download aria-label="Download 550/5(d) 30-500 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">550/5(e)</span><span class="complaint-range">500-2000 g</span><span class="complaint-class">Class 2</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_05-E_500-2000grms.pdf" download aria-label="Download 550/5(e) 500-2000 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">550/5(f)</span><span class="complaint-range">2000-5000 g</span><span class="complaint-class">Class 1</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_05-F_2000-5000grms.pdf" download aria-label="Download 550/5(f) 2000-5000 g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+                <li class="complaint-row"><span class="complaint-cite">550/5(g)</span><span class="complaint-range">5000+ g</span><span class="complaint-class">Class X (6-30 yrs)</span><a class="btn btn-sm btn-outline-primary complaint-dl" href="assets/complaints/delivery/DELV_05-G_5000+grms.pdf" download aria-label="Download 550/5(g) 5000+ g complaint"><i class="bi bi-download" aria-hidden="true"></i><span class="d-none d-sm-inline ms-1">PDF</span></a></li>
+              </ul>
+            </div>
+          </section>
+          <p class="cheat-empty text-center text-body-secondary py-4" hidden>No forms match.</p>
         </div>
-        <!-- Footer content if any -->
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-            Close
-          </button>
-          <a href="assets/complaints/other/Form_101.pdf" class="btn btn-secondary mt-2" download>
-            Felony 101
-          </a>
-          <a href="assets/complaints/other/FELONY_BLANK.pdf" class="btn btn-secondary mt-2" download>
-            Felony Blank
-          </a>
+          <a href="assets/complaints/other/Form_101.pdf" class="btn btn-outline-secondary me-auto" download><i class="bi bi-download me-1" aria-hidden="true"></i>Felony 101</a>
+          <a href="assets/complaints/other/FELONY_BLANK.pdf" class="btn btn-outline-secondary" download><i class="bi bi-download me-1" aria-hidden="true"></i>Felony Blank</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -2071,21 +1489,23 @@
         </div>
         <div class="modal-body cheat">
           <div class="cheat-toolbar">
-            <div class="cheat-search-wrap">
-              <i class="bi bi-search" aria-hidden="true"></i>
-              <input type="search" class="form-control cheat-search" placeholder="Search location codes" aria-label="Search location codes" autocomplete="off" />
-            </div>
-            <div class="cheat-chips" role="group" aria-label="Filter by category">
-              <button type="button" class="cheat-chip is-active" data-cat="all" aria-pressed="true">All</button>
-              <button type="button" class="cheat-chip" data-cat="business-commercial" aria-pressed="false">Business/Commercial <span class="cheat-count">26</span></button>
-              <button type="button" class="cheat-chip" data-cat="financial-institution" aria-pressed="false">Financial Institution <span class="cheat-count">5</span></button>
-              <button type="button" class="cheat-chip" data-cat="medical" aria-pressed="false">Medical <span class="cheat-count">4</span></button>
-              <button type="button" class="cheat-chip" data-cat="miscellaneous" aria-pressed="false">Miscellaneous <span class="cheat-count">5</span></button>
-              <button type="button" class="cheat-chip" data-cat="public-building-property-way" aria-pressed="false">Public Building/Property/Way <span class="cheat-count">13</span></button>
-              <button type="button" class="cheat-chip" data-cat="residential-public-private" aria-pressed="false">Residential Public &amp; Private <span class="cheat-count">9</span></button>
-              <button type="button" class="cheat-chip" data-cat="transportation" aria-pressed="false">Transportation <span class="cheat-count">13</span></button>
-              <button type="button" class="cheat-chip" data-cat="school-univ-child-care" aria-pressed="false">School/Univ/Child Care <span class="cheat-count">7</span></button>
-              <button type="button" class="cheat-chip" data-cat="other-location-not-listed" aria-pressed="false">Other Location Not Listed <span class="cheat-count">1</span></button>
+            <div class="cheat-controls">
+              <div class="cheat-search-wrap">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="form-control cheat-search" placeholder="Search location codes" aria-label="Search location codes" autocomplete="off" />
+              </div>
+              <select class="form-select cheat-filter" aria-label="Filter by category">
+                <option value="all">All categories</option>
+                <option value="business-commercial">Business/Commercial (26)</option>
+                <option value="financial-institution">Financial Institution (5)</option>
+                <option value="medical">Medical (4)</option>
+                <option value="miscellaneous">Miscellaneous (5)</option>
+                <option value="public-building-property-way">Public Building/Property/Way (13)</option>
+                <option value="residential-public-private">Residential Public &amp; Private (9)</option>
+                <option value="transportation">Transportation (13)</option>
+                <option value="school-univ-child-care">School/Univ/Child Care (7)</option>
+                <option value="other-location-not-listed">Other Location Not Listed (1)</option>
+              </select>
             </div>
             <p class="cheat-hint small text-body-secondary mb-0">Tap a code to copy it.</p>
           </div>
@@ -2236,22 +1656,24 @@
         </div>
         <div class="modal-body cheat">
           <div class="cheat-toolbar">
-            <div class="cheat-search-wrap">
-              <i class="bi bi-search" aria-hidden="true"></i>
-              <input type="search" class="form-control cheat-search" placeholder="Search UCR codes or offenses" aria-label="Search UCR codes or offenses" autocomplete="off" />
-            </div>
-            <div class="cheat-chips" role="group" aria-label="Filter by category">
-              <button type="button" class="cheat-chip is-active" data-cat="all" aria-pressed="true">All</button>
-              <button type="button" class="cheat-chip" data-cat="arson-explosives" aria-pressed="false">Arson/Explosives <span class="cheat-count">5</span></button>
-              <button type="button" class="cheat-chip" data-cat="assault" aria-pressed="false">Assault <span class="cheat-count">7</span></button>
-              <button type="button" class="cheat-chip" data-cat="battery" aria-pressed="false">Battery <span class="cheat-count">7</span></button>
-              <button type="button" class="cheat-chip" data-cat="burglary" aria-pressed="false">Burglary <span class="cheat-count">3</span></button>
-              <button type="button" class="cheat-chip" data-cat="criminal-damage-trespass-to-property" aria-pressed="false">Criminal Damage &amp; Trespass to Property <span class="cheat-count">8</span></button>
-              <button type="button" class="cheat-chip" data-cat="deception" aria-pressed="false">Deception <span class="cheat-count">13</span></button>
-              <button type="button" class="cheat-chip" data-cat="narcotics" aria-pressed="false">Narcotics <span class="cheat-count">24</span></button>
-              <button type="button" class="cheat-chip" data-cat="other" aria-pressed="false">Other <span class="cheat-count">6</span></button>
-              <button type="button" class="cheat-chip" data-cat="theft" aria-pressed="false">Theft <span class="cheat-count">3</span></button>
-              <button type="button" class="cheat-chip" data-cat="weapons-violation" aria-pressed="false">Weapons Violation <span class="cheat-count">11</span></button>
+            <div class="cheat-controls">
+              <div class="cheat-search-wrap">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="form-control cheat-search" placeholder="Search UCR codes or offenses" aria-label="Search UCR codes or offenses" autocomplete="off" />
+              </div>
+              <select class="form-select cheat-filter" aria-label="Filter by category">
+                <option value="all">All categories</option>
+                <option value="arson-explosives">Arson/Explosives (5)</option>
+                <option value="assault">Assault (7)</option>
+                <option value="battery">Battery (7)</option>
+                <option value="burglary">Burglary (3)</option>
+                <option value="criminal-damage-trespass-to-property">Criminal Damage &amp; Trespass to Property (8)</option>
+                <option value="deception">Deception (13)</option>
+                <option value="narcotics">Narcotics (24)</option>
+                <option value="other">Other (6)</option>
+                <option value="theft">Theft (3)</option>
+                <option value="weapons-violation">Weapons Violation (11)</option>
+              </select>
             </div>
             <p class="cheat-hint small text-body-secondary mb-0">Tap a code to copy it.</p>
           </div>
@@ -2411,14 +1833,16 @@
         </div>
         <div class="modal-body cheat">
           <div class="cheat-toolbar">
-            <div class="cheat-search-wrap">
-              <i class="bi bi-search" aria-hidden="true"></i>
-              <input type="search" class="form-control cheat-search" placeholder="Search stations, streets or districts" aria-label="Search stations, streets or districts" autocomplete="off" />
-            </div>
-            <div class="cheat-chips" role="group" aria-label="Filter by category">
-              <button type="button" class="cheat-chip is-active" data-cat="all" aria-pressed="true">All</button>
-              <button type="button" class="cheat-chip" data-cat="north" aria-pressed="false">North <span class="cheat-count">5</span></button>
-              <button type="button" class="cheat-chip" data-cat="south" aria-pressed="false">South <span class="cheat-count">5</span></button>
+            <div class="cheat-controls">
+              <div class="cheat-search-wrap">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="form-control cheat-search" placeholder="Search stations, streets or districts" aria-label="Search stations, streets or districts" autocomplete="off" />
+              </div>
+              <select class="form-select cheat-filter" aria-label="Filter by category">
+                <option value="all">All areas</option>
+                <option value="north">North (5)</option>
+                <option value="south">South (5)</option>
+              </select>
             </div>
             <p class="cheat-hint small text-body-secondary mb-0">Tap Directions for maps or the number to call.</p>
           </div>

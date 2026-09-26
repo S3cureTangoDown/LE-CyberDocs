@@ -48,305 +48,79 @@ function scrollToTop() {
   update();
 })();
 
-/*-- PAGE FILTER (nav search box) --*/
-// Filters this page's accordion sections (and table rows on the chart page) as you type.
-(function () {
-  var form = document.querySelector(".site-search");
-  var input = document.getElementById("site-search");
-  if (!form || !input) return;
-
-  // Top-level accordion items outside modals, or table rows when a page has no accordions
-  var items = Array.prototype.filter.call(document.querySelectorAll("main .accordion-item"), function (el) {
-    return !el.closest(".modal") && !el.parentElement.closest(".accordion-item") && !el.hasAttribute("data-placeholder");
-  });
-  if (!items.length) {
-    items = Array.prototype.slice.call(document.querySelectorAll("main table tbody tr"));
-  }
-  if (!items.length) return; // nothing to filter on this page, keep the box hidden
-
-  form.hidden = false;
-  var empty = document.createElement("p");
-  empty.className = "search-empty text-center text-body-secondary py-3";
-  empty.setAttribute("role", "status");
-  empty.hidden = true;
-  var main = document.getElementById("main");
-  if (main) main.prepend(empty);
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    var first = items.find(function (el) { return !el.hidden; });
-    if (first) first.scrollIntoView({ behavior: "smooth", block: "center" });
-  });
-
-  input.addEventListener("input", function () {
-    var q = input.value.trim().toLowerCase();
-    var shown = 0;
-    items.forEach(function (el) {
-      var match = !q || el.textContent.toLowerCase().indexOf(q) !== -1;
-      el.hidden = !match;
-      if (match) shown++;
-    });
-    // Hide whole sections whose items are all filtered out
-    document.querySelectorAll("main .accordion").forEach(function (acc) {
-      if (acc.closest(".modal") || acc.parentElement.closest(".accordion-item")) return;
-      var any = acc.querySelector(":scope > .accordion-item:not([hidden])");
-      var section = acc.closest(".page-section") || acc;
-      section.hidden = !!q && !any;
-    });
-    empty.hidden = shown > 0;
-    empty.textContent = shown ? "" : 'Nothing on this page matches "' + input.value.trim() + '".';
-  });
-})();
-
 /*-- NARCOTIC VALUE CALCULATOR --*/
+// Street values (HIDTA 2022), per unit. The chart tables and the calculator are both built
+// from this list, so edit prices here only.
+//   cat:    section the drug is listed under
+//   verify: units whose price looks wrong but couldn't be corrected without new data
+// Pound prices that are just the gram price x 454 are marked as estimates automatically.
+const NARCOTIC_CATEGORIES = [
+  "Cocaine", "Heroin", "Fentanyl", "Methamphetamine", "Marijuana & THC",
+  "Pills (per pill)", "Hallucinogens & Club Drugs", "Steroids",
+];
 const NARCOTIC_DATA = {
-  Adderall: {
-    gram: 10.0,
-    pill: 10.0,
-    pound: 4540.0,
-    ounce: null,
-    kilogram: null,
-    mL: null,
-  },
-  Alprazolam: {
-    gram: 10.0,
-    pill: 10.0,
-    pound: 4540.0,
-    ounce: null,
-    kilogram: null,
-    mL: null,
-  },
-  Ecstasy: {
-    gram: 25.0,
-    pill: 25.0,
-    pound: 11350.0,
-    ounce: null,
-    kilogram: null,
-    mL: null,
-  },
-  "Cocaine (Powder)": {
-    gram: 125.0,
-    pound: 22700.0,
-    ounce: 1200.0,
-    kilogram: 32000.0,
-    mL: null,
-  },
-  "Cocaine (Crack)": {
-    gram: 123.0,
-    pound: 4540.0,
-    ounce: 1000.0,
-    kilogram: null,
-    mL: null,
-  },
-  Fentanyl: {
-    gram: 155.55,
-    pound: 70612.7,
-    ounce: 1500.0,
-    kilogram: 40000.0,
-    mL: null,
-  },
-  "Heroin (Tan)": {
-    gram: 100.0,
-    pound: 45359.2,
-    ounce: null,
-    kilogram: null,
-    mL: null,
-  },
-  "Heroin (White)": {
-    gram: 150.0,
-    pound: 68038.8,
-    ounce: null,
-    kilogram: null,
-    mL: null,
-  },
-  "Heroin (Black Tar)": {
-    gram: 150.0,
-    pound: 68038.8,
-    ounce: null,
-    kilogram: null,
-    mL: null,
-  },
-  "Hydrocodone 10mg": {
-    gram: 15.0,
-    pill: 15.0,
-    pound: 6810.0,
-    ounce: null,
-    kilogram: null,
-    mL: null,
-  },
-  "Hydrocodone 30mg": {
-    gram: 20.0,
-    pill: 20.0,
-    pound: 9080.0,
-    ounce: null,
-    kilogram: null,
-    mL: null,
-  },
-  "Hydrocodone 80mg": {
-    gram: 25.0,
-    pill: 25.0,
-    pound: 11350.0,
-    ounce: null,
-    kilogram: null,
-    mL: null,
-  },
-  Ketamine: {
-    gram: 100.0,
-    pill: 20.0,
-    pound: 45400.0,
-    ounce: null,
-    kilogram: null,
-    mL: null,
-  },
-  LSD: {
-    gram: 5.0,
-    pill: 10.0,
-    pound: 2270.0,
-    ounce: null,
-    kilogram: null,
-    mL: null,
-  },
-  "Marijuana (Domestic)": {
-    gram: 4.41,
-    pound: 2000.0,
-    ounce: null,
-    kilogram: null,
-    mL: null,
-  },
-  "Marijuana (Mexican)": {
-    gram: 2.64,
-    pound: 1200.0,
-    ounce: null,
-    kilogram: null,
-    mL: null,
-  },
-  "Marijuana (Sensimilla)": {
-    gram: 16.0,
-    pound: 7256.0,
-    ounce: null,
-    kilogram: null,
-    mL: null,
-  },
-  MDMA: {
-    gram: 100.0,
-    pill: 20.0,
-    pound: 45400.0,
-    ounce: null,
-    kilogram: null,
-    mL: null,
-  },
-  Methamphetamine: {
-    gram: 330.0,
-    pound: 1200.0,
-    ounce: 800.0,
-    kilogram: null,
-    mL: null,
-  },
-  Percocet: {
-    gram: 10.0,
-    pill: 10.0,
-    pound: 4540.0,
-    ounce: null,
-    kilogram: null,
-    mL: null,
-  },
-  Psilocybin: {
-    gram: 9.0,
-    pound: 4086.0,
-    ounce: null,
-    kilogram: null,
-    mL: null,
-  },
-  "Oxycodone 10mg": {
-    gram: 10.0,
-    pill: 10.0,
-    pound: 4540.0,
-    ounce: null,
-    kilogram: null,
-    mL: null,
-  },
-  "Oxycodone 30mg": {
-    gram: 30.0,
-    pill: 30.0,
-    pound: 13620.0,
-    ounce: null,
-    kilogram: null,
-    mL: null,
-  },
-  "Oxycodone 80mg": {
-    gram: 50.0,
-    pill: 50.0,
-    pound: 22700.0,
-    ounce: null,
-    kilogram: null,
-    mL: null,
-  },
-  Ritalin: {
-    gram: 3.5,
-    pill: 3.5,
-    pound: 1587.0,
-    ounce: null,
-    kilogram: null,
-    mL: null,
-  },
-  "Steroids (Liquid) 1": { ounce: 69.83, mL: 1117.28 },
-  "Steroids (Liquid) 2": { kilogram: 2.33 },
-  "Steroids (Powder)": { ounce: 5.0, gram: 2270.0 },
-  Suboxone: {
-    gram: 10.0,
-    pill: 10.0,
-    pound: 4540.0,
-    ounce: null,
-    kilogram: null,
-    mL: null,
-  },
-  "Tetrahydrocannabinol (Gummies)": {
-    gram: 16.0,
-    pound: 7256.0,
-    ounce: null,
-    kilogram: null,
-    mL: null,
-  },
-  "Tetrahydrocannabinol (Liquid)": {
-    gram: 80.0,
-    pound: 36320.0,
-    ounce: null,
-    kilogram: null,
-    mL: null,
-  },
-  "Tetrahydrocannabinol (Wax)": {
-    gram: 80.0,
-    pound: 36320.0,
-    ounce: null,
-    kilogram: null,
-    mL: null,
-  },
-  Viagra: {
-    gram: 10.0,
-    pill: 10.0,
-    pound: 4540.0,
-    ounce: null,
-    kilogram: null,
-    mL: null,
-  },
-  Vicodin: {
-    gram: 10.0,
-    pill: 10.0,
-    pound: 4540.0,
-    ounce: null,
-    kilogram: null,
-    mL: null,
-  },
+  "Cocaine (Powder)": { cat: "Cocaine", gram: 125.0, ounce: 1200.0, pound: 22700.0, kilogram: 32000.0 },
+  "Cocaine (Crack)": { cat: "Cocaine", gram: 123.0, ounce: 1000.0, pound: 4540.0, verify: ["pound"] },
+  "Heroin (Tan)": { cat: "Heroin", gram: 100.0, pound: 45359.2 },
+  "Heroin (White)": { cat: "Heroin", gram: 150.0, pound: 68038.8 },
+  "Heroin (Black Tar)": { cat: "Heroin", gram: 150.0, pound: 68038.8 },
+  Fentanyl: { cat: "Fentanyl", gram: 155.55, ounce: 1500.0, pound: 70612.7, kilogram: 40000.0, verify: ["pound"] },
+  Methamphetamine: { cat: "Methamphetamine", gram: 330.0, ounce: 800.0, pound: 1200.0, verify: ["gram"] },
+  "Marijuana (Domestic)": { cat: "Marijuana & THC", gram: 4.41, pound: 2000.0 },
+  "Marijuana (Mexican)": { cat: "Marijuana & THC", gram: 2.64, pound: 1200.0 },
+  "Marijuana (Sinsemilla)": { cat: "Marijuana & THC", gram: 16.0, pound: 7256.0 },
+  "Tetrahydrocannabinol (Gummies)": { cat: "Marijuana & THC", gram: 16.0, pound: 7256.0 },
+  "Tetrahydrocannabinol (Liquid)": { cat: "Marijuana & THC", gram: 80.0, pound: 36320.0 },
+  "Tetrahydrocannabinol (Wax)": { cat: "Marijuana & THC", gram: 80.0, pound: 36320.0 },
+  Adderall: { cat: "Pills (per pill)", pill: 10.0 },
+  Alprazolam: { cat: "Pills (per pill)", pill: 10.0 },
+  Ecstasy: { cat: "Pills (per pill)", pill: 25.0 },
+  "Hydrocodone 10mg": { cat: "Pills (per pill)", pill: 15.0 },
+  "Hydrocodone 30mg": { cat: "Pills (per pill)", pill: 20.0 },
+  "Hydrocodone 80mg": { cat: "Pills (per pill)", pill: 25.0, verify: ["pill"] },
+  "Oxycodone 10mg": { cat: "Pills (per pill)", pill: 10.0 },
+  "Oxycodone 30mg": { cat: "Pills (per pill)", pill: 30.0 },
+  "Oxycodone 80mg": { cat: "Pills (per pill)", pill: 50.0 },
+  Percocet: { cat: "Pills (per pill)", pill: 10.0 },
+  Ritalin: { cat: "Pills (per pill)", pill: 3.5 },
+  Suboxone: { cat: "Pills (per pill)", pill: 10.0 },
+  Viagra: { cat: "Pills (per pill)", pill: 10.0 },
+  Vicodin: { cat: "Pills (per pill)", pill: 10.0 },
+  Ketamine: { cat: "Hallucinogens & Club Drugs", gram: 100.0, pill: 20.0, pound: 45400.0 },
+  LSD: { cat: "Hallucinogens & Club Drugs", gram: 5.0, pill: 10.0, pound: 2270.0, verify: ["gram"] },
+  MDMA: { cat: "Hallucinogens & Club Drugs", gram: 100.0, pill: 20.0, pound: 45400.0 },
+  Psilocybin: { cat: "Hallucinogens & Club Drugs", gram: 9.0, pound: 4086.0 },
+  // The old list had these under the wrong units: $69.83 x 16 = $1,117.28 (ounce -> pound)
+  // and $5 x 454 = $2,270 (gram -> pound).
+  "Steroids (Liquid) 1": { cat: "Steroids", ounce: 69.83, pound: 1117.28 },
+  "Steroids (Liquid) 2": { cat: "Steroids", kilogram: 2.33, verify: ["kilogram"] },
+  "Steroids (Powder)": { cat: "Steroids", gram: 5.0, pound: 2270.0 },
 };
 
-var UNIT_LABELS = { gram: "gram", pill: "pill", pound: "pound", ounce: "ounce", kilogram: "kilogram", mL: "mL" };
+var UNIT_LABELS = { gram: "gram", pill: "pill", ounce: "ounce", pound: "pound", kilogram: "kilogram", mL: "mL" };
+var UNIT_ORDER = ["gram", "pill", "ounce", "pound", "kilogram", "mL"];
+
+function priceUnits(drug) {
+  var d = NARCOTIC_DATA[drug] || {};
+  return UNIT_ORDER.filter(function (u) { return typeof d[u] === "number"; });
+}
+
+// A pound price that is just the gram price x 454 is an estimate, not a bulk price
+function isEstimate(d, unit) {
+  return unit === "pound" && d.gram && d.pound && Math.abs(d.pound / d.gram - 453.6) < 2;
+}
+
+function money(v) {
+  return "$" + v.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
 
 function calculateValue() {
   var result = document.getElementById("result");
   var narcotic = document.getElementById("narcotic").value;
   var weight = parseFloat(document.getElementById("weight").value);
   var weightType = document.getElementById("weightType").value;
-  var price = (NARCOTIC_DATA[narcotic] || {})[weightType];
+  var d = NARCOTIC_DATA[narcotic] || {};
+  var price = d[weightType];
 
   result.classList.remove("is-error", "is-value");
   if (!(weight > 0)) {
@@ -354,23 +128,54 @@ function calculateValue() {
     result.classList.add("is-error");
     return;
   }
-  if (price == null) {
-    // Many drugs only have prices for some units (e.g. no "pill" price for cocaine)
-    var units = Object.keys(NARCOTIC_DATA[narcotic] || {}).filter(function (u) {
-      return NARCOTIC_DATA[narcotic][u] != null;
-    });
-    result.textContent =
-      "No " + UNIT_LABELS[weightType] + " price for " + narcotic + ". Try: " +
-      units.map(function (u) { return UNIT_LABELS[u] || u; }).join(", ") + ".";
+  if (typeof price !== "number") {
+    result.textContent = "No " + UNIT_LABELS[weightType] + " price for " + narcotic + ". Try: " +
+      priceUnits(narcotic).map(function (u) { return UNIT_LABELS[u]; }).join(", ") + ".";
     result.classList.add("is-error");
     return;
   }
 
-  var value = price * weight;
-  result.textContent =
-    "Value: $" + value.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  var text = "Value: " + money(price * weight);
+  if (isEstimate(d, weightType)) text += " (estimate: gram price × 454)";
+  if (d.verify && d.verify.indexOf(weightType) !== -1) text += " (price needs verification)";
+  result.textContent = text;
   result.classList.add("is-value");
 }
+
+// Fill the calculator's drug list from NARCOTIC_DATA and only offer units that have a price
+(function () {
+  var drugSelect = document.getElementById("narcotic");
+  var unitSelect = document.getElementById("weightType");
+  if (!drugSelect || !unitSelect) return;
+
+  drugSelect.innerHTML = "";
+  NARCOTIC_CATEGORIES.forEach(function (cat) {
+    var group = document.createElement("optgroup");
+    group.label = cat;
+    Object.keys(NARCOTIC_DATA).forEach(function (name) {
+      if (NARCOTIC_DATA[name].cat !== cat) return;
+      var opt = document.createElement("option");
+      opt.value = opt.textContent = name;
+      group.appendChild(opt);
+    });
+    drugSelect.appendChild(group);
+  });
+
+  function syncUnits() {
+    var previous = unitSelect.value;
+    var units = priceUnits(drugSelect.value);
+    unitSelect.innerHTML = "";
+    units.forEach(function (u) {
+      var opt = document.createElement("option");
+      opt.value = u;
+      opt.textContent = u === "mL" ? "mL" : u.charAt(0).toUpperCase() + u.slice(1);
+      unitSelect.appendChild(opt);
+    });
+    if (units.indexOf(previous) !== -1) unitSelect.value = previous;
+  }
+  drugSelect.addEventListener("change", syncUnits);
+  syncUnits();
+})();
 
 document.querySelectorAll(".js-calc-btn").forEach(function (btn) {
   btn.addEventListener("click", calculateValue);
@@ -385,6 +190,38 @@ if (weightInput && document.querySelector(".js-calc-btn")) {
     }
   });
 }
+
+/*-- STREET VALUE TABLES --*/
+// Built from NARCOTIC_DATA wherever the page has <div data-value-chart></div>.
+document.querySelectorAll("[data-value-chart]").forEach(function (box) {
+  var html = "";
+  NARCOTIC_CATEGORIES.forEach(function (cat) {
+    var names = Object.keys(NARCOTIC_DATA).filter(function (n) { return NARCOTIC_DATA[n].cat === cat; });
+    if (!names.length) return;
+    var units = UNIT_ORDER.filter(function (u) {
+      return names.some(function (n) { return typeof NARCOTIC_DATA[n][u] === "number"; });
+    });
+    html += '<section class="value-group"><h3 class="value-group-title">' + cat + "</h3>" +
+      '<div class="table-responsive"><table class="table table-bordered table-striped align-middle value-table"><thead><tr><th scope="col">Drug</th>' +
+      units.map(function (u) { return '<th scope="col">' + (u === "mL" ? "mL" : u.charAt(0).toUpperCase() + u.slice(1)) + "</th>"; }).join("") +
+      "</tr></thead><tbody>";
+    names.forEach(function (n) {
+      var d = NARCOTIC_DATA[n];
+      html += '<tr><th scope="row">' + n + "</th>" + units.map(function (u) {
+        if (typeof d[u] !== "number") return '<td class="text-body-secondary">—</td>';
+        var cell = money(d[u]);
+        if (isEstimate(d, u)) cell = '<span class="value-est" title="Estimate: gram price × 454">≈ ' + cell + "</span>";
+        if (d.verify && d.verify.indexOf(u) !== -1) cell += ' <span class="badge text-bg-warning value-verify" title="Looks inconsistent; needs a current price">verify</span>';
+        return "<td>" + cell + "</td>";
+      }).join("") + "</tr>";
+    });
+    html += "</tbody></table></div></section>";
+  });
+  html += '<p class="value-footnote small text-body-secondary">Source: HIDTA 2022. ' +
+    "≈ = estimate (gram price × 454), usually higher than real bulk prices. " +
+    '<span class="badge text-bg-warning">verify</span> = price looks inconsistent and needs a current figure.</p>';
+  box.innerHTML = html;
+});
 
 /*-- CLICK TO COPY --*/
 function copyToClipboard(button) {
@@ -886,7 +723,7 @@ function openMailto(url) {
 })();
 
 /*-- CHEAT SHEETS (Incident Reporting, UCR, Fueling Stations) --*/
-// Search box + category chips filter the cards; tapping a code card copies the code.
+// Search box + category dropdown filter the cards; tapping a code card copies the code.
 function copyText(text) {
   if (navigator.clipboard && window.isSecureContext) {
     return navigator.clipboard.writeText(text).then(function () { return true; }, function () { return false; });
@@ -906,21 +743,28 @@ function copyText(text) {
 
 document.querySelectorAll(".cheat").forEach(function (sheet) {
   var input = sheet.querySelector(".cheat-search");
-  var chips = sheet.querySelectorAll(".cheat-chip");
+  var filter = sheet.querySelector(".cheat-filter");
   var groups = sheet.querySelectorAll(".cheat-group");
   var empty = sheet.querySelector(".cheat-empty");
-  var category = "all";
 
   function apply() {
     var q = input.value.trim().toLowerCase();
+    var category = filter.value;
     var shownTotal = 0;
     groups.forEach(function (group) {
+      // Search the group title too, so "heroin" or "cannabis" finds that whole section
+      var title = (group.querySelector(".cheat-group-title") || {}).textContent || "";
+      var titleMatch = q && title.toLowerCase().indexOf(q) !== -1;
       var inCat = category === "all" || group.getAttribute("data-cat") === category;
       var shown = 0;
       group.querySelectorAll("li").forEach(function (item) {
-        var match = inCat && (!q || item.textContent.toLowerCase().indexOf(q) !== -1);
+        var match = inCat && (!q || titleMatch || item.textContent.toLowerCase().indexOf(q) !== -1);
         item.hidden = !match;
         if (match) shown++;
+      });
+      // Sub-lists (e.g. Possession / Delivery) hide when nothing in them matches
+      group.querySelectorAll(".cheat-sub").forEach(function (sub) {
+        sub.hidden = !sub.querySelector("li:not([hidden])");
       });
       group.hidden = shown === 0;
       shownTotal += shown;
@@ -929,17 +773,7 @@ document.querySelectorAll(".cheat").forEach(function (sheet) {
   }
 
   input.addEventListener("input", apply);
-  chips.forEach(function (chip) {
-    chip.addEventListener("click", function () {
-      category = chip.getAttribute("data-cat");
-      chips.forEach(function (c) {
-        var on = c === chip;
-        c.classList.toggle("is-active", on);
-        c.setAttribute("aria-pressed", String(on));
-      });
-      apply();
-    });
-  });
+  filter.addEventListener("change", apply);
 
   sheet.addEventListener("click", function (e) {
     var card = e.target.closest(".code-card");
@@ -963,12 +797,7 @@ document.querySelectorAll(".cheat").forEach(function (sheet) {
   if (modal) {
     modal.addEventListener("show.bs.modal", function () {
       input.value = "";
-      category = "all";
-      chips.forEach(function (c) {
-        var on = c.getAttribute("data-cat") === "all";
-        c.classList.toggle("is-active", on);
-        c.setAttribute("aria-pressed", String(on));
-      });
+      filter.value = "all";
       apply();
     });
   }
@@ -1069,5 +898,60 @@ document.querySelectorAll(".js-contact-form").forEach(function (form) {
       btn.setAttribute("aria-label", show ? "Hide password" : "Show password");
       btn.querySelector("i").className = show ? "bi bi-eye-slash" : "bi bi-eye";
     });
+  });
+})();
+
+/*-- PAGE FILTER (nav search box) --*/
+// Filters this page's accordion sections (and table rows on the chart page) as you type.
+// Runs last so it also sees tables that main.js builds, like the street value chart.
+(function () {
+  var form = document.querySelector(".site-search");
+  var input = document.getElementById("site-search");
+  if (!form || !input) return;
+
+  // Top-level accordion items outside modals, or table rows when a page has no accordions
+  var items = Array.prototype.filter.call(document.querySelectorAll("main .accordion-item"), function (el) {
+    return !el.closest(".modal") && !el.parentElement.closest(".accordion-item") && !el.hasAttribute("data-placeholder");
+  });
+  if (!items.length) {
+    items = Array.prototype.slice.call(document.querySelectorAll("main table tbody tr"));
+  }
+  if (!items.length) return; // nothing to filter on this page, keep the box hidden
+
+  form.hidden = false;
+  var empty = document.createElement("p");
+  empty.className = "search-empty text-center text-body-secondary py-3";
+  empty.setAttribute("role", "status");
+  empty.hidden = true;
+  var main = document.getElementById("main");
+  if (main) main.prepend(empty);
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var first = items.find(function (el) { return !el.hidden; });
+    if (first) first.scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+
+  input.addEventListener("input", function () {
+    var q = input.value.trim().toLowerCase();
+    var shown = 0;
+    items.forEach(function (el) {
+      var match = !q || el.textContent.toLowerCase().indexOf(q) !== -1;
+      el.hidden = !match;
+      if (match) shown++;
+    });
+    // Hide whole sections whose items are all filtered out
+    document.querySelectorAll("main .accordion").forEach(function (acc) {
+      if (acc.closest(".modal") || acc.parentElement.closest(".accordion-item")) return;
+      var any = acc.querySelector(":scope > .accordion-item:not([hidden])");
+      var section = acc.closest(".page-section") || acc;
+      section.hidden = !!q && !any;
+    });
+    // Street value sections with no matching rows hide too
+    document.querySelectorAll("main .value-group").forEach(function (group) {
+      group.hidden = !!q && !group.querySelector("tbody tr:not([hidden])");
+    });
+    empty.hidden = shown > 0;
+    empty.textContent = shown ? "" : 'Nothing on this page matches "' + input.value.trim() + '".';
   });
 })();
