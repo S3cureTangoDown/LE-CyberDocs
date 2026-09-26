@@ -34,6 +34,7 @@ Each Quick Link opens a window (a bottom sheet on phones that you can swipe down
 - **Street Value Chart**: the full value chart plus the calculator on one page.
 - **About / Contact**: the team and a contact form. The Home and Contact pages also have **Helpful Links** to outside sites: Chicago FOP Lodge 7, the PABF pension calculator, CPD Directives, ILETSB, the POWER Test fitness standards and ChicagoCop.com.
 - **Login / Sign Up**: placeholders only (see [Login](#login) below).
+- **404 page** (`404.html`): a "Case File Not Found" page with caution tape. The Go-By window's **Sign Up for Go-Bys** button opens it with a "work in progress" message, and GitHub Pages shows it for any address that doesn't exist.
 
 ### Built-in tools
 - **Print** any checklist window. It prints in light colors with every section expanded, a title and the date. Use "Save as PDF" in the print dialog to keep a copy.
