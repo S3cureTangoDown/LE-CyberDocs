@@ -57,7 +57,7 @@ function scrollToTop() {
 
   // Top-level accordion items outside modals, or table rows when a page has no accordions
   var items = Array.prototype.filter.call(document.querySelectorAll("main .accordion-item"), function (el) {
-    return !el.closest(".modal") && !el.parentElement.closest(".accordion-item");
+    return !el.closest(".modal") && !el.parentElement.closest(".accordion-item") && !el.hasAttribute("data-placeholder");
   });
   if (!items.length) {
     items = Array.prototype.slice.call(document.querySelectorAll("main table tbody tr"));
@@ -485,8 +485,142 @@ document.querySelectorAll("[data-clear-modal]").forEach(function (button) {
         el.value = el.defaultValue;
       }
     });
+    modal.querySelectorAll("[data-sfst-clue], [data-sfst-cannot]").forEach(function (el) {
+      el.dispatchEvent(new Event("change", { bubbles: true }));
+    });
   });
 });
+
+/*-- SFST SCORING --*/
+// Counts checked clues into each test's score box. "Can't perform" scores the maximum
+// (NHTSA: record as if all clues were present). The officer can still change the number.
+(function () {
+  var selects = document.querySelectorAll("[data-sfst-score]");
+  if (!selects.length) return;
+
+  function update(test) {
+    var select = document.querySelector('[data-sfst-score="' + test + '"]');
+    if (!select) return;
+    var max = parseInt(select.getAttribute("data-max"), 10);
+    var cannot = document.querySelector('[data-sfst-cannot="' + test + '"]');
+    var count = document.querySelectorAll('[data-sfst-clue="' + test + '"]:checked').length;
+    var score = cannot && cannot.checked ? max : Math.min(count, max);
+    select.value = String(score);
+    showVerdict(select);
+  }
+
+  function showVerdict(select) {
+    var test = select.getAttribute("data-sfst-score");
+    var decision = parseInt(select.getAttribute("data-decision"), 10);
+    var verdict = document.querySelector('[data-sfst-verdict="' + test + '"]');
+    if (!verdict) return;
+    var score = parseInt(select.value, 10) || 0;
+    var reached = score >= decision;
+    verdict.textContent = reached
+      ? "Decision point reached (" + score + " of " + decision + ")."
+      : "Below decision point (" + score + " of " + decision + ").";
+    verdict.classList.toggle("is-reached", reached);
+  }
+
+  document.addEventListener("change", function (e) {
+    var t = e.target;
+    var test = t.getAttribute && (t.getAttribute("data-sfst-clue") || t.getAttribute("data-sfst-cannot"));
+    if (test) update(test);
+    if (t.hasAttribute && t.hasAttribute("data-sfst-score")) showVerdict(t);
+  });
+  selects.forEach(function (sel) { update(sel.getAttribute("data-sfst-score")); });
+})();
+
+/*-- EITHER-OR CHECKBOXES (Pass / Fail) --*/
+document.addEventListener("change", function (e) {
+  var t = e.target;
+  var group = t.getAttribute && t.getAttribute("data-exclusive");
+  if (!group || !t.checked) return;
+  document.querySelectorAll('[data-exclusive="' + group + '"]').forEach(function (other) {
+    if (other !== t) other.checked = false;
+  });
+});
+
+/*-- "NOW" TIME BUTTONS --*/
+// Fills the time field next to the button: "1432 Hrs" for text fields, 14:32 for time pickers.
+function pad2(n) { return (n < 10 ? "0" : "") + n; }
+
+document.addEventListener("click", function (e) {
+  var btn = e.target.closest && e.target.closest(".js-now");
+  if (!btn) return;
+  // The field right before the button (a row can also hold a name box, as in Shooting Order)
+  var input = btn.previousElementSibling;
+  if (!input || input.tagName !== "INPUT") return;
+  var d = new Date();
+  input.value = input.type === "time"
+    ? pad2(d.getHours()) + ":" + pad2(d.getMinutes())
+    : pad2(d.getHours()) + pad2(d.getMinutes()) + " Hrs";
+  input.dispatchEvent(new Event("input", { bubbles: true }));
+  input.dispatchEvent(new Event("change", { bubbles: true }));
+});
+
+/*-- DATE FIELDS THAT DEFAULT TO TODAY --*/
+document.querySelectorAll("input[type=date][data-default-today]").forEach(function (el) {
+  var d = new Date();
+  var today = d.getFullYear() + "-" + pad2(d.getMonth() + 1) + "-" + pad2(d.getDate());
+  el.defaultValue = today; // "Clear Page" puts it back to today
+  if (!el.value) el.value = today;
+});
+
+/*-- PRINT A MODAL --*/
+// Prints just that modal: every section expanded, answers as filled in, light colors,
+// with a small header. Use the browser's "Save as PDF" printer to save a copy.
+(function () {
+  function printModal(modal) {
+    var root = document.documentElement;
+    var theme = root.getAttribute("data-bs-theme");
+    var marked = [];
+    for (var el = modal.parentElement; el && el !== root; el = el.parentElement) {
+      el.classList.add("print-ancestor");
+      marked.push(el);
+    }
+    var titleEl = modal.querySelector(".modal-title");
+    var header = document.createElement("div");
+    header.className = "print-header";
+    var h = document.createElement("h1");
+    h.textContent = "LE Cyber-Docs — " + (titleEl ? titleEl.textContent.trim() : "Printout");
+    var meta = document.createElement("p");
+    meta.textContent = "Printed " + new Date().toLocaleString();
+    header.appendChild(h);
+    header.appendChild(meta);
+    var content = modal.querySelector(".modal-content");
+    content.insertBefore(header, content.firstChild);
+
+    root.setAttribute("data-bs-theme", "light");
+    document.body.classList.add("printing-modal");
+    modal.classList.add("print-target");
+
+    var done = false;
+    function cleanup() {
+      if (done) return;
+      done = true;
+      header.remove();
+      modal.classList.remove("print-target");
+      document.body.classList.remove("printing-modal");
+      marked.forEach(function (m) { m.classList.remove("print-ancestor"); });
+      if (theme) root.setAttribute("data-bs-theme", theme);
+    }
+    window.addEventListener("afterprint", cleanup, { once: true });
+    window.print();
+    // Some mobile browsers never fire afterprint; restore on the next tap or key press instead
+    setTimeout(function () {
+      document.addEventListener("pointerdown", cleanup, { once: true });
+      document.addEventListener("keydown", cleanup, { once: true });
+    }, 0);
+  }
+
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest && e.target.closest("[data-print-modal]");
+    if (!btn) return;
+    var modal = btn.closest(".modal");
+    if (modal) printModal(modal);
+  });
+})();
 
 /*-- CONTACT FORMS (Formspree) --*/
 // Sends the form in the background and shows the result on the page.
