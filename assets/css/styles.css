@@ -1,38 +1,168 @@
-/*-- GOOGLE FONTS --*/
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+/* LE Cyber-Docs — site styles
+   Built on Bootstrap 5.3 color modes: <html data-bs-theme="light|dark"> switches every
+   color below, so use Bootstrap's --bs-* variables instead of fixed colors. */
 
-/*-- VARIABLE CSS --*/
+/*-- THEME TOKENS --*/
 :root {
-  --first-color: hsl(209, 100%, 50%);
-  --text-color2: hsl(0, 0%, 7%);
+  --le-accent: #0d6efd;
+  --le-accent-soft: rgba(13, 110, 253, 0.12);
+  --le-radius: 1rem;
+  --le-shadow: 0 0.5rem 1.5rem rgba(15, 23, 42, 0.08);
+  --le-nav-bg: rgba(255, 255, 255, 0.85);
+  --bs-body-font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+[data-bs-theme="dark"] {
+  --le-accent: #58a6ff;
+  --le-accent-soft: rgba(88, 166, 255, 0.15);
+  --le-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.45);
+  --le-nav-bg: rgba(13, 17, 23, 0.85);
+  --bs-body-bg: #0d1117;
+  --bs-body-bg-rgb: 13, 17, 23;
+  --bs-tertiary-bg: #161b22;
+  --bs-tertiary-bg-rgb: 22, 27, 34;
+  --bs-secondary-bg: #1f2630;
+  --bs-border-color: #30363d;
+  --bs-body-color: #e6edf3;
+  --bs-body-color-rgb: 230, 237, 243;
 }
 
 /*-- BASE --*/
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Poppins", sans-serif;
+html {
+  scroll-padding-top: 5rem; /* keep anchored content clear of the sticky nav */
 }
 
-header {
-  position: relative;
+body {
+  background-color: var(--bs-tertiary-bg);
+  line-height: 1.6;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+main {
+  min-height: 60vh;
+}
+
+hr {
+  border-color: var(--bs-border-color);
+  opacity: 0.6;
+}
+
+a {
+  color: var(--le-accent);
+}
+
+.skip-link:focus {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 1100;
+  padding: 0.5rem 1rem;
+  background: var(--le-accent);
+  color: #fff;
+  border-radius: 0.5rem;
+}
+
+/* Panels: the site wraps most sections in .container.shadow-lg; give them a card look
+   that works in both themes (shadows alone vanish on dark backgrounds). */
+.container.shadow-lg,
+.container.shadow-sm,
+.card {
+  background-color: var(--bs-body-bg);
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--le-radius);
+}
+
+.shadow-lg,
+.shadow-sm {
+  box-shadow: var(--le-shadow) !important;
 }
 
 /*-- NAV BAR --*/
-.navbar-brand:hover {
-  color: var(--first-color);
+.site-nav {
+  background-color: var(--le-nav-bg);
+  backdrop-filter: saturate(180%) blur(10px);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+  border-bottom: 1px solid var(--bs-border-color);
 }
 
-/*-- NAB BAR CAROUSEL --*/
-.carousel-item {
-  width: 100%;
+.site-nav .navbar-brand {
+  color: var(--le-accent);
+  letter-spacing: 0.01em;
+}
+
+.site-nav .nav-link {
+  font-weight: 500;
+  border-radius: 0.5rem;
+  padding-inline: 0.75rem !important;
+}
+
+.site-nav .nav-link:hover,
+.site-nav .nav-link:focus-visible {
+  color: var(--le-accent);
+  background-color: var(--le-accent-soft);
+}
+
+.site-nav .nav-link.active {
+  color: var(--le-accent);
+  font-weight: 600;
+}
+
+.theme-toggle {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--bs-border-color);
+  color: var(--bs-body-color);
+  background-color: var(--bs-body-bg);
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  border-color: var(--le-accent);
+  color: var(--le-accent);
+}
+
+/* Show the icon for the theme you'd switch TO */
+.theme-icon-to-light { display: none; }
+[data-bs-theme="dark"] .theme-icon-to-light { display: inline; }
+[data-bs-theme="dark"] .theme-icon-to-dark { display: none; }
+
+.site-search {
+  position: relative;
+  min-width: 14rem;
+}
+
+.site-search .bi-search {
+  position: absolute;
+  left: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--bs-secondary-color);
+  pointer-events: none;
+}
+
+.site-search .form-control {
+  padding-left: 2.25rem;
+  border-radius: 999px;
+}
+
+.search-empty:empty {
+  display: none;
+}
+
+/*-- CAROUSEL --*/
+.carousel {
+  border-radius: var(--le-radius);
+  overflow: hidden;
+  margin-top: 1.5rem;
 }
 
 .carousel-image-container {
-  max-height: 750px;
-  overflow: hidden;
   width: 100%;
-  height: 500px;
+  height: clamp(180px, 42vw, 480px);
   overflow: hidden;
 }
 
@@ -42,117 +172,49 @@ header {
   object-fit: cover;
 }
 
-.container-fluid {
-  padding: 0;
+/*-- ACCORDIONS --*/
+.accordion {
+  --bs-accordion-active-color: var(--le-accent);
+  --bs-accordion-active-bg: var(--le-accent-soft);
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.2rem var(--le-accent-soft);
 }
 
-/*-- SCROLL TO TOP BUTTON --*/
-.scroll-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: var(--first-color);
-  color: #000;
-  width: 40px;
-  height: 40px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 999;
+.accordion-button {
+  font-weight: 500;
 }
 
-.scroll-to-top:hover {
-  background-color: #c9c2c2;
-}
-
-.scroll-to-top .bi-chevron-bar-up {
-  display: block;
-  margin: -8px -8px;
-}
-
-.scroll-to-top i {
-  font-size: 20px;
-}
-
-/* QUICK LINKS */
-#quick-links {
-  margin-bottom: 0;
-}
-
-.quick-links p {
-  font: 5px;
-}
-
-.bordered {
-  border: 5px solid #ccc;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-/*-- ABOUT SECTION --*/
-.container-animation {
-  height: 100px;
+/*-- CARDS & BUTTONS --*/
+.card {
   overflow: hidden;
 }
 
-#typing-animation {
-  font-family: "Poppins", sans-serif;
-  font-size: 2rem;
-  color: var(--first-color);
-  margin-bottom: 20px;
+.card-header {
+  background-color: var(--bs-tertiary-bg);
+  font-weight: 600;
 }
 
-/*-- TESTIMONIAL SECTION --*/
-.stars {
-  color: gold;
+.btn {
+  border-radius: 0.6rem;
+  font-weight: 500;
 }
 
-.testimonial-text {
-  border: 2px solid #ccc;
-  padding: 15px;
-  border-radius: 10px;
+/*-- MODALS --*/
+.modal-content {
+  border-radius: var(--le-radius);
+  border-color: var(--bs-border-color);
 }
 
-/*-- CHART SECTION --*/
-.chart-page .container {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
+.modal-header {
+  background-color: var(--bs-tertiary-bg);
 }
 
-#narcotic-chart .container {
-  margin-top: 50px;
+@media (max-width: 575.98px) {
+  .modal-fullscreen-sm-down .modal-content {
+    border-radius: 0;
+  }
 }
 
-#narcotic-chart table {
-  font-size: small;
-}
-
-#other-narcotics .container {
-  margin-top: 50px;
-}
-
-#other-narcotics table {
-  font-size: small;
-}
-
-#result {
-  margin-top: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
-}
-
-#narcotic-values table {
-  font-size: 0.7rem;
-}
-
-#narcotic-values th,
-#narcotic-values td {
-  text-align: left;
-}
-
-/*-- CHART MODAL --*/
+/*-- TABLES --*/
 table {
   border-collapse: collapse;
   width: 100%;
@@ -160,62 +222,204 @@ table {
 
 th,
 td {
-  border: 1px solid black;
-  padding: 8px;
+  border: 1px solid var(--bs-border-color);
+  padding: 0.5rem 0.65rem;
   text-align: left;
+  vertical-align: middle;
 }
 
 th {
-  background-color: #f2f2f2;
+  background-color: var(--bs-tertiary-bg);
+  font-weight: 600;
+  white-space: nowrap;
 }
 
-/*-- MOBILE RESPONSIVENESS --*/
-@media (min-width: 300px) and (max-width: 425px) {
-  #quick-links {
-    font-size: 10px !important;
-    /* Adjust the font size as needed */
+.table-responsive {
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.table-responsive > .table {
+  margin-bottom: 0;
+}
+
+/*-- COPY BLOCKS (forms page) --*/
+.border.position-relative {
+  border-radius: 0.6rem;
+  padding-bottom: 3rem !important; /* room for the copy button */
+  max-width: 100%;
+}
+
+/*-- QUICK LINKS --*/
+#quick-links {
+  margin-bottom: 0;
+}
+
+.bordered {
+  border: 5px solid var(--bs-border-color);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/*-- ABOUT --*/
+.container-animation {
+  min-height: 100px;
+  overflow: hidden;
+}
+
+#typing-animation {
+  font-size: clamp(1.4rem, 5vw, 2rem);
+  color: var(--le-accent) !important;
+  margin-bottom: 20px;
+  min-height: 1.5em;
+}
+
+.team-card img {
+  border-radius: var(--le-radius);
+}
+
+/*-- TESTIMONIALS --*/
+.stars {
+  color: #f5b301;
+}
+
+.testimonial-text {
+  border: 1px solid var(--bs-border-color);
+  padding: 15px;
+  border-radius: 10px;
+}
+
+/*-- CHART PAGE / CALCULATOR --*/
+#narcotic-values table {
+  font-size: 0.875rem;
+}
+
+.calc-result {
+  padding: 0.75rem 1rem;
+  border-radius: 0.6rem;
+  background-color: var(--bs-tertiary-bg);
+  border: 1px solid var(--bs-border-color);
+  color: var(--bs-secondary-color);
+}
+
+.calc-result.is-value {
+  color: var(--bs-success-text-emphasis);
+  background-color: var(--bs-success-bg-subtle);
+  border-color: var(--bs-success-border-subtle);
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+
+.calc-result.is-error {
+  color: var(--bs-danger-text-emphasis);
+  background-color: var(--bs-danger-bg-subtle);
+  border-color: var(--bs-danger-border-subtle);
+}
+
+/*-- LOGIN / SIGN UP --*/
+.auth-card {
+  max-width: 440px;
+}
+
+/*-- SCROLL TO TOP BUTTON --*/
+.scroll-to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 1030;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--le-accent);
+  color: #fff;
+  font-size: 1.25rem;
+  box-shadow: var(--le-shadow);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0.5rem);
+  transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+}
+
+.scroll-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.scroll-to-top:hover,
+.scroll-to-top:focus-visible {
+  filter: brightness(1.1);
+}
+
+/*-- FOOTER --*/
+.site-footer {
+  background-color: var(--bs-body-bg);
+  border-top: 1px solid var(--bs-border-color);
+  color: var(--bs-secondary-color);
+  margin-top: 2rem;
+}
+
+.site-footer a {
+  color: var(--bs-body-color);
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  color: var(--le-accent);
+}
+
+/*-- PHONES & TABLETS --*/
+@media (max-width: 991.98px) {
+  .site-search {
+    min-width: 0;
+    margin: 0.5rem 0 0.75rem;
   }
 }
 
-@media (min-width: 300px) and (max-width: 768px) {
-
-  /* Adjust modal dialog width */
-  .modal-dialog {
-    max-width: 95%;
-    /* Adjust the percentage as needed */
+@media (max-width: 575.98px) {
+  /* Keep panels off the screen edges so their borders and corners show */
+  .container.shadow-lg,
+  .container.shadow-sm {
+    width: auto;
+    margin-inline: 0.75rem !important;
+    border-radius: 0.75rem;
   }
 
-  /* Adjust modal content padding */
-  .modal-content {
-    padding: 10px;
-    /* Adjust the padding as needed */
+  h1 {
+    font-size: 1.75rem;
   }
 
-  /* Adjust modal body font size */
-  .modal-body {
-    font-size: 10px;
-    /* Adjust the font size as needed */
+  .accordion-body {
+    padding: 0.85rem;
   }
 
-  /* Adjust modal table font size */
-  .modal-body table {
-    font-size: 8px;
-    /* Adjust the font size as needed */
+  th,
+  td {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.5rem;
   }
 
-  .table thead th,
-  .table tbody td {
-    font-size: 10px;
-    /* Adjust the font size for smaller screens */
+  /* Name + time pairs (Shooting Order) stay usable on narrow screens */
+  .input-group > input[type="time"] {
+    max-width: 8.5rem;
   }
 
-  .text-box {
-    display: flex;
-    flex-direction: column;
+  /* Copy blocks on the forms page use a fixed 90% width */
+  .border.position-relative {
+    width: 100% !important;
   }
+}
 
-  .text-box input[type="text"],
-  .text-box input[type="time"] {
-    margin-bottom: 8px;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
   }
 }
