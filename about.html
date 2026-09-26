@@ -213,18 +213,22 @@
             <div class="card shadow-lg border-primary">
               <div class="card-body">
                 <h2 class="text-center mb-4">Contact</h2>
-                <form name="contact" method="POST" data-netlify="true">
+                <form class="js-contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                  <!-- Formspree: replace YOUR_FORM_ID (same ID in index, about and contact pages) -->
+                  <input type="hidden" name="_subject" value="LE Cyber-Docs contact (About page)" />
+                  <!-- Spam trap: real people never see or fill this -->
+                  <input type="text" name="_gotcha" class="d-none" tabindex="-1" autocomplete="off" aria-hidden="true" />
                   <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Enter full name" />
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Enter full name" autocomplete="name" required />
                   </div>
                   <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" name="email" class="form-control" id="email" placeholder="some@Email.com" />
+                    <input type="email" name="email" class="form-control" id="email" placeholder="some@Email.com" autocomplete="email" required />
                   </div>
                   <div class="mb-3">
                     <label for="message" class="form-label">Message</label>
-                    <textarea class="form-control" name="message" id="message" rows="5"
+                    <textarea class="form-control" name="message" id="message" rows="5" required
                       placeholder="Enter your message"></textarea>
                   </div>
                   <div class="text-center">
@@ -232,6 +236,7 @@
                       Submit
                     </button>
                   </div>
+                  <div class="form-status mt-3 d-none" role="status" aria-live="polite"></div>
                 </form>
               </div>
             </div>
