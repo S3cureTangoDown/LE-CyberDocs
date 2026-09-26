@@ -994,3 +994,25 @@ document.querySelectorAll(".js-contact-form").forEach(function (form) {
   document.addEventListener("touchend", release);
   document.addEventListener("touchcancel", release);
 })();
+
+/*-- DIRECTIONS: APPLE MAPS ON IPHONE / IPAD --*/
+// Directions buttons link to Google Maps. On iPhone and iPad, point them at Apple Maps
+// instead, which opens the built-in Maps app with driving directions to the address.
+(function () {
+  var ua = navigator.userAgent || "";
+  var isAppleMobile = /iPhone|iPad|iPod/.test(ua) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1); // iPadOS reports itself as a Mac
+  if (!isAppleMobile) return;
+  document.querySelectorAll('a[href^="https://www.google.com/maps/search/"]').forEach(function (link) {
+    var address;
+    try {
+      address = new URL(link.href).searchParams.get("query");
+    } catch (e) {
+      return;
+    }
+    if (!address) return;
+    link.href = "https://maps.apple.com/?daddr=" + encodeURIComponent(address) + "&dirflg=d";
+    link.removeAttribute("target"); // same tab, so iOS hands straight off to the Maps app
+    link.setAttribute("data-maps", "apple");
+  });
+})();
