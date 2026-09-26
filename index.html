@@ -192,7 +192,7 @@
           <div class="accordion-body">
             <div class="row">
               <!-- SFST CARD 1 -->
-              <div class="col-md-4 mb-3">
+              <div class="col-md-6 mb-3">
                 <div class="card">
                   <div class="card-header text-center">Field Sobriety</div>
                   <div class="card-body d-flex flex-column justify-content-center align-items-center">
@@ -208,7 +208,7 @@
                 </div>
               </div>
               <!-- FLOW CHART CARD 2 -->
-              <div class="col-md-4 mb-3">
+              <div class="col-md-6 mb-3">
                 <div class="card">
                   <div class="card-header text-center">DUI Flow Chart</div>
                   <div class="card-body d-flex flex-column justify-content-center align-items-center">
@@ -219,21 +219,6 @@
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                       data-bs-target="#exampleModal8">
                       Chec
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <!-- DOCUMENTS CARD 3 -->
-              <div class="col-md-4 mb-3">
-                <div class="card">
-                  <div class="card-header text-center">DUI Docs</div>
-                  <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                    <h5 class="card-title">Documents</h5>
-                    <p class="card-text">
-                      <i class="bi bi-download text-primary" style="font-size: 2rem"></i>
-                    </p>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#docsModal">
-                      Docs
                     </button>
                   </div>
                 </div>
@@ -1013,13 +998,14 @@
 
   <!-- DUI FLOW CHART MODAL-->
   <div class="modal fade" id="exampleModal8" tabindex="-1" aria-labelledby="exampleModalLabel8" aria-hidden="true">
-    <div class="modal-dialog modal-fullscreen-sm-down modal-lg">
+    <div class="modal-dialog modal-fullscreen-sm-down modal-lg modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel8">DUI Flow Chart</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <!-- Flow Chart -->
+        <!-- Flow Chart (scrolls on its own inside the window) -->
+        <div class="modal-body p-0">
         <div class="px-3 pt-3">
           <fieldset class="report-details row g-2 mb-3">
             <legend class="small fw-semibold text-body-secondary mb-1">Report details (printed at the top)</legend>
@@ -1435,6 +1421,7 @@
             </div>
           </div>
         </div>
+        </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-primary" data-print-modal><i class="bi bi-printer me-1" aria-hidden="true"></i>Print</button>
           <button type="button" class="btn btn-outline-primary me-auto" data-email-modal><i class="bi bi-envelope me-1" aria-hidden="true"></i>Email PDF</button>
@@ -1444,25 +1431,6 @@
           <button type="button" class="btn btn-danger" id="refreshModalButton2" data-clear-modal>
             Clear Page
           </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- DUI DOCS MODAL -->
-  <div class="modal fade" id="docsModal" tabindex="-1" aria-labelledby="docsModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-fullscreen-sm-down">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="docsModalLabel">Documentation</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p class="mb-0">DUI forms and other documents are on the Forms page.</p>
-        </div>
-        <div class="modal-footer">
-          <a href="forms.html" class="btn btn-primary"><i class="bi bi-folder2-open me-1" aria-hidden="true"></i>Go to Forms</a>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -2124,14 +2092,67 @@
   <hr />
 
   <!-- CONTACT SECTION -->
-  <section id="contact" class="py-5">
+  <section id="contact" class="py-5 contact-section">
     <div class="container shadow-lg mb-5 py-4">
       <div class="container py-4">
-        <div class="row justify-content-center">
-          <div class="col-lg-6">
-            <div class="card shadow-lg border-primary">
+        <div class="row g-4">
+          <!-- HELPFUL LINKS (open in a new tab) -->
+          <div class="col-lg-7">
+            <div class="resources h-100">
+              <h2 class="h3 mb-1">Helpful Links</h2>
+              <p class="text-body-secondary small mb-3">Outside sites officers use often. They open in a new tab.</p>
+              <ul class="resource-list">
+                <li>
+                  <a class="resource-link" href="https://www.chicagofop.org/" target="_blank" rel="noopener">
+                    <span class="resource-icon" aria-hidden="true"><i class="bi bi-shield-fill-check"></i></span>
+                    <span class="resource-text"><strong>Chicago FOP Lodge 7</strong><small>Union news, contract and member resources</small></span>
+                    <i class="bi bi-box-arrow-up-right resource-out" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="resource-link" href="https://calculator.chipabf.org/" target="_blank" rel="noopener">
+                    <span class="resource-icon" aria-hidden="true"><i class="bi bi-calculator-fill"></i></span>
+                    <span class="resource-text"><strong>Pension Calculator</strong><small>PABF retirement annuity estimate</small></span>
+                    <i class="bi bi-box-arrow-up-right resource-out" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="resource-link" href="https://directives.chicagopolice.org/" target="_blank" rel="noopener">
+                    <span class="resource-icon" aria-hidden="true"><i class="bi bi-journal-text"></i></span>
+                    <span class="resource-text"><strong>CPD Directives</strong><small>General and special orders, forms</small></span>
+                    <i class="bi bi-box-arrow-up-right resource-out" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="resource-link" href="https://www.ptb.illinois.gov/" target="_blank" rel="noopener">
+                    <span class="resource-icon" aria-hidden="true"><i class="bi bi-mortarboard-fill"></i></span>
+                    <span class="resource-text"><strong>ILETSB</strong><small>Illinois training and certification standards</small></span>
+                    <i class="bi bi-box-arrow-up-right resource-out" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="resource-link" href="https://www.ptb.illinois.gov/news/news-important-information/new-power-test-chart/" target="_blank" rel="noopener">
+                    <span class="resource-icon" aria-hidden="true"><i class="bi bi-heart-pulse-fill"></i></span>
+                    <span class="resource-text"><strong>POWER Test Standards</strong><small>Physical fitness chart by age and gender</small></span>
+                    <i class="bi bi-box-arrow-up-right resource-out" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="resource-link" href="https://chicagocop.com/" target="_blank" rel="noopener">
+                    <span class="resource-icon" aria-hidden="true"><i class="bi bi-bank2"></i></span>
+                    <span class="resource-text"><strong>ChicagoCop.com</strong><small>Chicago police history and archives</small></span>
+                    <i class="bi bi-box-arrow-up-right resource-out" aria-hidden="true"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- CONTACT FORM -->
+          <div class="col-lg-5">
+            <div class="card shadow-lg border-primary h-100">
               <div class="card-body">
-                <h2 class="text-center mb-4">Contact</h2>
+                <h2 class="h3 mb-1">Contact</h2>
+                <p class="text-body-secondary small mb-3">Questions, corrections or ideas for the site? Send us a message.</p>
                 <form class="js-contact-form" action="https://formspree.io/f/maendkjd" method="POST">
                   <!-- Formspree form ID (same in index, about and contact pages) -->
                   <input type="hidden" name="_subject" value="LE Cyber-Docs contact (Home page)" />
